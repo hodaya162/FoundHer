@@ -1,0 +1,48 @@
+import type { Look } from "@/domain/look";
+
+export const looks = [
+  {
+    id: "look-summer-event-classic",
+    slug: "summer-event-classic",
+    title: "לוק קלאסי לאירוע קיצי",
+    description: "שמלת מקסי רכה, מטפחת בגוון סומק ואביזרים נקיים.",
+    coverImage: { id: "summer-event-look-cover", url: "https://images.pexels.com/photos/7048338/pexels-photo-7048338.jpeg?auto=compress&cs=tinysrgb&w=900", alt: "לוק צנוע קלאסי לאירוע קיצי" },
+    productIds: ["product-embroidered-maxi-dress", "product-satin-headscarf", "product-soft-tailored-blouse"],
+    brandIds: ["brand-esti-belle", "brand-lidor-bar", "brand-naya-studio"],
+    featured: true,
+    createdAt: "2026-07-10T09:00:00.000Z",
+  },
+  {
+    id: "look-natural-shabbat-layers",
+    slug: "natural-shabbat-layers",
+    title: "שבת בגוונים טבעיים",
+    description: "שכבות רכות בגוני קרם וחול ללוק שבת נינוח ומדויק.",
+    coverImage: { id: "natural-shabbat-cover", url: "https://images.pexels.com/photos/16512659/pexels-photo-16512659.jpeg?auto=compress&cs=tinysrgb&w=900", alt: "לוק שבת צנוע בגוונים טבעיים" },
+    productIds: ["product-layered-neutral-set", "product-flowing-a-line-skirt", "product-soft-tailored-blouse", "product-satin-headscarf"],
+    brandIds: ["brand-shosh-designs", "brand-naya-studio", "brand-lidor-bar"],
+    featured: true,
+    createdAt: "2026-07-14T09:00:00.000Z",
+  },
+  {
+    id: "look-soft-tailoring",
+    slug: "soft-tailoring",
+    title: "חייטות רכה",
+    description: "קווים מחויטים ורכים ליום עבודה או לאירוח אלגנטי.",
+    coverImage: { id: "soft-tailoring-cover", url: "https://images.pexels.com/photos/17299354/pexels-photo-17299354.jpeg?auto=compress&cs=tinysrgb&w=900", alt: "לוק צנוע בחייטות רכה" },
+    productIds: ["product-tailored-midi-dress", "product-soft-tailored-blouse", "product-flowing-a-line-skirt"],
+    brandIds: ["brand-naya-studio", "brand-shosh-designs"],
+    featured: true,
+    createdAt: "2026-07-18T09:00:00.000Z",
+  },
+  {
+    id: "look-modern-evening-romance",
+    slug: "modern-evening-romance",
+    title: "רומנטיקה מודרנית",
+    description: "שמלת ערב נשפכת לצד פריטים עדינים בגוונים רכים.",
+    coverImage: { id: "modern-romance-cover", url: "https://images.pexels.com/photos/18239440/pexels-photo-18239440.jpeg?auto=compress&cs=tinysrgb&w=900", alt: "לוק ערב צנוע בסגנון רומנטי מודרני" },
+    productIds: ["rental-modern-romance-dress", "product-satin-headscarf"],
+    brandIds: ["brand-lidor-bar"],
+    featured: false,
+    createdAt: "2026-07-22T09:00:00.000Z",
+  },
+] as const satisfies readonly Look[];

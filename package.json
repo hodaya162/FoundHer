@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "validate:fixtures": "tsx scripts/validate-fixtures.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -29,6 +30,7 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.6",
     "tailwindcss": "4.2.1",
+    "tsx": "^4.20.6",
     "typescript": "5.9.3"
   },
   "type": "module"

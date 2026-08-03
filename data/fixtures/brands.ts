@@ -1,0 +1,47 @@
+import type { Brand } from "@/domain/brand";
+
+export const brands = [
+  {
+    id: "brand-esti-belle",
+    slug: "esti-belle",
+    name: "Esti Belle",
+    description: "בית אופנה ישראלי לשמלות צנועות בגזרות נשיות ורכות.",
+    logo: { id: "esti-belle-logo", url: "https://images.pexels.com/photos/7048338/pexels-photo-7048338.jpeg?auto=compress&cs=tinysrgb&w=300", alt: "לוגו זמני של Esti Belle" },
+    coverImage: { id: "esti-belle-cover", url: "https://images.pexels.com/photos/7048338/pexels-photo-7048338.jpeg?auto=compress&cs=tinysrgb&w=1400", alt: "קולקציית השמלות הצנועות של Esti Belle" },
+    websiteUrl: "https://example.com/brands/esti-belle",
+    instagramUrl: "https://www.instagram.com/example.esti.belle",
+    featured: true,
+  },
+  {
+    id: "brand-lidor-bar",
+    slug: "lidor-bar",
+    name: "Lidor Bar",
+    description: "פריטים צנועים מודרניים בצבעוניות שקטה ובגזרות מדויקות.",
+    logo: { id: "lidor-bar-logo", url: "https://images.pexels.com/photos/18239440/pexels-photo-18239440.jpeg?auto=compress&cs=tinysrgb&w=300", alt: "לוגו זמני של Lidor Bar" },
+    coverImage: { id: "lidor-bar-cover", url: "https://images.pexels.com/photos/18239440/pexels-photo-18239440.jpeg?auto=compress&cs=tinysrgb&w=1400", alt: "קולקציה צנועה של Lidor Bar" },
+    websiteUrl: "https://example.com/brands/lidor-bar",
+    featured: true,
+  },
+  {
+    id: "brand-shosh-designs",
+    slug: "shosh-designs",
+    name: "Shosh Designs",
+    description: "שכבות, טקסטורות ופריטי בסיס לארון צנוע ורב-שימושי.",
+    logo: { id: "shosh-designs-logo", url: "https://images.pexels.com/photos/16512659/pexels-photo-16512659.jpeg?auto=compress&cs=tinysrgb&w=300", alt: "לוגו זמני של Shosh Designs" },
+    coverImage: { id: "shosh-designs-cover", url: "https://images.pexels.com/photos/16512659/pexels-photo-16512659.jpeg?auto=compress&cs=tinysrgb&w=1400", alt: "סט שכבות צנוע של Shosh Designs" },
+    websiteUrl: "https://example.com/brands/shosh-designs",
+    instagramUrl: "https://www.instagram.com/example.shosh.designs",
+    featured: false,
+  },
+  {
+    id: "brand-naya-studio",
+    slug: "naya-studio",
+    name: "Naya Studio",
+    description: "חייטות רכה ואלגנטיות מינימליסטית לנשים שאוהבות קווים נקיים.",
+    logo: { id: "naya-studio-logo", url: "https://images.pexels.com/photos/17299354/pexels-photo-17299354.jpeg?auto=compress&cs=tinysrgb&w=300", alt: "לוגו זמני של Naya Studio" },
+    coverImage: { id: "naya-studio-cover", url: "https://images.pexels.com/photos/17299354/pexels-photo-17299354.jpeg?auto=compress&cs=tinysrgb&w=1400", alt: "שמלה מחויטת צנועה של Naya Studio" },
+    websiteUrl: "https://example.com/brands/naya-studio",
+    instagramUrl: "https://www.instagram.com/example.naya.studio",
+    featured: true,
+  },
+] as const satisfies readonly Brand[];
