@@ -37,4 +37,4 @@ npm run build
 
 ## Current scope
 
-The repository currently contains the FoundHer visual prototype and standard Next.js infrastructure. Supabase, authentication, data fetching, and business logic are intentionally deferred to later tasks.
+The repository contains the FoundHer visual prototype plus typed domain models, fixture-backed repositories, a semantic design system, and a modular application shell with accessible responsive navigation. The prototype pages have not yet been migrated to the repository layer. Supabase, authentication, live data fetching, and business logic remain intentionally deferred to later tasks.
