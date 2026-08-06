@@ -70,6 +70,11 @@ img { display: block; width: 100%; object-fit: cover; }
 }
 .wrap { width: min(var(--container-width), calc(100% - 48px)); margin-inline: auto; }
 .site-header { height: var(--desktop-header-height); border-bottom: 1px solid rgb(0 0 0 / 0.08); background: rgb(253 251 247 / 0.92); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: var(--z-sticky); }
+.application-shell { padding-bottom: calc(var(--mobile-navigation-height) + env(safe-area-inset-bottom)); }
+
+@media (min-width: 768px) {
+  .application-shell { padding-bottom: 0; }
+}
 
 .type-display { font-family: var(--font-serif); font-size: clamp(2.75rem, 7vw, 5.25rem); font-weight: 500; line-height: 0.98; letter-spacing: -0.045em; }
 .type-page-title { font-family: var(--font-serif); font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 500; line-height: 1.05; letter-spacing: -0.035em; }

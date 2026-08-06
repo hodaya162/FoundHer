@@ -2,7 +2,7 @@
 
 ## Project Status
 
-FoundHer is a mobile-first, RTL discovery platform for modest fashion. The project currently has a stable Next.js foundation, typed domain data, repository boundaries, and a reusable design-system foundation. The existing visual prototype remains active and has not yet been migrated to the new shared components.
+FoundHer is a mobile-first, RTL discovery platform for modest fashion. The project currently has a stable Next.js foundation, typed domain data, repository boundaries, a reusable design system, and a modular application shell. The existing visual prototype remains active and has not yet been migrated to the repository-backed content components.
 
 ## Current Architecture
 
@@ -14,6 +14,9 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - Typed fixture data in `data/fixtures`
 - Synchronous fixture-backed repositories in `lib/repositories`
 - Shared layout primitives in `components/layout`
+- Centralized site and navigation configuration in `config`
+- Server-rendered root shell and desktop header with route-aware client navigation islands
+- Fixed, safe-area-aware mobile bottom navigation
 - Legacy prototype pages and styles retained until page migration
 
 ## Completed Tasks
@@ -21,15 +24,24 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - TASK 001 — Infrastructure Stabilization
 - TASK 002 — Domain Models and Typed Fixtures
 - TASK 003 — FoundHer Design System Foundation
+- TASK 004 — FoundHer Application Shell and Navigation
 
 ## Latest Commit
 
-- Current TASK 003 commit: `feat: build FoundHer design system foundation` (this document is included in that commit)
-- Parent commit: `b96659c` — `feat: add FoundHer domain models and typed fixtures`
+- Current TASK 004 commit: `feat: build FoundHer application shell` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `1606d46` — merge TASK 003 into `main`
 
 ## Current Branch
 
-- `main`
+- `codex/task-004-application-shell`
+
+## Application Shell
+
+- `app/layout.tsx` remains a Server Component and owns the skip link, shell structure, stable `#main-content` target, header, footer, and mobile navigation.
+- `SiteHeader`, `SiteFooter`, `SiteLogo`, and `PageContainer` are reusable Server Components.
+- `DesktopNavigation` and `MobileBottomNavigation` are the only new Client Components. They use `usePathname` solely to expose active route styling and `aria-current="page"`.
+- Navigation routes and labels are defined once in `config/navigation.ts`. Root matching is exact; other routes match the route itself or a slash-delimited descendant.
+- The desktop header remains sticky because it preserves context without covering content. The mobile shell reserves the navigation token height plus the device safe area at the bottom.
 
 ## Known Technical Debt
 
@@ -38,7 +50,6 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - Product routing is static rather than slug-based.
 - Authentication, persistence, Supabase, search, filters, and favorites behavior are not implemented.
 - The legacy stylesheet remains largely selector-based and contains hardcoded component colors, repeated prototype overrides, and compressed rules. It should be retired incrementally as pages migrate.
-- The existing navigation does not yet expose active-route state with `aria-current`.
 - The project does not yet have unit, integration, or end-to-end test suites.
 - Fixture validation uses `tsx`, which currently fails on this Windows/Node 24 environment because `os.userInfo()` returns `ENOMEM`; type checking and an independent reference audit still pass.
 
@@ -55,11 +66,11 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - `npm run typecheck`: passes
 - `npm run build`: passes; all routes are statically generated
 - `/design-system`: verified in desktop and mobile browser contexts, RTL, noindex/nofollow, no horizontal overflow, visible focus, accessible names, and no nested interactive elements
-- Existing `/` and `/product` pages: browser smoke test passes with no console errors
+- All existing routes: browser smoke-tested through the shared application shell
 - `npm run validate:fixtures`: blocked by the environment-specific `tsx`/`os.userInfo()` error noted above; independent fixture audit found no duplicate entity IDs or missing references
 
 ## Next Planned Task
 
-- TASK 004 — build the modular Application Shell (header, bottom navigation, and layout foundation), then plan the controlled retirement of `PageShell`. Not started.
+- TASK 005 — migrate the first page/content slice to repository-backed, reusable domain components. Scope requires review before implementation.
 
 This document must be updated at the end of every future task.

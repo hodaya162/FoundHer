@@ -1,19 +1,35 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+
+import { MobileBottomNavigation, SiteFooter, SiteHeader } from "@/components/layout";
+import { siteConfig } from "@/config/site";
+
 import "./globals.css";
-import { BottomNav, DesktopNav } from "./ui/navigation";
 
 export const metadata: Metadata = {
-  title: { default: "FoundHer — אופנה צנועה, במקום אחד", template: "%s — FoundHer" },
-  description: "גלי אופנה יהודית צנועה, לוקים מעוררי השראה, מותגים נבחרים ושמלות להשכרה.",
+  title: { default: `${siteConfig.name} — ${siteConfig.tagline}`, template: `%s — ${siteConfig.name}` },
+  description: siteConfig.description,
   icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="he" dir="rtl"><body>
-    <DesktopNav />
-    {children}
-    <footer><div className="wrap footer-inner"><Link href="/" className="logo">FoundHer<span>.</span></Link><p>אופנה צנועה, שמצאה אותך.</p><div><Link href="/discover">גלי</Link><Link href="/looks">לוקים</Link><Link href="/rentals">השכרה</Link></div><small>© 2026 FoundHer</small></div></footer>
-    <BottomNav />
-  </body></html>;
+  return (
+    <html lang={siteConfig.defaultLocale} dir={siteConfig.direction}>
+      <body>
+        <a
+          href="#main-content"
+          className="fixed start-4 top-3 z-[var(--z-modal)] -translate-y-20 rounded-button bg-foreground px-4 py-3 text-sm font-semibold text-background transition-transform focus:translate-y-0"
+        >
+          דילוג לתוכן הראשי
+        </a>
+        <div className="application-shell min-h-dvh overflow-x-clip">
+          <SiteHeader />
+          <div id="main-content" tabIndex={-1} className="min-h-[65dvh]">
+            {children}
+          </div>
+          <SiteFooter />
+          <MobileBottomNavigation />
+        </div>
+      </body>
+    </html>
+  );
 }
