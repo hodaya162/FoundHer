@@ -1,0 +1,56 @@
+import Link from "next/link";
+
+import { Card, CardContent } from "@/components/ui";
+
+import type { ProductCardModel } from "../types/product-card";
+import { ProductActions } from "./product-actions";
+import { ProductBadge } from "./product-badge";
+import { ProductFavoriteButton } from "./product-favorite-button";
+import { ProductImage } from "./product-image";
+import { ProductMeta } from "./product-meta";
+import { ProductPrice } from "./product-price";
+import { ProductTitle } from "./product-title";
+
+export type ProductCardProps = {
+  product: ProductCardModel;
+  priority?: boolean;
+};
+
+export function ProductCard({ product, priority = false }: ProductCardProps) {
+  const href = `/products/${product.slug}`;
+  const isPurchase = product.type === "purchase";
+
+  return (
+    <article className="h-full">
+      <Card className="flex h-full flex-col overflow-hidden">
+        <div className="relative">
+          <Link href={href} className="group/image block" aria-label={`צפייה בפריט ${product.name}`}>
+            <ProductImage image={product.image} priority={priority} />
+          </Link>
+          {!isPurchase ? (
+            <div className="absolute start-3 top-3">
+              <ProductBadge type={product.type} />
+            </div>
+          ) : null}
+          <ProductFavoriteButton productName={product.name} />
+        </div>
+
+        <CardContent className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
+          <ProductMeta
+            sellerName={product.sellerName}
+            detail={isPurchase ? "לרכישה" : product.city}
+          />
+          <ProductTitle href={href} name={product.name} />
+          {isPurchase ? (
+            <ProductPrice amount={product.price} currency={product.currency} />
+          ) : (
+            <ProductPrice amount={product.rentalPrice} currency={product.currency} rental />
+          )}
+          <div className="mt-auto border-t border-border pt-3">
+            <ProductActions label={product.actionLabel} />
+          </div>
+        </CardContent>
+      </Card>
+    </article>
+  );
+}

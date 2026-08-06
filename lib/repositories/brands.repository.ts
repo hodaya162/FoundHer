@@ -12,3 +12,7 @@ export function getFeaturedBrands(): readonly Brand[] {
 export function getBrandBySlug(slug: string): Brand | undefined {
   return brands.find((brand) => brand.slug === slug);
 }
+
+export function getBrandById(id: string): Brand | undefined {
+  return brands.find((brand) => brand.id === id);
+}

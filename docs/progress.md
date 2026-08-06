@@ -2,7 +2,7 @@
 
 ## Project Status
 
-FoundHer is a mobile-first, RTL discovery platform for modest fashion. The project currently has a stable Next.js foundation, typed domain data, repository boundaries, a reusable design system, and a modular application shell. The existing visual prototype remains active and has not yet been migrated to the repository-backed content components.
+FoundHer is a mobile-first, RTL discovery platform for modest fashion. The project currently has a stable Next.js foundation, typed domain data, repository boundaries, a reusable design system, a modular application shell, and a repository-backed Discover feature. The remaining visual prototype pages stay active until they are migrated incrementally.
 
 ## Current Architecture
 
@@ -17,6 +17,8 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - Centralized site and navigation configuration in `config`
 - Server-rendered root shell and desktop header with route-aware client navigation islands
 - Fixed, safe-area-aware mobile bottom navigation
+- Product feature module in `features/products` with typed presentation models, composition queries, helpers, cards, grids, loading, and empty states
+- Repository-backed Discover page with metadata, visual search/filter controls, and `next/image`
 - Legacy prototype pages and styles retained until page migration
 
 ## Completed Tasks
@@ -25,15 +27,26 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - TASK 002 — Domain Models and Typed Fixtures
 - TASK 003 — FoundHer Design System Foundation
 - TASK 004 — FoundHer Application Shell and Navigation
+- TASK 005 — Discover Product Architecture Migration
 
 ## Latest Commit
 
-- Current TASK 004 commit: `feat: build FoundHer application shell` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `1606d46` — merge TASK 003 into `main`
+- Current TASK 005 commit: `feat: migrate Discover to new product architecture` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `0886d04` — TASK 004 application shell
 
 ## Current Branch
 
-- `codex/task-004-application-shell`
+- `codex/task-005-discover`
+
+## Discover Architecture
+
+- `app/discover/page.tsx` is a Server Component that composes page-level UI and never imports fixtures.
+- `features/products/queries/get-discover-product-cards.ts` reads repository data and resolves each product's brand or rental business before presentation.
+- `ProductCardModel` is a discriminated union. Purchase and rental prices, labels, cities, and CTA copy are required by their matching type rather than inferred from optional fields.
+- Product presentation is split into focused components: card, grid, image, title, price, metadata, badge, favorite control, actions, empty state, and skeleton grid.
+- Product links use `/products/[slug]`; the dynamic route is intentionally deferred.
+- The favorite control is visual only, remains keyboard-focusable, and is a sibling of product links rather than nested inside them.
+- Discover search and filter controls are presentational only. Search, filtering, sorting, pagination, persistence, and API behavior remain out of scope.
 
 ## Application Shell
 
@@ -45,9 +58,9 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 
 ## Known Technical Debt
 
-- Prototype pages still use hardcoded arrays instead of repositories and typed fixtures.
-- `PageShell` remains a legacy presentation component and intentionally has not been refactored.
-- Product routing is static rather than slug-based.
+- Home, Brands, Looks, Rentals, Favorites, Profile, and the static product page still contain legacy prototype presentation or hardcoded data.
+- `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
+- Product cards now point to slug-based routes, but `app/products/[slug]` has not been created; `app/product` remains a legacy placeholder.
 - Authentication, persistence, Supabase, search, filters, and favorites behavior are not implemented.
 - The legacy stylesheet remains largely selector-based and contains hardcoded component colors, repeated prototype overrides, and compressed rules. It should be retired incrementally as pages migrate.
 - The project does not yet have unit, integration, or end-to-end test suites.
@@ -55,7 +68,7 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 
 ## Remaining Warnings
 
-- ESLint reports 6 existing `@next/next/no-img-element` warnings in legacy pages. TASK 003 introduced no new image warnings.
+- ESLint reports 6 existing `@next/next/no-img-element` warnings in legacy pages. TASK 005 introduces no warnings and uses `next/image` for Discover.
 - `npm audit` reports 6 vulnerable dependency entries: 5 high and 1 low.
   - Production: direct `next@16.2.6` and transitive `postcss`/`sharp` advisories. Recommended action: review and upgrade Next.js to at least `16.2.12` in a dedicated dependency update, then run the full validation suite.
   - Development/transitive tooling: `@babel/core` (low), `brace-expansion` (high), and `js-yaml` (high). Recommended action: update the parent lint/build tooling through normal dependency upgrades and re-run `npm audit`; do not force resolutions without compatibility testing.
@@ -65,12 +78,17 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - `npm run lint`: passes with 6 pre-existing image warnings
 - `npm run typecheck`: passes
 - `npm run build`: passes; all routes are statically generated
+- Discover browser validation: 14 repository-backed products; one/two/four responsive columns at mobile/tablet/desktop; RTL; no horizontal overflow; no nested interactive elements; valid slug links; 44px favorite targets; meaningful image alt text; no console warnings or errors
 - `/design-system`: verified in desktop and mobile browser contexts, RTL, noindex/nofollow, no horizontal overflow, visible focus, accessible names, and no nested interactive elements
 - All existing routes: browser smoke-tested through the shared application shell
-- `npm run validate:fixtures`: blocked by the environment-specific `tsx`/`os.userInfo()` error noted above; independent fixture audit found no duplicate entity IDs or missing references
+- `npm run validate:fixtures`: still blocked before script execution by the environment-specific `tsx`/`os.userInfo()` error noted above; the successful production build executes the repository-backed Discover composition and found no missing associations
+
+## Git Workflow Note
+
+- TASK 004 PR #2 is still open and unmerged. TASK 005 is therefore a stacked branch based on `codex/task-004-application-shell`; its draft PR should target that branch until PR #2 is merged, then be retargeted to `main`.
 
 ## Next Planned Task
 
-- TASK 005 — migrate the first page/content slice to repository-backed, reusable domain components. Scope requires review before implementation.
+- The next feature migration requires scope review and explicit approval before implementation.
 
 This document must be updated at the end of every future task.
