@@ -1,6 +1,16 @@
 export type { Brand } from "./brand";
 export type { Category } from "./category";
-export type { Look } from "./look";
+export {
+  LOOK_OCCASIONS,
+  LOOK_SEASON_TAGS,
+  LOOK_STYLE_TAGS,
+} from "./look";
+export type {
+  Look,
+  LookOccasion,
+  LookSeasonTag,
+  LookStyleTag,
+} from "./look";
 export type { ImageAsset, ProductImage } from "./media";
 export type {
   Currency,
