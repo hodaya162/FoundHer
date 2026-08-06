@@ -30,6 +30,7 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Validation
 
 ```bash
+npm run validate:fixtures
 npm run lint
 npm run typecheck
 npm run build
@@ -37,4 +38,4 @@ npm run build
 
 ## Current scope
 
-The repository contains the FoundHer visual prototype plus typed domain models, fixture-backed repositories, a semantic design system, and a modular application shell with accessible responsive navigation. The prototype pages have not yet been migrated to the repository layer. Supabase, authentication, live data fetching, and business logic remain intentionally deferred to later tasks.
+The repository contains the FoundHer visual prototype plus typed domain models, fixture-backed repositories, a semantic design system, and a modular application shell with accessible responsive navigation. Discover is the first repository-backed feature and provides the reusable product-card architecture for future migrations. The remaining prototype pages still use legacy presentation code. Supabase, authentication, live data fetching, and business logic remain intentionally deferred to later tasks.

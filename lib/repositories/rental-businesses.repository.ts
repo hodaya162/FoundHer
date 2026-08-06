@@ -12,3 +12,7 @@ export function getFeaturedRentalBusinesses(): readonly RentalBusiness[] {
 export function getRentalBusinessBySlug(slug: string): RentalBusiness | undefined {
   return rentalBusinesses.find((business) => business.slug === slug);
 }
+
+export function getRentalBusinessById(id: string): RentalBusiness | undefined {
+  return rentalBusinesses.find((business) => business.id === id);
+}

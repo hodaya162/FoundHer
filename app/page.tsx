@@ -21,10 +21,10 @@ const categories = [
 ];
 
 const products = [
-  { name: "שמלת מקסי רקומה", brand: "ESTI BELLE", price: "₪689", badge: "לקנייה", image: "https://images.pexels.com/photos/7048338/pexels-photo-7048338.jpeg?auto=compress&cs=tinysrgb&w=900" },
-  { name: "שמלת קפלים", brand: "LIDOR BAR", price: "₪420", badge: "להשכרה", image: "https://images.pexels.com/photos/18239440/pexels-photo-18239440.jpeg?auto=compress&cs=tinysrgb&w=900" },
-  { name: "סט שכבות", brand: "SHOSH DESIGNS", price: "₪590", badge: "בלעדי", image: "https://images.pexels.com/photos/16512659/pexels-photo-16512659.jpeg?auto=compress&cs=tinysrgb&w=900" },
-  { name: "שמלה מחויטת", brand: "RENÉ", price: "₪760", badge: "חדש", image: "https://images.pexels.com/photos/17299354/pexels-photo-17299354.jpeg?auto=compress&cs=tinysrgb&w=900" },
+  { name: "שמלת מקסי רקומה", brand: "ESTI BELLE", price: "₪689", badge: "לקנייה", image: "/images/products/embroidered-maxi-dress.jpg" },
+  { name: "שמלת קפלים", brand: "LIDOR BAR", price: "₪420", badge: "להשכרה", image: "/images/products/pleated-modest-dress.jpg" },
+  { name: "סט שכבות", brand: "SHOSH DESIGNS", price: "₪590", badge: "בלעדי", image: "/images/products/layered-neutral-set.jpg" },
+  { name: "שמלה מחויטת", brand: "RENÉ", price: "₪760", badge: "חדש", image: "/images/products/tailored-midi-dress.jpg" },
 ];
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
 
     <section className="looks-strip">
       <div className="app-section-title"><div><h2>לוקים והשראה</h2></div><Link href="/looks">לכל הלוקים ←</Link></div>
-      <div><article><img src="https://images.pexels.com/photos/7048338/pexels-photo-7048338.jpeg?auto=compress&cs=tinysrgb&w=700" alt="לוק צנוע לאירוע"/><h3>לוק קלאסי לאירוע קיצי</h3><p>3 פריטים</p></article><article><img src="https://images.pexels.com/photos/16512659/pexels-photo-16512659.jpeg?auto=compress&cs=tinysrgb&w=700" alt="לוק צנוע לשבת"/><h3>שבת בגוונים טבעיים</h3><p>4 פריטים</p></article></div>
+      <div><article><img src="/images/products/embroidered-maxi-dress.jpg" alt="לוק צנוע לאירוע"/><h3>לוק קלאסי לאירוע קיצי</h3><p>3 פריטים</p></article><article><img src="/images/products/layered-neutral-set.jpg" alt="לוק צנוע לשבת"/><h3>שבת בגוונים טבעיים</h3><p>4 פריטים</p></article></div>
     </section>
   </main>;
 }

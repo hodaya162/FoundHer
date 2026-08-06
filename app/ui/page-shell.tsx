@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight, Heart } from "./icons";
 
 const data = [
-  ["חייטות רכה", "Atelier Noor", "https://images.pexels.com/photos/7048338/pexels-photo-7048338.jpeg?auto=compress&cs=tinysrgb&w=900"],
-  ["ערב בקטיפה", "Laelle Rental", "https://images.pexels.com/photos/18239440/pexels-photo-18239440.jpeg?auto=compress&cs=tinysrgb&w=900"],
-  ["העריכה הניטרלית", "Naya Studio", "https://images.pexels.com/photos/16512659/pexels-photo-16512659.jpeg?auto=compress&cs=tinysrgb&w=900"],
-  ["אירוע בגינה", "Maison Noura", "https://images.pexels.com/photos/17299354/pexels-photo-17299354.jpeg?auto=compress&cs=tinysrgb&w=900"],
-  ["רומנטיקה מודרנית", "Serein", "https://images.pexels.com/photos/7048338/pexels-photo-7048338.jpeg?auto=compress&cs=tinysrgb&w=900"],
-  ["שכבות של יום ראשון", "Aveline", "https://images.pexels.com/photos/16512659/pexels-photo-16512659.jpeg?auto=compress&cs=tinysrgb&w=900"],
+  ["חייטות רכה", "Atelier Noor", "/images/products/embroidered-maxi-dress.jpg"],
+  ["ערב בקטיפה", "Laelle Rental", "/images/products/velvet-evening-dress.jpg"],
+  ["העריכה הניטרלית", "Naya Studio", "/images/products/layered-neutral-set.jpg"],
+  ["אירוע בגינה", "Maison Noura", "/images/products/garden-event-dress.jpg"],
+  ["רומנטיקה מודרנית", "Serein", "/images/products/embroidered-maxi-dress.jpg"],
+  ["שכבות של יום ראשון", "Aveline", "/images/products/layered-neutral-set.jpg"],
 ];
 
 export function PageShell({ eyebrow, title, description, mode = "grid" }: { eyebrow: string; title: string; description: string; mode?: "grid" | "empty" | "profile" }) {
