@@ -1,4 +1,10 @@
 import type { Product } from "@/domain/product";
+import {
+  LOOK_OCCASIONS,
+  LOOK_SEASON_TAGS,
+  LOOK_STYLE_TAGS,
+} from "@/domain/look";
+import type { Look } from "@/domain/look";
 import { brands } from "./brands";
 import { categories } from "./categories";
 import { looks } from "./looks";
@@ -51,6 +57,8 @@ function isRentalProduct(product: Product): product is Extract<Product, { type: 
 
 export function validateFixtureIntegrity(): FixtureIntegrityResult {
   const errors: string[] = [];
+  const fixtureLooks: readonly Look[] = looks;
+  const fixtureProducts: readonly Product[] = products;
 
   validateUniqueEntities("products", products, errors);
   validateUniqueEntities("brands", brands, errors);
@@ -58,12 +66,15 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   validateUniqueEntities("looks", looks, errors);
   validateUniqueEntities("categories", categories, errors);
 
-  const productIds = new Set(products.map(({ id }) => id));
-  const brandIds = new Set(brands.map(({ id }) => id));
-  const rentalBusinessIds = new Set(rentalBusinesses.map(({ id }) => id));
-  const categoryIds = new Set(categories.map(({ id }) => id));
+  const productIds = new Set<string>(products.map(({ id }) => id));
+  const brandIds = new Set<string>(brands.map(({ id }) => id));
+  const rentalBusinessIds = new Set<string>(rentalBusinesses.map(({ id }) => id));
+  const categoryIds = new Set<string>(categories.map(({ id }) => id));
+  const validOccasions = new Set<string>(LOOK_OCCASIONS);
+  const validStyleTags = new Set<string>(LOOK_STYLE_TAGS);
+  const validSeasonTags = new Set<string>(LOOK_SEASON_TAGS);
 
-  for (const product of products) {
+  for (const product of fixtureProducts) {
     if (!categoryIds.has(product.categoryId)) {
       errors.push(`product "${product.id}" references missing category "${product.categoryId}"`);
     }
@@ -77,7 +88,11 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
     }
   }
 
-  for (const look of looks) {
+  for (const look of fixtureLooks) {
+    if (look.productIds.length === 0) {
+      errors.push(`look "${look.id}" must reference at least one product`);
+    }
+
     for (const productId of look.productIds) {
       if (!productIds.has(productId)) {
         errors.push(`look "${look.id}" references missing product "${productId}"`);
@@ -89,6 +104,36 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
         errors.push(`look "${look.id}" references missing brand "${brandId}"`);
       }
     }
+
+    for (const occasion of look.occasions) {
+      if (!validOccasions.has(occasion)) {
+        errors.push(`look "${look.id}" has invalid occasion "${occasion}"`);
+      }
+    }
+
+    for (const styleTag of look.styleTags) {
+      if (!validStyleTags.has(styleTag)) {
+        errors.push(`look "${look.id}" has invalid style tag "${styleTag}"`);
+      }
+    }
+
+    for (const seasonTag of look.seasonTags) {
+      if (!validSeasonTags.has(seasonTag)) {
+        errors.push(`look "${look.id}" has invalid season tag "${seasonTag}"`);
+      }
+    }
+  }
+
+  const hasMixedCommerceLook = fixtureLooks.some((look) => {
+    const lookProducts = look.productIds
+      .map((productId) => fixtureProducts.find(({ id }) => id === productId))
+      .filter((product): product is Product => Boolean(product));
+
+    return lookProducts.some(isPurchaseProduct) && lookProducts.some(isRentalProduct);
+  });
+
+  if (!hasMixedCommerceLook) {
+    errors.push("looks: expected at least one fixture combining purchase and rental products");
   }
 
   return { valid: errors.length === 0, errors };

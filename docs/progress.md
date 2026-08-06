@@ -2,7 +2,7 @@
 
 ## Project Status
 
-FoundHer is a mobile-first, RTL discovery platform for modest fashion. The project currently has a stable Next.js foundation, typed domain data, repository boundaries, a reusable design system, a modular application shell, a repository-backed Discover feature, and dynamic repository-backed product pages. The remaining visual prototype pages stay active until they are migrated incrementally.
+FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its product promise is to help women decide what to wear through complete looks and then access the purchase and rental products that create them. The codebase has a stable Next.js foundation, typed domain data, repository boundaries, a reusable design system, a modular application shell, repository-backed product discovery, and dynamic product pages.
 
 ## Current Architecture
 
@@ -19,6 +19,9 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - Fixed, safe-area-aware mobile bottom navigation
 - Product feature module in `features/products` with typed card and detail presentation models, repository composition queries, cards, grids, a responsive gallery, purchase/rental detail panels, actions, loading, and empty states
 - Repository-backed Discover page with metadata, visual search/filter controls, and `next/image`
+- First-class Look model with editorial stories, typed occasions, style tags, season tags, ordered products, and brand relationships
+- Product-first rental repository capabilities for evening, bridal, featured, and city discovery
+- Product information architecture documented in `docs/product-architecture.md`
 - Legacy prototype pages and styles retained until page migration
 
 ## Completed Tasks
@@ -29,15 +32,34 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - TASK 004 — FoundHer Application Shell and Navigation
 - TASK 005 — Discover Product Architecture Migration
 - TASK 006 — Dynamic Product Feature System and Product Pages
+- TASK 007 — Inspiration-First Product Realignment
 
 ## Latest Commit
 
-- Current TASK 006 commit: `feat: build dynamic product feature` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `554648b` — merged TASK 005 baseline
+- Current TASK 007 commit: `refactor: align FoundHer around inspiration discovery` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `135ef10` — merged TASK 006 baseline
 
 ## Current Branch
 
-- `codex/task-006-product-pages`
+- `codex/task-007-product-realignment`
+
+## Inspiration-First Product Decision
+
+- Looks are FoundHer's primary discovery unit. They combine a visual, scenario, story, occasion, style, season, products, and brands.
+- Products support the inspiration journey and retain the existing discriminated union as the only source of purchase/rental state.
+- Purchase and rental products may coexist in the same ordered look without duplicating product records.
+- Rentals discovery begins with evening and bridal dresses. Rental businesses provide context after product interest and are not the landing-page feed.
+- The future mobile navigation direction is Home, Looks, Brands, Favorites, and Profile. Rentals remains directly accessible and visible through desktop or secondary navigation and contextual entry points.
+- `/discover` remains operational but transitional. It should leave primary navigation after the Looks experience is complete, then redirect to `/looks` after reusable product-result behavior moves to dedicated result routes.
+
+## Look Domain and Repository
+
+- `Look` now includes `story`, typed `occasions`, `styleTags`, and `seasonTags` alongside ordered `productIds` and `brandIds`.
+- Stable domain identifiers are separate from future Hebrew UI labels.
+- Four Look fixtures provide a clear scenario and editorial context. `modern-evening-romance` combines a rental dress and a purchase accessory.
+- Look queries support occasion, style, season, product, and brand discovery with stable fixture ordering.
+- `getProductsByIds` resolves known products in caller-supplied order for future Look Details composition.
+- Rental product queries support evening, bridal, featured, and exact-city result sets without introducing a generic query framework.
 
 ## Product Feature Architecture
 
@@ -72,10 +94,12 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 
 - Home, Brands, Looks, Rentals, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
 - `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
+- `/discover` remains a transitional product grid until the final Looks feed and Look Details route exist.
+- Dynamic `/looks/[slug]`, `/brands/[slug]`, and `/rental-businesses/[slug]` routes are not implemented.
+- The final rental-product-first Rentals feed is not implemented.
 - Authentication, persistence, Supabase, search, filters, and favorites behavior are not implemented.
 - The legacy stylesheet remains largely selector-based and contains hardcoded component colors, repeated prototype overrides, and compressed rules. It should be retired incrementally as pages migrate.
 - The project does not yet have unit, integration, or end-to-end test suites.
-- Fixture validation uses `tsx`, which currently fails on this Windows/Node 24 environment because `os.userInfo()` returns `ENOMEM`; type checking and an independent reference audit still pass.
 
 ## Remaining Warnings
 
@@ -89,11 +113,12 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - `npm run lint`: passes with 4 pre-existing image warnings
 - `npm run typecheck`: passes
 - `npm run build`: passes; all repository products are statically generated under `/products/[slug]`
+- `npm run validate:fixtures`: passes; validates 8 purchase products, 4 evening rentals, 2 bridal rentals, 4 looks, 4 brands, 2 rental businesses, and 6 categories
+- TASK 007 integrity coverage: valid Look products and brands, non-empty looks, unique slugs, typed occasion/style/season values, a mixed purchase/rental fixture, and valid rental-business references
 - Product browser validation: purchase, evening-rental, and bridal-rental variants render in RTL; dynamic titles and canonical metadata resolve; external actions use safe link attributes; invalid slugs return the product 404; desktop and mobile layouts have no horizontal overflow; gallery images load with meaningful alternative text
 - Discover browser validation: 14 repository-backed products; one/two/four responsive columns at mobile/tablet/desktop; RTL; no horizontal overflow; no nested interactive elements; valid slug links; 44px favorite targets; meaningful image alt text; no console warnings or errors
 - `/design-system`: verified in desktop and mobile browser contexts, RTL, noindex/nofollow, no horizontal overflow, visible focus, accessible names, and no nested interactive elements
 - All existing routes: browser smoke-tested through the shared application shell
-- `npm run validate:fixtures`: still blocked before script execution by the environment-specific `tsx`/`os.userInfo()` error noted above; the successful production build executes the repository-backed Discover composition and found no missing associations
 
 ## Modest Fashion Imagery
 
@@ -105,10 +130,10 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 
 ## Git Workflow Note
 
-- TASK 004 and TASK 005 are merged into `main`. TASK 006 is developed on `codex/task-006-product-pages` and its draft PR targets `main` without merging.
+- TASK 001 through TASK 006 are merged into `main`. TASK 007 is developed on `codex/task-007-product-realignment`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Review and approve the next feature scope after TASK 006 is reviewed and merged; no subsequent implementation is assumed by this task.
+- Build the repository-backed Looks feed and dynamic Look Details route after approving the information hierarchy and navigation switch described in `docs/product-architecture.md`.
 
 This document must be updated at the end of every future task.
