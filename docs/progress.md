@@ -86,7 +86,7 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 ## Modest Fashion Imagery
 
 - All prototype and fixture imagery now uses project-local assets under `public/images/products`.
-- The curated image set follows FoundHer's Jewish modest-fashion direction: opaque long garments, covered shoulders and arms, and restrained styling.
+- The curated image set follows the supplied modern Israeli modest-fashion reference: uncovered hair, knee-to-midi silhouettes, sleeves, moderate necklines, clean styling, and no hijab or abaya imagery.
 - Remote Pexels and Unsplash runtime dependencies were removed from application code and fixtures.
 - Discover now uses the standard Next.js image optimization path for local assets.
 - The images are free-to-use Pexels stock assets; their source pages and license remain governed by the Pexels license.
