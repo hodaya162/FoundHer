@@ -83,6 +83,14 @@ FoundHer is a mobile-first, RTL discovery platform for modest fashion. The proje
 - All existing routes: browser smoke-tested through the shared application shell
 - `npm run validate:fixtures`: still blocked before script execution by the environment-specific `tsx`/`os.userInfo()` error noted above; the successful production build executes the repository-backed Discover composition and found no missing associations
 
+## Modest Fashion Imagery
+
+- All prototype and fixture imagery now uses project-local assets under `public/images/products`.
+- The curated image set follows FoundHer's Jewish modest-fashion direction: opaque long garments, covered shoulders and arms, and restrained styling.
+- Remote Pexels and Unsplash runtime dependencies were removed from application code and fixtures.
+- Discover now uses the standard Next.js image optimization path for local assets.
+- The images are free-to-use Pexels stock assets; their source pages and license remain governed by the Pexels license.
+
 ## Git Workflow Note
 
 - TASK 004 PR #2 is still open and unmerged. TASK 005 is therefore a stacked branch based on `codex/task-004-application-shell`; its draft PR should target that branch until PR #2 is merged, then be retargeted to `main`.

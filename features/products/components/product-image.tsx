@@ -14,7 +14,6 @@ export function ProductImage({ image, priority = false }: ProductImageProps) {
         src={image.url}
         alt={image.alt}
         fill
-        unoptimized
         priority={priority}
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
         className="object-cover transition-transform duration-500 group-hover/image:scale-[1.02]"
