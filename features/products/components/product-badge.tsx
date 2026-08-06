@@ -1,12 +1,13 @@
 import { Badge } from "@/components/ui";
 
-import type { RentalProductCard } from "../types/product-card";
+import type { ProductType } from "@/domain/product";
 
 export type ProductBadgeProps = {
-  type: RentalProductCard["type"];
+  type: ProductType;
 };
 
-const badgeLabels: Record<RentalProductCard["type"], string> = {
+const badgeLabels: Record<ProductType, string> = {
+  purchase: "לרכישה",
   rental_evening: "השכרת ערב",
   rental_bridal: "השכרת כלה",
 };

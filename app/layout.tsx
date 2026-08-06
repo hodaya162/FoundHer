@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://foundher.example"),
   title: { default: `${siteConfig.name} — ${siteConfig.tagline}`, template: `%s — ${siteConfig.name}` },
   description: siteConfig.description,
   icons: { icon: "/favicon.svg" },
