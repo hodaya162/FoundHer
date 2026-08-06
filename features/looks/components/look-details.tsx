@@ -1,0 +1,42 @@
+import { PageContainer } from "@/components/layout";
+
+import type { LookDetailsModel } from "../types/look-details";
+import { LookBreadcrumbs } from "./look-breadcrumbs";
+import { LookCoverImage } from "./look-cover-image";
+import { LookProductList } from "./look-product-list";
+import { LookSaveButton } from "./look-save-button";
+import { LookStory } from "./look-story";
+import { LookTags } from "./look-tags";
+import { SimilarLooks } from "./similar-looks";
+
+type LookDetailsProps = { details: LookDetailsModel };
+
+export function LookDetails({ details }: LookDetailsProps) {
+  const { look, products, similarLooks, unresolvedProductIds } = details;
+
+  return (
+    <main>
+      <PageContainer className="pb-8 sm:pb-12">
+        <LookBreadcrumbs lookTitle={look.title} />
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,0.8fr)] lg:gap-12">
+          <LookCoverImage image={look.coverImage} variant="hero" priority />
+          <header className="space-y-6 lg:sticky lg:top-[calc(var(--desktop-header-height)+2rem)] lg:py-8">
+            <LookTags look={look} />
+            <div>
+              <p className="type-label mb-3 text-primary">לוק שלם לרגע אמיתי</p>
+              <h1 className="type-page-title">{look.title}</h1>
+              <p className="type-body mt-4 max-w-xl text-muted">{look.description}</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <LookSaveButton lookTitle={look.title} />
+              <p className="type-caption">שמירה חזותית בלבד בשלב זה</p>
+            </div>
+          </header>
+        </div>
+        <LookStory look={look} />
+        <LookProductList products={products} unresolvedCount={unresolvedProductIds.length} />
+        <SimilarLooks looks={similarLooks} />
+      </PageContainer>
+    </main>
+  );
+}
