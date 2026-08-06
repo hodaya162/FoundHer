@@ -1,3 +1,5 @@
-import Link from "next/link";
-import { ArrowUpRight, Heart } from "../ui/icons";
-export default function Product() { return <main className="product-page wrap"><div className="product-gallery"><img src="/images/products/embroidered-maxi-dress.jpg" alt="שמלת מקסי צנועה עם שרוולים ארוכים" /><img src="/images/products/embroidered-maxi-detail.jpg" alt="פרטי שמלה צנועה" /></div><div className="product-details"><p className="eyebrow">Naya Studio</p><h1>שמלת מקסי רקומה</h1><strong>₪689</strong><p className="description">גזרה ארוכה ונשפכת עם שרוולים מלאים, מחשוף גבוה וכיסוי מדויק ואלגנטי.</p><div className="options"><span>מידות זמינות</span><div><button>XS</button><button>S</button><button>M</button><button>L</button></div></div><Link href="#" className="button dark wide">לאתר המותג <ArrowUpRight /></Link><button className="save-button"><Heart /> שמירה למועדפים</button><small>המשך הרכישה יתבצע באתר המותג המקורי.</small></div></main>; }
+import { redirect } from "next/navigation";
+
+export default function LegacyProductRedirect() {
+  redirect("/products/embroidered-maxi-dress");
+}

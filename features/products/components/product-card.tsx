@@ -7,7 +7,7 @@ import { ProductActions } from "./product-actions";
 import { ProductBadge } from "./product-badge";
 import { ProductFavoriteButton } from "./product-favorite-button";
 import { ProductImage } from "./product-image";
-import { ProductMeta } from "./product-meta";
+import { ProductCardMeta } from "./product-card-meta";
 import { ProductPrice } from "./product-price";
 import { ProductTitle } from "./product-title";
 
@@ -36,7 +36,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
         </div>
 
         <CardContent className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
-          <ProductMeta
+          <ProductCardMeta
             sellerName={product.sellerName}
             detail={isPurchase ? "לרכישה" : product.city}
           />
