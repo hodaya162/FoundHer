@@ -172,12 +172,14 @@ Recommended future mobile navigation:
 ```text
 בית
 לוקים
-מותגים
+השכרות
 שמורים
 פרופיל
 ```
 
-Rentals remains easy to reach through Home entry points, future search, look product badges, the direct `/rentals` route, and a visible desktop or secondary navigation link.
+Rentals is a primary mobile destination. It also remains reachable through Home entry points, future search, look product badges, and the direct `/rentals` route.
+
+Brands is a secondary entity and must not appear in primary mobile navigation. Users reach brands through Product pages, Look pages, curated Home sections, future search, and “more from this brand” links.
 
 The current centralized navigation is intentionally unchanged in TASK 007. Removing Discover now would direct users to incomplete Looks and Rentals placeholders. Navigation should switch only when the new Looks feed is ready, and it must continue to be defined once in `config/navigation.ts`.
 
@@ -210,11 +212,11 @@ Only existing routes are implemented today. TASK 007 does not create placeholder
 
 ## `/discover` Migration Plan
 
-`/discover` is transitional and is not part of the future primary navigation.
+`/discover` is transitional and is not part of the future primary navigation. It must remain operational until the new Looks experience is complete.
 
 Recommended migration:
 
-1. Keep `/discover` working while the inspiration experience is incomplete.
+1. Keep `/discover` working while the new Looks feed and Look Details experience are incomplete.
 2. Build `/looks` and `/looks/[slug]` as the primary discovery surfaces.
 3. Move reusable product-results behavior to future `/products`, `/search`, or `/categories/[slug]` result routes when those use cases are implemented.
 4. Redirect `/discover` to `/looks` only after navigation, links, metadata, and saved URLs have an approved migration path.
@@ -232,7 +234,5 @@ This avoids destructive route removal and preserves the existing Product Feature
 
 ## Decisions Required Before the Next Task
 
-- Approve Looks as the primary mobile navigation destination replacing Discover.
-- Approve whether Rentals remains in desktop primary navigation or moves to a clearly visible secondary entry.
 - Approve the first Look card and Look Details information hierarchy before final UI implementation.
 - Confirm that `/discover` should ultimately redirect to `/looks` after product-result routes have been separated.

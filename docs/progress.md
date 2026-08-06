@@ -49,8 +49,9 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Products support the inspiration journey and retain the existing discriminated union as the only source of purchase/rental state.
 - Purchase and rental products may coexist in the same ordered look without duplicating product records.
 - Rentals discovery begins with evening and bridal dresses. Rental businesses provide context after product interest and are not the landing-page feed.
-- The future mobile navigation direction is Home, Looks, Brands, Favorites, and Profile. Rentals remains directly accessible and visible through desktop or secondary navigation and contextual entry points.
-- `/discover` remains operational but transitional. It should leave primary navigation after the Looks experience is complete, then redirect to `/looks` after reusable product-result behavior moves to dedicated result routes.
+- The approved future primary mobile navigation is Home, Looks, Rentals, Favorites, and Profile.
+- Brands is a secondary entity and must not appear in primary mobile navigation. Brand discovery comes from Product pages, Look pages, curated Home sections, future search, and “more from this brand” links.
+- `/discover` remains operational but transitional until the new Looks feed and Look Details experience are complete. It should then leave primary navigation and redirect to `/looks` only after reusable product-result behavior moves to dedicated result routes.
 
 ## Look Domain and Repository
 
