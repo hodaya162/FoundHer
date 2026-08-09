@@ -1,19 +1,17 @@
-import { Heart } from "lucide-react";
-
-import { IconButton } from "@/components/ui";
+import { FavoriteButton } from "@/features/favorites";
 
 export type ProductFavoriteButtonProps = {
+  productId: string;
   productName: string;
+  className?: string;
 };
 
-export function ProductFavoriteButton({ productName }: ProductFavoriteButtonProps) {
+export function ProductFavoriteButton({ className, productId, productName }: ProductFavoriteButtonProps) {
   return (
-    <IconButton
-      aria-label={`שמירת ${productName} במועדפים`}
-      aria-pressed="false"
-      className="absolute end-3 top-3 z-[var(--z-base)] border-white/70 bg-white/90 shadow-sm hover:bg-white"
-    >
-      <Heart aria-hidden="true" />
-    </IconButton>
+    <FavoriteButton
+      reference={{ entityType: "product", entityId: productId }}
+      entityLabel={productName}
+      className={className ?? "absolute end-3 top-3 z-[var(--z-base)] border-white/70 bg-white/90 shadow-sm hover:bg-white"}
+    />
   );
 }

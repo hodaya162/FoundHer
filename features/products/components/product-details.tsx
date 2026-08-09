@@ -49,7 +49,7 @@ function PurchaseProductPanel({ product }: { product: Extract<ProductDetailsMode
       <ProductSection title="צבעים"><ProductColors colors={product.colors} /></ProductSection>
       <ProductSection title="המותג"><ProductBrand brand={product.brand} /></ProductSection>
       <ProductMeta items={[{ label: "סוג", value: "לרכישה" }, { label: "קטגוריה", value: product.categoryId }]} />
-      <ProductActionBar type="purchase" externalUrl={product.externalUrl} productName={product.name} />
+      <ProductActionBar type="purchase" externalUrl={product.externalUrl} productId={product.id} productName={product.name} />
       <p className="type-caption text-center">המשך הרכישה מתבצע באתר המותג המקורי.</p>
     </aside>
   );
@@ -74,7 +74,7 @@ function RentalProductPanel({ product }: { product: Exclude<ProductDetailsModel,
           { label: "קטגוריה", value: product.categoryId },
         ]}
       />
-      <ProductActionBar type={product.type} availabilityUrl={product.availabilityUrl} productName={product.name} />
+      <ProductActionBar type={product.type} availabilityUrl={product.availabilityUrl} productId={product.id} productName={product.name} />
       <p className="type-caption text-center">בדיקת הזמינות מתבצעת מול עסק ההשכרה.</p>
     </aside>
   );

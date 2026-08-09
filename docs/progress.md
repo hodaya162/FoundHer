@@ -26,6 +26,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Repository-backed `/looks` and statically generated `/looks/[slug]` pages with dynamic metadata
 - Dedicated `features/home` editorial composition with typed occasion entry points and reused Look, Rental, Brand, and Product presentation
 - Dedicated `features/search` module with normalization, deterministic scoring, typed grouped results, query composition, focused presentation, and script-level tests
+- Dedicated `features/favorites` module with a stable reference model, defensive browser storage adapter, reactive service, shared accessible button, category views, and focused tests
 - Legacy prototype pages and styles retained until page migration
 
 ## Completed Tasks
@@ -41,15 +42,29 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 009 — Rental Dress Discovery and Dynamic Rental Business Pages
 - TASK 010 — Final Inspiration-First Home Experience
 - TASK 011 — Unified MVP Search Experience
+- TASK 012 — Persistent Favorites Experience
 
 ## Latest Commit
 
-- Current TASK 011 commit: `feat: build unified FoundHer search` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `8d78470` — merged TASK 010 baseline
+- Current TASK 012 commit: `feat: build persistent Favorites experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `f3e2ed3` — merged TASK 011 baseline
 
 ## Current Branch
 
-- `codex/task-011-search`
+- `codex/task-012-favorites`
+
+## Favorites Experience
+
+- `/favorites` replaces the legacy placeholder with a real personal collection and accessible filters for All, Looks, Products, Rentals, and Brands.
+- Favorites store stable `{ entityType, entityId }` references only. Rental products remain `product` entities and are classified from `product.type`.
+- A defensive `LocalFavoritesStorage` adapter handles absent, malformed, duplicated, outdated, or unavailable browser storage without crashing.
+- A small reactive service synchronizes every FavoriteButton on the current page; the native `storage` event refreshes other open tabs.
+- The shared FavoriteButton exposes a real toggle, dynamic Hebrew accessible name, `aria-pressed`, a textual state in detail actions, visible focus, and a 44px minimum target.
+- Look cards/details, Product cards/details, Rental cards, Search results, and reused Home cards now share working persistence. Brand saving is available from Search and curated Home cards without inventing a Brand detail route.
+- Existing domain cards remain server-rendered. Only FavoriteButton and the repository-backed `/favorites` collection are Client Components.
+- The All view keeps entity types in distinct sections, and category views provide honest empty states. Saved Looks and Products return to their implemented dynamic routes.
+- `scripts/test-favorites.ts` covers add, remove, toggle, duplicates, multiple entities, malformed and missing storage, stable serialization, and Product-type rental classification.
+- Local browser persistence is an MVP implementation, not the final multi-device solution. The storage boundary is designed so a future Supabase adapter can replace it without rewriting card UI.
 
 ## Search Experience
 
@@ -153,17 +168,17 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Known Technical Debt
 
-- Brands, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
+- Brands and Profile still contain legacy prototype presentation or hardcoded data.
 - `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
 - `/discover` remains a transitional product grid retained for future category/product-result migration.
 - Dynamic `/brands/[slug]` routes are not implemented.
-- Authentication, persistence, Supabase, advanced filters, autocomplete, and favorites behavior are not implemented.
+- Authentication, cloud/multi-device persistence, Supabase, advanced filters, and autocomplete are not implemented.
 - The legacy stylesheet remains largely selector-based and contains hardcoded component colors, repeated prototype overrides, and compressed rules. It should be retired incrementally as pages migrate.
 - The project has focused Search script tests, but no general unit, integration, or end-to-end test suite yet.
 
 ## Remaining Warnings
 
-- ESLint reports 1 existing `@next/next/no-img-element` warning in the untouched legacy `PageShell`. TASK 011 introduces no new lint warnings and uses `next/image` throughout Search.
+- ESLint reports 1 existing `@next/next/no-img-element` warning in the untouched legacy `PageShell`. TASK 012 introduces no new lint warnings.
 - `npm audit` reports 6 vulnerable dependency entries: 5 high and 1 low.
   - Production: direct `next@16.2.6` and transitive `postcss`/`sharp` advisories. Recommended action: review and upgrade Next.js to at least `16.2.12` in a dedicated dependency update, then run the full validation suite.
   - Development/transitive tooling: `@babel/core` (low), `brace-expansion` (high), and `js-yaml` (high). Recommended action: update the parent lint/build tooling through normal dependency upgrades and re-run `npm audit`; do not force resolutions without compatibility testing.
@@ -175,6 +190,9 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - `npm run build`: passes; 32 pages are generated, including the dynamic Search route, 4 Look routes, 14 Product routes, and 2 Rental Business routes
 - `npm run validate:fixtures`: passes; validates 8 purchase products, 4 evening rentals, 2 bridal rentals, 4 looks, 4 brands, 2 rental businesses, and 6 categories
 - `npm run test:search`: passes; covers empty, exact, Product, Brand, city/rental, multiword, no-result, relevance, entity-classification, and URL behavior
+- `npm run test:favorites`: passes; covers add, remove, toggle, deduplication, entity types, malformed/missing storage, stable serialization, and rental classification
+- TASK 012 browser validation: saving and removing a Look, purchase Product, rental Product, and Brand works across their primary cards and `/favorites`; refresh persistence, same-page synchronization, cross-page state, and native cross-tab synchronization were verified. All and category views expose semantic controls, dynamic `aria-pressed` labels, honest empty states, one h1, RTL, no nested interactive controls, and no console errors.
+- TASK 012 responsive validation: `/favorites` was checked at 375/768/1024/1440px with five usable category controls, no horizontal overflow, repository-backed cards, and preserved mobile shell spacing.
 - TASK 011 browser validation: `/search` initial, Hebrew rental/city, English Brand, multiword Look, and no-result states render in RTL at 375/768/1024/1440px with one h1 and no horizontal overflow. URLs, result groups, loaded imagery, textual commerce labels, Brand non-links, mobile/desktop shell entry, `noindex, follow`, canonical metadata, and absence of nested interactive controls were verified.
 - TASK 007 integrity coverage: valid Look products and brands, non-empty looks, unique slugs, typed occasion/style/season values, a mixed purchase/rental fixture, and valid rental-business references
 - TASK 008 browser validation: `/looks` and all 4 Look routes render in RTL at 375/768/1024/1440px with no horizontal overflow; one/two/three-column feed behavior; loaded images and meaningful alt text; correct metadata, breadcrumbs, heading hierarchy, product ordering, purchase/rental labels, Similar Looks, 44px save targets, visible keyboard focus, and no nested interactive controls
@@ -200,10 +218,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Git Workflow Note
 
-- TASK 001 through TASK 010 are merged into `main`. TASK 011 is developed on `codex/task-011-search`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 011 are merged into `main`. TASK 012 is developed on `codex/task-012-favorites`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Recommended TASK 012: Favorites and saved-items behavior. Do not start until TASK 011 is reviewed and merged.
+- Before TASK 013, run a focused MVP readiness review to separate launch-critical gaps from work that can wait. Do not start TASK 013 without approval.
 
 This document must be updated at the end of every future task.

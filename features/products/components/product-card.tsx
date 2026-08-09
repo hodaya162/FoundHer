@@ -32,7 +32,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
               <ProductBadge type={product.type} />
             </div>
           ) : null}
-          <ProductFavoriteButton productName={product.name} />
+          <ProductFavoriteButton productId={product.id} productName={product.name} />
         </div>
 
         <CardContent className="flex flex-1 flex-col gap-3 p-4 sm:p-5">

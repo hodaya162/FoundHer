@@ -28,8 +28,8 @@ export function LookDetails({ details }: LookDetailsProps) {
               <p className="type-body mt-4 max-w-xl text-muted">{look.description}</p>
             </div>
             <div className="flex items-center gap-3">
-              <LookSaveButton lookTitle={look.title} />
-              <p className="type-caption">שמירה חזותית בלבד בשלב זה</p>
+              <LookSaveButton lookId={look.id} lookTitle={look.title} />
+              <p className="type-caption">שמרי את הלוק וחזרי אליו מעמוד השמורים.</p>
             </div>
           </header>
         </div>
