@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { ProductDetails } from "@/features/products/components";
 import { getProductDetailsBySlug } from "@/features/products/queries/get-product-details-by-slug";
+import { MoreFromBusiness } from "@/features/rentals/components";
+import { getOtherRentalCardsByBusinessId } from "@/features/rentals/queries/get-rental-cards";
 import { getAllProducts } from "@/lib/repositories/products.repository";
 
 type ProductPageProps = {
@@ -60,5 +62,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  return <ProductDetails product={product} />;
+  const relatedProducts = product.type === "purchase"
+    ? []
+    : getOtherRentalCardsByBusinessId(product.rentalBusinessId, product.id, 3);
+
+  const relatedContent = product.type !== "purchase" && product.rentalBusiness && relatedProducts.length > 0
+    ? (
+      <MoreFromBusiness
+        businessName={product.rentalBusiness.name}
+        businessSlug={product.rentalBusiness.slug}
+        products={relatedProducts}
+      />
+    )
+    : undefined;
+
+  return <ProductDetails product={product} relatedContent={relatedContent} />;
 }

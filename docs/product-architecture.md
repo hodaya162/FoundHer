@@ -152,7 +152,7 @@ Not every look is required to mix commerce types.
 
 ## Rental Discovery Architecture
 
-The future `/rentals` feed should consume focused repository helpers:
+The implemented `/rentals` feed consumes focused repository helpers:
 
 - `getEveningRentalProducts()`
 - `getBridalRentalProducts()`
@@ -168,7 +168,30 @@ Rental feed
 → More products from the same business
 ```
 
-City is a simple fixture-backed query for now. UI filtering and advanced query abstractions remain future scope.
+The top-level evening/bridal selection is implemented through server-rendered URL query parameters and typed repository helpers, without client state. City, size, price, and style controls are explicitly disabled future architecture; they do not pretend to filter results. City remains a simple fixture-backed query for future result use, while advanced filtering remains out of scope.
+
+## Implemented Rentals Experience
+
+TASK 009 implements the dress-first flow without turning rental businesses into the landing-page hierarchy:
+
+```text
+/rentals
+-> evening or bridal rental dress
+-> /products/[slug]
+-> external availability action
+-> /rental-businesses/[slug]
+-> more dresses from the same business
+```
+
+- `/rentals` is a Server Component backed by rental product repositories. It never imports fixtures or depends on the legacy `PageShell`.
+- Rental cards prioritize the dress image, textual rental type, rental price, city, business, and a link to the existing dynamic Product route.
+- Evening and bridal filters use stable typed product values. Unknown query values safely fall back to all rentals.
+- Rental product pages keep the dress and availability action primary. Business name, city, description, and route are secondary context.
+- `getOtherRentalProductsByBusinessId` excludes the current product, preserves fixture order, and applies a bounded result limit.
+- `/rental-businesses/[slug]` resolves through repositories, generates stable metadata and static params, returns `notFound()` for unknown slugs, and keeps its dress collection visually dominant.
+- Business contact actions render only when data exists and open external WhatsApp, Instagram, or website destinations safely.
+- Missing business relationships degrade to explicit fallback copy instead of crashing. Fixture validation currently guarantees that all configured relationships resolve.
+- All Rentals presentation remains server-rendered. TASK 009 introduces no Client Components, filter library, state manager, availability system, or persistence.
 
 ## Product Presentation Rules
 
@@ -249,12 +272,12 @@ This avoids destructive route removal and preserves the existing Product Feature
 
 ## Deferred Capabilities
 
-- final Home and Rentals interfaces
+- final Home interface
 - search, filtering, sorting, and pagination
 - favorites persistence
 - authentication and profile personalization
 - Supabase and remote data
-- dynamic brand and rental-business pages
+- dynamic brand pages
 
 ## Decisions Required Before the Next Task
 
