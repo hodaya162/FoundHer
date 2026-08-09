@@ -44,7 +44,7 @@ Search
 → Looks, products, brands and rentals
 ```
 
-Search is future scope and is not implemented yet.
+Search is implemented as a dedicated, unified MVP route. It complements the inspiration-first journeys without replacing Home, Looks, or Rentals.
 
 ## Screen Responsibilities
 
@@ -274,7 +274,7 @@ Primary planned routes:
 /profile
 ```
 
-Possible future result routes:
+Result routes:
 
 ```text
 /search
@@ -282,7 +282,33 @@ Possible future result routes:
 /products
 ```
 
-Only existing routes are implemented today. TASK 007 does not create placeholder dynamic routes.
+`/search` is implemented. The category and product index routes remain future options and no placeholder dynamic routes are created.
+
+## Unified Search Architecture
+
+`/search?q=...` is the canonical Search experience. The URL owns query state, so results are server rendered, shareable, refresh-safe, and usable without a Client Component or state library.
+
+Search composes existing repositories in `features/search/queries/search-foundher.ts`; routes and components never import fixtures. Results are grouped in this fixed order:
+
+1. Looks
+2. Purchase products
+3. Rental products
+4. Brands
+5. Rental businesses
+
+Searchable fields are explicit and exclude technical identifiers and slugs:
+
+- Looks: title, description, story, occasion/style/season labels, and linked Brand names
+- Products: name, description, category, colors, sizes, commerce intent, and Brand name
+- Rental products: name, description, category, sizes, rental type, city, and rental-business name
+- Brands: name and description
+- Rental businesses: name, description, city, and rental intent
+
+Matching normalizes Unicode with NFKC, lowercases text, removes punctuation, and collapses whitespace. Scoring is deterministic: exact full-title matches rank highest, followed by title-prefix and title-contains matches, then per-term matches in title, tags, relationships, and descriptions. Multiword queries require at least two distinct terms to match; single-word queries require one. Score ties preserve repository order.
+
+Results use entity-specific presentation and real detail URLs. Brands remain honest non-links because `/brands/[slug]` is not implemented; rental businesses link to their existing routes. Query variants are `noindex, follow` to avoid indexing thin search-result pages. Search intentionally omits match highlighting because safe, readable RTL highlighting is not required for the MVP.
+
+The shell Search action and a small Home Hero entry point lead to `/search`. Search is not added to primary mobile navigation; the compact mobile Header exposes Search without changing the approved five-item bottom navigation. A future Supabase migration should replace only the query implementation while preserving result types, grouping, URL behavior, and presentation components.
 
 ## `/discover` Migration Plan
 
@@ -292,14 +318,14 @@ Recommended migration:
 
 1. Keep `/discover` working as a direct transitional route.
 2. Use the implemented `/looks` and `/looks/[slug]` routes as the primary discovery surfaces.
-3. Move reusable product-results behavior to future `/products`, `/search`, or `/categories/[slug]` result routes when those use cases are implemented.
+3. Keep unified cross-entity search in `/search`; move category-only or full product-index behavior to `/categories/[slug]` or `/products` only when approved.
 4. Redirect `/discover` to `/looks` only after navigation, links, metadata, and saved URLs have an approved migration path.
 
 This avoids destructive route removal and preserves the existing Product Feature.
 
 ## Deferred Capabilities
 
-- search, filtering, sorting, and pagination
+- advanced filtering, user-controlled sorting, pagination, and autocomplete
 - favorites persistence
 - authentication and profile personalization
 - Supabase and remote data
@@ -307,6 +333,6 @@ This avoids destructive route removal and preserves the existing Product Feature
 
 ## Decisions Required Before the Next Task
 
-- Choose whether TASK 011 should prioritize global Search or saved-items persistence.
+- Decide whether TASK 012 should prioritize Favorites persistence or dynamic Brand Details.
 - Decide when dynamic Brand Details should replace the transitional `/brands` destination.
 - Confirm that `/discover` should ultimately redirect to `/looks` after product-result routes have been separated.
