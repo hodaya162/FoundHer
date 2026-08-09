@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Search } from "lucide-react";
 
 import { PageContainer, PageHeader } from "@/components/layout";
-import { Badge, Button, SearchField } from "@/components/ui";
+import { Badge, Button, buttonVariants } from "@/components/ui";
 import { ProductGrid } from "@/features/products/components";
 import { getDiscoverProductCards } from "@/features/products/queries/get-discover-product-cards";
+import { cn } from "@/lib/utils";
 
 const pageTitle = "לגלות אופנה צנועה";
 const pageDescription = "פריטים נבחרים לרכישה ולהשכרה ממותגים ומסטודיו שמבינים אופנה צנועה.";
@@ -36,14 +39,10 @@ export default function DiscoverPage() {
 
         <section aria-labelledby="discover-tools-title" className="mb-8 space-y-4 border-y border-border py-5">
           <h2 id="discover-tools-title" className="sr-only">כלי גילוי</h2>
-          <SearchField
-            label="חיפוש בפריטי FoundHer"
-            placeholder="חיפוש לפי פריט, מותג או סגנון"
-            readOnly
-            aria-describedby="discover-search-status"
-            className="bg-surface"
-          />
-          <p id="discover-search-status" className="sr-only">החיפוש יוצג כאן בהמשך ואינו פעיל עדיין.</p>
+          <Link href="/search" className={cn(buttonVariants({ variant: "secondary" }), "w-full justify-between bg-surface px-4 sm:w-auto")}>
+            <span>מחפשת משהו מסוים? עברי לחיפוש בכל FoundHer</span>
+            <Search aria-hidden="true" className="size-4" />
+          </Link>
 
           <div aria-label="סינון חזותי לפי סוג מוצר" className="flex gap-2 overflow-x-auto pb-1">
             <Button size="sm" aria-pressed="true" className="shrink-0">

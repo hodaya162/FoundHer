@@ -15,16 +15,17 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Synchronous fixture-backed repositories in `lib/repositories`
 - Shared layout primitives in `components/layout`
 - Centralized site and navigation configuration in `config`
-- Server-rendered root shell and desktop header with route-aware client navigation islands
+- Server-rendered root shell with a full desktop Header, compact mobile Header, and route-aware client navigation islands
 - Fixed, safe-area-aware mobile bottom navigation
 - Product feature module in `features/products` with typed card and detail presentation models, repository composition queries, cards, grids, a responsive gallery, purchase/rental detail panels, actions, loading, and empty states
-- Repository-backed Discover page with metadata, visual search/filter controls, and `next/image`
+- Repository-backed Discover page with metadata, transitional filter controls, a real Search handoff, and `next/image`
 - First-class Look model with editorial stories, typed occasions, style tags, season tags, ordered products, and brand relationships
 - Product-first rental repository capabilities for evening, bridal, featured, and city discovery
 - Product information architecture documented in `docs/product-architecture.md`
 - Dedicated `features/looks` module with editorial cards, labels, stories, ordered products, similar looks, loading, empty, and missing states
 - Repository-backed `/looks` and statically generated `/looks/[slug]` pages with dynamic metadata
 - Dedicated `features/home` editorial composition with typed occasion entry points and reused Look, Rental, Brand, and Product presentation
+- Dedicated `features/search` module with normalization, deterministic scoring, typed grouped results, query composition, focused presentation, and script-level tests
 - Legacy prototype pages and styles retained until page migration
 
 ## Completed Tasks
@@ -39,15 +40,27 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 008 — Looks Inspiration Feed and Dynamic Look Details
 - TASK 009 — Rental Dress Discovery and Dynamic Rental Business Pages
 - TASK 010 — Final Inspiration-First Home Experience
+- TASK 011 — Unified MVP Search Experience
 
 ## Latest Commit
 
-- Current TASK 010 commit: `feat: build inspiration-first Home experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `6a39c75` — merged TASK 009 baseline
+- Current TASK 011 commit: `feat: build unified FoundHer search` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `8d78470` — merged TASK 010 baseline
 
 ## Current Branch
 
-- `codex/task-010-home`
+- `codex/task-011-search`
+
+## Search Experience
+
+- `/search?q=...` searches Looks, purchase Products, rental Products, Brands, and Rental Businesses through existing repositories without importing fixtures into the route or UI.
+- Query state lives in the URL and all Search presentation remains server rendered. TASK 011 adds no Client Components, state library, external search service, Supabase, autocomplete, or persistence.
+- Text is normalized consistently and results use deterministic field-aware scoring. Exact title matches rank first; multiword queries require at least two matching terms; fixture order resolves ties.
+- Results are grouped by entity and use focused cards with correct detail routes, commerce labels, prices, sellers, cities, and imagery. Brands remain non-interactive until dynamic Brand routes exist.
+- Initial and no-result states provide useful example searches and honest paths back to Looks and Rentals.
+- The desktop and new compact mobile Header Search action links to `/search`; Home includes a small Search entry point without changing its editorial hierarchy or the five-item mobile bottom navigation.
+- Discover's fake readonly search field was replaced with a real link to unified Search. `/discover` remains transitional until an approved product/category migration or redirect is complete.
+- `scripts/test-search.ts` covers empty, exact, Product, Brand, city/rental, multiword, no-result, relevance, entity-classification, and URL behavior.
 
 ## Home Experience
 
@@ -128,7 +141,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Product presentation is split into focused components: card, grid, image, title, price, metadata, badge, favorite control, actions, empty state, and skeleton grid.
 - Product links use the implemented `/products/[slug]` route.
 - The favorite control is visual only, remains keyboard-focusable, and is a sibling of product links rather than nested inside them.
-- Discover search and filter controls are presentational only. Search, filtering, sorting, pagination, persistence, and API behavior remain out of scope.
+- Discover filter controls remain presentational only. Its former fake search field now links to the real unified Search route; filtering, sorting, pagination, persistence, and API behavior remain out of scope.
 
 ## Application Shell
 
@@ -136,21 +149,21 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - `SiteHeader`, `SiteFooter`, `SiteLogo`, and `PageContainer` are reusable Server Components.
 - `DesktopNavigation` and `MobileBottomNavigation` are the only new Client Components. They use `usePathname` solely to expose active route styling and `aria-current="page"`.
 - Navigation routes and labels are defined once in `config/navigation.ts`. Root matching is exact; other routes match the route itself or a slash-delimited descendant.
-- The desktop header remains sticky because it preserves context without covering content. The mobile shell reserves the navigation token height plus the device safe area at the bottom.
+- The Header remains sticky because it preserves context without covering content. Desktop exposes the full navigation and actions; mobile exposes the Logo and Search while the shell reserves the bottom-navigation token height plus the device safe area.
 
 ## Known Technical Debt
 
 - Brands, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
 - `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
-- `/discover` remains a transitional product grid retained for future search/category/product-result migration.
+- `/discover` remains a transitional product grid retained for future category/product-result migration.
 - Dynamic `/brands/[slug]` routes are not implemented.
-- Authentication, persistence, Supabase, search, filters, and favorites behavior are not implemented.
+- Authentication, persistence, Supabase, advanced filters, autocomplete, and favorites behavior are not implemented.
 - The legacy stylesheet remains largely selector-based and contains hardcoded component colors, repeated prototype overrides, and compressed rules. It should be retired incrementally as pages migrate.
-- The project does not yet have unit, integration, or end-to-end test suites.
+- The project has focused Search script tests, but no general unit, integration, or end-to-end test suite yet.
 
 ## Remaining Warnings
 
-- ESLint reports 1 existing `@next/next/no-img-element` warning in the untouched legacy `PageShell`. TASK 010 removes the three former Home warnings and uses `next/image` throughout.
+- ESLint reports 1 existing `@next/next/no-img-element` warning in the untouched legacy `PageShell`. TASK 011 introduces no new lint warnings and uses `next/image` throughout Search.
 - `npm audit` reports 6 vulnerable dependency entries: 5 high and 1 low.
   - Production: direct `next@16.2.6` and transitive `postcss`/`sharp` advisories. Recommended action: review and upgrade Next.js to at least `16.2.12` in a dedicated dependency update, then run the full validation suite.
   - Development/transitive tooling: `@babel/core` (low), `brace-expansion` (high), and `js-yaml` (high). Recommended action: update the parent lint/build tooling through normal dependency upgrades and re-run `npm audit`; do not force resolutions without compatibility testing.
@@ -159,8 +172,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 - `npm run lint`: passes with 1 pre-existing image warning in the untouched legacy `PageShell`
 - `npm run typecheck`: passes
-- `npm run build`: passes; 31 pages are generated, including 4 Look routes, 14 Product routes, and 2 Rental Business routes
+- `npm run build`: passes; 32 pages are generated, including the dynamic Search route, 4 Look routes, 14 Product routes, and 2 Rental Business routes
 - `npm run validate:fixtures`: passes; validates 8 purchase products, 4 evening rentals, 2 bridal rentals, 4 looks, 4 brands, 2 rental businesses, and 6 categories
+- `npm run test:search`: passes; covers empty, exact, Product, Brand, city/rental, multiword, no-result, relevance, entity-classification, and URL behavior
+- TASK 011 browser validation: `/search` initial, Hebrew rental/city, English Brand, multiword Look, and no-result states render in RTL at 375/768/1024/1440px with one h1 and no horizontal overflow. URLs, result groups, loaded imagery, textual commerce labels, Brand non-links, mobile/desktop shell entry, `noindex, follow`, canonical metadata, and absence of nested interactive controls were verified.
 - TASK 007 integrity coverage: valid Look products and brands, non-empty looks, unique slugs, typed occasion/style/season values, a mixed purchase/rental fixture, and valid rental-business references
 - TASK 008 browser validation: `/looks` and all 4 Look routes render in RTL at 375/768/1024/1440px with no horizontal overflow; one/two/three-column feed behavior; loaded images and meaningful alt text; correct metadata, breadcrumbs, heading hierarchy, product ordering, purchase/rental labels, Similar Looks, 44px save targets, visible keyboard focus, and no nested interactive controls
 - TASK 009 validation: `/rentals` renders 6 repository-backed rental dresses and its server-rendered type filters return 4 evening or 2 bridal results. Cards render in one/two/three columns at 375/768/1024/1440px with no horizontal overflow, loaded images, textual rental types, 44px filter targets, and visible keyboard focus.
@@ -185,10 +200,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Git Workflow Note
 
-- TASK 001 through TASK 009 are merged into `main`. TASK 010 is developed on `codex/task-010-home`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 010 are merged into `main`. TASK 011 is developed on `codex/task-011-search`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Recommended TASK 011: choose between global Search and saved-items persistence as the next MVP capability. Do not start until TASK 010 is reviewed and merged.
+- Recommended TASK 012: Favorites and saved-items behavior. Do not start until TASK 011 is reviewed and merged.
 
 This document must be updated at the end of every future task.

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Sparkles } from "lucide-react";
+import { ArrowLeft, Search, Sparkles } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui";
 import type { ImageAsset } from "@/domain/media";
@@ -31,6 +31,10 @@ export function HomeHero({ image }: HomeHeroProps) {
             למצוא שמלה להשכרה
           </Link>
         </div>
+        <Link href="/search" className="mt-4 inline-flex min-h-11 w-fit items-center gap-2 rounded-sm text-sm font-semibold text-primary underline-offset-4 hover:underline">
+          <Search aria-hidden="true" className="size-4" />
+          חיפוש ממוקד ב־FoundHer
+        </Link>
       </div>
       <div className="relative min-h-[24rem] bg-surface sm:min-h-[32rem] lg:min-h-[38rem]">
         {image ? (
