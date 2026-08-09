@@ -39,3 +39,23 @@ export function getLooksByProductId(productId: string): readonly Look[] {
 export function getLooksByBrandId(brandId: string): readonly Look[] {
   return allLooks.filter(({ brandIds }) => brandIds.includes(brandId));
 }
+
+/** Returns related looks by shared occasion, then style and season, with stable fixture ordering. */
+export function getSimilarLooks(look: Look, limit = 3): readonly Look[] {
+  if (limit <= 0) return [];
+
+  return allLooks
+    .map((candidate, index) => ({
+      candidate,
+      index,
+      score: candidate.id === look.id
+        ? 0
+        : Number(candidate.occasions.some((value) => look.occasions.includes(value))) * 3
+          + Number(candidate.styleTags.some((value) => look.styleTags.includes(value))) * 2
+          + Number(candidate.seasonTags.some((value) => look.seasonTags.includes(value))),
+    }))
+    .filter(({ score }) => score > 0)
+    .sort((left, right) => right.score - left.score || left.index - right.index)
+    .slice(0, limit)
+    .map(({ candidate }) => candidate);
+}

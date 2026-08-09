@@ -2,7 +2,7 @@
 
 ## Project Status
 
-FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its product promise is to help women decide what to wear through complete looks and then access the purchase and rental products that create them. The codebase has a stable Next.js foundation, typed domain data, repository boundaries, a reusable design system, a modular application shell, repository-backed product discovery, and dynamic product pages.
+FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its product promise is to help women decide what to wear through complete looks and then access the purchase and rental products that create them. The codebase now includes a production-ready Looks feed, dynamic Look Details, repository-backed product composition, dynamic product pages, and a shared application shell and design system.
 
 ## Current Architecture
 
@@ -22,6 +22,8 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - First-class Look model with editorial stories, typed occasions, style tags, season tags, ordered products, and brand relationships
 - Product-first rental repository capabilities for evening, bridal, featured, and city discovery
 - Product information architecture documented in `docs/product-architecture.md`
+- Dedicated `features/looks` module with editorial cards, labels, stories, ordered products, similar looks, loading, empty, and missing states
+- Repository-backed `/looks` and statically generated `/looks/[slug]` pages with dynamic metadata
 - Legacy prototype pages and styles retained until page migration
 
 ## Completed Tasks
@@ -33,15 +35,16 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 005 — Discover Product Architecture Migration
 - TASK 006 — Dynamic Product Feature System and Product Pages
 - TASK 007 — Inspiration-First Product Realignment
+- TASK 008 — Looks Inspiration Feed and Dynamic Look Details
 
 ## Latest Commit
 
-- Current TASK 007 commit: `refactor: align FoundHer around inspiration discovery` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `135ef10` — merged TASK 006 baseline
+- Current TASK 008 commit: `feat: build Looks inspiration experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `0e764cb` — merged TASK 007 baseline
 
 ## Current Branch
 
-- `codex/task-007-product-realignment`
+- `codex/task-008-looks`
 
 ## Inspiration-First Product Decision
 
@@ -51,7 +54,19 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Rentals discovery begins with evening and bridal dresses. Rental businesses provide context after product interest and are not the landing-page feed.
 - The approved future primary mobile navigation is Home, Looks, Rentals, Favorites, and Profile.
 - Brands is a secondary entity and must not appear in primary mobile navigation. Brand discovery comes from Product pages, Look pages, curated Home sections, future search, and “more from this brand” links.
-- `/discover` remains operational but transitional until the new Looks feed and Look Details experience are complete. It should then leave primary navigation and redirect to `/looks` only after reusable product-result behavior moves to dedicated result routes.
+- `/discover` remains operational by direct URL but is no longer in primary navigation. It remains transitional until reusable product-result behavior moves to dedicated result routes.
+
+## Looks Experience
+
+- `/looks` is a Server Component that consumes `getAllLooks()` and presents an editorial Look grid rather than a product catalog.
+- `LookCard` keeps the cover dominant and limits context to one occasion, one season, a story excerpt, product count, and a separate visual-only save button.
+- `/looks/[slug]` is statically generated from repository slugs, returns `notFound()` for unknown slugs, and generates canonical, Open Graph, and Twitter metadata from the Look.
+- Look Details follows a stable hierarchy: breadcrumbs, hero and header, story, ordered linked products, and similar Looks.
+- Linked products resolve through `getProductsByIds` in configured order. Purchase items show brand and price; rental items show rental business, rental price, city, and textual commercial type.
+- Missing products are omitted safely and reported on the page; missing sellers use clear fallback labels.
+- Similar Looks scores shared occasion first, shared style second, and shared season third; excludes the current Look; preserves fixture order for ties; and returns at most three results.
+- All Look presentation remains server-rendered. The save button is intentionally visual-only and introduces no Client Component, persistence, authentication, or local storage.
+- The legacy `/looks` dependency on `PageShell` was removed. `PageShell` remains for untouched legacy screens.
 
 ## Look Domain and Repository
 
@@ -93,10 +108,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Known Technical Debt
 
-- Home, Brands, Looks, Rentals, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
+- Home, Brands, Rentals, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
 - `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
-- `/discover` remains a transitional product grid until the final Looks feed and Look Details route exist.
-- Dynamic `/looks/[slug]`, `/brands/[slug]`, and `/rental-businesses/[slug]` routes are not implemented.
+- `/discover` remains a transitional product grid retained for future search/category/product-result migration.
+- Dynamic `/brands/[slug]` and `/rental-businesses/[slug]` routes are not implemented.
 - The final rental-product-first Rentals feed is not implemented.
 - Authentication, persistence, Supabase, search, filters, and favorites behavior are not implemented.
 - The legacy stylesheet remains largely selector-based and contains hardcoded component colors, repeated prototype overrides, and compressed rules. It should be retired incrementally as pages migrate.
@@ -113,9 +128,12 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 - `npm run lint`: passes with 4 pre-existing image warnings
 - `npm run typecheck`: passes
-- `npm run build`: passes; all repository products are statically generated under `/products/[slug]`
+- `npm run build`: passes; 29 pages are generated, including 4 Look routes and 14 Product routes
 - `npm run validate:fixtures`: passes; validates 8 purchase products, 4 evening rentals, 2 bridal rentals, 4 looks, 4 brands, 2 rental businesses, and 6 categories
 - TASK 007 integrity coverage: valid Look products and brands, non-empty looks, unique slugs, typed occasion/style/season values, a mixed purchase/rental fixture, and valid rental-business references
+- TASK 008 browser validation: `/looks` and all 4 Look routes render in RTL at 375/768/1024/1440px with no horizontal overflow; one/two/three-column feed behavior; loaded images and meaningful alt text; correct metadata, breadcrumbs, heading hierarchy, product ordering, purchase/rental labels, Similar Looks, 44px save targets, visible keyboard focus, and no nested interactive controls
+- Mixed Look validation: rental and purchase items render in configured order and link to their dynamic Product pages; unknown Look slugs return HTTP 404 with `noindex`; `/discover` remains directly accessible but absent from primary navigation
+- Browser console validation: no warnings or errors were reported for the tested Looks, Product-link, invalid-slug, navigation, or transitional Discover flows
 - Product browser validation: purchase, evening-rental, and bridal-rental variants render in RTL; dynamic titles and canonical metadata resolve; external actions use safe link attributes; invalid slugs return the product 404; desktop and mobile layouts have no horizontal overflow; gallery images load with meaningful alternative text
 - Discover browser validation: 14 repository-backed products; one/two/four responsive columns at mobile/tablet/desktop; RTL; no horizontal overflow; no nested interactive elements; valid slug links; 44px favorite targets; meaningful image alt text; no console warnings or errors
 - `/design-system`: verified in desktop and mobile browser contexts, RTL, noindex/nofollow, no horizontal overflow, visible focus, accessible names, and no nested interactive elements
@@ -131,10 +149,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Git Workflow Note
 
-- TASK 001 through TASK 006 are merged into `main`. TASK 007 is developed on `codex/task-007-product-realignment`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 007 are merged into `main`. TASK 008 is developed on `codex/task-008-looks`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Build the repository-backed Looks feed and dynamic Look Details route after approving the information hierarchy and navigation switch described in `docs/product-architecture.md`.
+- Build the final rental-product-first Rentals feed after approving its product hierarchy. Do not start it until TASK 008 is reviewed and merged.
 
 This document must be updated at the end of every future task.

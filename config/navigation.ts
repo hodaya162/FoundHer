@@ -1,5 +1,4 @@
 import {
-  Compass,
   Heart,
   Home,
   LayoutGrid,
@@ -19,17 +18,15 @@ export type NavigationItem = {
 
 const navigationItems = {
   home: { label: "בית", href: "/", icon: Home },
-  discover: { label: "גילוי", href: "/discover", icon: Compass },
   looks: { label: "לוקים", href: "/looks", icon: LayoutGrid },
   rentals: { label: "השכרות", href: "/rentals", icon: WandSparkles },
   brands: { label: "מותגים", href: "/brands", icon: Store },
-  favorites: { label: "מועדפים", href: "/favorites", icon: Heart },
+  favorites: { label: "שמורים", href: "/favorites", icon: Heart },
   profile: { label: "פרופיל", href: "/profile", icon: UserRound },
 } as const satisfies Record<string, NavigationItem>;
 
 export const desktopNavigationItems = [
   navigationItems.home,
-  navigationItems.discover,
   navigationItems.looks,
   navigationItems.rentals,
   navigationItems.brands,
@@ -38,8 +35,8 @@ export const desktopNavigationItems = [
 
 export const mobileNavigationItems = [
   navigationItems.home,
-  navigationItems.discover,
   navigationItems.looks,
+  navigationItems.rentals,
   navigationItems.favorites,
   navigationItems.profile,
 ] as const;

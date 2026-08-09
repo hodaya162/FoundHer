@@ -60,11 +60,35 @@ Looks is the primary inspiration feed. Each card represents a complete outfit or
 
 Looks must not use `ProductCard` as its primary visual or collapse into a generic product grid.
 
+Implemented hierarchy:
+
+```text
+/looks
+→ Page header and editorial introduction
+→ LookGrid
+→ LookCard (cover, limited context, story excerpt, product count, visual save action)
+```
+
 ### Look Details
 
 A look detail page tells the styling story, presents the complete visual, and resolves its linked products and brands. Products must preserve the editorial order defined by `productIds`. Purchase and rental products may appear together.
 
 Look details must not duplicate product entities or replace their dedicated detail pages.
+
+Implemented hierarchy:
+
+```text
+/looks/[slug]
+→ Breadcrumbs
+→ Hero image and Look header
+→ Story
+→ Ordered product list
+→ Similar Looks
+```
+
+Look products resolve through repositories in `productIds` order. Missing products are omitted without breaking the Look, while purchase brands and rental businesses degrade to clear fallback labels when an association is unavailable.
+
+Similar Looks uses a deterministic score: shared occasion has the highest weight, followed by shared style and shared season. The current Look is excluded, fixture order breaks ties, and at most three results are returned.
 
 ### Product Details
 
@@ -181,7 +205,7 @@ Rentals is a primary mobile destination. It also remains reachable through Home 
 
 Brands is a secondary entity and must not appear in primary mobile navigation. Users reach brands through Product pages, Look pages, curated Home sections, future search, and “more from this brand” links.
 
-The current centralized navigation is intentionally unchanged in TASK 007. Removing Discover now would direct users to incomplete Looks and Rentals placeholders. Navigation should switch only when the new Looks feed is ready, and it must continue to be defined once in `config/navigation.ts`.
+TASK 008 applies this direction through the centralized `config/navigation.ts`: mobile navigation is Home, Looks, Rentals, Favorites, and Profile; desktop additionally exposes Brands. Discover is absent from primary navigation but its route remains available directly.
 
 ## Route Map
 
@@ -212,12 +236,12 @@ Only existing routes are implemented today. TASK 007 does not create placeholder
 
 ## `/discover` Migration Plan
 
-`/discover` is transitional and is not part of the future primary navigation. It must remain operational until the new Looks experience is complete.
+`/discover` is transitional and is not part of primary navigation. The new Looks feed and Look Details experience are complete, but `/discover` remains operational by direct URL until reusable product-result behavior has an approved destination.
 
 Recommended migration:
 
-1. Keep `/discover` working while the new Looks feed and Look Details experience are incomplete.
-2. Build `/looks` and `/looks/[slug]` as the primary discovery surfaces.
+1. Keep `/discover` working as a direct transitional route.
+2. Use the implemented `/looks` and `/looks/[slug]` routes as the primary discovery surfaces.
 3. Move reusable product-results behavior to future `/products`, `/search`, or `/categories/[slug]` result routes when those use cases are implemented.
 4. Redirect `/discover` to `/looks` only after navigation, links, metadata, and saved URLs have an approved migration path.
 
@@ -225,7 +249,7 @@ This avoids destructive route removal and preserves the existing Product Feature
 
 ## Deferred Capabilities
 
-- final Home, Looks, Look Details, and Rentals interfaces
+- final Home and Rentals interfaces
 - search, filtering, sorting, and pagination
 - favorites persistence
 - authentication and profile personalization
@@ -234,5 +258,5 @@ This avoids destructive route removal and preserves the existing Product Feature
 
 ## Decisions Required Before the Next Task
 
-- Approve the first Look card and Look Details information hierarchy before final UI implementation.
+- Approve the product hierarchy for the rental-first `/rentals` feed before its final UI implementation.
 - Confirm that `/discover` should ultimately redirect to `/looks` after product-result routes have been separated.
