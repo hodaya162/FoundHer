@@ -1,6 +1,7 @@
 import {
   getBridalRentalProducts,
   getEveningRentalProducts,
+  getFeaturedRentalProducts,
   getOtherRentalProductsByBusinessId,
   getRentalProducts,
 } from "@/lib/repositories/products.repository";
@@ -23,6 +24,10 @@ export function getRentalCards(filter: RentalTypeFilter = "all"): readonly Renta
       : getRentalProducts();
 
   return products.map(createRentalCardModel);
+}
+
+export function getFeaturedRentalCards(): readonly RentalCardModel[] {
+  return getFeaturedRentalProducts().map(createRentalCardModel);
 }
 
 export function getOtherRentalCardsByBusinessId(
