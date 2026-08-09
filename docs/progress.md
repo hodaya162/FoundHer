@@ -2,7 +2,7 @@
 
 ## Project Status
 
-FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its product promise is to help women decide what to wear through complete looks and then access the purchase and rental products that create them. The codebase now includes production-ready Looks and rental-dress discovery feeds, dynamic Look, Product, and Rental Business pages, repository-backed composition, and a shared application shell and design system.
+FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its product promise is to help women decide what to wear through complete looks and then access the purchase and rental products that create them. The codebase now includes a final inspiration-first Home, production-ready Looks and rental-dress discovery feeds, dynamic Look, Product, and Rental Business pages, repository-backed composition, and a shared application shell and design system.
 
 ## Current Architecture
 
@@ -24,6 +24,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Product information architecture documented in `docs/product-architecture.md`
 - Dedicated `features/looks` module with editorial cards, labels, stories, ordered products, similar looks, loading, empty, and missing states
 - Repository-backed `/looks` and statically generated `/looks/[slug]` pages with dynamic metadata
+- Dedicated `features/home` editorial composition with typed occasion entry points and reused Look, Rental, Brand, and Product presentation
 - Legacy prototype pages and styles retained until page migration
 
 ## Completed Tasks
@@ -37,15 +38,31 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 007 — Inspiration-First Product Realignment
 - TASK 008 — Looks Inspiration Feed and Dynamic Look Details
 - TASK 009 — Rental Dress Discovery and Dynamic Rental Business Pages
+- TASK 010 — Final Inspiration-First Home Experience
 
 ## Latest Commit
 
-- Current TASK 009 commit: `feat: build rental dress discovery experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `6940841` — merged TASK 008 baseline
+- Current TASK 010 commit: `feat: build inspiration-first Home experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `6a39c75` — merged TASK 009 baseline
 
 ## Current Branch
 
-- `codex/task-009-rentals`
+- `codex/task-010-home`
+
+## Home Experience
+
+- `/` is now FoundHer's final editorial entry point and asks the primary product question: “What do you feel like wearing today?”
+- Its hierarchy is Hero, typed occasion entries, featured Looks, featured Rentals, selected Brands, selected purchase Products, and one final editorial Looks invitation.
+- Home is curated and limited. It displays at most three Looks, three rental dresses, three brands, and four purchase products; complete discovery remains in the dedicated domain routes.
+- `HomeHero` uses the first featured Look cover from the Look repository, one primary CTA to Looks, and one secondary CTA to Rentals.
+- All eight occasion entries reuse `LookOccasion` identifiers and curated local imagery. They link honestly to `/looks` until a future server-side occasion result flow is approved.
+- Featured Looks reuse `LookGrid`; featured Rentals reuse `RentalGrid`; selected Products reuse `ProductGrid`. Home does not duplicate domain cards.
+- Brands are editorial, non-interactive cards because `/brands/[slug]` is not implemented. One section action leads to the existing `/brands` route and the limitation is stated on the page.
+- Curated sections disappear when their repository results are empty instead of producing repeated empty states.
+- Home content is composed through existing repositories and narrow feature queries. No fixtures are imported by the page or Home feature.
+- The old quick links, category array, hardcoded product array, fake search, promo markup, compact cards, old Look strip, `<img>` elements, and Home-only CSS were removed.
+- Legacy PageShell, masonry, Brands, Favorites, Profile, and transitional Discover styles remain intentionally untouched.
+- TASK 010 introduces zero Client Components and no carousel, search, state library, authentication, persistence, Supabase, or new dependency.
 
 ## Rentals Experience
 
@@ -123,7 +140,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Known Technical Debt
 
-- Home, Brands, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
+- Brands, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
 - `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
 - `/discover` remains a transitional product grid retained for future search/category/product-result migration.
 - Dynamic `/brands/[slug]` routes are not implemented.
@@ -133,24 +150,26 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Remaining Warnings
 
-- ESLint reports 4 existing `@next/next/no-img-element` warnings in untouched legacy pages. TASK 006 introduces no warnings and uses `next/image` for product galleries.
+- ESLint reports 1 existing `@next/next/no-img-element` warning in the untouched legacy `PageShell`. TASK 010 removes the three former Home warnings and uses `next/image` throughout.
 - `npm audit` reports 6 vulnerable dependency entries: 5 high and 1 low.
   - Production: direct `next@16.2.6` and transitive `postcss`/`sharp` advisories. Recommended action: review and upgrade Next.js to at least `16.2.12` in a dedicated dependency update, then run the full validation suite.
   - Development/transitive tooling: `@babel/core` (low), `brace-expansion` (high), and `js-yaml` (high). Recommended action: update the parent lint/build tooling through normal dependency upgrades and re-run `npm audit`; do not force resolutions without compatibility testing.
 
 ## Validation Status
 
-- `npm run lint`: passes with 4 pre-existing image warnings
+- `npm run lint`: passes with 1 pre-existing image warning in the untouched legacy `PageShell`
 - `npm run typecheck`: passes
-- `npm run build`: passes; 29 pages are generated, including 4 Look routes and 14 Product routes
+- `npm run build`: passes; 31 pages are generated, including 4 Look routes, 14 Product routes, and 2 Rental Business routes
 - `npm run validate:fixtures`: passes; validates 8 purchase products, 4 evening rentals, 2 bridal rentals, 4 looks, 4 brands, 2 rental businesses, and 6 categories
 - TASK 007 integrity coverage: valid Look products and brands, non-empty looks, unique slugs, typed occasion/style/season values, a mixed purchase/rental fixture, and valid rental-business references
 - TASK 008 browser validation: `/looks` and all 4 Look routes render in RTL at 375/768/1024/1440px with no horizontal overflow; one/two/three-column feed behavior; loaded images and meaningful alt text; correct metadata, breadcrumbs, heading hierarchy, product ordering, purchase/rental labels, Similar Looks, 44px save targets, visible keyboard focus, and no nested interactive controls
 - TASK 009 validation: `/rentals` renders 6 repository-backed rental dresses and its server-rendered type filters return 4 evening or 2 bridal results. Cards render in one/two/three columns at 375/768/1024/1440px with no horizontal overflow, loaded images, textual rental types, 44px filter targets, and visible keyboard focus.
+- TASK 010 Home validation: `/` renders one h1 and the approved editorial hierarchy in RTL at 375/768/1024/1440px with no horizontal overflow. Occasion cards render in two/four columns; Looks and Rentals render in one/two/three columns; Products render in one/two/four columns; Brands render in one/three columns.
+- Home journey validation: Hero CTAs, occasion entries, featured Look, featured rental dress, Brands action, and selected Product links were followed to their real routes. All 25 Home images load after lazy scrolling; bottom navigation reserves 72px on mobile; keyboard focus is visible; canonical metadata resolves; no nested interactive controls or console errors were found.
 - Rental Product validation: evening and bridal variants expose the correct price, city, sizes, type, business link, and safe external availability URL. “More from this business” excludes the current product, preserves repository order, and remains limited to three results.
 - Rental Business validation: both configured routes render one h1, safe contact actions, loaded cover/logo/product images, dress-first collections, canonical metadata, RTL, and no nested interactive elements. Unknown business slugs return HTTP 404 with `noindex`.
 - Mixed Look validation: rental and purchase items render in configured order and link to their dynamic Product pages; unknown Look slugs return HTTP 404 with `noindex`; `/discover` remains directly accessible but absent from primary navigation
-- Browser console validation: no warnings or errors were reported for the tested Looks, Product-link, invalid-slug, navigation, or transitional Discover flows
+- Browser console validation: no warnings or errors were reported for the tested Home, Looks, Rentals, Product-link, invalid-slug, navigation, or transitional Discover flows
 - Product browser validation: purchase, evening-rental, and bridal-rental variants render in RTL; dynamic titles and canonical metadata resolve; external actions use safe link attributes; invalid slugs return the product 404; desktop and mobile layouts have no horizontal overflow; gallery images load with meaningful alternative text
 - Discover browser validation: 14 repository-backed products; one/two/four responsive columns at mobile/tablet/desktop; RTL; no horizontal overflow; no nested interactive elements; valid slug links; 44px favorite targets; meaningful image alt text; no console warnings or errors
 - `/design-system`: verified in desktop and mobile browser contexts, RTL, noindex/nofollow, no horizontal overflow, visible focus, accessible names, and no nested interactive elements
@@ -166,10 +185,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Git Workflow Note
 
-- TASK 001 through TASK 008 are merged into `main`. TASK 009 is developed on `codex/task-009-rentals`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 009 are merged into `main`. TASK 010 is developed on `codex/task-010-home`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Recommended TASK 010: define and build the next inspiration-first surface, with Brand discovery or final Home remaining the primary product decision. Do not start until TASK 009 is reviewed and merged.
+- Recommended TASK 011: choose between global Search and saved-items persistence as the next MVP capability. Do not start until TASK 010 is reviewed and merged.
 
 This document must be updated at the end of every future task.

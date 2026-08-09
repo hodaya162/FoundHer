@@ -212,6 +212,33 @@ Recommended Hebrew labels:
 
 Color may reinforce state but must never be the only signal.
 
+## Home Editorial Architecture
+
+The root `/` route is FoundHer's editorial entry point. It answers “what should I wear?” by directing the user into the most relevant journey rather than reproducing a catalog.
+
+The implemented hierarchy is intentional:
+
+```text
+Primary question and Looks CTA
+-> occasion entry points
+-> featured Looks
+-> featured rental dresses
+-> selected brands
+-> selected purchase products
+-> editorial Looks CTA
+```
+
+- Home is curated, limited, directional, and mixes content types. It never renders a complete domain feed.
+- Looks remains the full inspiration feed and appears before every commerce-oriented section.
+- Rentals remains the full dress-first rental destination; Home shows only three featured rental dresses.
+- Products remain supporting items; Home shows at most four featured purchase products and does not recreate Discover.
+- Brands remain secondary. Because dynamic Brand Details are not implemented, Home presents brands editorially and provides one honest route to `/brands` rather than fake per-brand links.
+- All eight occasion entries use existing typed `LookOccasion` values. They currently link safely to `/looks` because occasion filtering is not implemented; their typed architecture is ready for a future query-param experience.
+- Home composes Looks, Rentals, Brands, and Products through their existing repositories and presentation features. It has no fixture imports and no generic Home repository.
+- The Hero is the only new above-the-fold priority image. Occasion and content images use responsive `next/image` without unnecessary priority loading.
+- Empty curated collections are omitted instead of filling the editorial page with repeated empty-state boxes.
+- TASK 010 introduces no Client Components, carousel, search UI, state manager, authentication, persistence, or remote data access.
+
 ## Navigation Direction
 
 Recommended future mobile navigation:
@@ -272,7 +299,6 @@ This avoids destructive route removal and preserves the existing Product Feature
 
 ## Deferred Capabilities
 
-- final Home interface
 - search, filtering, sorting, and pagination
 - favorites persistence
 - authentication and profile personalization
@@ -281,5 +307,6 @@ This avoids destructive route removal and preserves the existing Product Feature
 
 ## Decisions Required Before the Next Task
 
-- Approve the product hierarchy for the rental-first `/rentals` feed before its final UI implementation.
+- Choose whether TASK 011 should prioritize global Search or saved-items persistence.
+- Decide when dynamic Brand Details should replace the transitional `/brands` destination.
 - Confirm that `/discover` should ultimately redirect to `/looks` after product-result routes have been separated.
