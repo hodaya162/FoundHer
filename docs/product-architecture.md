@@ -46,6 +46,28 @@ Search
 
 Search is implemented as a dedicated, unified MVP route. It complements the inspiration-first journeys without replacing Home, Looks, or Rentals.
 
+```text
+Any Look, Product, Rental or Brand card
+→ Save with the shared FavoriteButton
+→ Favorites
+→ Return to the original Look or Product journey
+```
+
+Favorites are an MVP personal collection. They preserve stable entity references only; they do not duplicate repository data or change the Product type model.
+
+## Favorites Architecture
+
+- A favorite reference contains only `entityType` (`look`, `product`, or `brand`) and a stable `entityId`.
+- Rental dresses use the `product` favorite entity. Their placement in the Rentals category is derived from the existing Product discriminated union, never from a duplicated `isRental` flag.
+- `FavoriteButton` is the shared interactive primitive. Existing Look and Product wrappers retain entity-specific placement while delegating state, accessibility, and persistence to the shared component.
+- Cards and detail pages remain server rendered. `FavoriteButton` and the interactive collection on `/favorites` are the only Favorites client islands.
+- The browser storage adapter owns safe parsing, validation, deduplication, serialization, and unavailable-storage behavior. UI components never call `localStorage` directly.
+- The service exposes `getFavorites`, `isFavorite`, `addFavorite`, `removeFavorite`, `toggleFavorite`, and subscription behavior. Same-page instances synchronize through the service, while browser tabs synchronize through the native `storage` event.
+- `/favorites` receives current Look, Product, Rental, and Brand data from repository-backed server composition, then resolves locally saved references inside its focused client island.
+- Brand references can be saved from curated Home cards and Search. Saved Brands remain non-linking until dynamic Brand routes exist.
+
+Local browser persistence is an MVP implementation, not the final multi-device solution. A future authenticated implementation can replace `LocalFavoritesStorage` with a Supabase-backed adapter while preserving the reference model and shared UI contract. Server-side user favorites can then be resolved through repositories before rendering, reducing the `/favorites` client boundary further.
+
 ## Screen Responsibilities
 
 ### Home

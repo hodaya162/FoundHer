@@ -1,0 +1,127 @@
+"use client";
+
+import Link from "next/link";
+import { Heart } from "lucide-react";
+import { useState } from "react";
+
+import { buttonVariants, EmptyState } from "@/components/ui";
+import type { Brand } from "@/domain/brand";
+import type { Look } from "@/domain/look";
+import { LookGrid } from "@/features/looks/components";
+import { ProductGrid } from "@/features/products/components";
+import type { PurchaseProductCard } from "@/features/products/types/product-card";
+import { RentalGrid } from "@/features/rentals/components";
+import type { RentalCardModel } from "@/features/rentals/types/rental-card";
+import { cn } from "@/lib/utils";
+
+import { useFavorites } from "../hooks/use-favorites";
+import type { FavoriteEntityType } from "../types/favorite";
+import { FavoriteBrandCard } from "./favorite-brand-card";
+
+type FavoriteCategory = "all" | "looks" | "products" | "rentals" | "brands";
+
+type Props = {
+  looks: readonly Look[];
+  products: readonly PurchaseProductCard[];
+  rentals: readonly RentalCardModel[];
+  brands: readonly Brand[];
+};
+
+const categories: readonly { id: FavoriteCategory; label: string }[] = [
+  { id: "all", label: "הכול" },
+  { id: "looks", label: "לוקים" },
+  { id: "products", label: "פריטים" },
+  { id: "rentals", label: "השכרות" },
+  { id: "brands", label: "מותגים" },
+];
+
+function EmptyFavorites() {
+  return (
+    <EmptyState
+      icon={<Heart />}
+      title="עדיין לא שמרת כלום"
+      description="כשמשהו מוצא חן בעינייך, לחצי על הלב והוא יחכה לך כאן."
+      action={(
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link href="/looks" className={buttonVariants()}>ללוקים</Link>
+          <Link href="/rentals" className={buttonVariants({ variant: "secondary" })}>להשכרות</Link>
+        </div>
+      )}
+    />
+  );
+}
+
+function CategoryEmpty({ category }: { category: Exclude<FavoriteCategory, "all"> }) {
+  const labels: Record<typeof category, string> = {
+    looks: "אין עדיין לוקים שמורים",
+    products: "אין עדיין פריטים שמורים",
+    rentals: "אין עדיין השכרות שמורות",
+    brands: "אין עדיין מותגים שמורים",
+  };
+  return <EmptyState icon={<Heart />} title={labels[category]} description="אפשר לשמור בכל רגע באמצעות כפתור הלב ולחזור לכאן." />;
+}
+
+function Section({ children, count, id, title }: { children: React.ReactNode; count: number; id: string; title: string }) {
+  return (
+    <section aria-labelledby={`favorites-${id}`} className="space-y-6">
+      <div className="flex items-end justify-between gap-4 border-b border-border pb-4">
+        <h2 id={`favorites-${id}`} className="type-section-title">{title}</h2>
+        <p className="type-caption" aria-label={`${count} פריטים`}>{count}</p>
+      </div>
+      {children}
+    </section>
+  );
+}
+
+export function FavoritesPageClient({ brands, looks, products, rentals }: Props) {
+  const [category, setCategory] = useState<FavoriteCategory>("all");
+  const references = useFavorites();
+  const ids = (type: FavoriteEntityType) => new Set(references.filter((item) => item.entityType === type).map((item) => item.entityId));
+  const lookIds = ids("look");
+  const productIds = ids("product");
+  const brandIds = ids("brand");
+  const savedLooks = looks.filter((look) => lookIds.has(look.id));
+  const savedProducts = products.filter((product) => productIds.has(product.id));
+  const savedRentals = rentals.filter((product) => productIds.has(product.id));
+  const savedBrands = brands.filter((brand) => brandIds.has(brand.id));
+  const total = savedLooks.length + savedProducts.length + savedRentals.length + savedBrands.length;
+
+  const section = (id: Exclude<FavoriteCategory, "all">) => category === "all" || category === id;
+
+  return (
+    <>
+      <div aria-label="סינון שמורים" className="mb-10 flex gap-2 overflow-x-auto pb-2" role="group">
+        {categories.map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            aria-pressed={category === item.id}
+            onClick={() => setCategory(item.id)}
+            className={cn("min-h-11 shrink-0 rounded-full border px-5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", category === item.id ? "border-primary bg-primary text-white" : "border-border bg-surface hover:bg-surface-muted")}
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
+
+      {total === 0 ? <EmptyFavorites /> : (
+        <div className="space-y-14">
+          {section("looks") && savedLooks.length > 0 ? <Section id="looks" title="לוקים שמורים" count={savedLooks.length}><LookGrid looks={savedLooks} headingLevel={3} /></Section> : null}
+          {section("products") && savedProducts.length > 0 ? <Section id="products" title="פריטים שמורים" count={savedProducts.length}><ProductGrid products={savedProducts} priorityCount={1} /></Section> : null}
+          {section("rentals") && savedRentals.length > 0 ? <Section id="rentals" title="השכרות שמורות" count={savedRentals.length}><RentalGrid products={savedRentals} /></Section> : null}
+          {section("brands") && savedBrands.length > 0 ? (
+            <Section id="brands" title="מותגים שמורים" count={savedBrands.length}>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{savedBrands.map((brand) => <FavoriteBrandCard key={brand.id} brand={brand} />)}</div>
+            </Section>
+          ) : null}
+          {category !== "all" && (
+            (category === "looks" && savedLooks.length === 0)
+            || (category === "products" && savedProducts.length === 0)
+            || (category === "rentals" && savedRentals.length === 0)
+            || (category === "brands" && savedBrands.length === 0)
+          ) ? <CategoryEmpty category={category} /> : null}
+        </div>
+      )}
+    </>
+  );
+}

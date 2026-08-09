@@ -1,18 +1,17 @@
-import { Heart } from "lucide-react";
+import { FavoriteButton } from "@/features/favorites";
 
-import { IconButton } from "@/components/ui";
+type LookSaveButtonProps = {
+  lookId: string;
+  lookTitle: string;
+  className?: string;
+};
 
-type LookSaveButtonProps = { lookTitle: string; className?: string };
-
-/** Visual-only until favorites persistence is implemented. */
-export function LookSaveButton({ className, lookTitle }: LookSaveButtonProps) {
+export function LookSaveButton({ className, lookId, lookTitle }: LookSaveButtonProps) {
   return (
-    <IconButton
-      aria-label={`שמירת הלוק ${lookTitle}`}
-      aria-pressed="false"
+    <FavoriteButton
+      reference={{ entityType: "look", entityId: lookId }}
+      entityLabel={`הלוק ${lookTitle}`}
       className={className}
-    >
-      <Heart aria-hidden="true" />
-    </IconButton>
+    />
   );
 }

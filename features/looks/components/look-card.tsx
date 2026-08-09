@@ -23,7 +23,7 @@ export function LookCard({ headingLevel = 2, look, priority = false }: LookCardP
         <Link href={href} className="group/image block" aria-label={`פתיחת הלוק ${look.title}`}>
           <LookCoverImage image={look.coverImage} priority={priority} />
         </Link>
-        <LookSaveButton lookTitle={look.title} className="absolute end-3 top-3 bg-surface/95 shadow-sm" />
+        <LookSaveButton lookId={look.id} lookTitle={look.title} className="absolute end-3 top-3 bg-surface/95 shadow-sm" />
       </div>
       <div className="space-y-3 px-1 pb-2 pt-4">
         <div className="flex items-center justify-between gap-3">
