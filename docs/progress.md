@@ -2,7 +2,7 @@
 
 ## Project Status
 
-FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its product promise is to help women decide what to wear through complete looks and then access the purchase and rental products that create them. The codebase now includes a production-ready Looks feed, dynamic Look Details, repository-backed product composition, dynamic product pages, and a shared application shell and design system.
+FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its product promise is to help women decide what to wear through complete looks and then access the purchase and rental products that create them. The codebase now includes production-ready Looks and rental-dress discovery feeds, dynamic Look, Product, and Rental Business pages, repository-backed composition, and a shared application shell and design system.
 
 ## Current Architecture
 
@@ -36,15 +36,30 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 006 — Dynamic Product Feature System and Product Pages
 - TASK 007 — Inspiration-First Product Realignment
 - TASK 008 — Looks Inspiration Feed and Dynamic Look Details
+- TASK 009 — Rental Dress Discovery and Dynamic Rental Business Pages
 
 ## Latest Commit
 
-- Current TASK 008 commit: `feat: build Looks inspiration experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `0e764cb` — merged TASK 007 baseline
+- Current TASK 009 commit: `feat: build rental dress discovery experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `6940841` — merged TASK 008 baseline
 
 ## Current Branch
 
-- `codex/task-008-looks`
+- `codex/task-009-rentals`
+
+## Rentals Experience
+
+- `/rentals` is a rental-product-first Server Component and no longer imports the legacy `PageShell`.
+- The feed is composed through typed repository helpers and dedicated `features/rentals` presentation models; routes and components never import fixture arrays.
+- All, evening, and bridal filters are real server-rendered links backed by the discriminated Product type. Unknown filter values fall back safely to all products.
+- City, size, price, and style controls are visibly disabled and labelled as future capabilities, avoiding fake dropdown behavior or client state.
+- Rental cards prioritize the dress image, textual rental type, rental price, city, rental business, and the path to the dynamic Product page.
+- Rental Product pages retain the existing gallery, sizes, description, price, city, type, and safe external availability CTA. Their breadcrumbs now return to Rentals, and rental-business context includes city and a route to the business page.
+- “More from this business” excludes the current product, preserves repository order, limits results to three, and links both dresses and the business destination.
+- `/rental-businesses/[slug]` is statically generated from repository slugs, has dynamic canonical/Open Graph/Twitter metadata, and returns a real 404 for unknown slugs.
+- Rental Business pages display a cover, identity, city, available contact actions, and a dress-first collection. A business with no products receives a shared empty state.
+- Missing rental-business relationships use safe fallback copy and omit related-business UI rather than crashing.
+- TASK 009 introduces no Client Components, authentication, persistence, Supabase, live availability, advanced filtering, booking, location, rating, or review behavior.
 
 ## Inspiration-First Product Decision
 
@@ -108,11 +123,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Known Technical Debt
 
-- Home, Brands, Rentals, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
+- Home, Brands, Favorites, and Profile still contain legacy prototype presentation or hardcoded data.
 - `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
 - `/discover` remains a transitional product grid retained for future search/category/product-result migration.
-- Dynamic `/brands/[slug]` and `/rental-businesses/[slug]` routes are not implemented.
-- The final rental-product-first Rentals feed is not implemented.
+- Dynamic `/brands/[slug]` routes are not implemented.
 - Authentication, persistence, Supabase, search, filters, and favorites behavior are not implemented.
 - The legacy stylesheet remains largely selector-based and contains hardcoded component colors, repeated prototype overrides, and compressed rules. It should be retired incrementally as pages migrate.
 - The project does not yet have unit, integration, or end-to-end test suites.
@@ -132,6 +146,9 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - `npm run validate:fixtures`: passes; validates 8 purchase products, 4 evening rentals, 2 bridal rentals, 4 looks, 4 brands, 2 rental businesses, and 6 categories
 - TASK 007 integrity coverage: valid Look products and brands, non-empty looks, unique slugs, typed occasion/style/season values, a mixed purchase/rental fixture, and valid rental-business references
 - TASK 008 browser validation: `/looks` and all 4 Look routes render in RTL at 375/768/1024/1440px with no horizontal overflow; one/two/three-column feed behavior; loaded images and meaningful alt text; correct metadata, breadcrumbs, heading hierarchy, product ordering, purchase/rental labels, Similar Looks, 44px save targets, visible keyboard focus, and no nested interactive controls
+- TASK 009 validation: `/rentals` renders 6 repository-backed rental dresses and its server-rendered type filters return 4 evening or 2 bridal results. Cards render in one/two/three columns at 375/768/1024/1440px with no horizontal overflow, loaded images, textual rental types, 44px filter targets, and visible keyboard focus.
+- Rental Product validation: evening and bridal variants expose the correct price, city, sizes, type, business link, and safe external availability URL. “More from this business” excludes the current product, preserves repository order, and remains limited to three results.
+- Rental Business validation: both configured routes render one h1, safe contact actions, loaded cover/logo/product images, dress-first collections, canonical metadata, RTL, and no nested interactive elements. Unknown business slugs return HTTP 404 with `noindex`.
 - Mixed Look validation: rental and purchase items render in configured order and link to their dynamic Product pages; unknown Look slugs return HTTP 404 with `noindex`; `/discover` remains directly accessible but absent from primary navigation
 - Browser console validation: no warnings or errors were reported for the tested Looks, Product-link, invalid-slug, navigation, or transitional Discover flows
 - Product browser validation: purchase, evening-rental, and bridal-rental variants render in RTL; dynamic titles and canonical metadata resolve; external actions use safe link attributes; invalid slugs return the product 404; desktop and mobile layouts have no horizontal overflow; gallery images load with meaningful alternative text
@@ -149,10 +166,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Git Workflow Note
 
-- TASK 001 through TASK 007 are merged into `main`. TASK 008 is developed on `codex/task-008-looks`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 008 are merged into `main`. TASK 009 is developed on `codex/task-009-rentals`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Build the final rental-product-first Rentals feed after approving its product hierarchy. Do not start it until TASK 008 is reviewed and merged.
+- Recommended TASK 010: define and build the next inspiration-first surface, with Brand discovery or final Home remaining the primary product decision. Do not start until TASK 009 is reviewed and merged.
 
 This document must be updated at the end of every future task.

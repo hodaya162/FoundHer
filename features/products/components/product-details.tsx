@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { PageContainer } from "@/components/layout";
 
 import type { ProductDetails as ProductDetailsModel } from "../types/product-details";
@@ -16,13 +18,14 @@ import { ProductSizes } from "./product-sizes";
 
 export type ProductDetailsProps = {
   product: ProductDetailsModel;
+  relatedContent?: ReactNode;
 };
 
-export function ProductDetails({ product }: ProductDetailsProps) {
+export function ProductDetails({ product, relatedContent }: ProductDetailsProps) {
   return (
     <main>
       <PageContainer className="pb-16 sm:pb-24">
-        <ProductBreadcrumbs productName={product.name} />
+        <ProductBreadcrumbs productName={product.name} productType={product.type} />
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.85fr)] lg:gap-12">
           <ProductGallery images={product.images} productName={product.name} />
           {product.type === "purchase" ? (
@@ -31,6 +34,7 @@ export function ProductDetails({ product }: ProductDetailsProps) {
             <RentalProductPanel product={product} />
           )}
         </div>
+        {relatedContent ? <div className="mt-16 border-t border-border pt-12 sm:mt-24 sm:pt-16">{relatedContent}</div> : null}
       </PageContainer>
     </main>
   );

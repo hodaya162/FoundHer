@@ -75,3 +75,13 @@ export function getProductsByBrandId(brandId: string): readonly PurchaseProduct[
 export function getProductsByRentalBusinessId(rentalBusinessId: string): readonly RentalProduct[] {
   return getRentalProducts().filter((product) => product.rentalBusinessId === rentalBusinessId);
 }
+
+export function getOtherRentalProductsByBusinessId(
+  rentalBusinessId: string,
+  currentProductId: string,
+  limit = 3,
+): readonly RentalProduct[] {
+  return getProductsByRentalBusinessId(rentalBusinessId)
+    .filter(({ id }) => id !== currentProductId)
+    .slice(0, Math.max(0, limit));
+}

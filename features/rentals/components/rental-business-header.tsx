@@ -1,0 +1,73 @@
+import Image from "next/image";
+import { ExternalLink, Globe, Instagram, MapPin, MessageCircle } from "lucide-react";
+
+import { buttonVariants } from "@/components/ui";
+import type { RentalBusiness } from "@/domain/rental-business";
+import { cn } from "@/lib/utils";
+
+type RentalBusinessHeaderProps = {
+  business: RentalBusiness;
+};
+
+export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
+  const actions = [
+    business.whatsappUrl
+      ? { href: business.whatsappUrl, label: "WhatsApp", icon: MessageCircle }
+      : null,
+    business.instagramUrl
+      ? { href: business.instagramUrl, label: "Instagram", icon: Instagram }
+      : null,
+    business.websiteUrl
+      ? { href: business.websiteUrl, label: "אתר", icon: Globe }
+      : null,
+  ].filter((action): action is NonNullable<typeof action> => action !== null);
+
+  return (
+    <header className="pb-12 sm:pb-16">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-card bg-surface-muted sm:aspect-[16/7]">
+        <Image
+          src={business.coverImage.url}
+          alt={business.coverImage.alt}
+          fill
+          priority
+          sizes="(max-width: 1023px) 100vw, 1200px"
+          className="object-cover"
+        />
+      </div>
+      <div className="relative mx-4 -mt-10 rounded-card border border-border bg-surface p-5 shadow-sm sm:mx-8 sm:-mt-14 sm:p-7">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
+          <div className="relative size-20 shrink-0 overflow-hidden rounded-full border-4 border-surface bg-surface-muted sm:size-24">
+            <Image src={business.logo.url} alt={business.logo.alt} fill sizes="96px" className="object-cover" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="type-label mb-2 text-primary">עסק להשכרת שמלות</p>
+            <h1 className="type-page-title">{business.name}</h1>
+            <p className="type-body mt-3 max-w-2xl text-muted">{business.description}</p>
+            <p className="type-body-small mt-3 flex items-center gap-2 text-muted">
+              <MapPin aria-hidden="true" className="size-4" />
+              {business.city}
+            </p>
+          </div>
+        </div>
+        {actions.length > 0 ? (
+          <nav aria-label={`יצירת קשר עם ${business.name}`} className="mt-6 flex flex-wrap gap-2 border-t border-border pt-5">
+            {actions.map(({ href, icon: Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${label} של ${business.name} — נפתח בחלון חדש`}
+                className={cn(buttonVariants({ variant: "secondary" }), "min-w-28")}
+              >
+                <Icon aria-hidden="true" className="size-4" />
+                {label}
+                <ExternalLink aria-hidden="true" className="size-3.5" />
+              </a>
+            ))}
+          </nav>
+        ) : null}
+      </div>
+    </header>
+  );
+}
