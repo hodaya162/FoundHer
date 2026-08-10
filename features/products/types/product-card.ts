@@ -14,7 +14,7 @@ export type PurchaseProductCard = BaseProductCard & {
   readonly type: "purchase";
   readonly price: number;
   readonly currency: Currency;
-  readonly actionLabel: "לביקור במותג";
+  readonly actionLabel: "לפרטי הפריט";
 };
 
 export type RentalProductCard = BaseProductCard & {
@@ -22,7 +22,7 @@ export type RentalProductCard = BaseProductCard & {
   readonly rentalPrice: number;
   readonly currency: Currency;
   readonly city: string;
-  readonly actionLabel: "לבדיקת זמינות";
+  readonly actionLabel: "לפרטי הפריט";
 };
 
 export type ProductCardModel = PurchaseProductCard | RentalProductCard;

@@ -125,7 +125,9 @@ export function searchFoundHer(query: string): SearchResults {
             matchedFields: match.matchedFields,
             score: match.score,
             href: `/products/${product.slug}`,
-            sellerName: brand?.name ?? "מותג לא זמין",
+            sellerName: brand
+              ? `${brand.name}${brand.isDemo ? " · תוכן לדוגמה" : ""}`
+              : "מותג לא זמין",
             price: product.price,
             currency: product.currency,
           },
@@ -162,7 +164,9 @@ export function searchFoundHer(query: string): SearchResults {
           matchedFields: match.matchedFields,
           score: match.score,
           href: `/products/${product.slug}`,
-          sellerName: business?.name ?? "עסק השכרה לא זמין",
+          sellerName: business
+            ? `${business.name}${business.isDemo ? " · תוכן לדוגמה" : ""}`
+            : "עסק השכרה לא זמין",
           city: product.city,
           rentalPrice: product.rentalPrice,
           currency: product.currency,
@@ -192,6 +196,7 @@ export function searchFoundHer(query: string): SearchResults {
         matchedFields: match.matchedFields,
         score: match.score,
         href: null,
+        isDemo: brand.isDemo,
       },
     }];
   }));
@@ -218,6 +223,7 @@ export function searchFoundHer(query: string): SearchResults {
         score: match.score,
         href: `/rental-businesses/${business.slug}`,
         city: business.city,
+        isDemo: business.isDemo,
       },
     }];
   }));

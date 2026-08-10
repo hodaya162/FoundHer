@@ -46,9 +46,13 @@ export function RentalCard({ headingLevel = 3, priority = false, product }: Rent
             <MapPin aria-hidden="true" className="size-4 shrink-0" />
             <span>{product.city}</span>
           </div>
-          <p className="type-caption">{product.rentalBusiness?.name ?? "עסק ההשכרה אינו זמין כרגע"}</p>
+          <p className="type-caption">
+            {product.rentalBusiness
+              ? `${product.rentalBusiness.name}${product.rentalBusiness.isDemo ? " · תוכן לדוגמה" : ""}`
+              : "עסק ההשכרה אינו זמין כרגע"}
+          </p>
           <Link href={href} className="mt-auto inline-flex min-h-11 items-center justify-between gap-3 border-t border-border pt-3 text-sm font-semibold text-primary">
-            פרטים ובדיקת זמינות
+            לפרטי השמלה
             <ArrowLeft aria-hidden="true" className="size-4" />
           </Link>
         </CardContent>

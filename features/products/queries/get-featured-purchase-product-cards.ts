@@ -16,6 +16,6 @@ export function getFeaturedPurchaseProductCards(): readonly PurchaseProductCard[
       return [];
     }
 
-    return [createProductCardModel(product, brand.name)];
+    return [createProductCardModel(product, brand.isDemo ? `${brand.name} · תוכן לדוגמה` : brand.name)];
   });
 }

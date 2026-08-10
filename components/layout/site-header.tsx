@@ -1,4 +1,4 @@
-import { Search, UserRound } from "lucide-react";
+import { Search } from "lucide-react";
 import Link from "next/link";
 
 import { PageContainer } from "./page-container";
@@ -20,13 +20,6 @@ export function SiteHeader() {
             className="inline-grid size-11 place-items-center rounded-full text-foreground transition-colors hover:bg-surface-muted [&_svg]:size-5"
           >
             <Search aria-hidden="true" />
-          </Link>
-          <Link
-            href="/profile"
-            aria-label="פרופיל"
-            className="hidden size-11 place-items-center rounded-full text-foreground transition-colors hover:bg-surface-muted md:inline-grid [&_svg]:size-5"
-          >
-            <UserRound aria-hidden="true" />
           </Link>
         </nav>
       </PageContainer>

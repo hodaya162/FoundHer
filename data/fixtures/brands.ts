@@ -8,8 +8,7 @@ export const brands = [
     description: "בית אופנה ישראלי לשמלות צנועות בגזרות נשיות ורכות.",
     logo: { id: "esti-belle-logo", url: "/images/products/embroidered-maxi-detail.jpg", alt: "לוגו זמני של Esti Belle" },
     coverImage: { id: "esti-belle-cover", url: "/images/products/embroidered-maxi-dress.jpg", alt: "קולקציית השמלות הצנועות של Esti Belle" },
-    websiteUrl: "https://example.com/brands/esti-belle",
-    instagramUrl: "https://www.instagram.com/example.esti.belle",
+    isDemo: true,
     featured: true,
   },
   {
@@ -19,7 +18,7 @@ export const brands = [
     description: "פריטים צנועים מודרניים בצבעוניות שקטה ובגזרות מדויקות.",
     logo: { id: "lidor-bar-logo", url: "/images/products/satin-headscarf.jpg", alt: "לוגו זמני של Lidor Bar" },
     coverImage: { id: "lidor-bar-cover", url: "/images/products/pleated-modest-dress.jpg", alt: "קולקציה צנועה של Lidor Bar" },
-    websiteUrl: "https://example.com/brands/lidor-bar",
+    isDemo: true,
     featured: true,
   },
   {
@@ -29,8 +28,7 @@ export const brands = [
     description: "שכבות, טקסטורות ופריטי בסיס לארון צנוע ורב-שימושי.",
     logo: { id: "shosh-designs-logo", url: "/images/products/layered-neutral-set.jpg", alt: "לוגו זמני של Shosh Designs" },
     coverImage: { id: "shosh-designs-cover", url: "/images/products/flowing-a-line-skirt.jpg", alt: "סט שכבות צנוע של Shosh Designs" },
-    websiteUrl: "https://example.com/brands/shosh-designs",
-    instagramUrl: "https://www.instagram.com/example.shosh.designs",
+    isDemo: true,
     featured: false,
   },
   {
@@ -40,8 +38,7 @@ export const brands = [
     description: "חייטות רכה ואלגנטיות מינימליסטית לנשים שאוהבות קווים נקיים.",
     logo: { id: "naya-studio-logo", url: "/images/products/soft-tailored-blouse.jpg", alt: "לוגו זמני של Naya Studio" },
     coverImage: { id: "naya-studio-cover", url: "/images/products/tailored-midi-dress.jpg", alt: "שמלה מחויטת צנועה של Naya Studio" },
-    websiteUrl: "https://example.com/brands/naya-studio",
-    instagramUrl: "https://www.instagram.com/example.naya.studio",
+    isDemo: true,
     featured: true,
   },
 ] as const satisfies readonly Brand[];

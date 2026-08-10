@@ -7,7 +7,8 @@ export type Brand = {
   readonly description: string;
   readonly logo: ImageAsset;
   readonly coverImage: ImageAsset;
-  readonly websiteUrl: string;
+  readonly websiteUrl?: string;
   readonly instagramUrl?: string;
+  readonly isDemo: boolean;
   readonly featured: boolean;
 };

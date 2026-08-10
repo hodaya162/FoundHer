@@ -42,7 +42,11 @@ export function ProductDetails({ product, relatedContent }: ProductDetailsProps)
 function PurchaseProductPanel({ product }: { product: Extract<ProductDetailsModel, { type: "purchase" }> }) {
   return (
     <aside aria-label={`פרטי ${product.name}`} className="space-y-6 lg:sticky lg:top-[calc(var(--desktop-header-height)+1.5rem)] lg:self-start">
-      <ProductHeader name={product.name} sellerName={product.brand?.name ?? "מותג לא זמין"} type={product.type} />
+      <ProductHeader
+        name={product.name}
+        sellerName={product.brand ? (product.brand.isDemo ? `${product.brand.name} · תוכן לדוגמה` : product.brand.name) : "מותג לא זמין"}
+        type={product.type}
+      />
       <ProductPrice amount={product.price} currency={product.currency} prominent />
       <ProductDescription description={product.description} />
       <ProductSection title="מידות זמינות"><ProductSizes sizes={product.sizes} /></ProductSection>
@@ -50,7 +54,7 @@ function PurchaseProductPanel({ product }: { product: Extract<ProductDetailsMode
       <ProductSection title="המותג"><ProductBrand brand={product.brand} /></ProductSection>
       <ProductMeta items={[{ label: "סוג", value: "לרכישה" }, { label: "קטגוריה", value: product.categoryId }]} />
       <ProductActionBar type="purchase" externalUrl={product.externalUrl} productId={product.id} productName={product.name} />
-      <p className="type-caption text-center">המשך הרכישה מתבצע באתר המותג המקורי.</p>
+      {product.externalUrl ? <p className="type-caption text-center">המשך הרכישה מתבצע באתר המותג המקורי.</p> : null}
     </aside>
   );
 }
@@ -60,7 +64,9 @@ function RentalProductPanel({ product }: { product: Exclude<ProductDetailsModel,
     <aside aria-label={`פרטי ${product.name}`} className="space-y-6 lg:sticky lg:top-[calc(var(--desktop-header-height)+1.5rem)] lg:self-start">
       <ProductHeader
         name={product.name}
-        sellerName={product.rentalBusiness?.name ?? "עסק השכרה לא זמין"}
+        sellerName={product.rentalBusiness
+          ? (product.rentalBusiness.isDemo ? `${product.rentalBusiness.name} · תוכן לדוגמה` : product.rentalBusiness.name)
+          : "עסק השכרה לא זמין"}
         type={product.type}
       />
       <ProductPrice amount={product.rentalPrice} currency={product.currency} rental prominent />
@@ -75,7 +81,7 @@ function RentalProductPanel({ product }: { product: Exclude<ProductDetailsModel,
         ]}
       />
       <ProductActionBar type={product.type} availabilityUrl={product.availabilityUrl} productId={product.id} productName={product.name} />
-      <p className="type-caption text-center">בדיקת הזמינות מתבצעת מול עסק ההשכרה.</p>
+      {product.availabilityUrl ? <p className="type-caption text-center">בדיקת הזמינות מתבצעת מול עסק ההשכרה.</p> : null}
     </aside>
   );
 }

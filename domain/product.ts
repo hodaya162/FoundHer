@@ -47,7 +47,7 @@ export type PurchaseProduct = BaseProduct & {
   readonly currency: Currency;
   readonly sizes: readonly ProductSize[];
   readonly colors: readonly ProductColor[];
-  readonly externalUrl: string;
+  readonly externalUrl?: string;
 };
 
 export type RentalProduct = BaseProduct & {
@@ -57,7 +57,7 @@ export type RentalProduct = BaseProduct & {
   readonly currency: Currency;
   readonly city: string;
   readonly availableSizes: readonly ProductSize[];
-  readonly availabilityUrl: string;
+  readonly availabilityUrl?: string;
 };
 
 export type Product = PurchaseProduct | RentalProduct;

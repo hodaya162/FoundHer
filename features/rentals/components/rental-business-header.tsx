@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ExternalLink, Globe, Instagram, MapPin, MessageCircle } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui";
+import { Badge, buttonVariants } from "@/components/ui";
 import type { RentalBusiness } from "@/domain/rental-business";
 import { cn } from "@/lib/utils";
 
@@ -40,13 +40,19 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
             <Image src={business.logo.url} alt={business.logo.alt} fill sizes="96px" className="object-cover" />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="type-label mb-2 text-primary">עסק להשכרת שמלות</p>
+            <div className="mb-2 flex flex-wrap items-center gap-2">
+              <p className="type-label text-primary">עסק להשכרת שמלות</p>
+              {business.isDemo ? <Badge>תוכן לדוגמה</Badge> : null}
+            </div>
             <h1 className="type-page-title">{business.name}</h1>
             <p className="type-body mt-3 max-w-2xl text-muted">{business.description}</p>
             <p className="type-body-small mt-3 flex items-center gap-2 text-muted">
               <MapPin aria-hidden="true" className="size-4" />
               {business.city}
             </p>
+            {business.isDemo ? (
+              <p className="type-caption mt-3">העסק מוצג להמחשת המוצר בלבד; פרטי קשר לא יוצגו עד שיאומתו.</p>
+            ) : null}
           </div>
         </div>
         {actions.length > 0 ? (

@@ -11,9 +11,21 @@ export function getLookDetailsBySlug(slug: string): LookDetailsModel | undefined
 
   const products = getProductsByIds(look.productIds);
   const resolvedIds = new Set(products.map(({ id }) => id));
-  const items: LookProductItem[] = products.map((product) => product.type === "purchase"
-    ? { product, sellerName: getBrandById(product.brandId)?.name ?? null }
-    : { product, sellerName: getRentalBusinessById(product.rentalBusinessId)?.name ?? null });
+  const items: LookProductItem[] = products.map((product) => {
+    if (product.type === "purchase") {
+      const brand = getBrandById(product.brandId);
+      return {
+        product,
+        sellerName: brand ? (brand.isDemo ? `${brand.name} · תוכן לדוגמה` : brand.name) : null,
+      };
+    }
+
+    const business = getRentalBusinessById(product.rentalBusinessId);
+    return {
+      product,
+      sellerName: business ? (business.isDemo ? `${business.name} · תוכן לדוגמה` : business.name) : null,
+    };
+  });
 
   return {
     look,

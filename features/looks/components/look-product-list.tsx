@@ -14,7 +14,7 @@ export function LookProductList({ products, unresolvedCount = 0 }: LookProductLi
       <div className="mb-7 max-w-2xl">
         <p className="type-label text-primary">מרכיבות את הלוק</p>
         <h2 id="look-products-title" className="type-section-title mt-2">הפריטים בלוק</h2>
-        <p className="type-body-small mt-3 text-muted">כל פריט מוביל לעמוד המלא שלו, לרכישה או לבדיקת זמינות להשכרה.</p>
+        <p className="type-body-small mt-3 text-muted">כל פריט מוביל לעמוד המלא שלו, שבו מוצגים פרטי הרכישה או ההשכרה הזמינים.</p>
       </div>
       {products.length > 0 ? (
         <ul className="grid gap-4 lg:grid-cols-2">

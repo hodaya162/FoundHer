@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { Badge } from "@/components/ui";
 import type { Brand } from "@/domain/brand";
 
 import { FavoriteButton } from "./favorite-button";
@@ -19,9 +20,12 @@ export function FavoriteBrandCard({ brand }: { brand: Brand }) {
         <div className="absolute end-5 top-0 size-14 -translate-y-1/2 overflow-hidden rounded-full border-4 border-surface bg-surface-muted">
           <Image src={brand.logo.url} alt="" fill sizes="56px" className="object-cover" />
         </div>
-        <h3 className="type-card-title">{brand.name}</h3>
+        <div className="flex flex-wrap items-center gap-2">
+          <h3 className="type-card-title">{brand.name}</h3>
+          {brand.isDemo ? <Badge>תוכן לדוגמה</Badge> : null}
+        </div>
         <p className="type-body-small mt-2 line-clamp-2 text-muted">{brand.description}</p>
-        <p className="type-caption mt-4">עמוד מותג מלא יתווסף בהמשך.</p>
+        {brand.isDemo ? <p className="type-caption mt-4">המותג מוצג להמחשת המוצר ואינו עסק מאומת.</p> : null}
       </div>
     </article>
   );

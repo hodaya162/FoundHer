@@ -24,7 +24,7 @@ export function createProductCardModel(product: Product, sellerName: string): Pr
       featured: product.featured,
       price: product.price,
       currency: product.currency,
-      actionLabel: "לביקור במותג",
+      actionLabel: "לפרטי הפריט",
     };
   }
 
@@ -39,6 +39,6 @@ export function createProductCardModel(product: Product, sellerName: string): Pr
     rentalPrice: product.rentalPrice,
     currency: product.currency,
     city: product.city,
-    actionLabel: "לבדיקת זמינות",
+    actionLabel: "לפרטי הפריט",
   };
 }
