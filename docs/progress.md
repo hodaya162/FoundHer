@@ -53,6 +53,13 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 - `codex/task-012-favorites`
 
+## MVP Readiness Audit
+
+- TASK 013 completed a documentation-only audit of product journeys, content, navigation, legacy code, SEO, accessibility, performance, security/privacy, dependencies, testing, and deployment readiness.
+- Current status: the core curated MVP is functionally complete but is **not ready for public launch**. Launch blockers are placeholder commerce/contact destinations and fictional public entities, visible legacy Brands/Profile experiences, the placeholder canonical origin, and high-severity advisories affecting the installed Next.js version.
+- Supabase and authentication are not required for the first public MVP. Browser-local Favorites are acceptable when their one-browser limitation is disclosed.
+- The full prioritized findings, decisions, and exact launch checklist are in `docs/mvp-readiness.md`.
+
 ## Favorites Experience
 
 - `/favorites` replaces the legacy placeholder with a real personal collection and accessible filters for All, Looks, Products, Rentals, and Brands.
@@ -222,6 +229,6 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Next Planned Task
 
-- Before TASK 013, run a focused MVP readiness review to separate launch-critical gaps from work that can wait. Do not start TASK 013 without approval.
+- Recommended TASK 014: Public Surface and Content Integrity. Replace verified commerce/contact/entity data, hide the legacy Brands/Profile entry points, remove fake actions and future-facing placeholder copy, and keep incomplete records out of the public MVP.
 
 This document must be updated at the end of every future task.
