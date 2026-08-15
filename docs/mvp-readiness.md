@@ -6,11 +6,15 @@
 
 FoundHer already supports the complete discovery loop across Home, Looks, Products, Rentals, Search, and browser-local Favorites. The application builds successfully, its repository-backed routes work, and its modern surfaces have strong responsive, RTL, and accessibility foundations.
 
-The remaining work is launch hardening rather than a new product system. The public release is blocked by demo commerce destinations, fictional contact details, visible legacy experiences, a placeholder production URL, and high-severity advisories affecting the installed Next.js version. Supabase and authentication are not required to resolve these blockers or launch the first curated MVP.
+The remaining work is launch hardening rather than a new product system. The dependency-security blocker has been resolved; the public release remains blocked by the lack of verified real partner content, the placeholder production URL, and the remaining launch-readiness work documented below. Supabase and authentication are not required to resolve these blockers or launch the first curated MVP.
 
 ### TASK 014 remediation status
 
-TASK 014 removed all unverified fixture commerce/contact URLs, removed the visible legacy Brands/Profile entry points and fake actions, and explicitly labels the remaining fictional brands and rental businesses as demo content. FoundHer still requires verified real seller/business data before public launch; the placeholder production origin and dependency-security findings also remain open.
+TASK 014 removed all unverified fixture commerce/contact URLs, removed the visible legacy Brands/Profile entry points and fake actions, and explicitly labels the remaining fictional brands and rental businesses as demo content. FoundHer still requires verified real seller/business data before public launch, and the placeholder production origin remains open.
+
+### TASK 015 remediation status
+
+TASK 015 upgraded `next` and `eslint-config-next` from `16.2.6` to stable `16.3.1`, retained compatible React and React DOM `19.2.6`, and refreshed only compatible transitive dependencies. The full audit improved from 6 high and 1 low to 0 vulnerabilities; the production-only audit improved from 4 high to 0. Clean install, all existing tests, typecheck, lint, production build, and browser smoke testing passed. The dependency-security launch blocker is resolved without `npm audit fix --force`.
 
 ## Audit Scope and Evidence
 
@@ -37,7 +41,7 @@ No automatic dependency fixes were run.
 | P0 | Purchase and rental conversion links are demo destinations | `data/fixtures`, Product and Rental action bars | Purchase links use `example.com`; rental availability and social links include placeholder domains or fixture phone numbers. Users cannot complete the product's central journey safely. | Replace every public seller, availability, contact, and social URL with verified partner-owned destinations. Hide any item whose destination cannot be verified. | M, 1–3 days plus partner coordination |
 | P0 | Public content still identifies fictional/demo entities | Brand and rental-business fixtures; product relationships | A public marketplace-like experience must not imply that fictional sellers are real businesses. | Replace demo entities with approved real partners and verified copy, or label the entire release clearly as a private demo. | M, 1–3 days plus approvals |
 | P0 | Legacy Brands and Profile experiences are visible | `/brands`, `/profile`, `config/navigation.ts`, Home Brand CTA, `app/ui/page-shell.tsx` | Brands shows hardcoded product-like cards and fake controls; Profile promises account behavior that does not exist. Both create misleading, broken journeys. | Remove Brands and Profile from public navigation for MVP; remove the Home link to the legacy Brands directory; redirect or return 404/noindex for these routes until real experiences exist. Keep embedded brand references in working Looks, Products, Home, and Search. | S, 2–4 hours |
-| P0 | Installed Next.js version has high-severity advisories | `package.json`, lockfile, Next.js runtime | `next@16.2.6` is directly affected by high-severity advisories reported by the current dependency audit. This should not ship publicly when a compatible patched version is available. | Upgrade Next.js in a focused dependency task, review release compatibility, rerun every validation command, and confirm the resulting audit. Do not use a blind force fix. | S–M, 2–4 hours |
+| Resolved in TASK 015 | Installed Next.js version had high-severity advisories | `package.json`, lockfile, Next.js runtime | `next@16.2.6` and its production transitive tree were affected. | Upgraded to stable `next@16.3.1` with matching `eslint-config-next`; both full and production-only audits now report 0 vulnerabilities. | Complete |
 | P0 | Canonical production origin is a placeholder | `app/layout.tsx` and route metadata | Canonicals resolve to `https://foundher.example`, which would publish incorrect SEO identity and sharing URLs. | Centralize the site origin through validated production configuration and replace all placeholder canonicals before indexing or production release. | S, 1–2 hours |
 | P1 | Transitional Discover exposes inert filters and is indexable | `/discover`, product discovery components, Home “more products” link | The grid is useful, but its filter buttons do nothing and its canonical advertises a transitional page as a durable search surface. | Keep it temporarily accessible because it is the only all-products feed; remove/hide inert controls, apply `noindex`, keep it out of primary navigation, and later redirect it only when an equivalent product/category route exists. | S, 2–4 hours |
 | P1 | Some visible actions and copy describe unavailable behavior | Product Share action, Home future-feature copy, legacy controls | Non-functional actions reduce trust even when the primary journey works. | Remove or implement the Share action; remove future-facing filler copy and any remaining clickable-looking controls without behavior. | S, 1–3 hours |
@@ -125,7 +129,7 @@ No current performance issue alone blocks MVP. Measure mobile LCP, CLS, image tr
 - External links that open a new tab use `noopener noreferrer`.
 - Users must be told that Favorites are browser-local and may disappear when browser storage is cleared.
 
-`npm audit` reported 7 vulnerabilities:
+The TASK 013 baseline `npm audit` reported 7 vulnerabilities:
 
 | Severity | Count | Packages/area | MVP decision |
 | --- | ---: | --- | --- |
@@ -133,6 +137,8 @@ No current performance issue alone blocks MVP. Measure mobile LCP, CLS, image tr
 | High | 6 | Direct `next@16.2.6`; transitive `postcss`, `sharp`, `brace-expansion`, `js-yaml`, and `nanoid` | The direct Next.js runtime finding blocks public launch. Upgrade Next.js to the compatible patched release and re-audit. Review remaining transitive findings by runtime exposure after the upgrade; do not force resolutions blindly. |
 | Moderate | 0 | None | No blocker |
 | Low | 1 | Transitive `@babel/core` | Does not independently block MVP; update through normal supported parent dependency upgrades. |
+
+TASK 015 resolved every listed item through the compatible Next.js upgrade and reviewed transitive lockfile updates. Current results are 0 vulnerabilities for both `npm audit` and `npm audit --omit=dev`; no production or development advisory remains open.
 
 ## Smallest Additional Test Set
 
@@ -167,9 +173,9 @@ The repository is structurally suitable for Vercel: it is a standard Next.js App
 
 ## Recommended Next Three Tasks
 
-1. **TASK 014 – Public Surface and Content Integrity:** replace verified commerce/contact/entity data, hide Brands/Profile legacy entry points, remove fake actions/copy, and decide which incomplete records must remain unpublished.
-2. **TASK 015 – Dependency Security Baseline:** upgrade Next.js to the supported patched release, resolve compatible transitive updates, add appropriate baseline headers, and rerun the full validation/audit suite.
-3. **TASK 016 – SEO and Deployment Readiness:** centralize the real production origin, add sitemap/robots/indexing policy, clean up transitional Discover, add the two lightweight release tests, update README, and validate a Vercel preview.
+1. **TASK 014 – Public Surface and Content Integrity:** completed; unverified destinations are hidden and demo entities are disclosed, while verified partner data remains a launch prerequisite.
+2. **TASK 015 – Dependency Security Baseline:** completed; Next.js and compatible transitive dependencies are patched and both audits report 0 vulnerabilities.
+3. **TASK 016 – SEO and Deployment Readiness:** centralize the real production origin, add sitemap/robots/indexing policy and baseline response headers, clean up transitional Discover, add the two lightweight release tests, update README, and validate a Vercel preview.
 
 ## Exact Launch Checklist
 
@@ -185,8 +191,8 @@ The repository is structurally suitable for Vercel: it is a standard Next.js App
 
 ### Engineering and security
 
-- [ ] Next.js is upgraded to a compatible patched release.
-- [ ] `npm audit` is reviewed again with no unresolved launch-blocking runtime advisory.
+- [x] Next.js is upgraded to a compatible patched release (`16.3.1`).
+- [x] `npm audit` is reviewed again with 0 full-tree and 0 production-only vulnerabilities.
 - [ ] `npm run validate:fixtures` passes.
 - [ ] `npm run test:search` passes.
 - [ ] `npm run test:favorites` passes.
