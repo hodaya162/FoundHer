@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui";
 import type { Brand } from "@/domain/brand";
 
 export type ProductBrandProps = {
@@ -11,8 +12,12 @@ export function ProductBrand({ brand }: ProductBrandProps) {
 
   return (
     <div className="space-y-1">
-      <p className="font-semibold">{brand.name}</p>
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="font-semibold">{brand.name}</p>
+        {brand.isDemo ? <Badge>תוכן לדוגמה</Badge> : null}
+      </div>
       <p className="type-body-small text-muted">{brand.description}</p>
+      {brand.isDemo ? <p className="type-caption">המותג והפריטים מוצגים להמחשת המוצר בלבד.</p> : null}
     </div>
   );
 }

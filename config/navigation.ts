@@ -2,8 +2,6 @@ import {
   Heart,
   Home,
   LayoutGrid,
-  Store,
-  UserRound,
   WandSparkles,
   type LucideIcon,
 } from "lucide-react";
@@ -20,16 +18,13 @@ const navigationItems = {
   home: { label: "בית", href: "/", icon: Home },
   looks: { label: "לוקים", href: "/looks", icon: LayoutGrid },
   rentals: { label: "השכרות", href: "/rentals", icon: WandSparkles },
-  brands: { label: "מותגים", href: "/brands", icon: Store },
   favorites: { label: "שמורים", href: "/favorites", icon: Heart },
-  profile: { label: "פרופיל", href: "/profile", icon: UserRound },
 } as const satisfies Record<string, NavigationItem>;
 
 export const desktopNavigationItems = [
   navigationItems.home,
   navigationItems.looks,
   navigationItems.rentals,
-  navigationItems.brands,
   navigationItems.favorites,
 ] as const;
 
@@ -38,7 +33,6 @@ export const mobileNavigationItems = [
   navigationItems.looks,
   navigationItems.rentals,
   navigationItems.favorites,
-  navigationItems.profile,
 ] as const;
 
 /** Matches only the route itself or a nested path segment. The home route is exact-only. */

@@ -13,8 +13,7 @@ export const rentalBusinesses = [
       { id: "laelle-gallery-one", url: "/images/products/velvet-evening-dress.jpg", alt: "שמלת ערב צנועה בגוון קטיפה" },
       { id: "laelle-gallery-two", url: "/images/products/soft-satin-evening-dress.jpg", alt: "שמלת ערב ארוכה להשכרה" },
     ],
-    whatsappUrl: "https://wa.me/15555550101?text=FoundHer%20fixture%20availability",
-    instagramUrl: "https://www.instagram.com/example.laelle.rental",
+    isDemo: true,
     featured: true,
   },
   {
@@ -29,8 +28,7 @@ export const rentalBusinesses = [
       { id: "maison-gallery-one", url: "/images/products/classic-bridal-gown.jpg", alt: "שמלת כלה צנועה להשכרה" },
       { id: "maison-gallery-two", url: "/images/products/garden-event-dress.jpg", alt: "שמלת ערב מחויטת של Maison Noura" },
     ],
-    websiteUrl: "https://example.com/rental-businesses/maison-noura",
-    whatsappUrl: "https://wa.me/15555550102?text=FoundHer%20fixture%20booking",
+    isDemo: true,
     featured: true,
   },
 ] as const satisfies readonly RentalBusiness[];

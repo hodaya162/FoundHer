@@ -48,12 +48,14 @@ export type RentalProductSearchResult = BaseSearchResult & {
 export type BrandSearchResult = BaseSearchResult & {
   readonly entityType: "brand";
   readonly href: null;
+  readonly isDemo: boolean;
 };
 
 export type RentalBusinessSearchResult = BaseSearchResult & {
   readonly entityType: "rental_business";
   readonly href: `/rental-businesses/${string}`;
   readonly city: string;
+  readonly isDemo: boolean;
 };
 
 export type SearchResult =

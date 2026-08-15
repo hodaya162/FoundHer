@@ -28,7 +28,7 @@ export function SearchProductResult({ priority = false, result }: Props) {
           <p className="type-caption">{result.sellerName}</p>
           {rental ? <p className="type-body-small flex items-center gap-2 text-muted"><MapPin aria-hidden="true" className="size-4" />{result.city}</p> : null}
           <Link href={result.href} className="mt-auto inline-flex min-h-11 items-center justify-between gap-2 border-t border-border pt-3 text-sm font-semibold text-primary">
-            {rental ? "פרטים ובדיקת זמינות" : "לפרטי המוצר"} <ArrowLeft aria-hidden="true" className="size-4" />
+            {rental ? "לפרטי השמלה" : "לפרטי המוצר"} <ArrowLeft aria-hidden="true" className="size-4" />
           </Link>
         </CardContent>
       </Card>

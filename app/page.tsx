@@ -54,7 +54,7 @@ export default function HomePage() {
           id="home-occasions-title"
           eyebrow="מתחילות מהחיים עצמם"
           title="למה את מתלבשת?"
-          description="בחרי את הרגע שלך והמשיכי להשראה צנועה שמתאימה לו. סינון לפי אירוע יתווסף בהמשך."
+          description="בחרי את הרגע שלך והמשיכי אל אוסף הלוקים להשראה צנועה."
         >
           <OccasionGrid entries={homeOccasions} />
         </EditorialSection>

@@ -12,5 +12,6 @@ export type RentalBusiness = {
   readonly websiteUrl?: string;
   readonly whatsappUrl?: string;
   readonly instagramUrl?: string;
+  readonly isDemo: boolean;
   readonly featured: boolean;
 };

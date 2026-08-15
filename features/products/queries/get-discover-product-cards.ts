@@ -14,7 +14,7 @@ export function getDiscoverProductCards(): readonly ProductCardModel[] {
         throw new Error(`Product ${product.id} references missing brand ${product.brandId}.`);
       }
 
-      return createProductCardModel(product, brand.name);
+      return createProductCardModel(product, brand.isDemo ? `${brand.name} · תוכן לדוגמה` : brand.name);
     }
 
     const rentalBusiness = getRentalBusinessById(product.rentalBusinessId);
@@ -25,6 +25,9 @@ export function getDiscoverProductCards(): readonly ProductCardModel[] {
       );
     }
 
-    return createProductCardModel(product, rentalBusiness.name);
+    return createProductCardModel(
+      product,
+      rentalBusiness.isDemo ? `${rentalBusiness.name} · תוכן לדוגמה` : rentalBusiness.name,
+    );
   });
 }

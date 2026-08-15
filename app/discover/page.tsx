@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 
 import { PageContainer, PageHeader } from "@/components/layout";
-import { Badge, Button, buttonVariants } from "@/components/ui";
+import { buttonVariants } from "@/components/ui";
 import { ProductGrid } from "@/features/products/components";
 import { getDiscoverProductCards } from "@/features/products/queries/get-discover-product-cards";
 import { cn } from "@/lib/utils";
@@ -25,8 +25,6 @@ export const metadata: Metadata = {
 
 export default function DiscoverPage() {
   const products = getDiscoverProductCards();
-  const purchaseCount = products.filter(({ type }) => type === "purchase").length;
-  const rentalCount = products.length - purchaseCount;
 
   return (
     <main>
@@ -44,20 +42,6 @@ export default function DiscoverPage() {
             <Search aria-hidden="true" className="size-4" />
           </Link>
 
-          <div aria-label="סינון חזותי לפי סוג מוצר" className="flex gap-2 overflow-x-auto pb-1">
-            <Button size="sm" aria-pressed="true" className="shrink-0">
-              הכול <Badge className="bg-white/15 text-white">{products.length}</Badge>
-            </Button>
-            <Button size="sm" variant="secondary" aria-pressed="false" className="shrink-0">
-              לרכישה <Badge>{purchaseCount}</Badge>
-            </Button>
-            <Button size="sm" variant="secondary" aria-pressed="false" className="shrink-0">
-              להשכרה <Badge>{rentalCount}</Badge>
-            </Button>
-            <Button size="sm" variant="ghost" className="ms-auto shrink-0">
-              סינון נוסף
-            </Button>
-          </div>
         </section>
 
         <section aria-labelledby="discover-products-title">

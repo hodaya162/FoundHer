@@ -8,6 +8,10 @@ FoundHer already supports the complete discovery loop across Home, Looks, Produc
 
 The remaining work is launch hardening rather than a new product system. The public release is blocked by demo commerce destinations, fictional contact details, visible legacy experiences, a placeholder production URL, and high-severity advisories affecting the installed Next.js version. Supabase and authentication are not required to resolve these blockers or launch the first curated MVP.
 
+### TASK 014 remediation status
+
+TASK 014 removed all unverified fixture commerce/contact URLs, removed the visible legacy Brands/Profile entry points and fake actions, and explicitly labels the remaining fictional brands and rental businesses as demo content. FoundHer still requires verified real seller/business data before public launch; the placeholder production origin and dependency-security findings also remain open.
+
 ## Audit Scope and Evidence
 
 This audit reviewed the application shell, navigation, public routes, repository and fixture data, metadata, client boundaries, local persistence, legacy surfaces, deployment files, documentation, and dependency tree. Existing browser QA recorded in `docs/progress.md` was cross-checked with focused inspection of Home, Discover, Brands, Profile, Product, and Rental flows.

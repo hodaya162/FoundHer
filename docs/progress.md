@@ -18,7 +18,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Server-rendered root shell with a full desktop Header, compact mobile Header, and route-aware client navigation islands
 - Fixed, safe-area-aware mobile bottom navigation
 - Product feature module in `features/products` with typed card and detail presentation models, repository composition queries, cards, grids, a responsive gallery, purchase/rental detail panels, actions, loading, and empty states
-- Repository-backed Discover page with metadata, transitional filter controls, a real Search handoff, and `next/image`
+- Repository-backed Discover page with metadata, a real Search handoff, honest internal detail links, and `next/image`
 - First-class Look model with editorial stories, typed occasions, style tags, season tags, ordered products, and brand relationships
 - Product-first rental repository capabilities for evening, bridal, featured, and city discovery
 - Product information architecture documented in `docs/product-architecture.md`
@@ -43,15 +43,27 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 010 — Final Inspiration-First Home Experience
 - TASK 011 — Unified MVP Search Experience
 - TASK 012 — Persistent Favorites Experience
+- TASK 013 — FoundHer MVP Readiness Audit
+- TASK 014 — Launch Data & Link Integrity
 
 ## Latest Commit
 
-- Current TASK 012 commit: `feat: build persistent Favorites experience` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `f3e2ed3` — merged TASK 011 baseline
+- Current TASK 014 commit: `fix: enforce launch data and link integrity` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
+- Parent commit: `4f1bec4` — merged TASK 013 baseline
 
 ## Current Branch
 
-- `codex/task-012-favorites`
+- `codex/task-014-launch-data-links`
+
+## Launch Data and Link Integrity
+
+- TASK 014 removes every fixture purchase, rental-availability, brand, rental-business, Instagram, and WhatsApp URL that could be mistaken for a verified real destination. No replacement URL was invented.
+- Purchase and rental destination fields are now optional. Product details omit unavailable external CTAs and show an honest non-interactive explanation while preserving the working internal detail and Favorites journeys.
+- The non-functional Product Share action and the inert Discover filter buttons were removed. Product, Rental, Search, and Look cards now use honest internal-detail labels instead of implying that availability or an external seller is already verified.
+- All current Brand and Rental Business fixtures explicitly declare `isDemo: true`. Home, Search, Favorites, Product, Rental, Look, and Rental Business surfaces disclose demo status wherever those sellers appear.
+- Legacy Brands and unavailable Profile entry points were removed from desktop/mobile navigation and the desktop Header. Their direct routes now return the application 404 instead of presenting fake controls or unavailable account behavior. The Home Brands section no longer links to the legacy directory.
+- `scripts/test-link-integrity.ts` and `npm run test:links` guard external URL structure, known placeholder hosts and phone numbers, demo declarations, public navigation, and `href="#"` regressions.
+- Real purchase URLs, availability/contact destinations, verified business/brand identities, approved descriptions, logos, and image rights are still required from the project owner before those external actions can be enabled for public launch.
 
 ## MVP Readiness Audit
 
@@ -225,10 +237,10 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Git Workflow Note
 
-- TASK 001 through TASK 011 are merged into `main`. TASK 012 is developed on `codex/task-012-favorites`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 013 are merged into `main`. TASK 014 is developed on `codex/task-014-launch-data-links`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Recommended TASK 014: Public Surface and Content Integrity. Replace verified commerce/contact/entity data, hide the legacy Brands/Profile entry points, remove fake actions and future-facing placeholder copy, and keep incomplete records out of the public MVP.
+- Recommended TASK 015: Dependency Security Baseline. Upgrade Next.js through a focused compatibility-reviewed change, address supported transitive dependency updates, add appropriate baseline response headers, and rerun the full validation and audit suite.
 
 This document must be updated at the end of every future task.
