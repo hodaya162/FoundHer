@@ -280,6 +280,12 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Vercel automatically assigned the first project deployment to its Production environment despite no `--prod` flag, because it was the project's first deployment. It received only a generated `vercel.app` alias and no production origin/custom domain configuration. The second deployment is the confirmed Preview above; future deployments without `--prod` remain previews.
 - TASK 017 local verification passed: clean npm install, fixtures, Search, Favorites, link integrity, production configuration, TypeScript, lint with the one unchanged legacy `<img>` warning, a 34-route production build, and both audits at 0 vulnerabilities.
 
+## Public Preview Access Follow-up
+
+- TASK 017A confirmed that the inaccessible Preview was caused by inherited Vercel Authentication with `ssoProtection.deploymentType` set to `all_except_custom_domains`. The `found-her1/foundher` project now has `ssoProtection: null`; password protection and trusted-IP restrictions remain absent. No account-wide security control, custom domain, DNS, or production URL was changed.
+- The public Preview remains `https://foundher-3dj23v2nl-found-her1.vercel.app`. Cookie-free, unauthenticated HTTPS requests reached Home, Search, Looks, Rentals, and Favorites with `200` responses and an invalid route with `404`, without a Vercel login or password challenge. `/products` correctly returns `404` because the current product-listing route is `/discover`, not `/products`.
+- Public access did not change SEO behavior: Preview responses retain `X-Robots-Tag: noindex`, emit no canonical URL, block crawling through `/robots.txt`, and expose an empty sitemap. `NEXT_PUBLIC_SITE_URL` remains unset, so the generated Preview URL is not treated as the production origin.
+
 ## Next Planned Task
 
 - Review TASK 017 and keep using the real Preview for owner feedback. A verified production domain, approved public content/destinations, and an optional GitHub Login Connection for automatic deployments remain separate launch/automation work and must not be guessed.
