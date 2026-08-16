@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
 
 import { PageContainer, PageHeader } from "@/components/layout";
+import { siteConfig } from "@/config/site";
+import { createCanonicalUrl } from "@/config/site-url";
 import { LookGrid, LooksEmptyState } from "@/features/looks/components";
 import { getAllLooks } from "@/lib/repositories/looks.repository";
 
 const pageTitle = "לוקים והשראה";
 const pageDescription = "רעיונות שלמים ללבוש לשבת, לעבודה, לאירועים וליום־יום.";
+const canonical = createCanonicalUrl("/looks");
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  alternates: { canonical: "https://foundher.example/looks" },
+  alternates: canonical ? { canonical } : undefined,
+  robots: { index: false, follow: true },
   openGraph: {
     title: pageTitle,
     description: pageDescription,
     type: "website",
-    url: "https://foundher.example/looks",
+    locale: siteConfig.openGraphLocale,
+    siteName: siteConfig.name,
+    url: canonical,
   },
 };
 

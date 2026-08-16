@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 
 import { PageContainer, PageHeader } from "@/components/layout";
+import { siteConfig } from "@/config/site";
+import { createCanonicalUrl } from "@/config/site-url";
 import { buttonVariants } from "@/components/ui";
 import { ProductGrid } from "@/features/products/components";
 import { getDiscoverProductCards } from "@/features/products/queries/get-discover-product-cards";
@@ -10,16 +12,20 @@ import { cn } from "@/lib/utils";
 
 const pageTitle = "לגלות אופנה צנועה";
 const pageDescription = "פריטים נבחרים לרכישה ולהשכרה ממותגים ומסטודיו שמבינים אופנה צנועה.";
+const canonical = createCanonicalUrl("/discover");
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
-  alternates: { canonical: "https://foundher.example/discover" },
+  alternates: canonical ? { canonical } : undefined,
+  robots: { index: false, follow: true },
   openGraph: {
     title: pageTitle,
     description: pageDescription,
     type: "website",
-    url: "https://foundher.example/discover",
+    locale: siteConfig.openGraphLocale,
+    siteName: siteConfig.name,
+    url: canonical,
   },
 };
 

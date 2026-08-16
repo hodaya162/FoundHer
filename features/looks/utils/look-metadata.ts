@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
+import { siteConfig } from "@/config/site";
+import { createCanonicalUrl } from "@/config/site-url";
 import type { Look } from "@/domain/look";
 
-const looksCanonicalBase = "https://foundher.example/looks";
-
 export function createLookMetadata(look: Look): Metadata {
-  const canonical = `${looksCanonicalBase}/${look.slug}`;
+  const canonical = createCanonicalUrl(`/looks/${look.slug}`);
   const image = look.coverImage.url
     ? [{ url: look.coverImage.url, alt: look.coverImage.alt }]
     : undefined;
@@ -13,11 +13,14 @@ export function createLookMetadata(look: Look): Metadata {
   return {
     title: look.title,
     description: look.story,
-    alternates: { canonical },
+    alternates: canonical ? { canonical } : undefined,
+    robots: { index: false, follow: true },
     openGraph: {
       title: look.title,
       description: look.story,
       type: "website",
+      locale: siteConfig.openGraphLocale,
+      siteName: siteConfig.name,
       url: canonical,
       images: image,
     },
