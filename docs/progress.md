@@ -264,10 +264,20 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Git Workflow Note
 
-- TASK 001 through TASK 015 are merged into `main`. TASK 016 is developed on `codex/task-016-production-readiness`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 016 are merged into `main`; TASK 016 merge commit `f46a080` is the base of `codex/task-017-vercel-preview`.
+- TASK 017 has blocked completion because Vercel authentication is unavailable. Its documentation-only draft PR must not be merged without review.
+
+## Vercel Deployment and Mobile Preview
+
+- TASK 017 verified Vercel CLI `59.1.3` through `npx`. The CLI is logged out, no `.vercel/project.json` link exists, no Vercel environment variables are present, and no connected Vercel deployment tool or existing project context is available.
+- `.vercel` was already ignored and no provider-specific local state was generated or committed.
+- A real Preview was not created, so there is no Preview URL and deployed mobile/desktop QA was not claimed. No anonymous temporary deployment, account, team, project, URL, domain, or environment value was invented.
+- Exact unblock action: from the repository, run `npx.cmd --yes vercel@latest login`, authenticate with the owner's existing Vercel account, and confirm `npx.cmd --yes vercel@latest whoami` returns that account. Project linking, Preview deployment, and real deployed-route QA can then resume.
+- `NEXT_PUBLIC_SITE_URL` remains unset for Development and Preview. Future Production must set it only to the verified HTTPS production origin. Preview therefore remains noindex, emits no canonical, blocks crawling in `/robots.txt`, and exposes an empty `/sitemap.xml`.
+- TASK 017 local verification passed: clean npm install, fixtures, Search, Favorites, link integrity, production configuration, TypeScript, lint with the one unchanged legacy `<img>` warning, a 34-route production build, and both audits at 0 vulnerabilities.
 
 ## Next Planned Task
 
-- Before a new feature task, the owner should connect the existing Vercel account/project, provide the verified production domain, and complete the deployed Preview checklist in `docs/deployment.md`. Do not replace demo fixtures or enable public indexing until the content is approved.
+- Authenticate the existing owner Vercel account, link the FoundHer project, create the first real branch Preview, and complete the deployed mobile/desktop checklist in `docs/deployment.md`. A verified production domain remains a separate public-launch blocker and must not be guessed.
 
 This document must be updated at the end of every future task.

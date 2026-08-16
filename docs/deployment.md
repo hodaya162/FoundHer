@@ -54,7 +54,27 @@ A strict Content Security Policy is intentionally deferred until it can be valid
 6. Before public production, set `NEXT_PUBLIC_SITE_URL` to the verified HTTPS origin in the Production environment.
 7. Create a preview from the reviewed TASK branch and run the route and metadata QA below.
 
-No Vercel account, project, domain, DNS, analytics, or production deployment should be created or changed without owner authorization.
+No custom domain, DNS, analytics, or production deployment should be created or changed without owner authorization.
+
+## Preview deployment
+
+The TASK 017 environment can run Vercel CLI `59.1.3` through `npx`, but it is not authenticated and the repository is not linked to a Vercel project. `.vercel` is already ignored by Git, so future local project-link metadata must remain uncommitted.
+
+To unblock the first real Preview, run this command from the repository in Windows PowerShell and complete Vercel's browser authentication with the existing owner account:
+
+```text
+npx.cmd --yes vercel@latest login
+```
+
+After `npx.cmd --yes vercel@latest whoami` returns the expected existing account, link or create the minimal FoundHer project and deploy the task branch as a Preview using standard Next.js defaults. Do not choose a Production deployment or attach a domain. Keep `NEXT_PUBLIC_SITE_URL` unset in Development and Preview until an owner-verified production origin exists.
+
+Environment strategy:
+
+- Development: `NEXT_PUBLIC_SITE_URL` unset.
+- Preview: `NEXT_PUBLIC_SITE_URL` unset; Vercel supplies its own system variables, and the app remains noindex with no canonical.
+- Production: set `NEXT_PUBLIC_SITE_URL` only to the owner-verified HTTPS production origin before public launch.
+
+TASK 017 did not produce a Preview URL because authentication was unavailable. No temporary anonymous deployment, guessed URL, account, project ID, team ID, domain, or environment value was created.
 
 ## Preview QA checklist
 
