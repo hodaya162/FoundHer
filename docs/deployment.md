@@ -58,15 +58,15 @@ No custom domain, DNS, analytics, or production deployment should be created or 
 
 ## Preview deployment
 
-The TASK 017 environment can run Vercel CLI `59.1.3` through `npx`, but it is not authenticated and the repository is not linked to a Vercel project. `.vercel` is already ignored by Git, so future local project-link metadata must remain uncommitted.
+TASK 017 authenticated Vercel CLI `59.1.3` through the owner's existing account, created the minimal `found-her1/foundher` project, and linked this checkout locally. `.vercel` and `.env.local` are ignored by Git; project IDs, the local OIDC token, and other provider-specific state must remain uncommitted.
 
-To unblock the first real Preview, run this command from the repository in Windows PowerShell and complete Vercel's browser authentication with the existing owner account:
+To authenticate a fresh Windows machine, run this command from the repository and complete Vercel's device flow with the existing owner account:
 
 ```text
 npx.cmd --yes vercel@latest login
 ```
 
-After `npx.cmd --yes vercel@latest whoami` returns the expected existing account, link or create the minimal FoundHer project and deploy the task branch as a Preview using standard Next.js defaults. Do not choose a Production deployment or attach a domain. Keep `NEXT_PUBLIC_SITE_URL` unset in Development and Preview until an owner-verified production origin exists.
+After `npx.cmd --yes vercel@latest whoami` returns the expected account, link to the existing `found-her1/foundher` project and create a Preview using standard Next.js defaults. Do not attach a custom domain. Keep `NEXT_PUBLIC_SITE_URL` unset in Development and Preview until an owner-verified production origin exists.
 
 Environment strategy:
 
@@ -74,7 +74,15 @@ Environment strategy:
 - Preview: `NEXT_PUBLIC_SITE_URL` unset; Vercel supplies its own system variables, and the app remains noindex with no canonical.
 - Production: set `NEXT_PUBLIC_SITE_URL` only to the owner-verified HTTPS production origin before public launch.
 
-TASK 017 did not produce a Preview URL because authentication was unavailable. No temporary anonymous deployment, guessed URL, account, project ID, team ID, domain, or environment value was created.
+Current Preview:
+
+```text
+https://foundher-3dj23v2nl-found-her1.vercel.app
+```
+
+The project-level Vercel Authentication gate was disabled so the owner can open the Preview from a normal mobile browser. Application-level safeguards remain active: the Preview emits `noindex`, has no canonical, blocks `/robots.txt`, and has an empty sitemap. Revisit deployment protection if the Preview later contains private or non-demo content.
+
+Vercel automatically classified the new project's first CLI deployment as Production even though `--prod` was not used. It assigned only a generated `vercel.app` alias; no custom domain, DNS, production origin, or `NEXT_PUBLIC_SITE_URL` was configured. The second deployment is the verified Preview URL above. Future non-`--prod` deployments remain Preview deployments.
 
 ## Preview QA checklist
 

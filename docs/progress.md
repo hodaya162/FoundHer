@@ -265,19 +265,23 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 ## Git Workflow Note
 
 - TASK 001 through TASK 016 are merged into `main`; TASK 016 merge commit `f46a080` is the base of `codex/task-017-vercel-preview`.
-- TASK 017 has blocked completion because Vercel authentication is unavailable. Its documentation-only draft PR must not be merged without review.
+- TASK 017 is complete on `codex/task-017-vercel-preview`; its draft PR must not be merged without review.
 
 ## Vercel Deployment and Mobile Preview
 
-- TASK 017 verified Vercel CLI `59.1.3` through `npx`. The CLI is logged out, no `.vercel/project.json` link exists, no Vercel environment variables are present, and no connected Vercel deployment tool or existing project context is available.
-- `.vercel` was already ignored and no provider-specific local state was generated or committed.
-- A real Preview was not created, so there is no Preview URL and deployed mobile/desktop QA was not claimed. No anonymous temporary deployment, account, team, project, URL, domain, or environment value was invented.
-- Exact unblock action: from the repository, run `npx.cmd --yes vercel@latest login`, authenticate with the owner's existing Vercel account, and confirm `npx.cmd --yes vercel@latest whoami` returns that account. Project linking, Preview deployment, and real deployed-route QA can then resume.
+- TASK 017 authenticated Vercel CLI `59.1.3` with the owner's existing account and reused the existing `FoundHer` team. No project existed, so the minimal `found-her1/foundher` project was created with automatic Next.js detection and standard npm/build defaults.
+- The checkout is linked through ignored `.vercel/project.json` metadata. Vercel also created an ignored `.env.local` OIDC token. Neither provider IDs nor local credentials were committed. Automatic GitHub linking was unavailable because the Vercel account does not yet have a GitHub Login Connection; CLI deployment remains functional.
+- Real Preview: `https://foundher-3dj23v2nl-found-her1.vercel.app`. The deployment is READY, was uploaded from `codex/task-017-vercel-preview`, and uses Next.js 16.3.1 on Vercel Node 24.x.
+- The team default protected the Preview with Vercel Authentication. It was disabled for this demo-only project so the owner can open the URL directly from a normal mobile browser. No password, account invitation, custom domain, DNS, or guessed URL was introduced.
 - `NEXT_PUBLIC_SITE_URL` remains unset for Development and Preview. Future Production must set it only to the verified HTTPS production origin. Preview therefore remains noindex, emits no canonical, blocks crawling in `/robots.txt`, and exposes an empty `/sitemap.xml`.
+- Mobile Preview QA at 375×812 passed for Home, Search, Discover/Product listing, Product detail, Looks, Look detail, Rentals, Rental Business detail, Favorites, an invalid route, Brands 404, and Profile 404. All pages use Hebrew RTL, load images, have no horizontal overflow, support direct loads and refresh, and expose the expected demo disclosures. Search returned three results for `שמלה`; Favorites save/remove and localStorage persistence worked; client navigation worked.
+- Desktop smoke at 1440×900 passed for Home, Product detail, and Rentals with desktop navigation visible, mobile navigation hidden, no broken images, and no overflow. No application hydration/runtime errors were observed; the only captured browser messages came from the earlier Vercel login screen.
+- Deployment checks confirmed HTTPS 200 responses for valid routes, 404 for invalid/Brands/Profile routes, `X-Robots-Tag: noindex`, no canonical, no `foundher.example`, blocking robots, an empty sitemap, and all five TASK 016 application headers. Vercel additionally supplies HSTS on its HTTPS platform URL.
+- Vercel automatically assigned the first project deployment to its Production environment despite no `--prod` flag, because it was the project's first deployment. It received only a generated `vercel.app` alias and no production origin/custom domain configuration. The second deployment is the confirmed Preview above; future deployments without `--prod` remain previews.
 - TASK 017 local verification passed: clean npm install, fixtures, Search, Favorites, link integrity, production configuration, TypeScript, lint with the one unchanged legacy `<img>` warning, a 34-route production build, and both audits at 0 vulnerabilities.
 
 ## Next Planned Task
 
-- Authenticate the existing owner Vercel account, link the FoundHer project, create the first real branch Preview, and complete the deployed mobile/desktop checklist in `docs/deployment.md`. A verified production domain remains a separate public-launch blocker and must not be guessed.
+- Review TASK 017 and keep using the real Preview for owner feedback. A verified production domain, approved public content/destinations, and an optional GitHub Login Connection for automatic deployments remain separate launch/automation work and must not be guessed.
 
 This document must be updated at the end of every future task.
