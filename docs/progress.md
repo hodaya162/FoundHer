@@ -68,7 +68,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 ## MVP Readiness Audit
 
 - TASK 013 completed a documentation-only audit of product journeys, content, navigation, legacy code, SEO, accessibility, performance, security/privacy, dependencies, testing, and deployment readiness.
-- Current status: the core curated MVP is functionally complete but is **not ready for public launch**. Launch blockers are placeholder commerce/contact destinations and fictional public entities, visible legacy Brands/Profile experiences, the placeholder canonical origin, and high-severity advisories affecting the installed Next.js version.
+- Current status: the core curated MVP and its dependency/production-readiness architecture are functionally complete but it is **not ready for public launch**. Remaining blockers are verified real partner content, an owner-approved production domain, a connected Vercel project, and deployed Preview QA.
 - Supabase and authentication are not required for the first public MVP. Browser-local Favorites are acceptable when their one-browser limitation is disclosed.
 - The full prioritized findings, decisions, and exact launch checklist are in `docs/mvp-readiness.md`.
 
@@ -187,7 +187,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Known Technical Debt
 
-- Brands and Profile still contain legacy prototype presentation or hardcoded data.
+- Brands and Profile return 404 and are excluded from current navigation and indexing; their future product direction remains undecided.
 - `PageShell` remains a legacy presentation component for the untouched pages. Discover no longer imports or depends on it.
 - `/discover` remains a transitional product grid retained for future category/product-result migration.
 - Dynamic `/brands/[slug]` routes are not implemented.
@@ -204,10 +204,11 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 - `npm run lint`: passes with 1 pre-existing image warning in the untouched legacy `PageShell`
 - `npm run typecheck`: passes
-- `npm run build`: passes; 32 pages are generated, including the dynamic Search route, 4 Look routes, 14 Product routes, and 2 Rental Business routes
+- `npm run build`: passes; 34 pages are generated, including native robots/sitemap routes, the dynamic Search route, 4 Look routes, 14 Product routes, and 2 Rental Business routes
 - `npm run validate:fixtures`: passes; validates 8 purchase products, 4 evening rentals, 2 bridal rentals, 4 looks, 4 brands, 2 rental businesses, and 6 categories
 - `npm run test:search`: passes; covers empty, exact, Product, Brand, city/rental, multiword, no-result, relevance, entity-classification, and URL behavior
 - `npm run test:favorites`: passes; covers add, remove, toggle, deduplication, entity types, malformed/missing storage, stable serialization, and rental classification
+- `npm run test:production-config`: passes; covers URL validation/normalization, canonical generation, metadata-base fallback, and environment-aware indexing
 - TASK 012 browser validation: saving and removing a Look, purchase Product, rental Product, and Brand works across their primary cards and `/favorites`; refresh persistence, same-page synchronization, cross-page state, and native cross-tab synchronization were verified. All and category views expose semantic controls, dynamic `aria-pressed` labels, honest empty states, one h1, RTL, no nested interactive controls, and no console errors.
 - TASK 012 responsive validation: `/favorites` was checked at 375/768/1024/1440px with five usable category controls, no horizontal overflow, repository-backed cards, and preserved mobile shell spacing.
 - TASK 011 browser validation: `/search` initial, Hebrew rental/city, English Brand, multiword Look, and no-result states render in RTL at 375/768/1024/1440px with one h1 and no horizontal overflow. URLs, result groups, loaded imagery, textual commerce labels, Brand non-links, mobile/desktop shell entry, `noindex, follow`, canonical metadata, and absence of nested interactive controls were verified.
@@ -245,12 +246,28 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 015 verification passed: fixture validation, Search tests, Favorites tests, link-integrity tests, TypeScript, production build, full audit, and production-only audit. ESLint passes with the single unchanged legacy `<img>` warning in `PageShell`.
 - Browser smoke testing passed for Home, Search, Products, Product detail, Looks, Rentals, Rental Business detail, and Favorites. Navigation and the `/product` redirect worked, demo/link-integrity disclosure remained present, and no hydration, runtime, or console errors were observed.
 
+## Production Readiness
+
+- TASK 016 replaces all `https://foundher.example` runtime values with one validated `NEXT_PUBLIC_SITE_URL` source in `config/site-url.ts`. The variable accepts only an absolute HTTP(S) origin, rejects credentials/path/query/fragment values, and normalizes the origin.
+- No production domain was supplied or invented. Without a configured origin, local metadata uses `http://localhost:3000` only as a technical `metadataBase`; canonical tags are omitted, page robots metadata is `noindex`, `/robots.txt` blocks all crawling, and `/sitemap.xml` is empty.
+- Vercel Preview is detected through `VERCEL_ENV=preview` and remains non-indexable even when the production origin is available. The production canonical never changes to `VERCEL_URL`; that value is used only as an asset-resolution metadata base when no production origin exists.
+- Root metadata now provides the FoundHer title template, Hebrew description, `he_IL` Open Graph locale, site name, default social image, Twitter large-image defaults, and environment-safe robots behavior.
+- Home, Search, Looks, Discover, Products, Rentals, and Rental Business metadata now use the shared canonical helper. Existing data-derived titles, descriptions, images, seller context, and invalid-entity `noindex` behavior are preserved.
+- `app/sitemap.ts` uses the native Next.js metadata route. Only Home is included when production indexing is enabled. Search, Favorites, Discover, Design System, removed Brands/Profile routes, Looks, Rentals, Product details, and Rental Business details are excluded while their content is demo-only.
+- `app/robots.ts` uses the native metadata route. It blocks all crawling in local/preview/unconfigured deployments and, in configured production, allows Home while disallowing personal, transitional, internal, removed, and demo-dependent route prefixes. It references the production sitemap only when indexing is enabled.
+- `next.config.ts` adds verified baseline headers: `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-Frame-Options`, and `Cross-Origin-Opener-Policy`. CSP is deferred to a real Preview compatibility pass; HSTS is deferred until the HTTPS domain and subdomain policy are approved.
+- No `vercel.json` was added because the standard Next.js build, routing, images, and Node engine require no override. `.env.example` and `docs/deployment.md` document the only environment variable and actionable Vercel steps.
+- No Vercel Preview was created: the environment has no Vercel CLI, `.vercel` project link, Vercel environment variables, connected Vercel tool, or prior GitHub deployment. No account, project, domain, DNS, or production setting was created or guessed.
+- Local production QA passed at 375×812 and 1440×900 for Home, Search, Discover Products, Product detail, Looks, Look detail, Rentals, Rental Business detail, Favorites, and a 404. Direct loads, refresh, client navigation, Search results, Favorites save/remove, RTL, responsive navigation, images, demo disclosures, and absence of overflow/runtime/console errors were verified.
+- Production-mode checks verified the five response headers, configured canonical generation, Home-only sitemap, production robots allow/disallow policy, and demo Product `noindex`. Preview-mode checks verified global `noindex`, crawl blocking, an empty sitemap, and canonical retention on the configured production origin.
+- `scripts/test-production-config.ts` covers URL validation and normalization, canonical generation, local/Vercel metadata-base fallback, and production/preview/development indexing policy.
+
 ## Git Workflow Note
 
-- TASK 001 through TASK 014 are merged into `main`. TASK 015 is developed on `codex/task-015-security-dependencies`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 015 are merged into `main`. TASK 016 is developed on `codex/task-016-production-readiness`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Recommended TASK 016: SEO and Deployment Readiness. Keep production-origin, crawl controls, response headers, deployment configuration, and preview QA out of TASK 015 and address them in a focused follow-up.
+- Before a new feature task, the owner should connect the existing Vercel account/project, provide the verified production domain, and complete the deployed Preview checklist in `docs/deployment.md`. Do not replace demo fixtures or enable public indexing until the content is approved.
 
 This document must be updated at the end of every future task.

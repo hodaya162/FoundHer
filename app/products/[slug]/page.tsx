@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import { siteConfig } from "@/config/site";
+import { createCanonicalUrl } from "@/config/site-url";
 import { ProductDetails } from "@/features/products/components";
 import { getProductDetailsBySlug } from "@/features/products/queries/get-product-details-by-slug";
 import { MoreFromBusiness } from "@/features/rentals/components";
@@ -10,8 +12,6 @@ import { getAllProducts } from "@/lib/repositories/products.repository";
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
-
-const canonicalBase = "https://foundher.example/products";
 
 export function generateStaticParams() {
   return getAllProducts().map(({ slug }) => ({ slug }));
@@ -27,21 +27,25 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     };
   }
 
-  const canonical = `${canonicalBase}/${product.slug}`;
+  const canonical = createCanonicalUrl(`/products/${product.slug}`);
   const image = product.images[0];
-  const sellerName = product.type === "purchase"
-    ? product.brand?.name ?? "FoundHer"
-    : product.rentalBusiness?.name ?? "FoundHer";
+  const seller = product.type === "purchase" ? product.brand : product.rentalBusiness;
+  const sellerName = seller?.name ?? "FoundHer";
   const title = `${product.name} — ${sellerName}`;
 
   return {
     title,
     description: product.description,
-    alternates: { canonical },
+    alternates: canonical ? { canonical } : undefined,
+    robots: seller?.isDemo === false
+      ? undefined
+      : { index: false, follow: true },
     openGraph: {
       title,
       description: product.description,
       type: "website",
+      locale: siteConfig.openGraphLocale,
+      siteName: siteConfig.name,
       url: canonical,
       images: image ? [{ url: image.url, alt: image.alt }] : undefined,
     },

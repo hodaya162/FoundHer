@@ -6,7 +6,7 @@
 
 FoundHer already supports the complete discovery loop across Home, Looks, Products, Rentals, Search, and browser-local Favorites. The application builds successfully, its repository-backed routes work, and its modern surfaces have strong responsive, RTL, and accessibility foundations.
 
-The remaining work is launch hardening rather than a new product system. The dependency-security blocker has been resolved; the public release remains blocked by the lack of verified real partner content, the placeholder production URL, and the remaining launch-readiness work documented below. Supabase and authentication are not required to resolve these blockers or launch the first curated MVP.
+The remaining work is launch hardening rather than a new product system. Dependency security and the production-URL/SEO architecture are resolved; the public release remains blocked by the lack of verified real partner content, a verified production domain, a connected Vercel project, and deployed preview QA. Supabase and authentication are not required to resolve these blockers or launch the first curated MVP.
 
 ### TASK 014 remediation status
 
@@ -15,6 +15,10 @@ TASK 014 removed all unverified fixture commerce/contact URLs, removed the visib
 ### TASK 015 remediation status
 
 TASK 015 upgraded `next` and `eslint-config-next` from `16.2.6` to stable `16.3.1`, retained compatible React and React DOM `19.2.6`, and refreshed only compatible transitive dependencies. The full audit improved from 6 high and 1 low to 0 vulnerabilities; the production-only audit improved from 4 high to 0. Clean install, all existing tests, typecheck, lint, production build, and browser smoke testing passed. The dependency-security launch blocker is resolved without `npm audit fix --force`.
+
+### TASK 016 remediation status
+
+TASK 016 removed every `foundher.example` runtime reference and centralized the origin in validated `NEXT_PUBLIC_SITE_URL` configuration. Missing or preview configuration fails closed: no canonical is emitted without a verified origin, metadata is `noindex`, robots blocks crawling, and the sitemap is empty. With a configured production origin, Home is the only sitemap entry while demo and non-search routes remain excluded. Native robots/sitemap routes, baseline response headers, deployment instructions, and a focused configuration test were added. Local production QA passed, but an actual Vercel Preview could not be created because no Vercel CLI, project link, account connection, or prior deployment is available in this environment.
 
 ## Audit Scope and Evidence
 
@@ -42,16 +46,16 @@ No automatic dependency fixes were run.
 | P0 | Public content still identifies fictional/demo entities | Brand and rental-business fixtures; product relationships | A public marketplace-like experience must not imply that fictional sellers are real businesses. | Replace demo entities with approved real partners and verified copy, or label the entire release clearly as a private demo. | M, 1–3 days plus approvals |
 | P0 | Legacy Brands and Profile experiences are visible | `/brands`, `/profile`, `config/navigation.ts`, Home Brand CTA, `app/ui/page-shell.tsx` | Brands shows hardcoded product-like cards and fake controls; Profile promises account behavior that does not exist. Both create misleading, broken journeys. | Remove Brands and Profile from public navigation for MVP; remove the Home link to the legacy Brands directory; redirect or return 404/noindex for these routes until real experiences exist. Keep embedded brand references in working Looks, Products, Home, and Search. | S, 2–4 hours |
 | Resolved in TASK 015 | Installed Next.js version had high-severity advisories | `package.json`, lockfile, Next.js runtime | `next@16.2.6` and its production transitive tree were affected. | Upgraded to stable `next@16.3.1` with matching `eslint-config-next`; both full and production-only audits now report 0 vulnerabilities. | Complete |
-| P0 | Canonical production origin is a placeholder | `app/layout.tsx` and route metadata | Canonicals resolve to `https://foundher.example`, which would publish incorrect SEO identity and sharing URLs. | Centralize the site origin through validated production configuration and replace all placeholder canonicals before indexing or production release. | S, 1–2 hours |
+| External launch blocker after TASK 016 | Verified production origin is not yet available | Vercel environment and domain ownership | Placeholder canonicals were removed and URL handling now fails closed, but no real domain has been provided. | Set `NEXT_PUBLIC_SITE_URL` to the owner-verified HTTPS origin before public production. Do not guess or attach a domain. | Owner/Vercel action |
 | P1 | Transitional Discover exposes inert filters and is indexable | `/discover`, product discovery components, Home “more products” link | The grid is useful, but its filter buttons do nothing and its canonical advertises a transitional page as a durable search surface. | Keep it temporarily accessible because it is the only all-products feed; remove/hide inert controls, apply `noindex`, keep it out of primary navigation, and later redirect it only when an equivalent product/category route exists. | S, 2–4 hours |
 | P1 | Some visible actions and copy describe unavailable behavior | Product Share action, Home future-feature copy, legacy controls | Non-functional actions reduce trust even when the primary journey works. | Remove or implement the Share action; remove future-facing filler copy and any remaining clickable-looking controls without behavior. | S, 1–3 hours |
 | P1 | Image set is repetitive and brand logos are temporary | `public/images/products`, fixture image and logo fields | Fifteen filenames resolve to only six unique image files; temporary logos reuse fashion photos. This makes the public catalog look artificial and weakens seller identity. | Replace duplicates with licensed, entity-specific modest-fashion imagery and approved logos; preserve meaningful alt text and dimensions. | M, 1–3 days |
-| P1 | Minimum crawl controls are missing | App Router metadata routes | No sitemap or robots endpoint exists, while transitional and private utility surfaces need deliberate indexing rules. | Add `sitemap.ts` and `robots.ts`; include only canonical public routes and exclude Search, Favorites, Design System, transitional Discover, and hidden legacy routes. | S, 2–4 hours |
+| Resolved in TASK 016 | Minimum crawl controls were missing | `app/sitemap.ts`, `app/robots.ts`, route metadata | Native routes now fail closed without production configuration and expose only Home when production indexing is enabled. | Revisit the explicit sitemap allowlist only after demo entities are replaced with verified content. | Complete |
 | P1 | Launch documentation is stale | `README.md`, `docs/progress.md` | README still describes Discover as the first migrated feature and omits newer validation commands, which makes deployment and handoff error-prone. | Update architecture, commands, local setup, deployment expectations, browser-only Favorites limitation, and current public routes. | S, 1–2 hours |
 | P1 | No automated content/link gate exists | Validation scripts and fixture data | Type safety cannot detect `example.com`, fake WhatsApp numbers, temporary logos, or unverified outbound destinations. | Add a small deterministic content-readiness test that rejects known placeholder hosts/numbers and checks required image files and entity references. | S, 2–4 hours |
 | P1 | No production route smoke test exists | Build/release workflow | Current focused tests validate data logic but do not prove that essential built routes answer successfully and redirects/404s behave in a production server. | Add a lightweight smoke script for Home, Looks, Look detail, Product detail, Rentals, Rental Business, Search, Favorites, redirects, and an unknown slug. Avoid introducing a large test framework. | M, 0.5–1 day |
-| P1 | Preview deployment has not received release QA | Vercel preview and production configuration | Local build success does not verify deployment headers, canonical origin, real outbound links, mobile LCP, or production routing. | Deploy a preview after P0 fixes; run route smoke, mobile/desktop journey QA, Lighthouse, metadata checks, and outbound-link verification before promoting `main`. | S, 2–4 hours |
-| P1 | Baseline response security policy is not configured | `next.config.ts` or hosting configuration | The current static, no-account MVP has a small attack surface, but baseline headers reduce common browser risks and make future integrations safer. | Add and verify a focused set of headers appropriate to the actual external image/link policy; introduce CSP only after verifying it does not break Next.js. | S, 2–4 hours |
+| External launch blocker after TASK 016 | Preview deployment has not received release QA | Vercel preview and production configuration | Local production QA passed, but this environment has no Vercel CLI, linked project, account connection, or prior deployment. | Connect the existing owner-approved Vercel project, create a branch Preview, and run `docs/deployment.md` against its real URL. | Owner/Vercel action plus QA |
+| Resolved in TASK 016 | Baseline response security policy was not configured | `next.config.ts` | Five low-risk headers are now applied and verified on local production responses. CSP and HSTS remain deliberately deferred until a real HTTPS preview/domain can be tested. | Validate the same headers on Preview; add CSP/HSTS only through a focused reviewed hardening change. | Baseline complete |
 | P2 | Legacy PageShell, old CSS, and compatibility routes remain | `app/ui/page-shell.tsx`, legacy stylesheet, `/product` | They produce a lint warning and maintenance noise, but are not launch blockers once legacy routes are removed from public reach. | Retire them incrementally after launch-facing routes no longer depend on them; then remove the compatibility redirect if analytics show it is unused. | M, 0.5–1 day |
 | P2 | Favorites page hydrates a repository-backed collection | `features/favorites` | It is acceptable for the small current dataset, but larger catalogs may make client composition heavier. | Measure the production bundle and dataset growth before optimizing; preserve the storage adapter boundary. | M, only if measurement justifies it |
 | P2 | Design System is deployed as a route | `/design-system` | It is correctly noindexed, but a public production build does not need to expose internal component documentation. | Keep noindex or disable the route in production when convenient. | S, under 1 hour |
@@ -97,13 +101,13 @@ No automatic dependency fixes were run.
 
 The modern public routes already have a good base: route-level metadata exists for major feeds and dynamic pages, unknown dynamic slugs return 404, Open Graph/Twitter data is available on key surfaces, and Search/Favorites/Design System are noindexed appropriately.
 
-Before launch:
+TASK 016 completed the repository-side SEO foundation: the placeholder origin was removed, URL configuration was centralized, native robots/sitemap routes were added, transitional Discover was noindexed, and Search/Favorites remain noindexed and outside the sitemap.
 
-1. Replace `foundher.example` with the verified production origin everywhere.
-2. Add robots and sitemap metadata routes with an explicit public-route allowlist.
-3. Noindex transitional Discover and any temporarily reachable legacy surface.
-4. Verify canonical, title, description, Open Graph image, and 404 behavior on the deployed origin.
-5. Keep Search and Favorites out of the sitemap and noindexed.
+Before public launch:
+
+1. Provide the owner-verified HTTPS production origin through `NEXT_PUBLIC_SITE_URL`.
+2. Validate canonical, title, description, Open Graph image, robots, sitemap, and 404 behavior on the actual Vercel Preview and production origin.
+3. Keep demo-dependent routes out of the sitemap until their content and destinations are verified.
 
 ## Accessibility Assessment
 
@@ -148,7 +152,7 @@ TASK 015 resolved every listed item through the compatible Next.js upgrade and r
 
 ## Deployment Readiness and Exact Steps
 
-The repository is structurally suitable for Vercel: it is a standard Next.js App Router project, requires no runtime environment variable today, declares a supported Node engine, and produces a successful production build. No custom `vercel.json` is required for the current architecture.
+The repository is structurally suitable for Vercel: it is a standard Next.js App Router project, declares a supported Node engine, and produces a successful production build. `NEXT_PUBLIC_SITE_URL` is required for public indexing and canonical output, but its absence fails closed and does not prevent local or Preview builds. No custom `vercel.json` is required for the current architecture.
 
 1. Complete the P0 public-content, legacy-surface, Next.js upgrade, and production-origin work in focused reviewed PRs.
 2. Add the P1 SEO metadata routes and lightweight release tests.
@@ -162,7 +166,7 @@ The repository is structurally suitable for Vercel: it is a standard Next.js App
 
 ## Direct Product Decisions
 
-1. **MVP launch blockers:** placeholder commerce/contact URLs, fictional public entities, visible legacy Brands/Profile experiences, the placeholder canonical origin, and the direct high-severity Next.js advisories.
+1. **MVP launch blockers:** verified real partner/content approval, a verified production domain, a connected owner-approved Vercel project, and successful deployed Preview QA. Placeholder canonicals, dependency advisories, legacy public entry points, and unverified active CTAs have been resolved or safely disabled.
 2. **Must fix before launch:** all P0 items plus the P1 honesty/Discover cleanup, licensed unique imagery, crawl controls, release documentation, content gate, production smoke, and preview QA.
 3. **Safe to defer:** internal legacy code cleanup, client optimization without measurement, hiding the noindexed Design System route, cloud Favorites, accounts, dynamic Brand pages, advanced filters, booking, and live availability.
 4. **Supabase required?** No. The first MVP can be a curated, repository-backed public experience with verified outbound conversion links.
@@ -175,7 +179,7 @@ The repository is structurally suitable for Vercel: it is a standard Next.js App
 
 1. **TASK 014 – Public Surface and Content Integrity:** completed; unverified destinations are hidden and demo entities are disclosed, while verified partner data remains a launch prerequisite.
 2. **TASK 015 – Dependency Security Baseline:** completed; Next.js and compatible transitive dependencies are patched and both audits report 0 vulnerabilities.
-3. **TASK 016 – SEO and Deployment Readiness:** centralize the real production origin, add sitemap/robots/indexing policy and baseline response headers, clean up transitional Discover, add the two lightweight release tests, update README, and validate a Vercel preview.
+3. **TASK 016 – SEO and Deployment Readiness:** implementation and local production QA complete; real-domain configuration and Vercel Preview QA remain external prerequisites documented in `docs/deployment.md`.
 
 ## Exact Launch Checklist
 
@@ -204,8 +208,8 @@ The repository is structurally suitable for Vercel: it is a standard Next.js App
 ### SEO, accessibility, and performance
 
 - [ ] Production origin and every canonical use the live domain.
-- [ ] Robots and sitemap expose only approved public routes.
-- [ ] Search, Favorites, Design System, transitional Discover, and hidden legacy routes have the intended indexing policy.
+- [x] Robots and sitemap expose only approved public routes and fail closed outside configured production.
+- [x] Search, Favorites, Design System, transitional Discover, demo routes, and hidden legacy routes have the intended indexing policy.
 - [ ] Deployed titles, descriptions, Open Graph data, and unknown-route 404s are verified.
 - [ ] Mobile and desktop keyboard/focus/RTL/touch-target smoke passes on preview.
 - [ ] Preview Lighthouse review finds no unexplained launch-blocking accessibility or performance regression.

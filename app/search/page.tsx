@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 
 import { PageContainer, PageHeader } from "@/components/layout";
+import { createCanonicalUrl } from "@/config/site-url";
 import { SearchEmptyState, SearchForm, SearchInitialState, SearchResults, searchFoundHer } from "@/features/search";
+
+const canonical = createCanonicalUrl("/search");
 
 export const metadata: Metadata = {
   title: "חיפוש ב־FoundHer",
   description: "חיפוש מאוחד בלוקים, פריטי אופנה לרכישה ולהשכרה, מותגים ועסקי השכרה ב־FoundHer.",
-  alternates: { canonical: "https://foundher.example/search" },
+  alternates: canonical ? { canonical } : undefined,
   robots: { index: false, follow: true },
 };
 
