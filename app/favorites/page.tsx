@@ -18,11 +18,11 @@ export default function FavoritesPage() {
 
   return (
     <main>
-      <PageContainer className="pb-16 pt-8 sm:pb-24 sm:pt-12">
-        <header className="mb-8 max-w-2xl sm:mb-10">
-          <p className="type-label mb-3 text-primary">הבחירות שלך</p>
+      <PageContainer className="pb-16 pt-7 sm:pb-24 sm:pt-10">
+        <header className="mb-6 max-w-2xl sm:mb-8">
+          <p className="type-label mb-2 text-primary">האוסף שלך</p>
           <h1 className="type-page-title">שמורים</h1>
-          <p className="type-body mt-4 text-muted">כל הלוקים, הפריטים וההשכרות שאהבת במקום אחד.</p>
+          <p className="type-body mt-2 text-muted">כל מה שאהבת, במקום אחד.</p>
         </header>
         <FavoritesPageClient looks={getAllLooks()} products={products} rentals={getRentalCards()} brands={getAllBrands()} />
       </PageContainer>

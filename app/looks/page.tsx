@@ -31,11 +31,8 @@ export default function LooksPage() {
   return (
     <main>
       <PageContainer className="pb-16 sm:pb-20">
-        <PageHeader eyebrow="ללבוש את ההרגשה" title={pageTitle} description={pageDescription} />
-        <p className="type-body mb-9 max-w-2xl text-muted sm:mb-12">
-          כל לוק מתחיל ברגע אמיתי וממשיך לפריטים שאפשר לרכוש או לשכור כדי ליצור אותו בדרך שלך.
-        </p>
-        {looks.length > 0 ? <LookGrid looks={looks} /> : <LooksEmptyState />}
+        <PageHeader eyebrow="השראה" title="לוקים" description="רעיונות שלמים ליום־יום, שבת ואירועים." />
+        {looks.length > 0 ? <LookGrid looks={looks} featuredFirst /> : <LooksEmptyState />}
       </PageContainer>
     </main>
   );

@@ -27,16 +27,17 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     <main>
       <PageContainer className="pb-16 sm:pb-20">
         <PageHeader
-          eyebrow="כל FoundHer במקום אחד"
-          title="מה תרצי למצוא?"
-          description="חפשי לוק, פריט, שמלה להשכרה, מותג או עסק השכרה."
+          eyebrow="חיפוש"
+          title="מה את מחפשת?"
+          description="לוק, פריט או שמלה להשכרה."
           actions={<SearchForm defaultValue={query} />}
+          className="md:block [&>div:last-child]:mt-5 [&>div:last-child]:w-full"
         />
 
         {!results ? <SearchInitialState /> : results.total === 0 ? <SearchEmptyState query={query} /> : (
-          <div className="space-y-8">
-            <p className="type-body break-words" aria-live="polite">
-              מצאנו <strong>{results.total}</strong> תוצאות עבור <strong>“{query}”</strong>
+          <div className="space-y-7">
+            <p className="type-body-small break-words text-muted" aria-live="polite">
+              {results.total} תוצאות עבור <strong className="text-foreground">“{query}”</strong>
             </p>
             <SearchResults results={results} />
           </div>

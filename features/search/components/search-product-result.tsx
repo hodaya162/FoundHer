@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 import { Badge, Card, CardContent } from "@/components/ui";
 import { ProductFavoriteButton, ProductPrice } from "@/features/products/components";
@@ -12,7 +12,7 @@ export function SearchProductResult({ priority = false, result }: Props) {
   const rental = result.entityType === "rental_product";
   return (
     <article className="h-full">
-      <Card className="flex h-full flex-col overflow-hidden">
+      <Card className="flex h-full flex-col overflow-hidden bg-transparent">
         <div className="relative">
           <Link href={result.href} className="group block" aria-label={`צפייה בפריט ${result.title}`}>
             <div className="relative aspect-[4/5] overflow-hidden bg-surface-muted">
@@ -22,14 +22,13 @@ export function SearchProductResult({ priority = false, result }: Props) {
           </Link>
           <ProductFavoriteButton productId={result.id} productName={result.title} />
         </div>
-        <CardContent className="flex flex-1 flex-col gap-2 p-4">
-          <ProductPrice amount={rental ? result.rentalPrice : result.price} currency={result.currency} rental={rental} />
+        <CardContent className="flex flex-1 flex-col gap-1.5 px-0.5 pb-2 pt-3">
           <h3 className="type-card-title break-words"><Link href={result.href} className="rounded-sm hover:text-primary focus-visible:outline-offset-4">{result.title}</Link></h3>
           <p className="type-caption">{result.sellerName}</p>
-          {rental ? <p className="type-body-small flex items-center gap-2 text-muted"><MapPin aria-hidden="true" className="size-4" />{result.city}</p> : null}
-          <Link href={result.href} className="mt-auto inline-flex min-h-11 items-center justify-between gap-2 border-t border-border pt-3 text-sm font-semibold text-primary">
-            {rental ? "לפרטי השמלה" : "לפרטי המוצר"} <ArrowLeft aria-hidden="true" className="size-4" />
-          </Link>
+          <div className="flex flex-wrap items-center justify-between gap-1">
+            <ProductPrice amount={rental ? result.rentalPrice : result.price} currency={result.currency} rental={rental} />
+            {rental ? <p className="type-caption flex items-center gap-1"><MapPin aria-hidden="true" className="size-3.5" />{result.city}</p> : null}
+          </div>
         </CardContent>
       </Card>
     </article>

@@ -17,11 +17,11 @@ export function FeaturedLooks({ looks }: FeaturedLooksProps) {
       id="featured-looks-title"
       eyebrow="הרעיונות של FoundHer"
       title="לוקים שאהבנו"
-      description="רעיונות שלמים לרגעים אמיתיים — ומה צריך כדי ליצור אותם בדרך שלך."
+      description="רעיונות שלמים לרגעים אמיתיים."
       actionHref="/looks"
       actionLabel="כל הלוקים"
     >
-      <LookGrid looks={looks} headingLevel={3} prioritizeFirst={false} />
+      <LookGrid looks={looks} headingLevel={3} prioritizeFirst={false} featuredFirst />
     </EditorialSection>
   );
 }

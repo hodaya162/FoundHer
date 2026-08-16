@@ -22,7 +22,6 @@ export function MoreFromBusiness({ businessName, businessSlug, products }: MoreF
       <SectionHeader
         title={`עוד שמלות מ־${businessName}`}
         titleId="more-from-business-title"
-        description="שמלות נוספות מאותה קולקציה, לפי הסדר שבו הן מופיעות במאגר."
         action={(
           <Link
             href={`/rental-businesses/${businessSlug}`}

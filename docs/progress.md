@@ -288,6 +288,9 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Next Planned Task
 
-- Review TASK 017 and keep using the real Preview for owner feedback. A verified production domain, approved public content/destinations, and an optional GitHub Login Connection for automatic deployments remain separate launch/automation work and must not be guessed.
+- TASK 018 redesigns the existing functional MVP after mobile Preview review rejected the prototype-like product experience. The direction is fashion-first, image-led, restrained, editorial, and mobile-authoritative.
+- Redesigned surfaces include Home, Search initial/results, Discover, Looks listing/detail, Rentals listing/business, Product detail, Favorites empty/populated, navigation, and the global 404. Shared typography, color, spacing, card, gallery, rail, empty-state, header, and navigation foundations were consolidated without changing repositories or domain logic.
+- Search behavior, Favorites/localStorage synchronization, routes, demo disclosures, commercial-link safeguards, link integrity, metadata, Preview noindex/non-canonical behavior, and production headers remain deliberately unchanged.
+- Final TASK 018 validation and the branch-specific Vercel Preview URL are recorded in the Draft PR report. Product completion still requires owner approval of the mobile Preview; the redesign must not be merged before that review.
 
 This document must be updated at the end of every future task.

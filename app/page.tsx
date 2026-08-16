@@ -3,19 +3,8 @@ import type { Metadata } from "next";
 import { PageContainer } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 import { createCanonicalUrl } from "@/config/site-url";
-import {
-  EditorialSection,
-  FeaturedBrands,
-  FeaturedLooks,
-  FeaturedRentals,
-  HomeEditorialCta,
-  HomeHero,
-  NewArrivals,
-  OccasionGrid,
-} from "@/features/home/components";
-import { homeOccasions } from "@/features/home/utils/home-content";
+import { FeaturedLooks, FeaturedRentals, HomeHero, NewArrivals } from "@/features/home/components";
 import { getFeaturedLooks } from "@/lib/repositories/looks.repository";
-import { getFeaturedBrands } from "@/lib/repositories/brands.repository";
 import { getFeaturedRentalCards } from "@/features/rentals/queries/get-rental-cards";
 import { getFeaturedPurchaseProductCards } from "@/features/products/queries/get-featured-purchase-product-cards";
 
@@ -47,28 +36,15 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const featuredLooks = getFeaturedLooks().slice(0, 3);
   const featuredRentals = getFeaturedRentalCards().slice(0, 3);
-  const featuredBrands = getFeaturedBrands().slice(0, 3);
   const selectedProducts = getFeaturedPurchaseProductCards().slice(0, 4);
 
   return (
     <main>
-      <PageContainer className="pb-16 pt-4 sm:pb-20 sm:pt-8">
+      <PageContainer className="pb-14 pt-3 sm:pb-20 sm:pt-6">
         <HomeHero image={featuredLooks[0]?.coverImage} />
-
-        <EditorialSection
-          id="home-occasions-title"
-          eyebrow="מתחילות מהחיים עצמם"
-          title="למה את מתלבשת?"
-          description="בחרי את הרגע שלך והמשיכי אל אוסף הלוקים להשראה צנועה."
-        >
-          <OccasionGrid entries={homeOccasions} />
-        </EditorialSection>
-
         <FeaturedLooks looks={featuredLooks} />
         <FeaturedRentals products={featuredRentals} />
-        <FeaturedBrands brands={featuredBrands} />
         <NewArrivals products={selectedProducts} />
-        <HomeEditorialCta />
       </PageContainer>
     </main>
   );

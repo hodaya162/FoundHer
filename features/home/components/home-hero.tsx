@@ -1,10 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Search, Sparkles } from "lucide-react";
+import { ArrowLeft, Search } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui";
 import type { ImageAsset } from "@/domain/media";
-import { cn } from "@/lib/utils";
 
 type HomeHeroProps = {
   image?: ImageAsset;
@@ -12,48 +10,39 @@ type HomeHeroProps = {
 
 export function HomeHero({ image }: HomeHeroProps) {
   return (
-    <section aria-labelledby="home-title" className="grid overflow-hidden rounded-card bg-surface-muted lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="flex flex-col justify-center px-6 py-12 sm:px-10 sm:py-16 lg:px-14 lg:py-20">
-        <p className="type-label mb-4 flex items-center gap-2 text-primary">
-          <Sparkles aria-hidden="true" className="size-4" />
-          השראה צנועה שמתחילה בך
-        </p>
-        <h1 id="home-title" className="type-display max-w-xl">מה בא לך ללבוש היום?</h1>
-        <p className="type-body mt-5 max-w-lg text-muted">
-          גלי לוקים שלמים, פריטים ושמלות להשכרה ממותגים ועסקים נבחרים — במקום אחד.
-        </p>
-        <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row">
-          <Link href="/looks" className={cn(buttonVariants({ size: "lg" }), "w-full min-[420px]:w-auto")}>
-            לגלות לוקים
-            <ArrowLeft aria-hidden="true" className="size-4" />
-          </Link>
-          <Link href="/rentals" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "w-full min-[420px]:w-auto")}>
-            למצוא שמלה להשכרה
-          </Link>
-        </div>
-        <Link href="/search" className="mt-4 inline-flex min-h-11 w-fit items-center gap-2 rounded-sm text-sm font-semibold text-primary underline-offset-4 hover:underline">
-          <Search aria-hidden="true" className="size-4" />
-          חיפוש ממוקד ב־FoundHer
-        </Link>
-      </div>
-      <div className="relative min-h-[24rem] bg-surface sm:min-h-[32rem] lg:min-h-[38rem]">
+    <section aria-labelledby="home-title" className="relative overflow-hidden rounded-card bg-foreground">
+      <div className="relative min-h-[31rem] bg-surface sm:min-h-[38rem] lg:min-h-[42rem]">
         {image ? (
           <Image
             src={image.url}
             alt={image.alt}
             fill
-            priority
+            loading="eager"
             sizes="(max-width: 1023px) 100vw, 55vw"
-            className="object-cover"
+            className="object-cover object-center"
           />
         ) : (
           <div className="flex h-full items-center justify-center p-8 text-center text-muted">השראה חדשה תתווסף בקרוב</div>
         )}
-        <div className="absolute inset-x-5 bottom-5 rounded-card bg-surface/92 p-4 backdrop-blur-sm sm:inset-x-auto sm:end-6 sm:max-w-xs">
-          <p className="type-label text-primary">התחילי מההרגשה</p>
-          <p className="type-body-small mt-1">FoundHer מחברת בין הרעיון לפריטים שיוצרים אותו.</p>
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-black/5" />
+        <div className="absolute inset-x-0 bottom-0 p-5 text-white sm:p-8 lg:max-w-2xl lg:p-12">
+          <p className="type-label mb-2 text-white/75">אופנה צנועה, בדרך שלך</p>
+          <h1 id="home-title" className="type-display max-w-xl">מה בא לך ללבוש היום?</h1>
+          <p className="type-body mt-3 max-w-md text-white/80">לוקים, פריטים והשכרות שנועדו לגלות דרך התמונות.</p>
+          <Link href="/looks" className="mt-5 inline-flex min-h-11 items-center gap-2 border-b border-white/70 text-sm font-semibold">
+            לגלות לוקים
+            <ArrowLeft aria-hidden="true" className="size-4" />
+          </Link>
         </div>
       </div>
+      <nav aria-label="גילוי מהיר" className="grid grid-cols-3 divide-x divide-x-reverse divide-white/15 bg-foreground text-white">
+        <Link href="/looks" className="flex min-h-14 items-center justify-center text-sm">לוקים</Link>
+        <Link href="/discover" className="flex min-h-14 items-center justify-center text-sm">פריטים</Link>
+        <Link href="/rentals" className="flex min-h-14 items-center justify-center text-sm">השכרות</Link>
+      </nav>
+      <Link href="/search" className="absolute end-4 top-4 inline-grid size-11 place-items-center rounded-full bg-white/92 text-foreground backdrop-blur-md" aria-label="חיפוש ב־FoundHer">
+        <Search aria-hidden="true" className="size-5" />
+      </Link>
     </section>
   );
 }

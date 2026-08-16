@@ -22,13 +22,13 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
   }
 
   return (
-    <section aria-label={`גלריית תמונות של ${productName}`} className="grid gap-3 sm:grid-cols-2">
+    <section aria-label={`גלריית תמונות של ${productName}`} className="hide-scrollbar -mx-4 flex snap-x gap-2 overflow-x-auto px-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:px-0">
       {images.map((image, index) => (
         <figure
           key={image.id}
           className={cn(
-            "relative aspect-[4/5] overflow-hidden rounded-card bg-surface-muted",
-            images.length > 1 && index === 0 && "sm:col-span-2 sm:aspect-[16/11]",
+            "relative aspect-[4/5] w-[88vw] max-w-[32rem] shrink-0 snap-center overflow-hidden rounded-card bg-surface-muted sm:w-auto sm:max-w-none",
+            images.length > 1 && index === 0 && "sm:col-span-2 sm:aspect-[5/4]",
           )}
         >
           <Image

@@ -16,8 +16,7 @@ export function NewArrivals({ products }: NewArrivalsProps) {
     <EditorialSection
       id="selected-products-title"
       eyebrow="פריטים נבחרים"
-      title="חדש ב־FoundHer"
-      description="כמה פריטים שכדאי להכיר — למי שכבר יודעת מה היא מחפשת."
+      title="פריטים שנבחרו עכשיו"
       actionHref="/discover"
       actionLabel="לעוד פריטים"
     >

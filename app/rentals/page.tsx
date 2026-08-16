@@ -1,6 +1,5 @@
 import { PageContainer, PageHeader } from "@/components/layout";
 import {
-  RentalFilterBar,
   RentalFilters,
   RentalGrid,
   RentalSection,
@@ -9,7 +8,6 @@ import {
 import { getRentalCards } from "@/features/rentals/queries/get-rental-cards";
 import type { RentalTypeFilter } from "@/features/rentals/types/rental-card";
 import {
-  rentalsPageDescription,
   rentalsPageMetadata,
   rentalsPageTitle,
 } from "@/features/rentals/utils/rental-metadata";
@@ -39,17 +37,16 @@ export default async function RentalsPage({ searchParams }: RentalsPageProps) {
     <main>
       <PageContainer className="pb-16 sm:pb-20">
         <PageHeader
-          eyebrow="השמלה לאירוע הבא"
+          eyebrow="השכרות"
           title={rentalsPageTitle}
-          description={rentalsPageDescription}
+          description="שמלות ערב וכלה צנועות להשכרה."
         />
         <RentalFilters activeFilter={activeFilter} />
-        <RentalFilterBar />
         {products.length > 0 ? (
           <RentalSection
             title={sectionTitles[activeFilter]}
             titleId="rental-results-title"
-            description={`${products.length} שמלות שנבחרו מעסקי השכרה ברחבי הארץ.`}
+            description={`${products.length} שמלות`}
           >
             <RentalGrid products={products} headingLevel={3} />
           </RentalSection>
