@@ -197,10 +197,8 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Remaining Warnings
 
-- ESLint reports 1 existing `@next/next/no-img-element` warning in the untouched legacy `PageShell`. TASK 012 introduces no new lint warnings.
-- `npm audit` reports 6 vulnerable dependency entries: 5 high and 1 low.
-  - Production: direct `next@16.2.6` and transitive `postcss`/`sharp` advisories. Recommended action: review and upgrade Next.js to at least `16.2.12` in a dedicated dependency update, then run the full validation suite.
-  - Development/transitive tooling: `@babel/core` (low), `brace-expansion` (high), and `js-yaml` (high). Recommended action: update the parent lint/build tooling through normal dependency upgrades and re-run `npm audit`; do not force resolutions without compatibility testing.
+- ESLint reports 1 existing `@next/next/no-img-element` warning in the untouched legacy `PageShell`. TASK 015 introduces no new lint warnings.
+- `npm audit` and `npm audit --omit=dev` report 0 vulnerabilities after TASK 015.
 
 ## Validation Status
 
@@ -235,12 +233,24 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Discover now uses the standard Next.js image optimization path for local assets.
 - The images are free-to-use Pexels stock assets; their source pages and license remain governed by the Pexels license.
 
+## Dependency and Security Hardening
+
+- TASK 015 upgraded the direct production dependency `next` from `16.2.6` to the stable supported `16.3.1` release. `eslint-config-next` was upgraded from `16.2.6` to `16.3.1` to keep the framework lint configuration aligned.
+- React and React DOM remain at `19.2.6`; Next.js 16.3.1 supports the existing React 19 versions, so no unrelated React upgrade was required.
+- Before remediation, `npm audit` reported 7 vulnerabilities: 6 high and 1 low. `npm audit --omit=dev` reported 4 high production vulnerabilities.
+- The Next.js update and refreshed lockfile resolved the direct Next.js advisories plus the production-transitive `postcss`, `nanoid`, and `sharp` advisories. The resolved production versions are `postcss@8.5.23`, `nanoid@3.3.18`, and `sharp@0.35.3`.
+- A reviewed, non-forced `npm audit fix` updated only compatible transitive versions and resolved the development-only `brace-expansion`, `js-yaml`, and `@babel/core` advisories. No packages were added or removed and no direct dependency other than Next.js and its matching ESLint configuration changed.
+- After remediation, both `npm audit` and `npm audit --omit=dev` report 0 vulnerabilities. No vulnerability was intentionally left unresolved, and `npm audit fix --force` was not used.
+- `npm ci` succeeds from `package-lock.json` v3. The project remains npm-based and no package-manager migration occurred.
+- TASK 015 verification passed: fixture validation, Search tests, Favorites tests, link-integrity tests, TypeScript, production build, full audit, and production-only audit. ESLint passes with the single unchanged legacy `<img>` warning in `PageShell`.
+- Browser smoke testing passed for Home, Search, Products, Product detail, Looks, Rentals, Rental Business detail, and Favorites. Navigation and the `/product` redirect worked, demo/link-integrity disclosure remained present, and no hydration, runtime, or console errors were observed.
+
 ## Git Workflow Note
 
-- TASK 001 through TASK 013 are merged into `main`. TASK 014 is developed on `codex/task-014-launch-data-links`; its draft PR targets `main` and must not be merged without review.
+- TASK 001 through TASK 014 are merged into `main`. TASK 015 is developed on `codex/task-015-security-dependencies`; its draft PR targets `main` and must not be merged without review.
 
 ## Next Planned Task
 
-- Recommended TASK 015: Dependency Security Baseline. Upgrade Next.js through a focused compatibility-reviewed change, address supported transitive dependency updates, add appropriate baseline response headers, and rerun the full validation and audit suite.
+- Recommended TASK 016: SEO and Deployment Readiness. Keep production-origin, crawl controls, response headers, deployment configuration, and preview QA out of TASK 015 and address them in a focused follow-up.
 
 This document must be updated at the end of every future task.
