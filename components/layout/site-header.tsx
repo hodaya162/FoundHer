@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -14,11 +14,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-[var(--z-sticky)] h-14 border-b border-border/70 bg-background/94 backdrop-blur-xl md:h-[var(--desktop-header-height)]">
       <PageContainer className={isHome ? "grid h-full grid-cols-[2.75rem_1fr_2.75rem] items-center md:flex md:justify-between" : "flex h-full items-center justify-between gap-5"}>
-        {isHome ? (
-          <Link href="/favorites" aria-label="מעבר לשמורים" className="inline-grid size-11 place-items-center rounded-full text-foreground hover:bg-surface-muted md:hidden">
-            <Heart aria-hidden="true" className="size-[1.15rem]" />
-          </Link>
-        ) : null}
+        {isHome ? <span aria-hidden="true" className="block size-11 md:hidden" /> : null}
         <SiteLogo href="/" className={isHome ? "justify-self-center text-[1.75rem]" : undefined} />
         <div className="hidden md:block">
           <DesktopNavigation />
