@@ -1,9 +1,13 @@
 export { EditorialSection } from "./editorial-section";
 export { FeaturedBrands } from "./featured-brands";
+export { FavoriteBrandsRail } from "./favorite-brands-rail";
 export { FeaturedLooks } from "./featured-looks";
 export { FeaturedRentals } from "./featured-rentals";
 export { HomeEditorialCta } from "./home-editorial-cta";
 export { HomeHero } from "./home-hero";
+export { HomeCategoryRail } from "./home-category-rail";
+export { LooksRail, ProductsRail, RentalsRail } from "./home-content-rails";
+export { HomeSearch } from "./home-search";
 export { NewArrivals } from "./new-arrivals";
 export { OccasionCard } from "./occasion-card";
 export { OccasionGrid } from "./occasion-grid";

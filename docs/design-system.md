@@ -36,6 +36,14 @@ FoundHer is fashion-first: imagery leads, interface recedes, and copy stays conc
 - Controls preserve approximately 44px touch targets, visible focus, semantic links/buttons, and `aria-pressed` for Favorites.
 - RTL is native: logical properties, mirrored content flow, and natural horizontal rails.
 
+## Home composition
+
+- Home follows one fixed discovery rhythm: compact header, search and filter entry, one category rail, editorial hero, brands, products, Looks, and rentals.
+- Mobile rails use native RTL horizontal scrolling, snap alignment, and a partially visible next card. Products and rentals show roughly two cards; Looks use wider editorial cards.
+- The hero stays below one viewport so the next section is visible early. Section gaps are deliberate, while cards remain border-light and image-led.
+- Dusty rose is limited to the filter action, hero CTA, active navigation, and small icon accents. It does not tint whole sections.
+- Brands are compact, non-clickable demo tiles because no valid Brands destination exists. The four-item bottom navigation remains unchanged until a real Profile route exists.
+
 ## Guardrails
 
 - Do not add decorative containers, heavy shadows, explanatory paragraphs, or arbitrary pills.

@@ -294,4 +294,15 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 018 Preview: `https://foundher-qm6l7fta9-found-her1.vercel.app`. Mobile QA at 390×844 covered Home, Search initial/results, Looks listing/detail, Rentals listing/business, Product detail, Favorites empty/populated, client navigation, direct refresh, and 404; desktop smoke ran at 1440×900. No horizontal overflow, visible broken images, or browser console/runtime errors remained. Preview stays public for review, noindex, non-canonical, crawl-blocked, and detached from `NEXT_PUBLIC_SITE_URL`.
 - Product completion still requires owner approval of the mobile Preview; Draft PR #17 must not be merged before that review.
 
+## TASK 018B – Approved Home Reference
+
+- TASK 018B is a Home-only follow-up built explicitly on the unmerged TASK 018 / PR #17 branch. PR #17 was not merged or altered as part of this task.
+- Home now follows the approved order: compact centered wordmark header, search with a real Search route and filter affordance, one scrolling category row, compact editorial hero, Favorite Brands, “חדש בשבילך”, “לוקים ששווה לשמור”, and “להשכרה עכשיו”.
+- New Home-specific composition components isolate the approved rails and card densities without changing Search, Looks, Rentals, Favorites, Product detail, repositories, or domain behavior.
+- Product and rental rails show approximately two cards on mobile; the Looks rail uses wider editorial cards. All rails use native RTL horizontal scrolling and snap alignment.
+- Existing Search routing, Favorites/localStorage, real entity routes, demo disclosures, safe link behavior, Preview noindex/non-canonical rules, and production headers remain intact.
+- Brands remain compact, non-clickable demo tiles because the legacy Brands route is intentionally unavailable. The bottom navigation still exposes the four valid MVP routes; Profile was not fabricated or restored.
+- Visual QA covers 360px, 390×844, and 430px mobile widths plus a desktop smoke test. Final Preview URL and owner-approval status are recorded after deployment.
+- TASK 018B remains product-unapproved until the owner reviews the new Vercel Preview and full-page mobile screenshot. Its Draft PR must not be merged before that approval.
+
 This document must be updated at the end of every future task.

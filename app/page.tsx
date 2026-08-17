@@ -3,10 +3,19 @@ import type { Metadata } from "next";
 import { PageContainer } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 import { createCanonicalUrl } from "@/config/site-url";
-import { FeaturedLooks, FeaturedRentals, HomeHero, NewArrivals } from "@/features/home/components";
-import { getFeaturedLooks } from "@/lib/repositories/looks.repository";
-import { getFeaturedRentalCards } from "@/features/rentals/queries/get-rental-cards";
+import {
+  FavoriteBrandsRail,
+  HomeCategoryRail,
+  HomeHero,
+  HomeSearch,
+  LooksRail,
+  ProductsRail,
+  RentalsRail,
+} from "@/features/home/components";
 import { getFeaturedPurchaseProductCards } from "@/features/products/queries/get-featured-purchase-product-cards";
+import { getFeaturedRentalCards } from "@/features/rentals/queries/get-rental-cards";
+import { getFeaturedBrands } from "@/lib/repositories/brands.repository";
+import { getFeaturedLooks } from "@/lib/repositories/looks.repository";
 
 const title = "השראה לאופנה צנועה";
 const description = "גלי לוקים שלמים, אופנה צנועה, פריטים ושמלות להשכרה ממותגים ועסקים נבחרים.";
@@ -34,17 +43,26 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const featuredLooks = getFeaturedLooks().slice(0, 3);
-  const featuredRentals = getFeaturedRentalCards().slice(0, 3);
-  const selectedProducts = getFeaturedPurchaseProductCards().slice(0, 4);
+  const looks = getFeaturedLooks();
+  const rentals = getFeaturedRentalCards();
+  const products = getFeaturedPurchaseProductCards();
+  const brands = getFeaturedBrands();
 
   return (
     <main>
-      <PageContainer className="pb-14 pt-3 sm:pb-20 sm:pt-6">
-        <HomeHero image={featuredLooks[0]?.coverImage} />
-        <FeaturedLooks looks={featuredLooks} />
-        <FeaturedRentals products={featuredRentals} />
-        <NewArrivals products={selectedProducts} />
+      <PageContainer className="pb-10 pt-3 sm:pb-16 sm:pt-5">
+        <div className="space-y-4 sm:space-y-5">
+          <HomeSearch />
+          <HomeCategoryRail />
+          <HomeHero image={looks[0]?.coverImage} />
+        </div>
+
+        <div className="mt-8 space-y-10 sm:mt-12 sm:space-y-14">
+          <FavoriteBrandsRail brands={brands} />
+          <ProductsRail products={products} />
+          <LooksRail looks={looks} />
+          <RentalsRail products={rentals} />
+        </div>
       </PageContainer>
     </main>
   );
