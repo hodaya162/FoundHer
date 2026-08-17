@@ -10,7 +10,7 @@ type HomeHeroProps = {
 
 export function HomeHero({ image }: HomeHeroProps) {
   return (
-    <section aria-labelledby="home-title" className="relative overflow-hidden rounded-[0.9rem] bg-[#eee1dc]">
+    <section aria-labelledby="home-title" className="relative overflow-hidden rounded-[1rem] border border-white/80 bg-[#eee1dc] shadow-[0_10px_32px_rgba(91,55,61,0.08)]">
       <div className="relative aspect-[16/7.2] min-h-[10.25rem] max-h-[21rem] sm:aspect-[16/6.5]">
         {image ? (
           <div className="absolute inset-y-0 end-0 w-[55%] overflow-hidden">

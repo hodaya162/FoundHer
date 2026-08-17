@@ -24,13 +24,15 @@ export function SiteHeader() {
           <DesktopNavigation />
         </div>
         <nav className={isHome ? "justify-self-end" : "flex items-center gap-1"} aria-label="פעולות משתמש">
-          <Link
-            href="/search"
-            aria-label="חיפוש ב־FoundHer"
-            className="inline-grid size-11 place-items-center rounded-full text-foreground transition-colors hover:bg-surface-muted [&_svg]:size-[1.15rem]"
-          >
-            <Search aria-hidden="true" />
-          </Link>
+          {isHome ? <span aria-hidden="true" className="block size-11" /> : (
+            <Link
+              href="/search"
+              aria-label="חיפוש ב־FoundHer"
+              className="inline-grid size-11 place-items-center rounded-full text-foreground transition-colors hover:bg-surface-muted [&_svg]:size-[1.15rem]"
+            >
+              <Search aria-hidden="true" />
+            </Link>
+          )}
         </nav>
       </PageContainer>
     </header>
