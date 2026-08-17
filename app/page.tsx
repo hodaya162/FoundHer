@@ -50,14 +50,14 @@ export default function HomePage() {
 
   return (
     <main>
-      <PageContainer className="pb-10 pt-3 sm:pb-16 sm:pt-5">
+      <PageContainer className="pb-5 pt-3 sm:pb-16 sm:pt-5">
         <div className="space-y-3.5 sm:space-y-5">
           <HomeSearch />
           <HomeCategoryRail />
           <HomeHero image={looks[0]?.coverImage} />
         </div>
 
-        <div className="mt-7 space-y-8 sm:mt-12 sm:space-y-12">
+        <div className="mt-6 space-y-7 sm:mt-12 sm:space-y-12">
           <ProductsRail products={products} />
           <LooksRail looks={looks} />
           <FavoriteBrandsRail brands={brands} />
