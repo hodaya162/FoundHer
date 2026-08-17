@@ -317,7 +317,7 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Personalized wording was removed: “חדש בשבילך” is now “חדש ומומלץ”, “מותגים אהובים” is now “מותגים שכדאי להכיר”, and the Looks section is “לוקים מומלצים”. Brands now follow the primary fashion and Look discovery content.
 - The mobile navigation visually reserves the fifth Profile destination but keeps it disabled and labeled as forthcoming. The legacy `/profile` route remains unavailable and no account, authentication, or user data was fabricated.
 - Search, Favorites/localStorage, Product/Look/Rental routes, demo disclosures, external-link safeguards, Preview noindex/non-canonical behavior, production URL rules, and security headers remain unchanged.
-- Public TASK 018C Preview: `https://foundher-f4uxk10p0-found-her1.vercel.app`. Mobile visual QA passed at 360px, 390px, and 430px with no page-level horizontal overflow or browser runtime errors; the continuous 390px Home capture confirms the approved full-page section order.
+- Public TASK 018C Preview: `https://foundher-st02hpr1g-found-her1.vercel.app`. Mobile visual QA passed at 360px, 390px, and 430px with no page-level horizontal overflow or browser runtime errors; the continuous 390px Home capture confirms the approved full-page section order and the owner-supplied inspiration density.
 - TASK 018C remains product-unapproved until the owner reviews its public Preview and continuous 390px Home screenshot. Its Draft PR must not be merged before explicit approval.
 
 This document must be updated at the end of every future task.
