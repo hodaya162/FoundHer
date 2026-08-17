@@ -305,5 +305,6 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Visual QA covers 360px, 390×844, and 430px mobile widths plus a 1440×900 desktop smoke test. The real Preview is `https://foundher-infiyp9ja-found-her1.vercel.app`; it loaded without broken images or horizontal overflow, and Home Search and Favorites were exercised successfully on the deployment.
 - Preview safeguards remain unchanged: `X-Robots-Tag: noindex`, no canonical, crawl-blocking robots, empty sitemap, and no `foundher.example` or Preview-derived production origin.
 - TASK 018B remains product-unapproved until the owner reviews the new Vercel Preview and full-page mobile screenshot. Its Draft PR must not be merged before that approval.
+- The Home category rail now uses six project-local, AI-generated editorial thumbnails for הכול, לוקים, פריטים, השכרות, אירועים, and שבת. The cohesive image set follows the approved Jewish modest-fashion direction, is circular-crop safe, contains no text/logos, and is stored as optimized 512px WebP assets under `public/images/categories`.
 
 This document must be updated at the end of every future task.
