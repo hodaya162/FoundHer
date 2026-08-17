@@ -312,6 +312,8 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 018C is based on the unmerged TASK 018B branch, which itself depends on unmerged TASK 018 / PR #17. No redesign PR was silently merged.
 - Home now follows the owner-approved order: Header, Search, four gateways, editorial Hero, New & Recommended, Recommended Looks, Brands Worth Discovering, Rentals Now, and bottom navigation.
 - The four gateways are exactly Looks (`/looks`), Items (`/discover`), Brands (a safe in-page jump to the demo brand rail), and Rentals (`/rentals`). Occasion and item-category filters were removed from Home.
+- The owner-supplied mobile inspiration is now the density and hierarchy reference: one full-width Search field, four compact gateways, a shorter editorial Hero, approximately four visible Product cards, approximately three visible Look cards, quiet Brand chips, and one image-led Rental banner.
+- The original gateway icons and all existing Search, Favorites, route, demo-disclosure, link-integrity, and Preview SEO safeguards remain unchanged.
 - Personalized wording was removed: “חדש בשבילך” is now “חדש ומומלץ”, “מותגים אהובים” is now “מותגים שכדאי להכיר”, and the Looks section is “לוקים מומלצים”. Brands now follow the primary fashion and Look discovery content.
 - The mobile navigation visually reserves the fifth Profile destination but keeps it disabled and labeled as forthcoming. The legacy `/profile` route remains unavailable and no account, authentication, or user data was fabricated.
 - Search, Favorites/localStorage, Product/Look/Rental routes, demo disclosures, external-link safeguards, Preview noindex/non-canonical behavior, production URL rules, and security headers remain unchanged.

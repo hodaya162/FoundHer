@@ -14,7 +14,7 @@ export function HomeCategoryRail() {
       <ul className="grid grid-cols-4 gap-2 sm:gap-3">
         {categories.map(({ href, icon: Icon, label }) => (
           <li key={label} className="min-w-0 text-center">
-            <Link href={href} className="group flex min-h-[4.75rem] flex-col items-center justify-center gap-1.5 rounded-card bg-surface-muted px-1 text-xs font-medium text-foreground transition-colors hover:bg-[#f0e3e3]">
+            <Link href={href} className="group flex min-h-[4.25rem] flex-col items-center justify-center gap-1 rounded-card bg-[#f7eeee] px-1 text-[0.68rem] font-semibold text-foreground transition-colors hover:bg-[#f0e3e3]">
               <span className="grid size-8 place-items-center text-primary">
                 <Icon aria-hidden="true" className="size-[1.2rem]" strokeWidth={1.65} />
               </span>

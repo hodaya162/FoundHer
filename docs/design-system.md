@@ -40,10 +40,12 @@ FoundHer is fashion-first: imagery leads, interface recedes, and copy stays conc
 
 - Home follows one fixed discovery rhythm: compact header, search, four high-level gateways, editorial hero, products, Looks, brands, and rentals.
 - The four gateways are Looks, Items, Brands, and Rentals. Occasion and product-category filters belong in their dedicated discovery experiences, not on Home.
+- The approved mobile reference favors editorial density: the product rail shows roughly four compact cards, the Looks rail shows roughly three image-led cards, brands use quiet name chips, and Rentals closes the page with one landscape editorial banner.
+- Home rails use native RTL horizontal scrolling. Partial edge content may hint at more results, but the page itself must never overflow horizontally.
 - Mobile rails use native RTL horizontal scrolling, snap alignment, and a partially visible next card. Products and rentals show roughly two cards; Looks use wider editorial cards.
 - The hero stays below one viewport so the next section is visible early. Section gaps are deliberate, while cards remain border-light and image-led.
 - Dusty rose is limited to the filter action, hero CTA, active navigation, and small icon accents. It does not tint whole sections.
-- Brands are compact, non-clickable demo tiles because no valid Brands destination exists. The Home Brands gateway scrolls to that safe section instead of restoring the legacy route.
+- Brands are compact, non-clickable demo name chips because no valid Brands destination exists. The Home Brands gateway scrolls to that safe section instead of restoring the legacy route.
 
 ## Guardrails
 

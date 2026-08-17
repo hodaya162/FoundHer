@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Search, SlidersHorizontal } from "lucide-react";
+import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import type { FormEvent } from "react";
 
@@ -17,8 +16,8 @@ export function HomeSearch() {
   }
 
   return (
-    <form action="/search" role="search" onSubmit={handleSubmit} className="flex items-center gap-2">
-      <div className="min-w-0 flex-1">
+    <form action="/search" role="search" onSubmit={handleSubmit}>
+      <div>
         <div className="relative">
           <Input
           type="search"
@@ -32,13 +31,6 @@ export function HomeSearch() {
           </button>
         </div>
       </div>
-      <Link
-        href="/search"
-        aria-label="פתיחת חיפוש וסינון"
-        className="inline-grid size-12 shrink-0 place-items-center rounded-card bg-primary text-white transition-colors hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      >
-        <SlidersHorizontal aria-hidden="true" className="size-[1.15rem]" />
-      </Link>
     </form>
   );
 }
