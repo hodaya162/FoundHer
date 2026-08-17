@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { UserRound } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 import { isRouteActive, mobileNavigationItems } from "@/config/navigation";
@@ -14,7 +15,7 @@ export function MobileBottomNavigation() {
       aria-label="ניווט ראשי בנייד"
       className="fixed inset-x-0 bottom-0 z-[var(--z-navigation)] border-t border-border/70 bg-background/94 pb-[env(safe-area-inset-bottom)] backdrop-blur-xl md:hidden"
     >
-      <ul className="mx-auto grid h-[var(--mobile-navigation-height)] max-w-md grid-cols-4 px-3">
+      <ul className="mx-auto grid h-[var(--mobile-navigation-height)] max-w-md grid-cols-5 px-2">
         {mobileNavigationItems.map((item) => {
           const active = isRouteActive(pathname, item.href);
           const Icon = item.icon;
@@ -36,6 +37,17 @@ export function MobileBottomNavigation() {
             </li>
           );
         })}
+        <li className="min-w-0">
+          <span
+            aria-disabled="true"
+            aria-label="פרופיל — בקרוב"
+            title="פרופיל יהיה זמין בהמשך"
+            className="flex h-full min-h-11 min-w-11 cursor-not-allowed flex-col items-center justify-center gap-0.5 px-1 text-[0.625rem] font-medium text-muted/65 [&_svg]:size-[1.15rem]"
+          >
+            <UserRound aria-hidden="true" strokeWidth={1.75} />
+            <span>פרופיל</span>
+          </span>
+        </li>
       </ul>
     </nav>
   );

@@ -27,10 +27,10 @@ export function HomeHero({ image }: HomeHeroProps) {
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-l from-black/68 via-black/20 to-transparent" />
         <div className="absolute inset-y-0 start-0 flex w-[72%] max-w-lg flex-col justify-center p-5 text-white sm:p-8">
           <p className="text-[0.68rem] font-semibold tracking-[0.08em] text-white/75">FOUNDHER EDIT</p>
-          <h1 id="home-title" className="mt-2 text-[1.8rem] font-medium leading-[1.08] tracking-[-0.035em] sm:text-4xl">מוצאת לוק צנוע במקום אחד</h1>
-          <p className="mt-2 max-w-xs text-sm leading-6 text-white/82">לוקים, פריטים והשכרות שנבחרו כדי שתמצאי מהר את מה שמתאים לך.</p>
+          <h1 id="home-title" className="mt-2 text-[1.8rem] font-medium leading-[1.08] tracking-[-0.035em] sm:text-4xl">לוקים שמדגישים אותך</h1>
+          <p className="mt-2 max-w-xs text-sm leading-6 text-white/82">השראה צנועה ומדויקת ללוק שלם.</p>
           <Link href="/looks" className="mt-4 inline-flex min-h-11 w-fit items-center gap-2 rounded-button bg-primary px-4 text-sm font-semibold text-white hover:bg-primary-hover">
-            גלי לוקים
+            לגלות את הלוקים
             <ArrowLeft aria-hidden="true" className="size-4" />
           </Link>
         </div>

@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     locale: siteConfig.openGraphLocale,
     siteName: siteConfig.name,
     url: canonical,
-    images: [{ url: "/images/products/embroidered-maxi-dress.jpg", alt: "השראה ללוק צנוע שלם ב־FoundHer" }],
+    images: [{ url: "/images/generated/looks/summer-event-classic.webp", alt: "השראה ללוק צנוע שלם ב־FoundHer" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/products/embroidered-maxi-dress.jpg"],
+    images: ["/images/generated/looks/summer-event-classic.webp"],
   },
 };
 
@@ -58,9 +58,9 @@ export default function HomePage() {
         </div>
 
         <div className="mt-8 space-y-10 sm:mt-12 sm:space-y-14">
-          <FavoriteBrandsRail brands={brands} />
           <ProductsRail products={products} />
           <LooksRail looks={looks} />
+          <FavoriteBrandsRail brands={brands} />
           <RentalsRail products={rentals} />
         </div>
       </PageContainer>

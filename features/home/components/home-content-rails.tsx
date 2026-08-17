@@ -15,7 +15,7 @@ const railClass = "hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflo
 export function ProductsRail({ products }: { products: readonly PurchaseProductCard[] }) {
   if (products.length === 0) return null;
   return (
-    <HomeSection title="חדש בשבילך" id="home-products-title" href="/discover">
+    <HomeSection title="חדש ומומלץ" id="home-products-title" href="/discover">
       <div className={railClass}>
         {products.map((product, index) => (
           <article key={product.id} className="w-[42%] max-w-[12rem] shrink-0 snap-start sm:w-48">
@@ -42,7 +42,7 @@ export function ProductsRail({ products }: { products: readonly PurchaseProductC
 export function LooksRail({ looks }: { looks: readonly Look[] }) {
   if (looks.length === 0) return null;
   return (
-    <HomeSection title="לוקים ששווה לשמור" id="home-looks-title" href="/looks">
+    <HomeSection title="לוקים מומלצים" id="home-looks-title" href="/looks">
       <div className={railClass}>
         {looks.map((look) => (
           <article key={look.id} className="w-[68%] max-w-[19rem] shrink-0 snap-start sm:w-72">

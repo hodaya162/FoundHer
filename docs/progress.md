@@ -307,4 +307,14 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 018B remains product-unapproved until the owner reviews the new Vercel Preview and full-page mobile screenshot. Its Draft PR must not be merged before that approval.
 - The original category icons were preserved. Home content now uses a new project-local AI-generated editorial image set for five featured purchase products, three featured Looks, and four featured Rentals. Images follow the approved contemporary Jewish modest-fashion direction and are optimized as 1200px WebP assets under `public/images/generated`.
 
+## TASK 018C – Final Home Information Architecture
+
+- TASK 018C is based on the unmerged TASK 018B branch, which itself depends on unmerged TASK 018 / PR #17. No redesign PR was silently merged.
+- Home now follows the owner-approved order: Header, Search, four gateways, editorial Hero, New & Recommended, Recommended Looks, Brands Worth Discovering, Rentals Now, and bottom navigation.
+- The four gateways are exactly Looks (`/looks`), Items (`/discover`), Brands (a safe in-page jump to the demo brand rail), and Rentals (`/rentals`). Occasion and item-category filters were removed from Home.
+- Personalized wording was removed: “חדש בשבילך” is now “חדש ומומלץ”, “מותגים אהובים” is now “מותגים שכדאי להכיר”, and the Looks section is “לוקים מומלצים”. Brands now follow the primary fashion and Look discovery content.
+- The mobile navigation visually reserves the fifth Profile destination but keeps it disabled and labeled as forthcoming. The legacy `/profile` route remains unavailable and no account, authentication, or user data was fabricated.
+- Search, Favorites/localStorage, Product/Look/Rental routes, demo disclosures, external-link safeguards, Preview noindex/non-canonical behavior, production URL rules, and security headers remain unchanged.
+- TASK 018C remains product-unapproved until the owner reviews its public Preview and continuous 390px Home screenshot. Its Draft PR must not be merged before explicit approval.
+
 This document must be updated at the end of every future task.

@@ -31,18 +31,19 @@ FoundHer is fashion-first: imagery leads, interface recedes, and copy stays conc
 ## Navigation and interaction
 
 - Compact wordmark header with one Search affordance.
-- Four real bottom destinations only: Home, Looks, Rentals, Favorites.
+- Four active bottom destinations: Home, Looks, Rentals, Favorites. Profile is shown as a disabled future destination until a dedicated authenticated Profile task exists.
 - Selected navigation is signaled by typography and a thin accent, not a filled pill.
 - Controls preserve approximately 44px touch targets, visible focus, semantic links/buttons, and `aria-pressed` for Favorites.
 - RTL is native: logical properties, mirrored content flow, and natural horizontal rails.
 
 ## Home composition
 
-- Home follows one fixed discovery rhythm: compact header, search and filter entry, one category rail, editorial hero, brands, products, Looks, and rentals.
+- Home follows one fixed discovery rhythm: compact header, search, four high-level gateways, editorial hero, products, Looks, brands, and rentals.
+- The four gateways are Looks, Items, Brands, and Rentals. Occasion and product-category filters belong in their dedicated discovery experiences, not on Home.
 - Mobile rails use native RTL horizontal scrolling, snap alignment, and a partially visible next card. Products and rentals show roughly two cards; Looks use wider editorial cards.
 - The hero stays below one viewport so the next section is visible early. Section gaps are deliberate, while cards remain border-light and image-led.
 - Dusty rose is limited to the filter action, hero CTA, active navigation, and small icon accents. It does not tint whole sections.
-- Brands are compact, non-clickable demo tiles because no valid Brands destination exists. The four-item bottom navigation remains unchanged until a real Profile route exists.
+- Brands are compact, non-clickable demo tiles because no valid Brands destination exists. The Home Brands gateway scrolls to that safe section instead of restoring the legacy route.
 
 ## Guardrails
 

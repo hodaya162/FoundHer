@@ -24,7 +24,7 @@ export function HomeSearch() {
           type="search"
           name="q"
           aria-label="חיפוש ב־FoundHer"
-          placeholder="חפשי לוק, פריט, צבע, אירוע..."
+          placeholder="חפשי לוק, פריט או מותג..."
           className="h-12 rounded-card border-border/80 bg-surface ps-10 pe-3 text-sm shadow-none"
           />
           <button type="submit" aria-label="חיפוש" className="absolute inset-inline-start-0 top-1/2 inline-grid size-11 -translate-y-1/2 place-items-center text-muted hover:text-primary">
