@@ -302,7 +302,8 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - Product and rental rails show approximately two cards on mobile; the Looks rail uses wider editorial cards. All rails use native RTL horizontal scrolling and snap alignment.
 - Existing Search routing, Favorites/localStorage, real entity routes, demo disclosures, safe link behavior, Preview noindex/non-canonical rules, and production headers remain intact.
 - Brands remain compact, non-clickable demo tiles because the legacy Brands route is intentionally unavailable. The bottom navigation still exposes the four valid MVP routes; Profile was not fabricated or restored.
-- Visual QA covers 360px, 390×844, and 430px mobile widths plus a desktop smoke test. Final Preview URL and owner-approval status are recorded after deployment.
+- Visual QA covers 360px, 390×844, and 430px mobile widths plus a 1440×900 desktop smoke test. The real Preview is `https://foundher-infiyp9ja-found-her1.vercel.app`; it loaded without broken images or horizontal overflow, and Home Search and Favorites were exercised successfully on the deployment.
+- Preview safeguards remain unchanged: `X-Robots-Tag: noindex`, no canonical, crawl-blocking robots, empty sitemap, and no `foundher.example` or Preview-derived production origin.
 - TASK 018B remains product-unapproved until the owner reviews the new Vercel Preview and full-page mobile screenshot. Its Draft PR must not be merged before that approval.
 
 This document must be updated at the end of every future task.
