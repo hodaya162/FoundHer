@@ -12,6 +12,7 @@ import type { RentalCardModel } from "@/features/rentals/types/rental-card";
 import { HomeSection } from "./home-section";
 
 const railClass = "hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:gap-3 sm:px-0";
+const homeFavoriteClass = "absolute end-0.5 top-0.5 z-[var(--z-base)] size-11 min-h-11 min-w-11 border-0 bg-transparent p-0 text-primary shadow-none before:absolute before:inset-[0.3rem] before:rounded-full before:border before:border-white/80 before:bg-white/88 before:backdrop-blur-sm before:transition-colors hover:bg-transparent hover:before:bg-white [&_svg]:relative [&_svg]:z-10 [&_svg]:size-[1.15rem]";
 
 export function ProductsRail({ products }: { products: readonly PurchaseProductCard[] }) {
   if (products.length === 0) return null;
@@ -26,7 +27,7 @@ export function ProductsRail({ products }: { products: readonly PurchaseProductC
                   <Image src={product.image.url} alt={product.image.alt} fill loading={index < 2 ? "eager" : "lazy"} sizes="(max-width: 639px) 25vw, 160px" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
                 </div>
               </Link>
-              <ProductFavoriteButton productId={product.id} productName={product.name} className="absolute end-1 top-1 size-9 min-h-9 min-w-9 border-0 bg-transparent p-0 text-[#b16f7b] shadow-none hover:bg-transparent hover:text-[#925765] [&_svg]:size-3.5" />
+              <ProductFavoriteButton productId={product.id} productName={product.name} className={homeFavoriteClass} />
             </div>
             <div className="pt-2">
               <h3 className="line-clamp-2 text-[0.72rem] font-semibold leading-4"><Link href={`/products/${product.slug}`}>{product.name}</Link></h3>
@@ -52,7 +53,7 @@ export function LooksRail({ looks }: { looks: readonly Look[] }) {
                 <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                 <h3 className="absolute inset-x-1.5 bottom-1.5 line-clamp-1 rounded-full bg-white/88 px-1.5 py-1 text-center text-[0.62rem] font-semibold leading-3 text-foreground backdrop-blur-sm">{occasionLabels[look.occasions[0]]}</h3>
               </Link>
-              <LookSaveButton lookId={look.id} lookTitle={look.title} className="absolute end-1 top-1 size-9 min-h-9 min-w-9 border-0 bg-transparent p-0 text-[#b16f7b] shadow-none hover:bg-transparent hover:text-[#925765] [&_svg]:size-3.5" />
+              <LookSaveButton lookId={look.id} lookTitle={look.title} className={homeFavoriteClass} />
             </div>
           </article>
         ))}
@@ -76,10 +77,11 @@ export function RentalsRail({ products }: { products: readonly RentalCardModel[]
             <span className="text-[0.65rem] text-white/75">להשכרה</span>
             <span className="mt-0.5 text-base font-semibold">{product.name}</span>
             <span className="mt-1 text-sm font-semibold">{formatProductPrice(product.rentalPrice, product.currency)}</span>
+            <span className="mt-0.5 text-[0.62rem] text-white/80">{product.rentalBusiness?.name ?? product.city} · {product.city}</span>
             {product.rentalBusiness?.isDemo ? <span className="mt-1 text-[0.62rem] text-white/70">תוכן לדוגמה</span> : null}
           </span>
         </Link>
-        <ProductFavoriteButton productId={product.id} productName={product.name} className="absolute end-1.5 top-1.5 size-9 min-h-9 min-w-9 border-0 bg-transparent p-0 text-[#d6a0aa] shadow-none hover:bg-transparent hover:text-white [&_svg]:size-3.5" />
+        <ProductFavoriteButton productId={product.id} productName={product.name} className={`${homeFavoriteClass} text-[#d6a0aa]`} />
       </article>
     </HomeSection>
   );

@@ -43,7 +43,8 @@ FoundHer is fashion-first: imagery leads, interface recedes, and copy stays conc
 - The approved mobile reference favors editorial density: the product rail shows roughly four compact cards, the Looks rail shows roughly three image-led cards, brands use quiet name chips, and Rentals closes the page with one landscape editorial banner.
 - On mobile, the application footer is suppressed in favor of the persistent bottom navigation; this avoids repeating navigation and keeps Home's final rental banner close to the primary navigation.
 - Home rails use native RTL horizontal scrolling. Partial edge content may hint at more results, but the page itself must never overflow horizontally.
-- Home Search uses one embedded submit action on the physical left edge in RTL; cards use compact Favorite circles so controls do not overpower the fashion imagery.
+- Home Search uses one embedded submit action on the physical left edge in RTL. Home cards keep a 44px accessible Favorite target around a 32â€“34px semi-opaque circle and an 18â€“20px heart, so the control stays usable without overpowering the imagery.
+- The same reusable modest maxi-dress-with-sparkle `LooksIcon` identifies Looks in both the Home gateway and persistent bottom navigation. Rentals use the same hanger metaphor in both locations.
 - Mobile rails use native RTL horizontal scrolling, snap alignment, and a partially visible next card. Products and rentals show roughly two cards; Looks use wider editorial cards.
 - The hero stays below one viewport so the next section is visible early. Section gaps are deliberate, while cards remain border-light and image-led.
 - Dusty rose is limited to the filter action, hero CTA, active navigation, and small icon accents. It does not tint whole sections.

@@ -30,7 +30,9 @@ export function HomeHero({ image }: HomeHeroProps) {
         <div className="absolute inset-y-0 start-0 flex w-[52%] max-w-lg flex-col justify-center p-3.5 sm:p-7">
           <p className="font-serif text-base font-semibold leading-none text-primary sm:text-xl">FoundHer.</p>
           <h1 id="home-title" className="mt-1.5 text-[1.2rem] font-medium leading-[1.08] tracking-[-0.035em] text-foreground sm:text-3xl">לוקים שמדגישים אותך</h1>
-          <p className="mt-1.5 max-w-xs text-[0.68rem] leading-4 text-muted sm:text-sm">השראה צנועה ומדויקת ללוק שלם.</p>
+          <p className="mt-1.5 max-w-xs text-[0.68rem] leading-4 text-muted sm:text-sm">
+            השראה צנועה ומדויקת.<br />לוק מושלם, במקום אחד.
+          </p>
           <Link href="/looks" className="mt-2.5 inline-flex min-h-9 w-fit items-center gap-1.5 rounded-button bg-primary px-3 text-[0.68rem] font-semibold text-white hover:bg-primary-hover sm:min-h-10 sm:text-sm">
             לגלות את הלוקים
             <ArrowLeft aria-hidden="true" className="size-3.5" />

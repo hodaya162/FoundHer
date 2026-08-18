@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { LayoutGrid, Shirt, Tags, WandSparkles } from "lucide-react";
+import { Shirt, Tags } from "lucide-react";
+
+import { HangerIcon, LooksIcon } from "@/components/icons";
 
 const categories = [
-  { label: "לוקים", href: "/looks", icon: LayoutGrid },
+  { label: "לוקים", href: "/looks", icon: LooksIcon },
   { label: "פריטים", href: "/discover", icon: Shirt },
   { label: "מותגים", href: "/#home-brands-title", icon: Tags },
-  { label: "השכרות", href: "/rentals", icon: WandSparkles },
+  { label: "השכרות", href: "/rentals", icon: HangerIcon },
 ] as const;
 
 export function HomeCategoryRail() {

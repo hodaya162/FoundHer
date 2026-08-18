@@ -324,3 +324,11 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 018C remains product-unapproved until the owner reviews its public Preview and continuous 390px Home screenshot. Its Draft PR must not be merged before explicit approval.
 
 This document must be updated at the end of every future task.
+
+## TASK 018D â€“ Home Refinement
+
+- TASK 018D is a focused refinement branch based on unmerged TASK 018C / PR #19. No prior redesign PR was merged to begin this work, and Home information architecture remains unchanged.
+- The Home Header stays centered and minimal with no duplicate Favorites action. A reusable modest maxi-dress-and-sparkle Looks icon now appears in both the Home gateway and mobile bottom navigation; Rentals consistently use a hanger icon.
+- Home Product, Look, and featured Rental imagery now share the same Favorite treatment: a 44px accessible hit area, restrained 32â€“34px semi-opaque circular backing, 18â€“20px dusty-rose outline, and a filled heart only when saved. Favorites/localStorage behavior is unchanged.
+- The Hero copy is shorter, section links now say “הצג הכל”, Brands use quiet typographic circles without fabricated logos, and the final Rentals section remains one dramatic image-led featured banner rather than another repeated card rail.
+- Preview URL, visual QA, verification results, and owner-approval status will be recorded after deployment. TASK 018D must not be merged before explicit visual approval.

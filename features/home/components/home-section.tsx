@@ -16,7 +16,7 @@ export function HomeSection({ children, href, id, title }: HomeSectionProps) {
         <h2 id={id} className="scroll-mt-24 font-serif text-[1.1rem] font-semibold leading-tight tracking-[-0.025em] text-[#241b1d] sm:text-2xl">{title}</h2>
         {href ? (
           <Link href={href} className="inline-flex min-h-11 items-center gap-1 text-xs font-semibold text-muted hover:text-primary">
-            לכל התוצאות
+            הצג הכל
             <ArrowLeft aria-hidden="true" className="size-3.5" />
           </Link>
         ) : null}
