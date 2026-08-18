@@ -12,7 +12,7 @@ import type { RentalCardModel } from "@/features/rentals/types/rental-card";
 import { HomeSection } from "./home-section";
 
 const railClass = "hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:gap-3 sm:px-0";
-const homeFavoriteClass = "absolute end-0.5 top-0.5 z-[var(--z-base)] size-11 min-h-11 min-w-11 border-0 bg-transparent p-0 text-primary shadow-none before:absolute before:inset-[0.3rem] before:rounded-full before:border before:border-white/80 before:bg-white/88 before:backdrop-blur-sm before:transition-colors hover:bg-transparent hover:before:bg-white [&_svg]:relative [&_svg]:z-10 [&_svg]:size-[1.15rem]";
+const homeFavoriteClass = "absolute end-0 top-0 z-[var(--z-base)] size-11 min-h-11 min-w-11 border-0 bg-transparent p-0 text-primary shadow-none before:absolute before:end-0 before:top-0 before:size-[1.9rem] before:rounded-full before:border before:border-white/80 before:bg-white/88 before:backdrop-blur-sm before:transition-colors hover:bg-transparent hover:before:bg-white [&_svg]:absolute [&_svg]:end-[0.43rem] [&_svg]:top-[0.43rem] [&_svg]:z-10 [&_svg]:size-4";
 
 export function ProductsRail({ products }: { products: readonly PurchaseProductCard[] }) {
   if (products.length === 0) return null;
