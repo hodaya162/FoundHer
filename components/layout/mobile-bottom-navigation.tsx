@@ -25,8 +25,8 @@ export function MobileBottomNavigation() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative flex h-full min-h-11 min-w-11 flex-col items-center justify-center gap-0.5 px-1 text-[0.625rem] font-medium text-muted transition-colors",
-                  "hover:text-foreground [&_svg]:size-[1.15rem] [&_svg]:shrink-0",
+                  "relative flex h-full min-h-11 min-w-11 flex-col items-center justify-center gap-1 px-1 text-[0.7rem] font-medium text-muted transition-colors",
+                  "hover:text-foreground [&_svg]:size-[1.3rem] [&_svg]:shrink-0",
                   "after:absolute after:top-0 after:h-0.5 after:w-5 after:scale-x-0 after:rounded-full after:bg-primary after:transition-transform",
                   active && "text-foreground after:scale-x-100",
                 )}
@@ -42,7 +42,7 @@ export function MobileBottomNavigation() {
             aria-disabled="true"
             aria-label="פרופיל — בקרוב"
             title="פרופיל יהיה זמין בהמשך"
-            className="flex h-full min-h-11 min-w-11 cursor-not-allowed flex-col items-center justify-center gap-0.5 px-1 text-[0.625rem] font-medium text-muted/65 [&_svg]:size-[1.15rem]"
+            className="flex h-full min-h-11 min-w-11 cursor-not-allowed flex-col items-center justify-center gap-1 px-1 text-[0.7rem] font-medium text-muted/65 [&_svg]:size-[1.3rem]"
           >
             <UserRound aria-hidden="true" strokeWidth={1.75} />
             <span>פרופיל</span>
