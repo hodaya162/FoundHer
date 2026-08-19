@@ -40,10 +40,10 @@ FoundHer is fashion-first: imagery leads, interface recedes, and copy stays conc
 
 - Home follows one fixed discovery rhythm: compact header, search, four high-level gateways, editorial hero, products, Looks, brands, and rentals.
 - The four gateways are Looks, Items, Brands, and Rentals. Occasion and product-category filters belong in their dedicated discovery experiences, not on Home.
-- The approved mobile reference favors editorial density: the product rail shows roughly four compact cards, the Looks rail shows roughly three image-led cards, brands use quiet name chips, and Rentals closes the page with one landscape editorial banner.
+- The approved mobile scale favors comfortable editorial density: Product and Look rails show approximately 2.0–2.5 image-led cards at 390px, Brand marks use 64px typographic circles, and Rentals closes the page with one landscape editorial banner.
 - On mobile, the application footer is suppressed in favor of the persistent bottom navigation; this avoids repeating navigation and keeps Home's final rental banner close to the primary navigation.
 - Home rails use native RTL horizontal scrolling. Partial edge content may hint at more results, but the page itself must never overflow horizontally.
-- Home Search uses one embedded submit action on the physical left edge in RTL. Home cards keep a 44px accessible Favorite target around a 28px semi-opaque circle and a 14px heart, inset 4px from the image's upper-left corner so it feels deliberate rather than attached to the edge.
+- Home Search uses one embedded submit action on the physical left edge in RTL. Home cards keep a 44px accessible Favorite target around a 28px semi-opaque circle and a 14px heart, inset 6px from the image's upper-left corner so it feels deliberate rather than attached to the edge.
 - The same reusable modest maxi-dress-with-sparkle `LooksIcon` identifies Looks in both the Home gateway and persistent bottom navigation. Rentals use the same hanger metaphor in both locations.
 - Mobile rails use native RTL horizontal scrolling, snap alignment, and a partially visible next card. Products and rentals show roughly two cards; Looks use wider editorial cards.
 - The hero stays below one viewport so the next section is visible early. Section gaps are deliberate, while cards remain border-light and image-led.
