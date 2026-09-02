@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, Heart, LayoutGrid, WandSparkles } from "lucide-react";
 
-const suggestions = ["שמלה כחולה לאירוע", "לוק לשבת", "השכרה ירושלים", "Esti Belle"];
+const suggestions = ["שמלה כחולה לאירוע", "לוק לשבת", "השכרה ירושלים", "Brand A"];
 
 export function SearchInitialState() {
   return (

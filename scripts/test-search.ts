@@ -21,8 +21,8 @@ const purchase = searchFoundHer(firstPurchase.name);
 assert.equal(purchase.products[0]?.id, firstPurchase.id, "a Product name finds the purchase Product");
 assert.equal(purchase.products[0]?.entityType, "product", "purchase Products retain their result type");
 
-const brand = searchFoundHer("Esti Belle");
-assert.equal(brand.brands[0]?.title, "Esti Belle", "a Brand name finds the Brand");
+const brand = searchFoundHer("Brand A");
+assert.equal(brand.brands[0]?.title, "Brand A", "a Brand name finds the Brand");
 
 const rentalByCity = searchFoundHer("השכרה ירושלים");
 assert(rentalByCity.rentals.length > 0, "rental intent and city find rental Products");
