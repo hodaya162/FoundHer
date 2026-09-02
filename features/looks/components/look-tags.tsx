@@ -13,7 +13,7 @@ export function LookTags({ compact = false, look }: LookTagsProps) {
   return (
     <div className="flex flex-wrap gap-2" aria-label="מאפייני הלוק">
       {occasion ? <Badge className={occasionAccentClasses[occasion]}>{occasionLabels[occasion]}</Badge> : null}
-      {season ? <Badge>{seasonLabels[season]}</Badge> : null}
+      {!compact && season ? <Badge>{seasonLabels[season]}</Badge> : null}
       {!compact && style ? <Badge>{styleLabels[style]}</Badge> : null}
     </div>
   );

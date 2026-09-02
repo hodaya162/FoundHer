@@ -40,16 +40,16 @@ export default async function LooksPage({ searchParams }: LooksPageProps) {
   return (
     <main>
       <PageContainer className="pb-16 sm:pb-20">
-        <header className="max-w-2xl pb-5 pt-8 sm:pb-7 sm:pt-12">
-          <p className="type-label mb-2 text-primary">השראה מפריטים אמיתיים</p>
-          <h1 className="type-page-title">לוקים</h1>
-          <p className="type-body mt-2 text-muted">Moodboards של פריטים נפרדים שאפשר לפתוח, לשמור ולשלב בדרך שלך.</p>
+        <header className="max-w-2xl pb-4 pt-6 sm:pb-6 sm:pt-9">
+          <p className="type-label mb-1.5 text-primary">השראה מפריטים אמיתיים</p>
+          <h1 className="text-[2rem] font-medium leading-tight tracking-[-0.025em] sm:text-[2.35rem]">לוקים</h1>
+          <p className="mt-2 max-w-lg text-sm leading-6 text-muted sm:text-base">פריטים נפרדים, שנבחרו יחד ללוק שלם.</p>
         </header>
-        <div className="space-y-4 pb-7 sm:pb-10">
+        <div className="space-y-3 pb-6 sm:pb-8">
           <LooksSearchForm filter={activeFilter} query={query} />
           <LookFilters activeFilter={activeFilter} query={query} />
         </div>
-        {looks.length > 0 ? <LookGrid looks={looks} /> : <LooksEmptyState />}
+        {looks.length > 0 ? <LookGrid looks={looks} layout="editorial" /> : <LooksEmptyState />}
       </PageContainer>
     </main>
   );

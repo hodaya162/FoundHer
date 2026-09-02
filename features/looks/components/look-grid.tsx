@@ -7,9 +7,27 @@ type LookGridProps = {
   headingLevel?: 2 | 3;
   prioritizeFirst?: boolean;
   featuredFirst?: boolean;
+  layout?: "standard" | "editorial";
 };
 
-export function LookGrid({ featuredFirst = false, headingLevel = 2, looks, prioritizeFirst = true }: LookGridProps) {
+export function LookGrid({ featuredFirst = false, headingLevel = 2, layout = "standard", looks, prioritizeFirst = true }: LookGridProps) {
+  if (layout === "editorial") {
+    return (
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-6 md:gap-y-10">
+        {looks.map((model, index) => (
+          <LookCard
+            key={model.look.id}
+            model={model}
+            priority={prioritizeFirst && index === 0}
+            headingLevel={headingLevel}
+            presentation="editorial"
+            collageVariant={index % 2 === 0 ? "editorial-a" : "editorial-b"}
+          />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 lg:grid-cols-3">
       {looks.map((model, index) => (

@@ -21,7 +21,7 @@ export function LooksSearchForm({ filter, query }: LooksSearchFormProps) {
         type="search"
         defaultValue={query}
         placeholder="חפשי לוק לפי אירוע או סגנון"
-        className="min-h-12 w-full rounded-card border border-border bg-surface pe-12 ps-4 text-sm shadow-sm outline-none placeholder:text-muted focus:border-primary"
+        className="min-h-11 w-full rounded-[0.9rem] border border-border/80 bg-surface pe-12 ps-4 text-sm outline-none placeholder:text-muted focus:border-primary"
       />
     </form>
   );

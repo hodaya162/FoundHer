@@ -366,3 +366,17 @@ This document must be updated at the end of every future task.
 - Public TASK 021 Preview: `https://foundher-24eu2bii5-found-her1.vercel.app`. Deployed QA passed for the unfiltered listing, Vacation filtering, Work plus search, Vacation Look Details, the new shoes Product page, and an invalid Look 404 with no runtime errors or horizontal overflow.
 - Preview safety remains intact: responses include `X-Robots-Tag: noindex`, emit no canonical, `robots.txt` blocks crawling, and the sitemap is empty. `npm ci`, fixtures, Looks, Search, Favorites, links, production configuration, TypeScript, build, and both audits passed; lint retains only the unchanged legacy `PageShell` `<img>` warning.
 - TASK 021 is implementation-complete but remains unmerged in Draft PR #21 pending owner review.
+
+## TASK 022 – Looks Visual Polish
+
+- TASK 022 keeps the approved TASK 021 search, filters, fixtures, routing, Favorites/localStorage behavior, Product links, demo disclosures, and SEO/deployment safeguards unchanged. It continues directly on the existing `codex/task-021-looks-foundation` branch and Draft PR #21.
+- `/looks` now uses a mobile-first single-column editorial feed rather than a cramped two-column marketplace grid. At wider viewports it is contained to a centered two-column layout with a 1000px card area instead of stretching to three oversized columns.
+- Look cards use two controlled alternating collage variants. Each gives the strongest source image about 61% of the composition and arranges the remaining one-to-four original Product images in a reusable complementary grid. No combined outfit photograph is generated or implied.
+- Actual fixture prices appear as small, quiet labels on every visible collage tile. Browse-card copy is reduced to the occasion, title, up to two style descriptors, Product count, and a compact demo marker.
+- Occasion accents are centralized and restrained: Shabbat uses dusty rose/wine, Work muted sage, Event mauve/plum, Everyday warm sand/caramel, and Vacation soft blue-gray.
+- The page introduction, Search field, and occasion controls are more compact while retaining the same URL-based behavior and RTL horizontal scrolling.
+- `/looks/[slug]` now opens with the same hierarchical source-image collage, a concise curation/trust statement, compact occasion treatment, and a clearer internal “לפריט” action on each Product card. Similar Looks use the editorial presentation only inside the Looks experience.
+- Visual QA covers 360, 390, 400, and 430px mobile widths plus 1280px desktop containment. Listing and detail pages have no page-level horizontal overflow or console/runtime errors; visible source images retain their aspect ratios.
+- Fixture imagery that remains visually weak is documented rather than replaced: `soft-tailored-blouse.jpg` reads more like a styled dress/location image than a standalone blouse, and `flowing-a-line-skirt.jpg` reads more like a full floral outfit than a clear skirt source. Several older sources also vary noticeably in lighting and editorial quality.
+- Fixtures, Looks, Search, Favorites, links, production configuration, TypeScript, lint, production build, and both audits pass. Lint retains only the unchanged legacy `PageShell` `<img>` warning.
+- TASK 022 remains unmerged in Draft PR #21 pending visual review. The updated public Preview URL is recorded after deployment.

@@ -46,6 +46,9 @@ export function LookProductItem({ item }: LookProductItemProps) {
             rental={!isPurchase}
           />
           {!isPurchase ? <p className="type-caption">{product.city}</p> : null}
+          <Link href={href} className="mt-1 inline-flex min-h-11 items-center text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            לפריט
+          </Link>
         </div>
       </article>
     </li>

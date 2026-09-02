@@ -10,7 +10,7 @@ type LookProductListProps = {
 
 export function LookProductList({ products, unresolvedCount = 0 }: LookProductListProps) {
   return (
-    <section aria-labelledby="look-products-title" className="border-y border-border/70 py-10 sm:py-16">
+    <section aria-labelledby="look-products-title" className="border-y border-border/60 py-9 sm:py-14">
       <div className="mb-5 max-w-2xl">
         <p className="type-label text-primary">מרכיבות את הלוק</p>
         <h2 id="look-products-title" className="type-section-title mt-1">הפריטים בלוק</h2>

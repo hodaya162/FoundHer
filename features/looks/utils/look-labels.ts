@@ -12,12 +12,12 @@ export const occasionLabels: Record<LookOccasion, string> = {
 };
 
 export const occasionAccentClasses: Record<LookOccasion, string> = {
-  wedding_guest: "bg-[#f3e4e7] text-[#84545e]",
-  evening_event: "bg-[#eee2e8] text-[#775264]",
-  shabbat: "bg-[#eee6f0] text-[#65506b]",
-  work: "bg-[#e9edf0] text-[#4c5961]",
-  everyday: "bg-[#eee8df] text-[#5f554b]",
-  vacation: "bg-[#e7efeb] text-[#4d675b]",
+  wedding_guest: "bg-[#f0e3e9] text-[#744858]",
+  evening_event: "bg-[#ede1e9] text-[#68455b]",
+  shabbat: "bg-[#f1e2e5] text-[#7b4651]",
+  work: "bg-[#e5ece6] text-[#4d6253]",
+  everyday: "bg-[#eee5d8] text-[#6f5942]",
+  vacation: "bg-[#e5ebef] text-[#50636f]",
   nursing: "bg-[#f1e7e1] text-[#785c50]",
   holiday: "bg-[#eee7dc] text-[#715f45]",
 };
