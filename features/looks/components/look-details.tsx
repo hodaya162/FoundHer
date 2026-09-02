@@ -2,7 +2,7 @@ import { PageContainer } from "@/components/layout";
 
 import type { LookDetailsModel } from "../types/look-details";
 import { LookBreadcrumbs } from "./look-breadcrumbs";
-import { LookCoverImage } from "./look-cover-image";
+import { LookProductCollage } from "./look-product-collage";
 import { LookProductList } from "./look-product-list";
 import { LookSaveButton } from "./look-save-button";
 import { LookStory } from "./look-story";
@@ -19,13 +19,14 @@ export function LookDetails({ details }: LookDetailsProps) {
       <PageContainer className="pb-8 sm:pb-12">
         <LookBreadcrumbs lookTitle={look.title} />
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(19rem,0.7fr)] lg:gap-12">
-          <LookCoverImage image={look.coverImage} variant="hero" priority />
+          <LookProductCollage items={products} priority linkItems showPrices className="aspect-square sm:aspect-[4/5]" />
           <header className="space-y-5 lg:sticky lg:top-[calc(var(--desktop-header-height)+2rem)] lg:py-8">
             <LookTags look={look} />
             <div>
               <p className="type-label mb-2 text-primary">לוק שלם</p>
               <h1 className="type-page-title">{look.title}</h1>
               <p className="type-body mt-3 max-w-xl text-muted">{look.description}</p>
+              {look.isDemo ? <p className="type-caption mt-3">תוכן להדגמה בלבד · הפריטים מוצגים כמקורות נפרדים ואינם שיתוף פעולה מסחרי.</p> : null}
             </div>
             <div className="flex items-center gap-3">
               <LookSaveButton lookId={look.id} lookTitle={look.title} />

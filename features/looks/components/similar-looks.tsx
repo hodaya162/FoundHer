@@ -1,8 +1,8 @@
-import type { Look } from "@/domain/look";
+import type { LookCardModel } from "../types/look-details";
 
 import { LookGrid } from "./look-grid";
 
-type SimilarLooksProps = { looks: readonly Look[] };
+type SimilarLooksProps = { looks: readonly LookCardModel[] };
 
 export function SimilarLooks({ looks }: SimilarLooksProps) {
   if (looks.length === 0) return null;

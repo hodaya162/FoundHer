@@ -33,7 +33,7 @@ export function getLooksBySeason(season: LookSeasonTag): readonly Look[] {
 }
 
 export function getLooksByProductId(productId: string): readonly Look[] {
-  return allLooks.filter(({ productIds }) => productIds.includes(productId));
+  return allLooks.filter(({ items }) => items.some((item) => item.productId === productId));
 }
 
 export function getLooksByBrandId(brandId: string): readonly Look[] {

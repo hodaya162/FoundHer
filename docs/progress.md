@@ -45,15 +45,21 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 - TASK 012 — Persistent Favorites Experience
 - TASK 013 — FoundHer MVP Readiness Audit
 - TASK 014 — Launch Data & Link Integrity
+- TASK 015 — Dependency & Security Hardening
+- TASK 016 — Production Readiness
+- TASK 017 / 017A — Public Vercel Preview
+- TASK 018–018E — Mobile UX/UI and Home Refinement
+- TASK 020 — Neutral Demo Brand Identity Cleanup
+- TASK 021 — Looks Functional Foundation (implementation complete; awaiting Preview review and merge)
 
 ## Latest Commit
 
-- Current TASK 014 commit: `fix: enforce launch data and link integrity` (the final hash is reported in the PR and task handoff because a commit cannot contain its own hash)
-- Parent commit: `4f1bec4` — merged TASK 013 baseline
+- Current TASK 021 commit: reported in the Draft PR and final task handoff because a commit cannot contain its own hash.
+- Parent commit: `3151e00` — merged TASK 020 baseline.
 
 ## Current Branch
 
-- `codex/task-014-launch-data-links`
+- `codex/task-021-looks-foundation`
 
 ## Launch Data and Link Integrity
 
@@ -137,23 +143,23 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Looks Experience
 
-- `/looks` is a Server Component that consumes `getAllLooks()` and presents an editorial Look grid rather than a product catalog.
-- `LookCard` keeps the cover dominant and limits context to one occasion, one season, a story excerpt, product count, and a separate visual-only save button.
+- `/looks` keeps server rendering and adds shareable URL-based search plus six working filters: All, Everyday, Work, Event, Vacation, and Shabbat. Unknown filters fall back safely to All.
+- `LookCard` now renders a reusable collage of two-to-five separate source-product images instead of implying that a generated combined outfit is the purchasable item. It retains concise context, product count, demo disclosure, and the existing persistent Favorite action.
 - `/looks/[slug]` is statically generated from repository slugs, returns `notFound()` for unknown slugs, and generates canonical, Open Graph, and Twitter metadata from the Look.
-- Look Details follows a stable hierarchy: breadcrumbs, hero and header, story, ordered linked products, and similar Looks.
-- Linked products resolve through `getProductsByIds` in configured order. Purchase items show brand and price; rental items show rental business, rental price, city, and textual commercial type.
+- Look Details follows a stable hierarchy: breadcrumbs, linked product moodboard, header, story, ordered linked products, and similar Looks. Each moodboard tile opens the real internal Product route and may display its own price.
+- Linked products resolve from ordered `Look.items`; an optional `imageId` selects a specific original product image. Purchase items show brand and price; rental items show rental business, rental price, city, and textual commercial type.
 - Missing products are omitted safely and reported on the page; missing sellers use clear fallback labels.
 - Similar Looks scores shared occasion first, shared style second, and shared season third; excludes the current Look; preserves fixture order for ties; and returns at most three results.
-- All Look presentation remains server-rendered. The save button is intentionally visual-only and introduces no Client Component, persistence, authentication, or local storage.
+- Search and filter composition remains server-rendered. Favorite controls keep the existing focused Client Component and localStorage synchronization; no new client state, authentication, or Supabase behavior was introduced.
 - The legacy `/looks` dependency on `PageShell` was removed. `PageShell` remains for untouched legacy screens.
 
 ## Look Domain and Repository
 
-- `Look` now includes `story`, typed `occasions`, `styleTags`, and `seasonTags` alongside ordered `productIds` and `brandIds`.
+- `Look` now includes ordered `items` with `productId` and optional source `imageId`, plus `story`, typed occasions/style/season tags, brand relationships, and explicit demo status.
 - Stable domain identifiers are separate from future Hebrew UI labels.
-- Four Look fixtures provide a clear scenario and editorial context. `modern-evening-romance` combines a rental dress and a purchase accessory.
+- Five Look fixtures cover Everyday, Work, Event, Vacation, and Shabbat. `modern-evening-romance` combines rental and purchase items; `city-vacation-layers` demonstrates four independent sources and two products from the same neutral demo brand.
 - Look queries support occasion, style, season, product, and brand discovery with stable fixture ordering.
-- `getProductsByIds` resolves known products in caller-supplied order for future Look Details composition.
+- Fixture integrity now validates two-to-five unique Look items, product existence, optional image references, and ordered resolution. `npm run test:looks` guards filter/query composition, route destinations, ordering, and the required fixture coverage.
 - Rental product queries support evening, bridal, featured, and exact-city result sets without introducing a generic query framework.
 
 ## Product Feature Architecture
@@ -346,3 +352,15 @@ This document must be updated at the end of every future task.
 - Public TASK 018E Preview: `https://foundher-h3cfz0504-found-her1.vercel.app`. Visual QA passed at 360, 390, 400, and 430px. The deployed 390×844 first viewport and continuous full-page Home were captured for owner review.
 - Preview safety is unchanged: the response remains `noindex`, emits no canonical, blocks crawling in `robots.txt`, exposes an empty sitemap, and does not contain `foundher.example`.
 - Favorites, fixtures, Search, link integrity, production configuration, TypeScript, lint, and the 34-route production build pass. Lint retains only the unchanged legacy `PageShell` `<img>` warning; both audits report 0 vulnerabilities.
+
+## TASK 021 – Looks Functional Foundation
+
+- `/looks` now provides compatible URL-based search and six working, Looks-only filters: All, Everyday, Work, Event, Vacation, and Shabbat. Search terms and an occasion filter compose, remain shareable on refresh, and require no new Client Component.
+- The domain replaces duplicated ordered `productIds` with ordered `items`, where each entry references a Product and can select one original Product image. Repositories, fixture integrity, details queries, Home reuse, Favorites, and Similar Looks now consume the normalized shape.
+- A reusable `LookProductCollage` composes two-to-five independent Product images. Cards link the composition to Look Details; the detail moodboard links every tile to its internal Product page and displays per-item price without claiming that the images form one photographed outfit.
+- Five neutral demo Looks cover every primary filter. The new Vacation fixture combines a model-worn top source, a separate skirt source, standalone shoes, and standalone jewelry; its shoes and jewelry belong to the same neutral demo brand to validate multi-item brand relationships.
+- Two project-local AI-generated demo product assets were created only for the missing standalone shoes and jewelry sources, then optimized as WebP. No combined outfit image, real brand, external commerce URL, or partner claim was introduced.
+- Demo disclosures remain visible on Look cards/details and seller labels. Existing Favorites/localStorage behavior, Product/Look routes, commercial-link safeguards, Preview noindex/non-canonical rules, sitemap/robots policy, and security configuration are unchanged.
+- Mobile QA covers 360, 390, 400, and 430px for the listing and 390px for Look Details, including RTL, active navigation, filtering, search submission, direct Product links, and absence of page-level horizontal overflow.
+- `npm run test:looks` guards filter coverage, query composition, two-to-five item constraints, ordered resolution, Product route targets, category composition, and repeated-brand support.
+- TASK 021 is implementation-complete but remains unmerged pending review of its Draft PR and public Vercel Preview.

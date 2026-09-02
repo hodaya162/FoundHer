@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui";
 import type { Look } from "@/domain/look";
 
-import { occasionLabels, seasonLabels, styleLabels } from "../utils/look-labels";
+import { occasionAccentClasses, occasionLabels, seasonLabels, styleLabels } from "../utils/look-labels";
 
 type LookTagsProps = { look: Look; compact?: boolean };
 
@@ -12,7 +12,7 @@ export function LookTags({ compact = false, look }: LookTagsProps) {
 
   return (
     <div className="flex flex-wrap gap-2" aria-label="מאפייני הלוק">
-      {occasion ? <Badge variant="primary">{occasionLabels[occasion]}</Badge> : null}
+      {occasion ? <Badge className={occasionAccentClasses[occasion]}>{occasionLabels[occasion]}</Badge> : null}
       {season ? <Badge>{seasonLabels[season]}</Badge> : null}
       {!compact && style ? <Badge>{styleLabels[style]}</Badge> : null}
     </div>

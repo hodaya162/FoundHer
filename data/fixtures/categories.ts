@@ -43,4 +43,18 @@ export const categories = [
     description: "מטפחות וכיסויי ראש להשלמת הלוק.",
     image: { id: "category-headscarves-image", url: "/images/products/satin-headscarf.jpg", alt: "מטפחת ראש אלגנטית בגוון בהיר" },
   },
+  {
+    id: "category-shoes",
+    slug: "shoes",
+    name: "נעליים",
+    description: "נעליים אלגנטיות ונוחות להשלמת הלוק.",
+    image: { id: "category-shoes-image", url: "/images/generated/products/dusty-rose-slingback-shoes.webp", alt: "נעלי סלינגבק בגוון ורוד מעושן" },
+  },
+  {
+    id: "category-jewelry",
+    slug: "jewelry",
+    name: "תכשיטים",
+    description: "תכשיטים עדינים להשלמת מראה צנוע ומדויק.",
+    image: { id: "category-jewelry-image", url: "/images/generated/products/pearl-drop-earrings.webp", alt: "עגילי פנינה עדינים בגוון זהב מט" },
+  },
 ] as const satisfies readonly Category[];
