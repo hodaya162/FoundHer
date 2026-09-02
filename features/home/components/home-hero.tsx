@@ -1,10 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Search, Sparkles } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui";
 import type { ImageAsset } from "@/domain/media";
-import { cn } from "@/lib/utils";
 
 type HomeHeroProps = {
   image?: ImageAsset;
@@ -12,46 +10,33 @@ type HomeHeroProps = {
 
 export function HomeHero({ image }: HomeHeroProps) {
   return (
-    <section aria-labelledby="home-title" className="grid overflow-hidden rounded-card bg-surface-muted lg:grid-cols-[0.9fr_1.1fr]">
-      <div className="flex flex-col justify-center px-6 py-12 sm:px-10 sm:py-16 lg:px-14 lg:py-20">
-        <p className="type-label mb-4 flex items-center gap-2 text-primary">
-          <Sparkles aria-hidden="true" className="size-4" />
-          השראה צנועה שמתחילה בך
-        </p>
-        <h1 id="home-title" className="type-display max-w-xl">מה בא לך ללבוש היום?</h1>
-        <p className="type-body mt-5 max-w-lg text-muted">
-          גלי לוקים שלמים, פריטים ושמלות להשכרה ממותגים ועסקים נבחרים — במקום אחד.
-        </p>
-        <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row">
-          <Link href="/looks" className={cn(buttonVariants({ size: "lg" }), "w-full min-[420px]:w-auto")}>
-            לגלות לוקים
-            <ArrowLeft aria-hidden="true" className="size-4" />
-          </Link>
-          <Link href="/rentals" className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "w-full min-[420px]:w-auto")}>
-            למצוא שמלה להשכרה
-          </Link>
-        </div>
-        <Link href="/search" className="mt-4 inline-flex min-h-11 w-fit items-center gap-2 rounded-sm text-sm font-semibold text-primary underline-offset-4 hover:underline">
-          <Search aria-hidden="true" className="size-4" />
-          חיפוש ממוקד ב־FoundHer
-        </Link>
-      </div>
-      <div className="relative min-h-[24rem] bg-surface sm:min-h-[32rem] lg:min-h-[38rem]">
+    <section aria-labelledby="home-title" className="relative overflow-hidden rounded-[1rem] border border-white/80 bg-[#eee1dc] shadow-[0_10px_32px_rgba(91,55,61,0.08)]">
+      <div className="relative aspect-[16/8.5] min-h-[12.25rem] max-h-[21rem] sm:aspect-[16/6.5] sm:min-h-[10.25rem]">
         {image ? (
-          <Image
-            src={image.url}
-            alt={image.alt}
-            fill
-            priority
-            sizes="(max-width: 1023px) 100vw, 55vw"
-            className="object-cover"
-          />
+          <div className="absolute inset-y-0 end-0 w-[55%] overflow-hidden">
+            <Image
+              src={image.url}
+              alt={image.alt}
+              fill
+              loading="eager"
+              sizes="(max-width: 639px) 55vw, 42rem"
+              className="object-cover object-[center_16%]"
+            />
+          </div>
         ) : (
           <div className="flex h-full items-center justify-center p-8 text-center text-muted">השראה חדשה תתווסף בקרוב</div>
         )}
-        <div className="absolute inset-x-5 bottom-5 rounded-card bg-surface/92 p-4 backdrop-blur-sm sm:inset-x-auto sm:end-6 sm:max-w-xs">
-          <p className="type-label text-primary">התחילי מההרגשה</p>
-          <p className="type-body-small mt-1">FoundHer מחברת בין הרעיון לפריטים שיוצרים אותו.</p>
+        <div aria-hidden="true" className="absolute inset-y-0 end-[42%] w-[18%] bg-gradient-to-l from-transparent to-[#eee1dc]" />
+        <div className="absolute inset-y-0 start-0 flex w-[54%] max-w-lg flex-col justify-center p-4 sm:w-[52%] sm:p-7">
+          <p className="font-serif text-[1.05rem] font-semibold leading-none text-primary sm:text-xl">FoundHer.</p>
+          <h1 id="home-title" className="mt-2 text-[1.35rem] font-medium leading-[1.1] tracking-[-0.035em] text-foreground sm:text-3xl">לוקים שמדגישים אותך</h1>
+          <p className="mt-2 max-w-xs text-xs leading-[1.45] text-muted sm:text-sm">
+            השראה צנועה ומדויקת.<br />לוק מושלם, במקום אחד.
+          </p>
+          <Link href="/looks" className="mt-3 inline-flex min-h-10 w-fit items-center gap-1.5 rounded-button bg-primary px-3.5 text-xs font-semibold text-white hover:bg-primary-hover sm:text-sm">
+            לגלות את הלוקים
+            <ArrowLeft aria-hidden="true" className="size-3.5" />
+          </Link>
         </div>
       </div>
     </section>

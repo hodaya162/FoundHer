@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui";
 
 import type { ProductCardModel } from "../types/product-card";
-import { ProductActions } from "./product-actions";
 import { ProductBadge } from "./product-badge";
 import { ProductFavoriteButton } from "./product-favorite-button";
 import { ProductImage } from "./product-image";
@@ -22,7 +21,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
 
   return (
     <article className="h-full">
-      <Card className="flex h-full flex-col overflow-hidden">
+      <Card className="flex h-full flex-col overflow-hidden bg-transparent">
         <div className="relative">
           <Link href={href} className="group/image block" aria-label={`צפייה בפריט ${product.name}`}>
             <ProductImage image={product.image} priority={priority} />
@@ -35,7 +34,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           <ProductFavoriteButton productId={product.id} productName={product.name} />
         </div>
 
-        <CardContent className="flex flex-1 flex-col gap-3 p-4 sm:p-5">
+        <CardContent className="flex flex-1 flex-col gap-1.5 px-0 pb-2 pt-3">
           <ProductCardMeta
             sellerName={product.sellerName}
             detail={isPurchase ? "לרכישה" : product.city}
@@ -46,9 +45,6 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           ) : (
             <ProductPrice amount={product.rentalPrice} currency={product.currency} rental />
           )}
-          <div className="mt-auto border-t border-border pt-3">
-            <ProductActions label={product.actionLabel} />
-          </div>
         </CardContent>
       </Card>
     </article>

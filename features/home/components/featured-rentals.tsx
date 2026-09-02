@@ -16,8 +16,8 @@ export function FeaturedRentals({ products }: FeaturedRentalsProps) {
     <EditorialSection
       id="featured-rentals-title"
       eyebrow="לאירוע הבא"
-      title="מחפשת שמלה לאירוע?"
-      description="שמלות ערב וכלה צנועות להשכרה, שנבחרו מעסקים ברחבי הארץ."
+      title="ללבוש לערב אחד"
+      description="שמלות ערב וכלה צנועות להשכרה."
       actionHref="/rentals"
       actionLabel="כל ההשכרות"
       tone="muted"

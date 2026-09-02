@@ -18,18 +18,17 @@ export function LookDetails({ details }: LookDetailsProps) {
     <main>
       <PageContainer className="pb-8 sm:pb-12">
         <LookBreadcrumbs lookTitle={look.title} />
-        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,0.8fr)] lg:gap-12">
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(19rem,0.7fr)] lg:gap-12">
           <LookCoverImage image={look.coverImage} variant="hero" priority />
-          <header className="space-y-6 lg:sticky lg:top-[calc(var(--desktop-header-height)+2rem)] lg:py-8">
+          <header className="space-y-5 lg:sticky lg:top-[calc(var(--desktop-header-height)+2rem)] lg:py-8">
             <LookTags look={look} />
             <div>
-              <p className="type-label mb-3 text-primary">לוק שלם לרגע אמיתי</p>
+              <p className="type-label mb-2 text-primary">לוק שלם</p>
               <h1 className="type-page-title">{look.title}</h1>
-              <p className="type-body mt-4 max-w-xl text-muted">{look.description}</p>
+              <p className="type-body mt-3 max-w-xl text-muted">{look.description}</p>
             </div>
             <div className="flex items-center gap-3">
               <LookSaveButton lookId={look.id} lookTitle={look.title} />
-              <p className="type-caption">שמרי את הלוק וחזרי אליו מעמוד השמורים.</p>
             </div>
           </header>
         </div>

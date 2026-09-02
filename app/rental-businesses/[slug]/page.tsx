@@ -56,7 +56,7 @@ export default async function RentalBusinessPage({ params }: RentalBusinessPageP
           <RentalSection
             title={`השמלות של ${business.name}`}
             titleId="business-rentals-title"
-            description="הקולקציה מוצגת דרך השמלות עצמן; פרטי העסק נשארים כאן כהקשר וכדרך ליצירת קשר."
+            description={`${products.length} שמלות להשכרה`}
           >
             <RentalGrid products={products} headingLevel={3} />
           </RentalSection>

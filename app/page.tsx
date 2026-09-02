@@ -4,20 +4,18 @@ import { PageContainer } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 import { createCanonicalUrl } from "@/config/site-url";
 import {
-  EditorialSection,
-  FeaturedBrands,
-  FeaturedLooks,
-  FeaturedRentals,
-  HomeEditorialCta,
+  FavoriteBrandsRail,
+  HomeCategoryRail,
   HomeHero,
-  NewArrivals,
-  OccasionGrid,
+  HomeSearch,
+  LooksRail,
+  ProductsRail,
+  RentalsRail,
 } from "@/features/home/components";
-import { homeOccasions } from "@/features/home/utils/home-content";
-import { getFeaturedLooks } from "@/lib/repositories/looks.repository";
-import { getFeaturedBrands } from "@/lib/repositories/brands.repository";
-import { getFeaturedRentalCards } from "@/features/rentals/queries/get-rental-cards";
 import { getFeaturedPurchaseProductCards } from "@/features/products/queries/get-featured-purchase-product-cards";
+import { getFeaturedRentalCards } from "@/features/rentals/queries/get-rental-cards";
+import { getFeaturedBrands } from "@/lib/repositories/brands.repository";
+import { getFeaturedLooks } from "@/lib/repositories/looks.repository";
 
 const title = "השראה לאופנה צנועה";
 const description = "גלי לוקים שלמים, אופנה צנועה, פריטים ושמלות להשכרה ממותגים ועסקים נבחרים.";
@@ -34,41 +32,37 @@ export const metadata: Metadata = {
     locale: siteConfig.openGraphLocale,
     siteName: siteConfig.name,
     url: canonical,
-    images: [{ url: "/images/products/embroidered-maxi-dress.jpg", alt: "השראה ללוק צנוע שלם ב־FoundHer" }],
+    images: [{ url: "/images/generated/looks/summer-event-classic.webp", alt: "השראה ללוק צנוע שלם ב־FoundHer" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/products/embroidered-maxi-dress.jpg"],
+    images: ["/images/generated/looks/summer-event-classic.webp"],
   },
 };
 
 export default function HomePage() {
-  const featuredLooks = getFeaturedLooks().slice(0, 3);
-  const featuredRentals = getFeaturedRentalCards().slice(0, 3);
-  const featuredBrands = getFeaturedBrands().slice(0, 3);
-  const selectedProducts = getFeaturedPurchaseProductCards().slice(0, 4);
+  const looks = getFeaturedLooks();
+  const rentals = getFeaturedRentalCards();
+  const products = getFeaturedPurchaseProductCards();
+  const brands = getFeaturedBrands();
 
   return (
     <main>
-      <PageContainer className="pb-16 pt-4 sm:pb-20 sm:pt-8">
-        <HomeHero image={featuredLooks[0]?.coverImage} />
+      <PageContainer className="pb-5 pt-3.5 sm:pb-16 sm:pt-5">
+        <div className="space-y-4 sm:space-y-5">
+          <HomeSearch />
+          <HomeCategoryRail />
+          <HomeHero image={looks[0]?.coverImage} />
+        </div>
 
-        <EditorialSection
-          id="home-occasions-title"
-          eyebrow="מתחילות מהחיים עצמם"
-          title="למה את מתלבשת?"
-          description="בחרי את הרגע שלך והמשיכי אל אוסף הלוקים להשראה צנועה."
-        >
-          <OccasionGrid entries={homeOccasions} />
-        </EditorialSection>
-
-        <FeaturedLooks looks={featuredLooks} />
-        <FeaturedRentals products={featuredRentals} />
-        <FeaturedBrands brands={featuredBrands} />
-        <NewArrivals products={selectedProducts} />
-        <HomeEditorialCta />
+        <div className="mt-5 space-y-6 sm:mt-12 sm:space-y-12">
+          <ProductsRail products={products} />
+          <LooksRail looks={looks} />
+          <FavoriteBrandsRail brands={brands} />
+          <RentalsRail products={rentals} />
+        </div>
       </PageContainer>
     </main>
   );

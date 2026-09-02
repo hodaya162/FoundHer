@@ -40,9 +40,9 @@ function EmptyFavorites() {
     <EmptyState
       icon={<Heart />}
       title="עדיין לא שמרת כלום"
-      description="כשמשהו מוצא חן בעינייך, לחצי על הלב והוא יחכה לך כאן."
+      description="לחצי על הלב ליד לוק או פריט כדי לשמור אותו כאן."
       action={(
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-2">
           <Link href="/looks" className={buttonVariants()}>ללוקים</Link>
           <Link href="/rentals" className={buttonVariants({ variant: "secondary" })}>להשכרות</Link>
         </div>
@@ -63,8 +63,8 @@ function CategoryEmpty({ category }: { category: Exclude<FavoriteCategory, "all"
 
 function Section({ children, count, id, title }: { children: React.ReactNode; count: number; id: string; title: string }) {
   return (
-    <section aria-labelledby={`favorites-${id}`} className="space-y-6">
-      <div className="flex items-end justify-between gap-4 border-b border-border pb-4">
+    <section aria-labelledby={`favorites-${id}`} className="space-y-5">
+      <div className="flex items-end justify-between gap-4">
         <h2 id={`favorites-${id}`} className="type-section-title">{title}</h2>
         <p className="type-caption" aria-label={`${count} פריטים`}>{count}</p>
       </div>
@@ -90,14 +90,14 @@ export function FavoritesPageClient({ brands, looks, products, rentals }: Props)
 
   return (
     <>
-      <div aria-label="סינון שמורים" className="mb-10 flex gap-2 overflow-x-auto pb-2" role="group">
+      <div aria-label="סינון שמורים" className="hide-scrollbar -mx-4 mb-8 flex gap-1 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0" role="group">
         {categories.map((item) => (
           <button
             key={item.id}
             type="button"
             aria-pressed={category === item.id}
             onClick={() => setCategory(item.id)}
-            className={cn("min-h-11 shrink-0 rounded-full border px-5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", category === item.id ? "border-primary bg-primary text-white" : "border-border bg-surface hover:bg-surface-muted")}
+            className={cn("min-h-10 shrink-0 rounded-full px-4 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring", category === item.id ? "bg-foreground text-white" : "text-muted hover:bg-surface-muted hover:text-foreground")}
           >
             {item.label}
           </button>
@@ -105,7 +105,7 @@ export function FavoritesPageClient({ brands, looks, products, rentals }: Props)
       </div>
 
       {total === 0 ? <EmptyFavorites /> : (
-        <div className="space-y-14">
+        <div className="space-y-12">
           {section("looks") && savedLooks.length > 0 ? <Section id="looks" title="לוקים שמורים" count={savedLooks.length}><LookGrid looks={savedLooks} headingLevel={3} /></Section> : null}
           {section("products") && savedProducts.length > 0 ? <Section id="products" title="פריטים שמורים" count={savedProducts.length}><ProductGrid products={savedProducts} priorityCount={1} /></Section> : null}
           {section("rentals") && savedRentals.length > 0 ? <Section id="rentals" title="השכרות שמורות" count={savedRentals.length}><RentalGrid products={savedRentals} /></Section> : null}

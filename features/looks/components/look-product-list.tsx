@@ -10,14 +10,13 @@ type LookProductListProps = {
 
 export function LookProductList({ products, unresolvedCount = 0 }: LookProductListProps) {
   return (
-    <section aria-labelledby="look-products-title" className="border-y border-border py-14 sm:py-20">
-      <div className="mb-7 max-w-2xl">
+    <section aria-labelledby="look-products-title" className="border-y border-border/70 py-10 sm:py-16">
+      <div className="mb-5 max-w-2xl">
         <p className="type-label text-primary">מרכיבות את הלוק</p>
-        <h2 id="look-products-title" className="type-section-title mt-2">הפריטים בלוק</h2>
-        <p className="type-body-small mt-3 text-muted">כל פריט מוביל לעמוד המלא שלו, שבו מוצגים פרטי הרכישה או ההשכרה הזמינים.</p>
+        <h2 id="look-products-title" className="type-section-title mt-1">הפריטים בלוק</h2>
       </div>
       {products.length > 0 ? (
-        <ul className="grid gap-4 lg:grid-cols-2">
+        <ul className="hide-scrollbar -mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:px-0 lg:grid-cols-3">
           {products.map((item) => <LookProductItem key={item.product.id} item={item} />)}
         </ul>
       ) : (

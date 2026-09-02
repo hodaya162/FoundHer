@@ -39,8 +39,8 @@ export function EditorialSection({
     <section
       aria-labelledby={id}
       className={cn(
-        "py-12 sm:py-16",
-        tone === "muted" && "rounded-card bg-surface-muted px-4 sm:px-7 lg:px-9",
+        "py-10 sm:py-14",
+        tone === "muted" && "-mx-4 bg-surface-muted px-4 sm:mx-0 sm:rounded-card sm:px-7 lg:px-9",
         className,
       )}
     >

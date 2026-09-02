@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight, Heart } from "./icons";
 
 const data = [
-  ["חייטות רכה", "Atelier Noor", "/images/products/embroidered-maxi-dress.jpg"],
-  ["ערב בקטיפה", "Laelle Rental", "/images/products/velvet-evening-dress.jpg"],
-  ["העריכה הניטרלית", "Naya Studio", "/images/products/layered-neutral-set.jpg"],
-  ["אירוע בגינה", "Maison Noura", "/images/products/garden-event-dress.jpg"],
-  ["רומנטיקה מודרנית", "Serein", "/images/products/embroidered-maxi-dress.jpg"],
-  ["שכבות של יום ראשון", "Aveline", "/images/products/layered-neutral-set.jpg"],
+  ["חייטות רכה", "Brand A", "/images/products/embroidered-maxi-dress.jpg"],
+  ["ערב בקטיפה", "Rental Business A", "/images/products/velvet-evening-dress.jpg"],
+  ["העריכה הניטרלית", "Brand C", "/images/products/layered-neutral-set.jpg"],
+  ["אירוע בגינה", "Rental Business B", "/images/products/garden-event-dress.jpg"],
+  ["רומנטיקה מודרנית", "Brand B", "/images/products/embroidered-maxi-dress.jpg"],
+  ["שכבות של יום ראשון", "Brand D", "/images/products/layered-neutral-set.jpg"],
 ];
 
 export function PageShell({ eyebrow, title, description, mode = "grid" }: { eyebrow: string; title: string; description: string; mode?: "grid" | "empty" | "profile" }) {

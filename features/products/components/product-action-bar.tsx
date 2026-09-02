@@ -36,7 +36,7 @@ export function ProductActionBar(props: ProductActionBarProps) {
           <ExternalLink aria-hidden="true" className="size-4" />
         </a>
       ) : (
-        <p className="type-body-small rounded-button border border-border bg-surface-muted px-4 py-3 text-muted">
+        <p className="type-caption border-s-2 border-primary/50 py-1 ps-3 text-muted">
           {unavailableMessage}
         </p>
       )}

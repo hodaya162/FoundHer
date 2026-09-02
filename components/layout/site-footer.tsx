@@ -10,7 +10,7 @@ const footerItems = desktopNavigationItems.filter(({ href }) => ["/discover", "/
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border py-10">
+    <footer className="hidden border-t border-border py-10 md:block">
       <PageContainer className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-start">
         <SiteLogo href="/" />
         <p className="type-body-small text-muted">{siteConfig.footerTagline}</p>

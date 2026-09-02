@@ -1,23 +1,24 @@
 import {
   Heart,
   Home,
-  LayoutGrid,
-  WandSparkles,
-  type LucideIcon,
+  type LucideProps,
 } from "lucide-react";
+import type { ComponentType } from "react";
+
+import { HangerIcon, LooksIcon } from "@/components/icons";
 
 export type NavigationHref = "/" | `/${string}`;
 
 export type NavigationItem = {
   readonly label: string;
   readonly href: NavigationHref;
-  readonly icon: LucideIcon;
+  readonly icon: ComponentType<LucideProps>;
 };
 
 const navigationItems = {
   home: { label: "בית", href: "/", icon: Home },
-  looks: { label: "לוקים", href: "/looks", icon: LayoutGrid },
-  rentals: { label: "השכרות", href: "/rentals", icon: WandSparkles },
+  looks: { label: "לוקים", href: "/looks", icon: LooksIcon },
+  rentals: { label: "השכרות", href: "/rentals", icon: HangerIcon },
   favorites: { label: "שמורים", href: "/favorites", icon: Heart },
 } as const satisfies Record<string, NavigationItem>;
 

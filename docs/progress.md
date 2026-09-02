@@ -288,6 +288,61 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 ## Next Planned Task
 
-- Review TASK 017 and keep using the real Preview for owner feedback. A verified production domain, approved public content/destinations, and an optional GitHub Login Connection for automatic deployments remain separate launch/automation work and must not be guessed.
+- TASK 018 redesigns the existing functional MVP after mobile Preview review rejected the prototype-like product experience. The direction is fashion-first, image-led, restrained, editorial, and mobile-authoritative.
+- Redesigned surfaces include Home, Search initial/results, Discover, Looks listing/detail, Rentals listing/business, Product detail, Favorites empty/populated, navigation, and the global 404. Shared typography, color, spacing, card, gallery, rail, empty-state, header, and navigation foundations were consolidated without changing repositories or domain logic.
+- Search behavior, Favorites/localStorage synchronization, routes, demo disclosures, commercial-link safeguards, link integrity, metadata, Preview noindex/non-canonical behavior, and production headers remain deliberately unchanged.
+- TASK 018 Preview: `https://foundher-qm6l7fta9-found-her1.vercel.app`. Mobile QA at 390×844 covered Home, Search initial/results, Looks listing/detail, Rentals listing/business, Product detail, Favorites empty/populated, client navigation, direct refresh, and 404; desktop smoke ran at 1440×900. No horizontal overflow, visible broken images, or browser console/runtime errors remained. Preview stays public for review, noindex, non-canonical, crawl-blocked, and detached from `NEXT_PUBLIC_SITE_URL`.
+- Product completion still requires owner approval of the mobile Preview; Draft PR #17 must not be merged before that review.
+
+## TASK 018B – Approved Home Reference
+
+- TASK 018B is a Home-only follow-up built explicitly on the unmerged TASK 018 / PR #17 branch. PR #17 was not merged or altered as part of this task.
+- Home now follows the approved order: compact centered wordmark header, search with a real Search route and filter affordance, one scrolling category row, compact editorial hero, Favorite Brands, “חדש בשבילך”, “לוקים ששווה לשמור”, and “להשכרה עכשיו”.
+- New Home-specific composition components isolate the approved rails and card densities without changing Search, Looks, Rentals, Favorites, Product detail, repositories, or domain behavior.
+- Product and rental rails show approximately two cards on mobile; the Looks rail uses wider editorial cards. All rails use native RTL horizontal scrolling and snap alignment.
+- Existing Search routing, Favorites/localStorage, real entity routes, demo disclosures, safe link behavior, Preview noindex/non-canonical rules, and production headers remain intact.
+- Brands remain compact, non-clickable demo tiles because the legacy Brands route is intentionally unavailable. The bottom navigation still exposes the four valid MVP routes; Profile was not fabricated or restored.
+- Visual QA covers 360px, 390×844, and 430px mobile widths plus a 1440×900 desktop smoke test. The latest real Preview is `https://foundher-8qdqyoz4d-found-her1.vercel.app`; it loaded without broken images or horizontal overflow, and Home Search and Favorites were exercised successfully on the deployment.
+- Preview safeguards remain unchanged: `X-Robots-Tag: noindex`, no canonical, crawl-blocking robots, empty sitemap, and no `foundher.example` or Preview-derived production origin.
+- TASK 018B remains product-unapproved until the owner reviews the new Vercel Preview and full-page mobile screenshot. Its Draft PR must not be merged before that approval.
+- The original category icons were preserved. Home content now uses a new project-local AI-generated editorial image set for five featured purchase products, three featured Looks, and four featured Rentals. Images follow the approved contemporary Jewish modest-fashion direction and are optimized as 1200px WebP assets under `public/images/generated`.
+
+## TASK 018C – Final Home Information Architecture
+
+- TASK 018C is based on the unmerged TASK 018B branch, which itself depends on unmerged TASK 018 / PR #17. No redesign PR was silently merged.
+- Home now follows the owner-approved order: Header, Search, four gateways, editorial Hero, New & Recommended, Recommended Looks, Brands Worth Discovering, Rentals Now, and bottom navigation.
+- The four gateways are exactly Looks (`/looks`), Items (`/discover`), Brands (a safe in-page jump to the demo brand rail), and Rentals (`/rentals`). Occasion and item-category filters were removed from Home.
+- The owner-supplied mobile inspiration is now the density and hierarchy reference: one full-width Search field, four compact gateways, a shorter editorial Hero, approximately four visible Product cards, approximately three visible Look cards, quiet Brand chips, and one image-led Rental banner.
+- A final visual-alignment pass split the Hero into editorial image and copy panels, tightened the Product and Look rails, reduced Brand/Rental height, and removed the redundant mobile footer so the fixed navigation follows the content without a large empty region.
+- The owner-requested luxury refinement reduces the visual Favorite circles, moves the sole Home Search icon inside the field at its left edge, removes the duplicate Header Search action, and adds restrained blush surfaces, fine borders, and soft depth without changing behavior.
+- The final Favorite treatment removes the visible circle entirely: compact dusty-rose heart glyphs float over Home imagery while retaining a usable transparent hit area. The decorative Header heart was removed; Favorites remains available in primary bottom navigation.
+- The original gateway icons and all existing Search, Favorites, route, demo-disclosure, link-integrity, and Preview SEO safeguards remain unchanged.
+- Personalized wording was removed: “חדש בשבילך” is now “חדש ומומלץ”, “מותגים אהובים” is now “מותגים שכדאי להכיר”, and the Looks section is “לוקים מומלצים”. Brands now follow the primary fashion and Look discovery content.
+- The mobile navigation visually reserves the fifth Profile destination but keeps it disabled and labeled as forthcoming. The legacy `/profile` route remains unavailable and no account, authentication, or user data was fabricated.
+- Search, Favorites/localStorage, Product/Look/Rental routes, demo disclosures, external-link safeguards, Preview noindex/non-canonical behavior, production URL rules, and security headers remain unchanged.
+- Public TASK 018C Preview: `https://foundher-32comnbgu-found-her1.vercel.app`. Mobile visual QA passed at 360px, 390px, and 430px with no page-level horizontal overflow or browser runtime errors; the continuous 390px Home capture confirms the approved full-page section order and the owner-supplied inspiration density.
+- TASK 018C remains product-unapproved until the owner reviews its public Preview and continuous 390px Home screenshot. Its Draft PR must not be merged before explicit approval.
 
 This document must be updated at the end of every future task.
+
+## TASK 018D â€“ Home Refinement
+
+- TASK 018D is a focused refinement branch based on unmerged TASK 018C / PR #19. No prior redesign PR was merged to begin this work, and Home information architecture remains unchanged.
+- The Home Header stays centered and minimal with no duplicate Favorites action. A reusable modest maxi-dress-and-sparkle Looks icon now appears in both the Home gateway and mobile bottom navigation; Rentals consistently use a hanger icon.
+- Home Product, Look, and featured Rental imagery now share the same Favorite treatment: a 44px accessible hit area, restrained 32â€“34px semi-opaque circular backing, 18â€“20px dusty-rose outline, and a filled heart only when saved. Favorites/localStorage behavior is unchanged.
+- The Hero copy is shorter, section links now say “הצג הכל”, Brands use quiet typographic circles without fabricated logos, and the final Rentals section remains one dramatic image-led featured banner rather than another repeated card rail.
+- Public TASK 018D Preview: `https://foundher-qwuttk6ea-found-her1.vercel.app`. Local visual QA passed at 360px, 390px, and 430px with no page-level overflow; the deployed 390px Home was opened and captured as one continuous page. Direct unauthenticated requests returned `200` for Home, Search, Looks, Rentals, and Favorites and `404` for an invalid route.
+- Preview safety remains intact: every checked route returns `X-Robots-Tag: noindex`, no canonical is emitted, `robots.txt` blocks crawling, the sitemap contains no URLs, and `NEXT_PUBLIC_SITE_URL` remains unset. All requested functional/configuration checks and the production build pass; both audits report 0 vulnerabilities. TASK 018D remains product-unapproved and must not be merged before explicit visual approval.
+- Owner-review refinement replaces the earlier abstract Looks symbol with a clearer long-sleeved maxi-dress silhouette and smaller sparkle. Home Favorites retain their 44px hit area while the visible circle is reduced to about 30px, the heart to 16px, and both sit closer to the upper-left image corner.
+- The final owner-requested Favorite spacing pass reduces the visible control again to a 28px circle with a 14px heart; TASK 018E increases the clean inset from 4px to 6px while the 44px accessible hit target and persistence behavior remain unchanged.
+
+## TASK 018E – Mobile Scale & Polish
+
+- TASK 018E continues on the existing unmerged TASK 018D branch and updates Draft PR #20. The approved Home section order and visual concept remain unchanged, and nothing was merged into `main`.
+- Mobile scale is now authoritative at 360–430px: Header and Search readability, gateway icon/label scale, Hero height and CTA, section headings, Brand circles, Rental banner hierarchy, and bottom navigation were increased without changing desktop sizing.
+- Product and Look rails now show approximately 2.0–2.5 cards at the primary 390px viewport. Measured card widths are 135px at 360, 147px at 390, 152px at 400, and 152–156px at 430, with no page-level horizontal overflow.
+- The reusable `LooksIcon` remains the single modest maxi-dress-and-sparkle asset used by both the Home gateway and bottom navigation.
+- Home Favorite controls retain a 44px accessible hit target around a 28px backing circle and 14px heart. The visible control is inset 6px from the upper-left image edges so it remains compact without appearing attached to the card boundary.
+- Public TASK 018E Preview: `https://foundher-h3cfz0504-found-her1.vercel.app`. Visual QA passed at 360, 390, 400, and 430px. The deployed 390×844 first viewport and continuous full-page Home were captured for owner review.
+- Preview safety is unchanged: the response remains `noindex`, emits no canonical, blocks crawling in `robots.txt`, exposes an empty sitemap, and does not contain `foundher.example`.
+- Favorites, fixtures, Search, link integrity, production configuration, TypeScript, lint, and the 34-route production build pass. Lint retains only the unchanged legacy `PageShell` `<img>` warning; both audits report 0 vulnerabilities.

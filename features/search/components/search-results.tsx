@@ -14,12 +14,12 @@ export function SearchResults({ results }: { results: SearchResultsModel }) {
       ) : null}
       {results.products.length ? (
         <SearchResultSection id="search-products" title="פריטים לרכישה" count={results.products.length}>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{results.products.map((result, index) => <SearchProductResult key={result.id} result={result} priority={index === 0 && results.looks.length === 0} />)}</div>
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4">{results.products.map((result, index) => <SearchProductResult key={result.id} result={result} priority={index === 0 && results.looks.length === 0} />)}</div>
         </SearchResultSection>
       ) : null}
       {results.rentals.length ? (
         <SearchResultSection id="search-rentals" title="פריטים להשכרה" count={results.rentals.length}>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{results.rentals.map((result, index) => <SearchProductResult key={result.id} result={result} priority={index === 0 && results.looks.length === 0 && results.products.length === 0} />)}</div>
+          <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4">{results.rentals.map((result, index) => <SearchProductResult key={result.id} result={result} priority={index === 0 && results.looks.length === 0 && results.products.length === 0} />)}</div>
         </SearchResultSection>
       ) : null}
       {results.brands.length ? (

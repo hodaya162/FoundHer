@@ -26,7 +26,7 @@ export function ProductDetails({ product, relatedContent }: ProductDetailsProps)
     <main>
       <PageContainer className="pb-16 sm:pb-24">
         <ProductBreadcrumbs productName={product.name} productType={product.type} />
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.85fr)] lg:gap-12">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.75fr)] lg:gap-12">
           <ProductGallery images={product.images} productName={product.name} />
           {product.type === "purchase" ? (
             <PurchaseProductPanel product={product} />
@@ -41,7 +41,7 @@ export function ProductDetails({ product, relatedContent }: ProductDetailsProps)
 }
 function PurchaseProductPanel({ product }: { product: Extract<ProductDetailsModel, { type: "purchase" }> }) {
   return (
-    <aside aria-label={`פרטי ${product.name}`} className="space-y-6 lg:sticky lg:top-[calc(var(--desktop-header-height)+1.5rem)] lg:self-start">
+    <aside aria-label={`פרטי ${product.name}`} className="space-y-5 lg:sticky lg:top-[calc(var(--desktop-header-height)+1.5rem)] lg:self-start">
       <ProductHeader
         name={product.name}
         sellerName={product.brand ? (product.brand.isDemo ? `${product.brand.name} · תוכן לדוגמה` : product.brand.name) : "מותג לא זמין"}
@@ -61,7 +61,7 @@ function PurchaseProductPanel({ product }: { product: Extract<ProductDetailsMode
 
 function RentalProductPanel({ product }: { product: Exclude<ProductDetailsModel, { type: "purchase" }> }) {
   return (
-    <aside aria-label={`פרטי ${product.name}`} className="space-y-6 lg:sticky lg:top-[calc(var(--desktop-header-height)+1.5rem)] lg:self-start">
+    <aside aria-label={`פרטי ${product.name}`} className="space-y-5 lg:sticky lg:top-[calc(var(--desktop-header-height)+1.5rem)] lg:self-start">
       <ProductHeader
         name={product.name}
         sellerName={product.rentalBusiness

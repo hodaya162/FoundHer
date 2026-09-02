@@ -1,5 +1,3 @@
-import { ResponsiveGrid } from "@/components/layout";
-
 import type { ProductCardModel } from "../types/product-card";
 import { ProductCard } from "./product-card";
 import { ProductEmptyState } from "./product-empty-state";
@@ -15,12 +13,12 @@ export function ProductGrid({ products, priorityCount = 2 }: ProductGridProps) {
   }
 
   return (
-    <ResponsiveGrid columns={4} role="list" aria-label="פריטי אופנה">
+    <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4" role="list" aria-label="פריטי אופנה">
       {products.map((product, index) => (
         <div key={product.id} role="listitem">
           <ProductCard product={product} priority={index < priorityCount} />
         </div>
       ))}
-    </ResponsiveGrid>
+    </div>
   );
 }

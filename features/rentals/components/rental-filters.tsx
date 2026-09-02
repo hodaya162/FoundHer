@@ -14,7 +14,7 @@ type RentalFiltersProps = {
 
 export function RentalFilters({ activeFilter }: RentalFiltersProps) {
   return (
-    <nav aria-label="סוג השכרה" className="mb-6 flex flex-wrap gap-2 border-y border-border py-4">
+    <nav aria-label="סוג השכרה" className="hide-scrollbar -mx-4 mb-8 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0">
       {typeFilters.map(({ label, value }) => {
         const isActive = activeFilter === value;
         const href = value === "all" ? "/rentals" : `/rentals?type=${value}`;
@@ -25,8 +25,8 @@ export function RentalFilters({ activeFilter }: RentalFiltersProps) {
             href={href}
             aria-current={isActive ? "page" : undefined}
             className={isActive
-              ? "inline-flex min-h-11 items-center rounded-full border border-foreground bg-foreground px-5 text-sm font-semibold text-background"
-              : "inline-flex min-h-11 items-center rounded-full border border-border bg-surface px-5 text-sm font-semibold hover:bg-surface-muted"
+              ? "inline-flex min-h-10 shrink-0 items-center rounded-full bg-foreground px-5 text-sm font-semibold text-white"
+              : "inline-flex min-h-10 shrink-0 items-center rounded-full border border-border bg-surface px-5 text-sm font-medium hover:bg-surface-muted"
             }
           >
             {label}

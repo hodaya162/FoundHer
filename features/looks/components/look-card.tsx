@@ -19,14 +19,14 @@ export function LookCard({ headingLevel = 2, look, priority = false }: LookCardP
 
   return (
     <article className="break-inside-avoid">
-      <div className="relative overflow-hidden rounded-card bg-surface">
+      <div className="relative overflow-hidden rounded-card bg-surface-muted">
         <Link href={href} className="group/image block" aria-label={`פתיחת הלוק ${look.title}`}>
           <LookCoverImage image={look.coverImage} priority={priority} />
         </Link>
         <LookSaveButton lookId={look.id} lookTitle={look.title} className="absolute end-3 top-3 bg-surface/95 shadow-sm" />
       </div>
-      <div className="space-y-3 px-1 pb-2 pt-4">
-        <div className="flex items-center justify-between gap-3">
+      <div className="space-y-2 px-0.5 pb-2 pt-3">
+        <div className="flex items-center justify-between gap-2">
           <LookTags look={look} compact />
           <LookMeta productCount={look.productIds.length} />
         </div>
@@ -35,7 +35,6 @@ export function LookCard({ headingLevel = 2, look, priority = false }: LookCardP
             {look.title}
           </Link>
         </Heading>
-        <p className="type-body-small line-clamp-2 text-muted">{look.story}</p>
       </div>
     </article>
   );
