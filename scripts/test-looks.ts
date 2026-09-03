@@ -35,4 +35,13 @@ for (const categoryId of ["category-tops", "category-skirts", "category-shoes", 
 const purchaseBrandIds = vacationItems.flatMap(({ product }) => product.type === "purchase" ? [product.brandId] : []);
 assert(new Set(purchaseBrandIds).size < purchaseBrandIds.length, "at least two Look products may come from the same brand");
 
+const expectedOccasionOrder = ["shabbat", "work", "vacation", "evening_event", "everyday"];
+assert.deepEqual(looks.map(({ occasions }) => occasions[0]), expectedOccasionOrder, "Look feed opens with varied intentional occasion ordering");
+
+for (const look of looks.slice(0, 4)) {
+  const lookCategories = new Set(getLookProductItems(look).map(({ product }) => product.categoryId));
+  assert(lookCategories.has("category-shoes"), `${look.slug} includes footwear styling`);
+  assert(lookCategories.has("category-jewelry"), `${look.slug} includes jewelry styling`);
+}
+
 console.log("Looks tests passed: filters, query composition, ordered moodboards, product routes, and fixture coverage.");

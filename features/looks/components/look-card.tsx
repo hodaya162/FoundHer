@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { formatProductPrice } from "@/features/products/utils/format-product-price";
+
 import type { LookCardModel } from "../types/look-details";
 import { LookMeta } from "./look-meta";
 import { LookProductCollage } from "./look-product-collage";
@@ -22,9 +24,11 @@ export function LookCard({ collageVariant = "editorial-a", headingLevel = 2, mod
 
   if (presentation === "editorial") {
     const descriptor = look.styleTags.slice(0, 2).map((tag) => styleLabels[tag]).join(" · ");
+    const lowestPrice = Math.min(...products.map(({ product }) => product.type === "purchase" ? product.price : product.rentalPrice));
+    const currency = products[0]?.product.currency ?? "ILS";
 
     return (
-      <article className="break-inside-avoid">
+      <article className="break-inside-avoid overflow-hidden rounded-[1.05rem] bg-[#fff9f6]">
         <div className="relative">
           <Link href={href} className="group/image block rounded-[1.15rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label={`פתיחת הלוק ${look.title}`}>
             <LookProductCollage items={products} priority={priority} layout={collageVariant} showPrices />
@@ -36,15 +40,18 @@ export function LookCard({ collageVariant = "editorial-a", headingLevel = 2, mod
             className="absolute end-0.5 top-0.5 z-10 border-0 bg-transparent text-primary shadow-none before:absolute before:size-7 before:rounded-full before:border before:border-black/5 before:bg-[#fffdf9]/94 [&_svg]:relative [&_svg]:z-10 [&_svg]:size-3.5"
           />
         </div>
-        <div className="px-0.5 pb-1 pt-3">
+        <div className="px-3 pb-3 pt-3">
           <Heading className="text-[1.08rem] font-semibold leading-snug tracking-[-0.01em] sm:text-lg">
             <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               {look.title}
             </Link>
           </Heading>
-          <p className="mt-1 text-[0.8rem] leading-5 text-muted">
-            {descriptor ? `${descriptor} · ` : ""}{look.items.length} פריטים{look.isDemo ? " · תוכן לדוגמה" : ""}
-          </p>
+          <div className="mt-1 flex items-end justify-between gap-3">
+            <p className="text-[0.8rem] leading-5 text-muted">
+              {descriptor ? `${descriptor} · ` : ""}{look.items.length} פריטים{look.isDemo ? " · הדגמה" : ""}
+            </p>
+            {Number.isFinite(lowestPrice) ? <p className="shrink-0 text-[0.76rem] font-semibold text-primary">החל מ־{formatProductPrice(lowestPrice, currency)}</p> : null}
+          </div>
         </div>
       </article>
     );

@@ -40,10 +40,9 @@ export default async function LooksPage({ searchParams }: LooksPageProps) {
   return (
     <main>
       <PageContainer className="pb-16 sm:pb-20">
-        <header className="max-w-2xl pb-3 pt-1 sm:pb-5 sm:pt-7">
-          <p className="mb-1 text-[0.68rem] font-semibold leading-4 tracking-[0.03em] text-primary">השראה מפריטים אמיתיים</p>
-          <h1 className="text-[1.8rem] font-semibold leading-tight tracking-[-0.025em] sm:text-[2.2rem]">לוקים</h1>
-          <p className="mt-1 max-w-lg text-sm leading-5 text-muted sm:text-base">פריטים נפרדים, שנבחרו יחד ללוק שלם.</p>
+        <header className="pb-3 pt-2 sm:pb-4 sm:pt-5">
+          <h1 className="sr-only">לוקים</h1>
+          <p className="text-center text-[0.78rem] font-medium leading-5 text-primary">השראה מפריטים אמיתיים</p>
         </header>
         <div className="space-y-3 pb-5 sm:pb-8">
           <LooksSearchForm filter={activeFilter} query={query} />
