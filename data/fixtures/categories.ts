@@ -37,13 +37,6 @@ export const categories = [
     image: { id: "category-bridal-image", url: "/images/products/classic-bridal-gown.jpg", alt: "שמלת כלה צנועה עם שרוולים ארוכים" },
   },
   {
-    id: "category-headscarves",
-    slug: "headscarves",
-    name: "מטפחות",
-    description: "מטפחות וכיסויי ראש להשלמת הלוק.",
-    image: { id: "category-headscarves-image", url: "/images/products/satin-headscarf.jpg", alt: "מטפחת ראש אלגנטית בגוון בהיר" },
-  },
-  {
     id: "category-shoes",
     slug: "shoes",
     name: "נעליים",

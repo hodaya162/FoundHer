@@ -12,7 +12,6 @@ export const looks = [
       { productId: "product-classic-shabbat-dress" },
       { productId: "product-dusty-rose-slingbacks" },
       { productId: "product-pearl-drop-earrings" },
-      { productId: "product-satin-headscarf" },
     ],
     brandIds: ["brand-esti-belle", "brand-lidor-bar"],
     occasions: ["shabbat"],

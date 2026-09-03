@@ -16,7 +16,7 @@ export const brands = [
     slug: "lidor-bar",
     name: "Brand B",
     description: "פריטים צנועים מודרניים בצבעוניות שקטה ובגזרות מדויקות.",
-    logo: { id: "lidor-bar-logo", url: "/images/products/satin-headscarf.jpg", alt: "סמל זמני של Brand B" },
+    logo: { id: "lidor-bar-logo", url: "/images/products/pleated-modest-dress.jpg", alt: "סמל זמני של Brand B" },
     coverImage: { id: "lidor-bar-cover", url: "/images/products/pleated-modest-dress.jpg", alt: "קולקציה צנועה לדוגמה של Brand B" },
     isDemo: true,
     featured: true,
