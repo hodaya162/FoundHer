@@ -40,17 +40,17 @@ export function LookCard({ collageVariant = "editorial-a", headingLevel = 2, mod
             className="absolute end-0.5 top-0.5 z-10 border-0 bg-transparent text-primary shadow-none before:absolute before:size-7 before:rounded-full before:border before:border-black/5 before:bg-[#fffdf9]/94 [&_svg]:relative [&_svg]:z-10 [&_svg]:size-3.5"
           />
         </div>
-        <div className="px-3 pb-3 pt-3">
+        <div className="px-3 pb-2.5 pt-2.5">
           <Heading className="text-[1.08rem] font-semibold leading-snug tracking-[-0.01em] sm:text-lg">
             <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               {look.title}
             </Link>
           </Heading>
-          <div className="mt-1 flex items-end justify-between gap-3">
+          <div className="mt-1 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
             <p className="text-[0.8rem] leading-5 text-muted">
               {descriptor ? `${descriptor} · ` : ""}{look.items.length} פריטים{look.isDemo ? " · הדגמה" : ""}
             </p>
-            {Number.isFinite(lowestPrice) ? <p className="shrink-0 text-[0.76rem] font-semibold text-primary">החל מ־{formatProductPrice(lowestPrice, currency)}</p> : null}
+            {Number.isFinite(lowestPrice) ? <p className="shrink-0 text-[0.8rem] font-semibold leading-5 text-primary">החל מ־{formatProductPrice(lowestPrice, currency)}</p> : null}
           </div>
         </div>
       </article>

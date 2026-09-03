@@ -73,7 +73,7 @@ export function LookProductCollage({ className, items, layout = "grid", linkItem
     return (
       <div
         className={cn(
-          "flex aspect-[4/3] gap-1.5 overflow-hidden rounded-[1.05rem] bg-surface-muted",
+          "flex aspect-[6/5] max-h-[305px] gap-1.5 overflow-hidden rounded-[1.05rem] bg-surface-muted md:aspect-[4/3] md:max-h-none",
           layout === "editorial-b" ? "flex-row-reverse" : "flex-row",
           className,
         )}

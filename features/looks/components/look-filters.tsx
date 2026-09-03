@@ -39,7 +39,7 @@ export function LookFilters({ activeFilter, query }: LookFiltersProps) {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "inline-flex min-h-[42px] items-center rounded-full border px-4 text-sm font-medium transition-colors",
-                  active ? `${accentClasses[filter]} border-transparent` : "border-border bg-surface text-muted hover:text-foreground",
+                  active ? `${accentClasses[filter]} border-transparent` : "border-[#ded3cf] bg-[#fffdfb] text-foreground/75 hover:border-[#cdbfba] hover:text-foreground",
                 )}
               >
                 {lookFilterLabels[filter]}
