@@ -25,7 +25,7 @@ const gridByCount: Record<number, string> = {
 const secondaryGridByCount: Record<number, string> = {
   1: "grid-cols-1 grid-rows-1",
   2: "grid-cols-1 grid-rows-2",
-  3: "grid-cols-2 grid-rows-2 [&>*:first-child]:col-span-2",
+  3: "grid-cols-1 grid-rows-3",
   4: "grid-cols-2 grid-rows-2",
 };
 
@@ -35,6 +35,7 @@ export function LookProductCollage({ className, items, layout = "grid", linkItem
 
   function renderItem(item: LookProductItem, index: number) {
     const amount = item.product.type === "purchase" ? item.product.price : item.product.rentalPrice;
+    const preserveSilhouette = item.product.categoryId === "category-shoes" || item.product.categoryId === "category-jewelry";
     const content = (
       <>
         <Image
@@ -43,10 +44,13 @@ export function LookProductCollage({ className, items, layout = "grid", linkItem
           fill
           priority={priority && index === 0}
           sizes={layout === "grid" ? "(max-width: 639px) 42vw, (max-width: 1023px) 28vw, 18vw" : "(max-width: 767px) 62vw, 34vw"}
-          className="object-cover transition-transform duration-300 group-hover:scale-[1.025]"
+          className={cn(
+            "transition-transform duration-300 group-hover:scale-[1.025]",
+            preserveSilhouette ? "object-contain p-1.5" : "object-cover",
+          )}
         />
         {showPrices ? (
-          <span className="absolute bottom-2 start-2 rounded-sm bg-[#fffdf9]/92 px-2 py-1 text-xs font-medium leading-none text-foreground shadow-[0_1px_3px_rgba(37,30,27,0.12)] backdrop-blur-sm">
+          <span className="absolute bottom-2 start-2 rounded-[0.4rem] border border-black/5 bg-[#fffdf9]/94 px-2 py-1 text-[0.72rem] font-semibold leading-none text-foreground shadow-[0_1px_3px_rgba(37,30,27,0.12)] backdrop-blur-sm">
             {formatProductPrice(amount, item.product.currency)}{item.product.type !== "purchase" ? " · להשכרה" : ""}
           </span>
         ) : null}
@@ -69,7 +73,7 @@ export function LookProductCollage({ className, items, layout = "grid", linkItem
     return (
       <div
         className={cn(
-          "flex aspect-[16/10] gap-1.5 overflow-hidden rounded-[1.15rem] bg-surface-muted",
+          "flex aspect-[4/3] gap-1.5 overflow-hidden rounded-[1.05rem] bg-surface-muted",
           layout === "editorial-b" ? "flex-row-reverse" : "flex-row",
           className,
         )}

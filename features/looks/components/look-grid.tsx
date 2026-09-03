@@ -13,7 +13,7 @@ type LookGridProps = {
 export function LookGrid({ featuredFirst = false, headingLevel = 2, layout = "standard", looks, prioritizeFirst = true }: LookGridProps) {
   if (layout === "editorial") {
     return (
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-6 md:gap-y-10">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-7 md:grid-cols-2 md:gap-x-6 md:gap-y-10">
         {looks.map((model, index) => (
           <LookCard
             key={model.look.id}

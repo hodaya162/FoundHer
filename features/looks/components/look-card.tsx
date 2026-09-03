@@ -29,19 +29,22 @@ export function LookCard({ collageVariant = "editorial-a", headingLevel = 2, mod
           <Link href={href} className="group/image block rounded-[1.15rem] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-label={`פתיחת הלוק ${look.title}`}>
             <LookProductCollage items={products} priority={priority} layout={collageVariant} showPrices />
           </Link>
-          <LookSaveButton lookId={look.id} lookTitle={look.title} className="absolute end-2.5 top-2.5 bg-surface/90 shadow-none" />
+          <LookTags look={look} compact className="pointer-events-none absolute start-2 top-2 z-10 [&>span]:px-2.5 [&>span]:py-1.5 [&>span]:text-[0.78rem]" />
+          <LookSaveButton
+            lookId={look.id}
+            lookTitle={look.title}
+            className="absolute end-0.5 top-0.5 z-10 border-0 bg-transparent text-primary shadow-none before:absolute before:size-7 before:rounded-full before:border before:border-black/5 before:bg-[#fffdf9]/94 [&_svg]:relative [&_svg]:z-10 [&_svg]:size-3.5"
+          />
         </div>
         <div className="px-0.5 pb-1 pt-3">
-          <div className="mb-2 flex items-center justify-between gap-3">
-            <LookTags look={look} compact />
-            {look.isDemo ? <span className="text-[0.68rem] text-muted">הדגמה</span> : null}
-          </div>
-          <Heading className="text-[1.08rem] font-medium leading-snug tracking-[-0.01em] sm:text-lg">
+          <Heading className="text-[1.08rem] font-semibold leading-snug tracking-[-0.01em] sm:text-lg">
             <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               {look.title}
             </Link>
           </Heading>
-          <p className="mt-1 text-sm text-muted">{descriptor ? `${descriptor} · ` : ""}{look.items.length} פריטים</p>
+          <p className="mt-1 text-[0.8rem] leading-5 text-muted">
+            {descriptor ? `${descriptor} · ` : ""}{look.items.length} פריטים{look.isDemo ? " · תוכן לדוגמה" : ""}
+          </p>
         </div>
       </article>
     );
