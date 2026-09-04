@@ -36,7 +36,8 @@ const purchaseBrandIds = vacationItems.flatMap(({ product }) => product.type ===
 assert(new Set(purchaseBrandIds).size < purchaseBrandIds.length, "at least two Look products may come from the same brand");
 
 const expectedOccasionOrder = ["shabbat", "work", "vacation", "evening_event", "everyday"];
-assert.deepEqual(looks.map(({ occasions }) => occasions[0]), expectedOccasionOrder, "Look feed opens with varied intentional occasion ordering");
+assert.deepEqual(looks.slice(0, expectedOccasionOrder.length).map(({ occasions }) => occasions[0]), expectedOccasionOrder, "Look feed opens with varied intentional occasion ordering");
+assert(looks.filter(({ occasions }) => occasions.includes("everyday")).length >= 4, "Everyday discovery includes multiple complete Looks");
 
 for (const look of looks.slice(0, 4)) {
   const lookCategories = new Set(getLookProductItems(look).map(({ product }) => product.categoryId));
