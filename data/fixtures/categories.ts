@@ -16,6 +16,13 @@ export const categories = [
     image: { id: "category-skirts-image", url: "/images/generated/products/layered-neutral-set.webp", alt: "סט שכבות צנוע עם חצאית ארוכה בגוון טבעי" },
   },
   {
+    id: "category-tops",
+    slug: "tops",
+    name: "חולצות",
+    description: "חולצות עם שרוולים מלאים וגזרות אלגנטיות.",
+    image: { id: "category-tops-image", url: "/images/generated/products/everyday-black-modest-blouse.webp", alt: "חולצה שחורה צנועה עם שרוולים ארוכים" },
+  },
+  {
     id: "category-evening-wear",
     slug: "evening-wear",
     name: "בגדי ערב",
