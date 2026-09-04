@@ -28,7 +28,7 @@ const vacation = looks.find(({ slug }) => slug === "city-vacation-layers");
 assert(vacation, "the vacation moodboard fixture is required");
 const vacationItems = getLookProductItems(vacation);
 const categories = new Set(vacationItems.map(({ product }) => product.categoryId));
-for (const categoryId of ["category-tops", "category-skirts", "category-shoes", "category-jewelry"]) {
+for (const categoryId of ["category-dresses", "category-shoes", "category-jewelry"]) {
   assert(categories.has(categoryId), `vacation moodboard includes ${categoryId}`);
 }
 

@@ -8,7 +8,7 @@ export const rentalBusinesses = [
     description: "סטודיו להשכרת שמלות ערב צנועות בקווים רומנטיים ומודרניים.",
     city: "ירושלים",
     logo: { id: "laelle-logo", url: "/images/products/velvet-evening-dress.jpg", alt: "סמל זמני של Rental Business A" },
-    coverImage: { id: "laelle-cover", url: "/images/products/modern-romance-dress.jpg", alt: "גלריית שמלות ערב לדוגמה של Rental Business A" },
+    coverImage: { id: "laelle-cover", url: "/images/generated/rentals/mauve-romantic-evening-gown.webp", alt: "שמלת ערב צנועה לדוגמה של Rental Business A" },
     gallery: [
       { id: "laelle-gallery-one", url: "/images/products/velvet-evening-dress.jpg", alt: "שמלת ערב צנועה בגוון קטיפה" },
       { id: "laelle-gallery-two", url: "/images/products/soft-satin-evening-dress.jpg", alt: "שמלת ערב ארוכה להשכרה" },

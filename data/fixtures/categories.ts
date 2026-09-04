@@ -13,14 +13,7 @@ export const categories = [
     slug: "skirts",
     name: "חצאיות",
     description: "חצאיות ארוכות בגזרות נקיות ונוחות.",
-    image: { id: "category-skirts-image", url: "/images/products/flowing-a-line-skirt.jpg", alt: "חצאית ארוכה בגוון טבעי" },
-  },
-  {
-    id: "category-tops",
-    slug: "tops",
-    name: "חולצות",
-    description: "חולצות עם שרוולים מלאים וגזרות אלגנטיות.",
-    image: { id: "category-tops-image", url: "/images/products/soft-tailored-blouse.jpg", alt: "חולצה צנועה מחויטת" },
+    image: { id: "category-skirts-image", url: "/images/generated/products/layered-neutral-set.webp", alt: "סט שכבות צנוע עם חצאית ארוכה בגוון טבעי" },
   },
   {
     id: "category-evening-wear",
