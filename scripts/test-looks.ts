@@ -35,14 +35,21 @@ for (const categoryId of ["category-dresses", "category-shoes", "category-jewelr
 const purchaseBrandIds = vacationItems.flatMap(({ product }) => product.type === "purchase" ? [product.brandId] : []);
 assert(new Set(purchaseBrandIds).size < purchaseBrandIds.length, "at least two Look products may come from the same brand");
 
-const expectedOccasionOrder = ["shabbat", "work", "vacation", "evening_event", "everyday"];
+const expectedOccasionOrder = ["everyday", "shabbat", "work", "vacation", "evening_event"];
 assert.deepEqual(looks.slice(0, expectedOccasionOrder.length).map(({ occasions }) => occasions[0]), expectedOccasionOrder, "Look feed opens with varied intentional occasion ordering");
 assert(looks.filter(({ occasions }) => occasions.includes("everyday")).length >= 4, "Everyday discovery includes multiple complete Looks");
 
-for (const look of looks.slice(0, 4)) {
+for (const look of looks.slice(0, 5)) {
   const lookCategories = new Set(getLookProductItems(look).map(({ product }) => product.categoryId));
   assert(lookCategories.has("category-shoes"), `${look.slug} includes footwear styling`);
   assert(lookCategories.has("category-jewelry"), `${look.slug} includes jewelry styling`);
+}
+
+const denimLook = looks.find(({ slug }) => slug === "everyday-denim-and-black");
+assert(denimLook, "the everyday denim-and-black Look is required");
+const denimCategories = new Set(getLookProductItems(denimLook).map(({ product }) => product.categoryId));
+for (const categoryId of ["category-tops", "category-skirts", "category-shoes", "category-jewelry"]) {
+  assert(denimCategories.has(categoryId), `everyday denim Look includes ${categoryId}`);
 }
 
 console.log("Looks tests passed: filters, query composition, ordered moodboards, product routes, and fixture coverage.");
