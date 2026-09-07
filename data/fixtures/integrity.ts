@@ -1,4 +1,5 @@
 import type { Product } from "@/domain/product";
+import type { RentalItem } from "@/domain/rental-item";
 import {
   LOOK_OCCASIONS,
   LOOK_SEASON_TAGS,
@@ -9,6 +10,7 @@ import { brands } from "./brands";
 import { categories } from "./categories";
 import { looks } from "./looks";
 import { products } from "./products";
+import { rentals } from "./rentals";
 import { rentalBusinesses } from "./rental-businesses";
 
 export type FixtureIntegrityResult = {
@@ -59,10 +61,12 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   const errors: string[] = [];
   const fixtureLooks: readonly Look[] = looks;
   const fixtureProducts: readonly Product[] = products;
+  const fixtureRentals: readonly RentalItem[] = rentals;
 
   validateUniqueEntities("products", products, errors);
   validateUniqueEntities("brands", brands, errors);
   validateUniqueEntities("rental businesses", rentalBusinesses, errors);
+  validateUniqueEntities("rentals", rentals, errors);
   validateUniqueEntities("looks", looks, errors);
   validateUniqueEntities("categories", categories, errors);
 
@@ -85,6 +89,15 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
 
     if (isRentalProduct(product) && !rentalBusinessIds.has(product.rentalBusinessId)) {
       errors.push(`product "${product.id}" references missing rental business "${product.rentalBusinessId}"`);
+    }
+  }
+
+  for (const rental of fixtureRentals) {
+    if (!rentalBusinessIds.has(rental.businessId)) {
+      errors.push(`rental "${rental.id}" references missing rental business "${rental.businessId}"`);
+    }
+    if (rental.price === undefined && rental.priceRange === undefined) {
+      errors.push(`rental "${rental.id}" must define a price or price range`);
     }
   }
 

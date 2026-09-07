@@ -1,7 +1,7 @@
-import { getProductsByRentalBusinessId } from "@/lib/repositories/products.repository";
 import { getRentalBusinessBySlug } from "@/lib/repositories/rental-businesses.repository";
 
 import type { RentalBusinessDetails } from "../types/rental-business-details";
+import { getRentalCards } from "./get-rental-cards";
 
 export function getRentalBusinessDetailsBySlug(slug: string): RentalBusinessDetails | undefined {
   const business = getRentalBusinessBySlug(slug);
@@ -12,9 +12,6 @@ export function getRentalBusinessDetailsBySlug(slug: string): RentalBusinessDeta
 
   return {
     business,
-    products: getProductsByRentalBusinessId(business.id).map((product) => ({
-      ...product,
-      rentalBusiness: business,
-    })),
+    products: getRentalCards().filter(({ businessId }) => businessId === business.id),
   };
 }
