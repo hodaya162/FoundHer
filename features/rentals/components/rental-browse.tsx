@@ -49,8 +49,8 @@ export function RentalBrowse({ items, type }: { items: readonly RentalCardModel[
 
   return (
     <div>
-      <div className="mb-5 space-y-3">
-        <label className="relative block"><Search aria-hidden="true" className="pointer-events-none absolute end-4 top-1/2 size-4 -translate-y-1/2 text-muted" /><span className="sr-only">חיפוש שמלות</span><input value={query} onChange={(event) => setQuery(event.target.value)} type="search" placeholder={type === "bridal" ? "חפשי לפי סגנון, אזור או טווח מחירים..." : "חפשי לפי סגנון, צבע, אזור או טווח מחירים..."} className="h-12 w-full rounded-full border border-border bg-surface pe-11 ps-4 text-sm outline-none placeholder:text-muted focus:border-primary" /></label>
+      <div className="mb-4 space-y-2.5">
+        <label className="relative block"><Search aria-hidden="true" className="pointer-events-none absolute end-4 top-1/2 size-[1.1rem] -translate-y-1/2 text-muted" /><span className="sr-only">חיפוש שמלות</span><input value={query} onChange={(event) => setQuery(event.target.value)} type="search" placeholder={type === "bridal" ? "חפשי לפי סגנון, אזור או טווח מחירים..." : "חפשי לפי סגנון, צבע, אזור או טווח מחירים..."} className="h-12 w-full rounded-full border border-border/80 bg-white/95 pe-11 ps-4 text-sm shadow-sm outline-none placeholder:text-muted focus:border-primary" /></label>
         <div dir="ltr" className="hide-scrollbar max-w-full overflow-x-auto pb-1" aria-label="סינון שמלות">
           <div className="flex w-max items-center gap-2">
             <SlidersHorizontal aria-hidden="true" className="size-4 shrink-0 text-muted" />
@@ -63,7 +63,7 @@ export function RentalBrowse({ items, type }: { items: readonly RentalCardModel[
           </div>
         </div>
       </div>
-      <div className="mb-4 flex items-center justify-between gap-3"><p className="text-xs text-muted">{filtered.length} שמלות</p>{hasFilters ? <p className="text-xs text-muted">תוצאות מסוננות</p> : null}</div>
+      <div className="mb-3 flex items-center justify-between gap-3"><p className="text-xs text-muted">{filtered.length} שמלות</p>{hasFilters ? <p className="text-xs text-muted">תוצאות מסוננות</p> : null}</div>
       {filtered.length > 0 ? <RentalGrid products={filtered} headingLevel={2} /> : <div className="rounded-[1rem] bg-surface-muted px-5 py-12 text-center"><p className="font-semibold">לא נמצאו שמלות מתאימות</p><button type="button" onClick={reset} className="mt-3 min-h-11 text-sm font-semibold text-primary">ניקוי החיפוש והסינון</button></div>}
     </div>
   );

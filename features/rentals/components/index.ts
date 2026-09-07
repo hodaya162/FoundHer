@@ -11,4 +11,5 @@ export { RentalGrid } from "./rental-grid";
 export { RentalGridSkeleton } from "./rental-grid-skeleton";
 export { RentalPrice } from "./rental-price";
 export { RentalSection } from "./rental-section";
+export { RentalShareButton } from "./rental-share-button";
 export { RentalsEmptyState } from "./rentals-empty-state";
