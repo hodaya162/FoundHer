@@ -13,6 +13,7 @@
     "test:search": "tsx scripts/test-search.ts",
     "test:favorites": "tsx scripts/test-favorites.ts",
     "test:links": "tsx scripts/test-link-integrity.ts",
+    "test:looks": "tsx scripts/test-looks.ts",
     "test:production-config": "tsx scripts/test-production-config.ts",
     "typecheck": "tsc --noEmit",
     "validate:fixtures": "tsx scripts/validate-fixtures.ts"

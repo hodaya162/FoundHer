@@ -34,6 +34,12 @@ export type LookOccasion = (typeof LOOK_OCCASIONS)[number];
 export type LookStyleTag = (typeof LOOK_STYLE_TAGS)[number];
 export type LookSeasonTag = (typeof LOOK_SEASON_TAGS)[number];
 
+export type LookItem = {
+  readonly productId: string;
+  /** Selects a specific original product image when a product has more than one. */
+  readonly imageId?: string;
+};
+
 export type Look = {
   readonly id: string;
   readonly slug: string;
@@ -41,11 +47,13 @@ export type Look = {
   readonly description: string;
   readonly story: string;
   readonly coverImage: ImageAsset;
-  readonly productIds: readonly string[];
+  /** Ordered, independently sourced products that compose the moodboard. */
+  readonly items: readonly LookItem[];
   readonly brandIds: readonly string[];
   readonly occasions: readonly LookOccasion[];
   readonly styleTags: readonly LookStyleTag[];
   readonly seasonTags: readonly LookSeasonTag[];
   readonly featured: boolean;
+  readonly isDemo: boolean;
   readonly createdAt: string;
 };

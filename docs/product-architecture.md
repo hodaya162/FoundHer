@@ -168,7 +168,7 @@ Looks reference products by ID and never embed or duplicate product records. `ge
 
 A look may contain purchase products, rental products, or both. The product's `type` determines its behavior and presentation after resolution.
 
-The `modern-evening-romance` fixture proves the mixed model by combining the rental dress `rental-modern-romance-dress` with the purchase item `product-satin-headscarf`.
+The `modern-evening-romance` fixture proves the mixed model by combining the rental dress `rental-modern-romance-dress` with purchase footwear and jewelry.
 
 Not every look is required to mix commerce types.
 

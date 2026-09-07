@@ -45,13 +45,13 @@ export const homeOccasions = [
     occasion: "vacation",
     label: homeOccasionLabels.vacation,
     subtitle: "קליל, נעים ורב־שימושי",
-    image: { id: "home-vacation", url: "/images/products/flowing-a-line-skirt.jpg", alt: "חצאית נשפכת צנועה לחופשה" },
+    image: { id: "home-vacation", url: "/images/generated/products/vacation-sage-maxi-dress.webp", alt: "שמלת מקסי צנועה בגוון מרווה לחופשה" },
   },
   {
     occasion: "nursing",
     label: homeOccasionLabels.nursing,
     subtitle: "נוחות עם מחשבה",
-    image: { id: "home-nursing", url: "/images/products/soft-tailored-blouse.jpg", alt: "חולצה צנועה ורכה המתאימה ללוק הנקה" },
+    image: { id: "home-nursing", url: "/images/generated/products/tailored-midi-dress.webp", alt: "שמלה צנועה ורכה המתאימה ללוק הנקה" },
   },
   {
     occasion: "holiday",

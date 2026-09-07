@@ -6,8 +6,8 @@ import { useState } from "react";
 
 import { buttonVariants, EmptyState } from "@/components/ui";
 import type { Brand } from "@/domain/brand";
-import type { Look } from "@/domain/look";
 import { LookGrid } from "@/features/looks/components";
+import type { LookCardModel } from "@/features/looks/types/look-details";
 import { ProductGrid } from "@/features/products/components";
 import type { PurchaseProductCard } from "@/features/products/types/product-card";
 import { RentalGrid } from "@/features/rentals/components";
@@ -21,7 +21,7 @@ import { FavoriteBrandCard } from "./favorite-brand-card";
 type FavoriteCategory = "all" | "looks" | "products" | "rentals" | "brands";
 
 type Props = {
-  looks: readonly Look[];
+  looks: readonly LookCardModel[];
   products: readonly PurchaseProductCard[];
   rentals: readonly RentalCardModel[];
   brands: readonly Brand[];
@@ -80,7 +80,7 @@ export function FavoritesPageClient({ brands, looks, products, rentals }: Props)
   const lookIds = ids("look");
   const productIds = ids("product");
   const brandIds = ids("brand");
-  const savedLooks = looks.filter((look) => lookIds.has(look.id));
+  const savedLooks = looks.filter(({ look }) => lookIds.has(look.id));
   const savedProducts = products.filter((product) => productIds.has(product.id));
   const savedRentals = rentals.filter((product) => productIds.has(product.id));
   const savedBrands = brands.filter((brand) => brandIds.has(brand.id));

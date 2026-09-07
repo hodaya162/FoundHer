@@ -89,13 +89,22 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   }
 
   for (const look of fixtureLooks) {
-    if (look.productIds.length === 0) {
-      errors.push(`look "${look.id}" must reference at least one product`);
+    if (look.items.length < 2 || look.items.length > 5) {
+      errors.push(`look "${look.id}" must contain between two and five products`);
     }
 
-    for (const productId of look.productIds) {
+    const lookProductIds = look.items.map(({ productId }) => productId);
+    for (const duplicate of findDuplicates(lookProductIds)) {
+      errors.push(`look "${look.id}" references product "${duplicate}" more than once`);
+    }
+
+    for (const item of look.items) {
+      const { imageId, productId } = item;
+      const product = fixtureProducts.find(({ id }) => id === productId);
       if (!productIds.has(productId)) {
         errors.push(`look "${look.id}" references missing product "${productId}"`);
+      } else if (imageId && !product?.images.some(({ id }) => id === imageId)) {
+        errors.push(`look "${look.id}" references missing image "${imageId}" for product "${productId}"`);
       }
     }
 
@@ -125,8 +134,8 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   }
 
   const hasMixedCommerceLook = fixtureLooks.some((look) => {
-    const lookProducts = look.productIds
-      .map((productId) => fixtureProducts.find(({ id }) => id === productId))
+    const lookProducts = look.items
+      .map(({ productId }) => fixtureProducts.find(({ id }) => id === productId))
       .filter((product): product is Product => Boolean(product));
 
     return lookProducts.some(isPurchaseProduct) && lookProducts.some(isRentalProduct);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { PageContainer } from "@/components/layout";
 import { FavoritesPageClient } from "@/features/favorites/components";
+import { getLookCardModels } from "@/features/looks/queries/get-look-card-models";
 import { getDiscoverProductCards } from "@/features/products/queries/get-discover-product-cards";
 import { getRentalCards } from "@/features/rentals/queries/get-rental-cards";
 import { getAllBrands } from "@/lib/repositories/brands.repository";
@@ -24,7 +25,7 @@ export default function FavoritesPage() {
           <h1 className="type-page-title">שמורים</h1>
           <p className="type-body mt-2 text-muted">כל מה שאהבת, במקום אחד.</p>
         </header>
-        <FavoritesPageClient looks={getAllLooks()} products={products} rentals={getRentalCards()} brands={getAllBrands()} />
+        <FavoritesPageClient looks={getLookCardModels(getAllLooks())} products={products} rentals={getRentalCards()} brands={getAllBrands()} />
       </PageContainer>
     </main>
   );

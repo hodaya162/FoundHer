@@ -1,8 +1,8 @@
-import type { Look } from "@/domain/look";
+import type { LookCardModel } from "../types/look-details";
 
 import { LookGrid } from "./look-grid";
 
-type SimilarLooksProps = { looks: readonly Look[] };
+type SimilarLooksProps = { looks: readonly LookCardModel[] };
 
 export function SimilarLooks({ looks }: SimilarLooksProps) {
   if (looks.length === 0) return null;
@@ -13,7 +13,7 @@ export function SimilarLooks({ looks }: SimilarLooksProps) {
         <p className="type-label text-primary">להמשיך לקבל השראה</p>
         <h2 id="similar-looks-title" className="type-section-title mt-2">לוקים דומים</h2>
       </div>
-      <LookGrid looks={looks} headingLevel={3} prioritizeFirst={false} />
+      <LookGrid looks={looks} headingLevel={3} prioritizeFirst={false} layout="editorial" />
     </section>
   );
 }

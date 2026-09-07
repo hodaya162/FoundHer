@@ -1,5 +1,6 @@
 import type { Look } from "@/domain/look";
 import { LookGrid } from "@/features/looks/components";
+import { getLookCardModels } from "@/features/looks/queries/get-look-card-models";
 
 import { EditorialSection } from "./editorial-section";
 
@@ -21,7 +22,7 @@ export function FeaturedLooks({ looks }: FeaturedLooksProps) {
       actionHref="/looks"
       actionLabel="כל הלוקים"
     >
-      <LookGrid looks={looks} headingLevel={3} prioritizeFirst={false} featuredFirst />
+      <LookGrid looks={getLookCardModels(looks)} headingLevel={3} prioritizeFirst={false} featuredFirst />
     </EditorialSection>
   );
 }

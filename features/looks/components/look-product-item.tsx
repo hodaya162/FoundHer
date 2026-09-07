@@ -9,9 +9,8 @@ import type { LookProductItem as LookProductItemModel } from "../types/look-deta
 type LookProductItemProps = { item: LookProductItemModel };
 
 export function LookProductItem({ item }: LookProductItemProps) {
-  const { product, sellerName } = item;
-  const image = product.images[0];
-  const href = `/products/${product.slug}`;
+  const { image, product, sellerName } = item;
+  const href = item.href;
   const isPurchase = product.type === "purchase";
   const resolvedSellerName = sellerName ?? (isPurchase ? "מותג לא זמין" : "עסק השכרה לא זמין");
 
@@ -19,7 +18,7 @@ export function LookProductItem({ item }: LookProductItemProps) {
     <li className="w-[68vw] max-w-64 shrink-0 snap-start sm:w-auto sm:max-w-none">
       <article className="h-full bg-transparent">
         <Link href={href} className="group/image relative block aspect-[4/5] overflow-hidden rounded-card bg-surface-muted" aria-label={`צפייה בפריט ${product.name}`}>
-          {image?.url ? (
+          {image.url ? (
             <Image
               src={image.url}
               alt={image.alt}
@@ -47,6 +46,9 @@ export function LookProductItem({ item }: LookProductItemProps) {
             rental={!isPurchase}
           />
           {!isPurchase ? <p className="type-caption">{product.city}</p> : null}
+          <Link href={href} className="mt-1 inline-flex min-h-11 items-center text-sm font-medium text-primary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            לפריט
+          </Link>
         </div>
       </article>
     </li>
