@@ -52,13 +52,13 @@ export function RentalDetail({ item, business }: { item: RentalItem; business: R
           </section>
 
           <aside className="space-y-5 px-1 lg:sticky lg:top-24 lg:self-start lg:pt-8">
-            <div><p className="mb-1 text-xs font-semibold text-primary">{item.type === "bridal" ? "שמלת כלה להשכרה" : "שמלת ערב להשכרה"}</p><h1 className="font-serif text-[2rem] font-medium leading-tight tracking-[-0.035em] sm:text-4xl">{item.title}</h1>{item.isDemo ? <p className="mt-1 text-xs text-muted">תוכן לדוגמה</p> : null}</div>
+            <div><p className="mb-1 text-xs font-semibold text-primary">{item.type === "bridal" ? "שמלת כלה להשכרה" : "שמלת ערב להשכרה"}</p><h1 className="text-[2rem] font-normal leading-tight tracking-[-0.02em] [font-family:FrankRuehl,serif] sm:text-4xl">{item.title}</h1>{item.isDemo ? <p className="mt-1 text-xs text-muted">תוכן לדוגמה</p> : null}</div>
             <div><Link href={business ? `/rental-businesses/${business.slug}` : "/rentals"} className="text-sm font-semibold hover:text-primary">{item.businessName}</Link>{business?.ownerName ? <span className="text-sm text-muted"> · {business.ownerName}</span> : null}<p className="mt-1.5 flex items-center gap-1.5 text-sm text-muted"><MapPin aria-hidden="true" className="size-4" />{item.location}</p></div>
             <div className="border-y border-border/75 py-4"><RentalPrice price={item.price} priceRange={item.priceRange} currency={item.currency} prominent /></div>
             <p className="text-sm leading-6 text-muted">{item.description}</p>
             <section aria-labelledby="rental-services">
               <h2 id="rental-services" className="sr-only">שירותים</h2>
-              <ul className="grid grid-cols-2 gap-y-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+              <ul className="grid grid-cols-4 gap-y-3">
                 {item.services.map((service) => {
                   const Icon = serviceIcons[service];
                   return <li key={service} className="flex min-w-0 flex-col items-center gap-2 border-e border-border/70 px-1 py-2 text-center text-[0.68rem] leading-4 first:border-e-0 sm:text-xs"><Icon aria-hidden="true" className="size-5" strokeWidth={1.5} /><span>{serviceLabels[service]}</span></li>;

@@ -22,7 +22,7 @@ export default function RentalsPage() {
     <main className="bg-[#fffaf7]">
       <PageContainer className="pb-7 pt-6 sm:pb-20 sm:pt-10">
         <header className="mb-5 text-center sm:mb-8">
-          <h1 className="font-serif text-[2rem] font-medium leading-tight tracking-[-0.035em] sm:text-5xl">השכרות</h1>
+          <h1 className="text-[2.15rem] font-normal leading-tight tracking-[-0.02em] [font-family:FrankRuehl,serif] sm:text-5xl">השכרות</h1>
           <p className="mt-1.5 text-sm text-muted sm:text-base">שמלות מיוחדות לרגעים בלתי נשכחים</p>
         </header>
         <section aria-label="בחירת סוג השכרה" className="mx-auto grid max-w-4xl gap-3 sm:grid-cols-2 sm:gap-5">

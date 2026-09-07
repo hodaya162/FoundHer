@@ -16,7 +16,7 @@ function unique(values: readonly (string | undefined)[]): string[] {
 }
 
 function SelectFilter({ label, onChange, options, value }: { label: string; onChange: (value: string) => void; options: readonly string[]; value: string }) {
-  return <label className="shrink-0" dir="rtl"><span className="sr-only">{label}</span><select value={value} onChange={(event) => onChange(event.target.value)} className="min-h-10 rounded-full border border-border bg-background px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">{label}</option>{options.map((option) => <option key={option} value={option}>{option}</option>)}</select></label>;
+  return <label className="shrink-0" dir="rtl"><span className="sr-only">{label}</span><select value={value} onChange={(event) => onChange(event.target.value)} className="min-h-10 rounded-full border border-transparent bg-[#f7f1ef] px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">{label}</option>{options.map((option) => <option key={option} value={option}>{option}</option>)}</select></label>;
 }
 
 function matchesPrice(item: RentalCardModel, band: PriceBand, type: RentalType): boolean {
@@ -57,7 +57,7 @@ export function RentalBrowse({ items, type }: { items: readonly RentalCardModel[
             {options.sizes.length > 0 ? <SelectFilter label="מידה" value={size} onChange={setSize} options={options.sizes} /> : null}
             <SelectFilter label="סגנון" value={style} onChange={setStyle} options={options.styles} />
             {type === "evening" ? <SelectFilter label="צבע" value={color} onChange={setColor} options={options.colors} /> : null}
-            <label className="shrink-0" dir="rtl"><span className="sr-only">מחיר</span><select value={price} onChange={(event) => setPrice(event.target.value as PriceBand)} className="min-h-10 rounded-full border border-border bg-background px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">מחיר</option><option value="low">עד {type === "bridal" ? "₪3,000" : "₪500"}</option><option value="mid">{type === "bridal" ? "₪3,000–6,000" : "₪500–1,000"}</option><option value="high">מעל {type === "bridal" ? "₪6,000" : "₪1,000"}</option></select></label>
+            <label className="shrink-0" dir="rtl"><span className="sr-only">מחיר</span><select value={price} onChange={(event) => setPrice(event.target.value as PriceBand)} className="min-h-10 rounded-full border border-transparent bg-[#f7f1ef] px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">מחיר</option><option value="low">עד {type === "bridal" ? "₪3,000" : "₪500"}</option><option value="mid">{type === "bridal" ? "₪3,000–6,000" : "₪500–1,000"}</option><option value="high">מעל {type === "bridal" ? "₪6,000" : "₪1,000"}</option></select></label>
             <SelectFilter label="אזור" value={location} onChange={setLocation} options={options.locations} />
             {hasFilters ? <button type="button" onClick={reset} className="inline-flex min-h-10 shrink-0 items-center gap-1 px-2 text-xs font-medium text-primary"><X aria-hidden="true" className="size-3.5" />ניקוי</button> : null}
           </div>
