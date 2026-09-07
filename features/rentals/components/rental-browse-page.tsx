@@ -12,8 +12,8 @@ import { RentalShareButton } from "./rental-share-button";
 export function RentalBrowsePage({ type }: { type: RentalType }) {
   const bridal = type === "bridal";
   const hero = bridal
-    ? { image: "/images/products/classic-bridal-gown.jpg", alt: "שמלת כלה קלאסית של שוס עיצובים", copy: "שמלות חלומיות להשכרה" }
-    : { image: "/images/products/velvet-evening-dress.jpg", alt: "שמלת ערב שחורה של שוס עיצובים", copy: "לאירועים שמגיעים לך" };
+    ? { image: "/images/generated/rentals/editorial-bridal-bow-back.webp", alt: "השראה עריכתית לשמלת כלה עם פפיון", copy: "שמלות חלומיות להשכרה" }
+    : { image: "/images/generated/rentals/editorial-evening-black.webp", alt: "השראה עריכתית לשמלת ערב שחורה", copy: "לאירועים שמגיעים לך" };
 
   return (
     <main className={bridal ? "bg-[#fffdfa]" : "bg-[#fbf7f5]"}>

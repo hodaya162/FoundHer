@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 };
 
 const intents = [
-  { href: "/rentals/bridal", title: "שמלות כלה", subtitle: "קלאסיות, מודרניות ומיוחדות", cta: "לכל שמלות הכלה", image: "/images/products/classic-bridal-gown.jpg", alt: "שמלת כלה לבנה עם שרוולים ארוכים", imagePosition: "object-center" },
-  { href: "/rentals/evening", title: "שמלות ערב", subtitle: "לאירועים שמגיעים לך", cta: "לכל שמלות הערב", image: "/images/products/velvet-evening-dress.jpg", alt: "שמלת ערב שחורה ארוכה עם שרוולים", imagePosition: "object-top" },
+  { href: "/rentals/bridal", title: "שמלות כלה", subtitle: "קלאסיות, מודרניות ומיוחדות", cta: "לכל שמלות הכלה", image: "/images/generated/rentals/editorial-bridal-front.webp", alt: "השראה עריכתית לשמלת כלה צנועה", imagePosition: "object-[center_28%]" },
+  { href: "/rentals/evening", title: "שמלות ערב", subtitle: "לאירועים שמגיעים לך", cta: "לכל שמלות הערב", image: "/images/generated/rentals/editorial-evening-black.webp", alt: "השראה עריכתית לשמלת ערב שחורה וצנועה", imagePosition: "object-[center_22%]" },
 ] as const;
 
 export default function RentalsPage() {
