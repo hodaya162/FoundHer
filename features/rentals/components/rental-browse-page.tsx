@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { PageContainer } from "@/components/layout";
 import type { RentalType } from "@/domain/rental-item";
@@ -23,7 +23,6 @@ export function RentalBrowsePage({ type }: { type: RentalType }) {
           <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/20 to-transparent" />
           <Link href="/rentals" aria-label="חזרה להשכרות" className="absolute end-3 top-3 inline-grid size-11 place-items-center rounded-full bg-white/90 text-foreground shadow-sm"><ArrowRight aria-hidden="true" className="size-5" /></Link>
           <div className="absolute start-3 top-3 z-[1] flex items-center gap-1.5">
-            <Link href="/favorites" aria-label="מעבר לשמלות שמורות" className="inline-grid size-11 place-items-center rounded-full bg-white/92 text-foreground shadow-sm"><Heart aria-hidden="true" className="size-5" /></Link>
             <RentalShareButton title={bridal ? "שמלות כלה להשכרה" : "שמלות ערב להשכרה"} />
           </div>
           <div className="absolute inset-x-0 bottom-0 p-4 sm:p-7">
