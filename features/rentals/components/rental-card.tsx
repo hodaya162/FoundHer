@@ -20,7 +20,7 @@ export function RentalCard({ headingLevel = 3, priority = false, product }: Rent
     <article className="min-w-0">
         <div className="relative">
           <Link href={href} className="group/image block" aria-label={`צפייה בשמלה ${product.title}`}>
-            <div className="relative aspect-[5/6] overflow-hidden rounded-[0.65rem] bg-surface-muted sm:aspect-[3/4] sm:rounded-[0.85rem]">
+            <div className="relative aspect-[6/7] overflow-hidden rounded-[0.65rem] bg-surface-muted sm:aspect-[3/4] sm:rounded-[0.85rem]">
               {image ? (
                 <Image src={image.url} alt={image.alt} fill priority={priority} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover/image:scale-[1.02]" />
               ) : (
@@ -33,10 +33,10 @@ export function RentalCard({ headingLevel = 3, priority = false, product }: Rent
         </div>
 
         <div className="flex flex-col gap-0.5 px-0.5 pt-2">
-          <Heading className="text-[0.82rem] font-semibold leading-5 sm:text-base">
+          <Heading className="text-sm font-semibold leading-5 sm:text-base">
             <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-offset-4">{product.title}</Link>
           </Heading>
-          <p className="truncate text-[0.68rem] text-muted sm:text-xs">{product.businessName} · {product.location}</p>
+          <p title={`${product.businessName} · ${product.location}`} className="truncate text-xs text-muted">{product.businessName} · {product.location}</p>
           <div className="mt-0.5">
             <RentalPrice price={product.price} priceRange={product.priceRange} currency={product.currency} compact />
           </div>

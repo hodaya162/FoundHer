@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import type { ProductSize } from "@/domain/product";
@@ -16,7 +16,7 @@ function unique(values: readonly (string | undefined)[]): string[] {
 }
 
 function SelectFilter({ label, onChange, options, value }: { label: string; onChange: (value: string) => void; options: readonly string[]; value: string }) {
-  return <label className="inline-flex min-h-11 shrink-0 items-center" dir="rtl"><span className="sr-only">{label}</span><select value={value} onChange={(event) => onChange(event.target.value)} className="h-9 max-w-[8.5rem] rounded-full border border-transparent bg-[#f7f1ef] px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">{label}</option>{options.map((option) => <option key={option} value={option}>{option}</option>)}</select></label>;
+  return <label className="inline-flex min-h-11 shrink-0 items-center" dir="rtl"><span className="sr-only">{label}</span><select value={value} onChange={(event) => onChange(event.target.value)} className="h-9 max-w-[8.5rem] appearance-none rounded-full border border-transparent bg-[#f7f1ef] px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">{label}</option>{options.map((option) => <option key={option} value={option}>{option}</option>)}</select></label>;
 }
 
 function matchesPrice(item: RentalCardModel, band: PriceBand, type: RentalType): boolean {
@@ -56,9 +56,8 @@ export function RentalBrowse({ items, type }: { items: readonly RentalCardModel[
             <SelectFilter label="אזור" value={location} onChange={setLocation} options={options.locations} />
             {type === "evening" ? <SelectFilter label="צבע" value={color} onChange={setColor} options={options.colors} /> : null}
             <SelectFilter label="סגנון" value={style} onChange={setStyle} options={options.styles} />
-            <label className="inline-flex min-h-11 shrink-0 items-center" dir="rtl"><span className="sr-only">מחיר</span><select value={price} onChange={(event) => setPrice(event.target.value as PriceBand)} className="h-9 max-w-[8.5rem] rounded-full border border-transparent bg-[#f7f1ef] px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">מחיר</option><option value="low">עד {type === "bridal" ? "₪3,000" : "₪500"}</option><option value="mid">{type === "bridal" ? "₪3,000–6,000" : "₪500–1,000"}</option><option value="high">מעל {type === "bridal" ? "₪6,000" : "₪1,000"}</option></select></label>
+            <label className="inline-flex min-h-11 shrink-0 items-center" dir="rtl"><span className="sr-only">מחיר</span><select value={price} onChange={(event) => setPrice(event.target.value as PriceBand)} className="h-9 max-w-[8.5rem] appearance-none rounded-full border border-transparent bg-[#f7f1ef] px-3 text-xs font-medium outline-none focus:border-primary"><option value="all">מחיר</option><option value="low">עד {type === "bridal" ? "₪3,000" : "₪500"}</option><option value="mid">{type === "bridal" ? "₪3,000–6,000" : "₪500–1,000"}</option><option value="high">מעל {type === "bridal" ? "₪6,000" : "₪1,000"}</option></select></label>
             {options.sizes.length > 0 ? <SelectFilter label="מידה" value={size} onChange={setSize} options={options.sizes} /> : null}
-            <span aria-hidden="true" className="inline-grid size-9 shrink-0 place-items-center rounded-full bg-[#f7f1ef] text-muted"><SlidersHorizontal className="size-3.5" /></span>
             {hasFilters ? <button type="button" onClick={reset} className="inline-flex min-h-11 shrink-0 items-center gap-1 px-2 text-xs font-medium text-primary"><X aria-hidden="true" className="size-3.5" />ניקוי</button> : null}
           </div>
         </div>

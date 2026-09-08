@@ -17,7 +17,7 @@ export function RentalBrowsePage({ type }: { type: RentalType }) {
 
   return (
     <main className={bridal ? "bg-[#fffdfa]" : "bg-[#fbf7f5]"}>
-      <PageContainer className="pb-4 pt-3 sm:pb-24 sm:pt-8">
+      <PageContainer className="max-w-[60rem] pb-4 pt-3 sm:pb-24 sm:pt-8">
         <header className="relative isolate min-h-[11rem] overflow-hidden rounded-[0.9rem] bg-foreground text-white sm:min-h-[17.5rem] sm:rounded-[1.1rem]">
           <Image src={hero.image} alt={hero.alt} fill priority sizes="(max-width: 767px) calc(100vw - 32px), 76rem" className={bridal ? "object-cover object-[center_35%]" : "object-cover object-[center_22%]"} />
           <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/20 to-transparent" />
