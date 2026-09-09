@@ -3,6 +3,7 @@ import {
   categories,
   looks,
   products,
+  rentals,
   rentalBusinesses,
 } from "@/data/fixtures";
 import { assertFixtureIntegrity } from "@/data/fixtures/integrity";
@@ -20,6 +21,7 @@ console.log({
   bridalRentals: bridalRentals.length,
   brands: brands.length,
   rentalBusinesses: rentalBusinesses.length,
+  rentals: rentals.length,
   looks: looks.length,
   categories: categories.length,
 });

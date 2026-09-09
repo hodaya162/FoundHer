@@ -22,3 +22,4 @@ export type {
   RentalProduct,
 } from "./product";
 export type { RentalBusiness } from "./rental-business";
+export type { RentalItem, RentalPriceRange, RentalService, RentalType } from "./rental-item";

@@ -25,7 +25,8 @@ const brand = searchFoundHer("Brand A");
 assert.equal(brand.brands[0]?.title, "Brand A", "a Brand name finds the Brand");
 
 const rentalByCity = searchFoundHer("השכרה ירושלים");
-assert(rentalByCity.rentals.length > 0, "rental intent and city find rental Products");
+assert.equal(rentalByCity.rentals.length, 0, "demo rental Products are excluded from public Search");
+assert.equal(rentalByCity.rentalBusinesses.length, 0, "demo rental Businesses are excluded from public Search");
 
 const multiword = searchFoundHer("לוק שבת");
 assert(multiword.looks.length > 0, "a two-word query can match across Look fields");
@@ -36,11 +37,15 @@ const titleRelevance = searchFoundHer(firstPurchase.name);
 assert.equal(titleRelevance.products[0]?.title, firstPurchase.name, "an exact title outranks partial matches");
 
 const rental = searchFoundHer(firstRental.name);
-assert.equal(rental.rentals[0]?.entityType, "rental_product", "rental Products are separated from purchase Products");
+assert.equal(rental.rentals.length, 0, "demo rental Products never surface in public Search");
 assert(!rental.products.some(({ id }) => id === firstRental.id), "a rental Product is never classified as purchase");
+
+for (const query of ["שוס עיצובים", "כלה", "ערב", "שתולים", "אשדוד"]) {
+  assert(searchFoundHer(query).rentalBusinesses.some(({ slug }) => slug === "shos-designs"), `Shos is discoverable for ${query}`);
+}
 
 assert.equal(exactLook.looks[0]?.href, `/looks/${firstLook.slug}`, "Look result URLs target Look details");
 assert.equal(purchase.products[0]?.href, `/products/${firstPurchase.slug}`, "Product result URLs target Product details");
-assert.equal(rental.rentals[0]?.href, `/products/${firstRental.slug}`, "Rental result URLs target Product details");
+assert.equal(searchFoundHer("Rental Business B").rentalBusinesses.length, 0, "Rental Business B never surfaces in public Search");
 
 console.log("Search tests passed: empty, relevance, entity grouping, multiword matching, and URLs.");

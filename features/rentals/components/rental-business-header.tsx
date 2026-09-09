@@ -25,14 +25,23 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
   return (
     <header className="pb-10 sm:pb-14">
       <div className="relative -mx-4 aspect-[4/3] overflow-hidden bg-surface-muted sm:mx-0 sm:aspect-[16/7] sm:rounded-card">
-        <Image
-          src={business.coverImage.url}
-          alt={business.coverImage.alt}
-          fill
-          priority
-          sizes="(max-width: 1023px) 100vw, 1200px"
-          className="object-cover"
-        />
+        {business.slug === "shos-designs" ? (
+          <>
+            <Image src={business.coverImage.url} alt="" fill priority sizes="(max-width: 1023px) 100vw, 1200px" className="scale-110 object-cover blur-sm" />
+            <span aria-hidden="true" className="absolute inset-0 z-[1] bg-black/15" />
+            <Image
+              src={business.coverImage.url}
+              alt={business.coverImage.alt}
+              fill
+              priority
+              sizes="(max-width: 639px) 50vw, 22rem"
+              className="z-[2] object-center drop-shadow-2xl"
+              style={{ objectFit: "contain" }}
+            />
+          </>
+        ) : (
+          <Image src={business.coverImage.url} alt={business.coverImage.alt} fill priority sizes="(max-width: 1023px) 100vw, 1200px" className="object-cover" />
+        )}
       </div>
       <div className="relative pt-5 sm:px-4 sm:pt-7">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
@@ -45,6 +54,7 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
               {business.isDemo ? <Badge>תוכן לדוגמה</Badge> : null}
             </div>
             <h1 className="type-page-title">{business.name}</h1>
+            {business.ownerName ? <p className="mt-1 text-sm font-medium">{business.ownerName}</p> : null}
             <p className="type-body mt-2 max-w-2xl text-muted">{business.description}</p>
             <p className="type-body-small mt-3 flex items-center gap-2 text-muted">
               <MapPin aria-hidden="true" className="size-4" />
@@ -52,6 +62,12 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
             </p>
             {business.isDemo ? (
               <p className="type-caption mt-3">העסק מוצג להמחשת המוצר בלבד; פרטי קשר לא יוצגו עד שיאומתו.</p>
+            ) : null}
+            {business.bridalPriceRange || business.eveningPriceRange ? (
+              <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                {business.bridalPriceRange ? <p><span className="text-muted">כלה: </span><strong>₪{business.bridalPriceRange.min.toLocaleString("he-IL")}–{business.bridalPriceRange.max.toLocaleString("he-IL")}</strong></p> : null}
+                {business.eveningPriceRange ? <p><span className="text-muted">ערב: </span><strong>₪{business.eveningPriceRange.min.toLocaleString("he-IL")}–{business.eveningPriceRange.max.toLocaleString("he-IL")}</strong></p> : null}
+              </div>
             ) : null}
           </div>
         </div>

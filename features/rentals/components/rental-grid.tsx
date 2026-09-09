@@ -9,12 +9,12 @@ type RentalGridProps = {
 
 export function RentalGrid({ headingLevel = 3, prioritizeFirst = true, products }: RentalGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 lg:grid-cols-3">
+    <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-x-4 sm:gap-y-9 lg:grid-cols-3">
       {products.map((product, index) => (
         <RentalCard
           key={product.id}
           product={product}
-          priority={prioritizeFirst && index === 0}
+          priority={prioritizeFirst && index < 2}
           headingLevel={headingLevel}
         />
       ))}

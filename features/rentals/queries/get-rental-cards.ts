@@ -1,33 +1,27 @@
-import {
-  getBridalRentalProducts,
-  getEveningRentalProducts,
-  getFeaturedRentalProducts,
-  getOtherRentalProductsByBusinessId,
-  getRentalProducts,
-} from "@/lib/repositories/products.repository";
+import type { RentalItem, RentalType } from "@/domain/rental-item";
+import { getAllRentals, getRentalsByBusinessId, getRentalsByType } from "@/lib/repositories/rentals.repository";
 import { getRentalBusinessById } from "@/lib/repositories/rental-businesses.repository";
 
-import type { RentalCardModel, RentalTypeFilter } from "../types/rental-card";
+import type { RentalCardModel } from "../types/rental-card";
 
-function createRentalCardModel(product: ReturnType<typeof getRentalProducts>[number]): RentalCardModel {
+function createRentalCardModel(product: RentalItem): RentalCardModel {
   return {
     ...product,
-    rentalBusiness: getRentalBusinessById(product.rentalBusinessId) ?? null,
+    rentalBusiness: getRentalBusinessById(product.businessId) ?? null,
+    name: product.title,
+    city: product.location,
+    rentalPrice: product.price ?? product.priceRange?.min ?? 0,
   };
 }
 
-export function getRentalCards(filter: RentalTypeFilter = "all"): readonly RentalCardModel[] {
-  const products = filter === "evening"
-    ? getEveningRentalProducts()
-    : filter === "bridal"
-      ? getBridalRentalProducts()
-      : getRentalProducts();
-
-  return products.map(createRentalCardModel);
+export function getRentalCards(filter?: RentalType): readonly RentalCardModel[] {
+  return (filter ? getRentalsByType(filter) : getAllRentals())
+    .filter(({ isDemo }) => !isDemo)
+    .map(createRentalCardModel);
 }
 
 export function getFeaturedRentalCards(): readonly RentalCardModel[] {
-  return getFeaturedRentalProducts().map(createRentalCardModel);
+  return getAllRentals().filter(({ isDemo }) => isDemo).slice(0, 3).map(createRentalCardModel);
 }
 
 export function getOtherRentalCardsByBusinessId(
@@ -35,5 +29,8 @@ export function getOtherRentalCardsByBusinessId(
   currentProductId: string,
   limit = 3,
 ): readonly RentalCardModel[] {
-  return getOtherRentalProductsByBusinessId(rentalBusinessId, currentProductId, limit).map(createRentalCardModel);
+  return getRentalsByBusinessId(rentalBusinessId)
+    .filter(({ id }) => id !== currentProductId)
+    .slice(0, Math.max(0, limit))
+    .map(createRentalCardModel);
 }

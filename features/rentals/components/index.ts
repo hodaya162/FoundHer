@@ -1,10 +1,16 @@
 export { MoreFromBusiness } from "./more-from-business";
 export { RentalBusinessBreadcrumbs } from "./rental-business-breadcrumbs";
+export { RentalBusinessCatalog } from "./rental-business-catalog";
 export { RentalBusinessHeader } from "./rental-business-header";
+export { RentalBrowse } from "./rental-browse";
+export { RentalBrowsePage } from "./rental-browse-page";
 export { RentalCard } from "./rental-card";
+export { RentalDetail } from "./rental-detail";
 export { RentalFilterBar } from "./rental-filter-bar";
 export { RentalFilters } from "./rental-filters";
 export { RentalGrid } from "./rental-grid";
 export { RentalGridSkeleton } from "./rental-grid-skeleton";
+export { RentalPrice } from "./rental-price";
 export { RentalSection } from "./rental-section";
+export { RentalShareButton } from "./rental-share-button";
 export { RentalsEmptyState } from "./rentals-empty-state";
