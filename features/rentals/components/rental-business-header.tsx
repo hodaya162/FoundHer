@@ -25,14 +25,15 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
   return (
     <header className="pb-10 sm:pb-14">
       <div className="relative -mx-4 aspect-[4/3] overflow-hidden bg-surface-muted sm:mx-0 sm:aspect-[16/7] sm:rounded-card">
-        <Image
-          src={business.coverImage.url}
-          alt={business.coverImage.alt}
-          fill
-          priority
-          sizes="(max-width: 1023px) 100vw, 1200px"
-          className={business.slug === "shos-designs" ? "object-cover object-top" : "object-cover"}
-        />
+        {business.slug === "shos-designs" ? (
+          <>
+            <Image src={business.coverImage.url} alt="" fill priority sizes="(max-width: 1023px) 100vw, 1200px" className="scale-110 object-cover blur-sm" />
+            <span aria-hidden="true" className="absolute inset-0 z-[1] bg-black/15" />
+            <Image src={business.coverImage.url} alt={business.coverImage.alt} fill priority sizes="(max-width: 639px) 50vw, 22rem" className="z-[2] object-contain object-center drop-shadow-2xl" />
+          </>
+        ) : (
+          <Image src={business.coverImage.url} alt={business.coverImage.alt} fill priority sizes="(max-width: 1023px) 100vw, 1200px" className="object-cover" />
+        )}
       </div>
       <div className="relative pt-5 sm:px-4 sm:pt-7">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start">

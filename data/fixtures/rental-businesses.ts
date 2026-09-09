@@ -8,7 +8,7 @@ export const rentalBusinesses = [
     description: "שמלות כלה וערב צנועות להשכרה, עם אפשרות לשינויים ותיקונים ולעיצוב אישי.",
     city: "מושב שתולים, ליד אשדוד",
     logo: { id: "shos-logo-photo", url: "/images/rentals/shos/shos-business-profile.webp", alt: "צילום מתוך קולקציית שוס עיצובים" },
-    coverImage: { id: "shos-cover", url: "/images/rentals/shos/shos-business-cover.webp", alt: "שמלת ערב שחורה מתוך קולקציית שוס עיצובים" },
+    coverImage: { id: "shos-cover", url: "/images/rentals/shos/shos-evening-black-lace-ballgown-01.webp", alt: "שמלת ערב שחורה באורך מלא מתוך קולקציית שוס עיצובים" },
     gallery: [
       { id: "shos-gallery-bridal-square-neck", url: "/images/rentals/shos/shos-bridal-square-neck-01.webp", alt: "שמלת כלה צנועה בגזרה נשפכת" },
       { id: "shos-gallery-bridal-lace-ballgown", url: "/images/rentals/shos/shos-bridal-lace-ballgown-01.webp", alt: "שמלת כלה צנועה עם שרוולים ארוכים" },

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { PageContainer } from "@/components/layout";
 import {
   RentalBusinessBreadcrumbs,
+  RentalBusinessCatalog,
   RentalBusinessHeader,
   RentalGrid,
   RentalSection,
@@ -53,13 +54,17 @@ export default async function RentalBusinessPage({ params }: RentalBusinessPageP
         <RentalBusinessBreadcrumbs businessName={business.name} />
         <RentalBusinessHeader business={business} />
         {products.length > 0 ? (
-          <RentalSection
-            title={`השמלות של ${business.name}`}
-            titleId="business-rentals-title"
-            description={`${products.length} שמלות להשכרה`}
-          >
-            <RentalGrid products={products} headingLevel={3} />
-          </RentalSection>
+          business.slug === "shos-designs" ? (
+            <RentalBusinessCatalog businessName={business.name} products={products} />
+          ) : (
+            <RentalSection
+              title={`השמלות של ${business.name}`}
+              titleId="business-rentals-title"
+              description={`${products.length} שמלות להשכרה`}
+            >
+              <RentalGrid products={products} headingLevel={3} />
+            </RentalSection>
+          )
         ) : (
           <RentalsEmptyState businessName={business.name} />
         )}

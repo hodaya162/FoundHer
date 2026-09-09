@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 
 import { getRentalCards } from "../features/rentals/queries/get-rental-cards";
+import { getRentalBusinessDetailsBySlug } from "../features/rentals/queries/get-rental-business-details-by-slug";
 import { getRentalBusinessBySlug } from "../lib/repositories/rental-businesses.repository";
 import { getAllRentals, getRentalBySlug } from "../lib/repositories/rentals.repository";
 
@@ -12,6 +13,11 @@ const evening = getRentalCards("evening");
 assert(rentals.length > 0, "rental fixtures are required");
 assert(bridal.length > 0, "bridal feed is populated");
 assert(evening.length > 0, "evening feed is populated");
+assert.equal(bridal.length, 5, "public bridal feed contains five real dresses");
+assert.equal(evening.length, 5, "public evening feed contains five real dresses");
+assert(bridal.every(({ isDemo }) => !isDemo), "public bridal feed excludes demo rentals");
+assert(evening.every(({ isDemo }) => !isDemo), "public evening feed excludes demo rentals");
+assert(rentals.some(({ isDemo }) => isDemo), "demo fixtures remain available for development and tests");
 assert(bridal.every((item) => item.type === "bridal"), "bridal feed never includes evening dresses");
 assert(evening.every((item) => item.type === "evening"), "evening feed never includes bridal dresses");
 assert.equal(new Set(rentals.map(({ id }) => id)).size, rentals.length, "rental ids are unique");
@@ -32,6 +38,8 @@ assert.equal(shosBusiness?.isDemo, false, "Shos business is real content");
 assert.equal(shosBusiness?.city, "מושב שתולים, ליד אשדוד");
 assert.equal(shosBusiness?.whatsappUrl, "https://wa.me/972537207193");
 assert.equal(shosBusiness?.instagramUrl, "https://www.instagram.com/noa_shosef_israel");
+assert.equal(shosBusiness?.coverImage.url, "/images/rentals/shos/shos-evening-black-lace-ballgown-01.webp");
+assert(getRentalBusinessDetailsBySlug("shos-designs")?.products.every(({ isDemo }) => !isDemo), "Shos business catalog contains real items only");
 assert(getRentalBySlug("shos-classic-bridal"), "known rental detail slug resolves");
 assert(getRentalBySlug("shos-black-evening"), "known evening rental detail slug resolves");
 

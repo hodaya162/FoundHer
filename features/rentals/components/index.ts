@@ -1,5 +1,6 @@
 export { MoreFromBusiness } from "./more-from-business";
 export { RentalBusinessBreadcrumbs } from "./rental-business-breadcrumbs";
+export { RentalBusinessCatalog } from "./rental-business-catalog";
 export { RentalBusinessHeader } from "./rental-business-header";
 export { RentalBrowse } from "./rental-browse";
 export { RentalBrowsePage } from "./rental-browse-page";

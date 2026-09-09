@@ -137,6 +137,7 @@ export function searchFoundHer(query: string): SearchResults {
     }
 
     const business = rentalBusinessesById.get(product.rentalBusinessId);
+    if (business?.isDemo !== false) return;
     const rentalTypeLabel = getRentalTypeLabel(product.type);
     const match = scoreSearchDocument(normalizedQuery, {
       title: [product.name],
@@ -202,6 +203,7 @@ export function searchFoundHer(query: string): SearchResults {
   }));
 
   const rentalBusinessResults = rank<RentalBusinessSearchResult>(rentalBusinesses.flatMap((business, index) => {
+    if (business.isDemo) return [];
     const match = scoreSearchDocument(normalizedQuery, {
       title: [business.name],
       tags: ["עסק השכרה", "השכרת שמלות"],

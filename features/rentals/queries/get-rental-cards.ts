@@ -15,7 +15,9 @@ function createRentalCardModel(product: RentalItem): RentalCardModel {
 }
 
 export function getRentalCards(filter?: RentalType): readonly RentalCardModel[] {
-  return (filter ? getRentalsByType(filter) : getAllRentals()).map(createRentalCardModel);
+  return (filter ? getRentalsByType(filter) : getAllRentals())
+    .filter(({ isDemo }) => !isDemo)
+    .map(createRentalCardModel);
 }
 
 export function getFeaturedRentalCards(): readonly RentalCardModel[] {
