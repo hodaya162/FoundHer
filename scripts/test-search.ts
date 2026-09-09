@@ -39,6 +39,10 @@ const rental = searchFoundHer(firstRental.name);
 assert.equal(rental.rentals[0]?.entityType, "rental_product", "rental Products are separated from purchase Products");
 assert(!rental.products.some(({ id }) => id === firstRental.id), "a rental Product is never classified as purchase");
 
+for (const query of ["שוס עיצובים", "כלה", "ערב", "שתולים", "אשדוד"]) {
+  assert(searchFoundHer(query).rentalBusinesses.some(({ slug }) => slug === "shos-designs"), `Shos is discoverable for ${query}`);
+}
+
 assert.equal(exactLook.looks[0]?.href, `/looks/${firstLook.slug}`, "Look result URLs target Look details");
 assert.equal(purchase.products[0]?.href, `/products/${firstPurchase.slug}`, "Product result URLs target Product details");
 assert.equal(rental.rentals[0]?.href, `/products/${firstRental.slug}`, "Rental result URLs target Product details");

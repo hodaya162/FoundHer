@@ -31,7 +31,7 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
           fill
           priority
           sizes="(max-width: 1023px) 100vw, 1200px"
-          className="object-cover"
+          className={business.slug === "shos-designs" ? "object-cover object-top" : "object-cover"}
         />
       </div>
       <div className="relative pt-5 sm:px-4 sm:pt-7">

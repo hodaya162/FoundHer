@@ -15,6 +15,7 @@ export function RentalCard({ headingLevel = 3, priority = false, product }: Rent
   const Heading = `h${headingLevel}` as const;
   const href = `/rentals/${product.slug}`;
   const image = product.images[0];
+  const browseLocation = product.location.split(",")[0] ?? product.location;
 
   return (
     <article className="min-w-0">
@@ -36,7 +37,7 @@ export function RentalCard({ headingLevel = 3, priority = false, product }: Rent
           <Heading className="text-sm font-semibold leading-5 sm:text-base">
             <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-offset-4">{product.title}</Link>
           </Heading>
-          <p title={`${product.businessName} · ${product.location}`} className="truncate text-xs text-muted">{product.businessName} · {product.location}</p>
+          <p title={`${product.businessName} · ${product.location}`} className="truncate text-xs text-muted">{product.businessName} · {browseLocation}</p>
           <div className="mt-0.5">
             <RentalPrice price={product.price} priceRange={product.priceRange} currency={product.currency} compact />
           </div>
