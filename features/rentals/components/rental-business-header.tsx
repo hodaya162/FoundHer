@@ -29,7 +29,15 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
           <>
             <Image src={business.coverImage.url} alt="" fill priority sizes="(max-width: 1023px) 100vw, 1200px" className="scale-110 object-cover blur-sm" />
             <span aria-hidden="true" className="absolute inset-0 z-[1] bg-black/15" />
-            <Image src={business.coverImage.url} alt={business.coverImage.alt} fill priority sizes="(max-width: 639px) 50vw, 22rem" className="z-[2] object-contain object-center drop-shadow-2xl" />
+            <Image
+              src={business.coverImage.url}
+              alt={business.coverImage.alt}
+              fill
+              priority
+              sizes="(max-width: 639px) 50vw, 22rem"
+              className="z-[2] object-center drop-shadow-2xl"
+              style={{ objectFit: "contain" }}
+            />
           </>
         ) : (
           <Image src={business.coverImage.url} alt={business.coverImage.alt} fill priority sizes="(max-width: 1023px) 100vw, 1200px" className="object-cover" />
