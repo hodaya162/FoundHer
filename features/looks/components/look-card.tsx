@@ -14,10 +14,10 @@ type LookCardProps = {
   model: LookCardModel;
   priority?: boolean;
   presentation?: "standard" | "editorial";
-  collageVariant?: "editorial-a" | "editorial-b";
+  collageVariant?: "board-separates" | "board-layered" | "board-dress";
 };
 
-export function LookCard({ collageVariant = "editorial-a", headingLevel = 2, model, presentation = "standard", priority = false }: LookCardProps) {
+export function LookCard({ collageVariant = "board-separates", headingLevel = 2, model, presentation = "standard", priority = false }: LookCardProps) {
   const { look, products } = model;
   const Heading = headingLevel === 2 ? "h2" : "h3";
   const href = `/looks/${look.slug}`;

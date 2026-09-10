@@ -20,7 +20,14 @@ export function LookDetails({ details }: LookDetailsProps) {
         <LookBreadcrumbs lookTitle={look.title} />
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,0.8fr)] lg:gap-12">
           <div className="relative">
-            <LookProductCollage items={products} priority linkItems showPrices layout="editorial-a" className="aspect-[4/3] lg:aspect-[5/4]" />
+            <LookProductCollage
+              items={products}
+              priority
+              linkItems
+              showPrices
+              layout={products[0]?.product.categoryId === "category-dresses" || products[0]?.product.type !== "purchase" ? "board-dress" : "board-separates"}
+              className="aspect-[4/3] lg:aspect-[5/4]"
+            />
             <LookTags look={look} compact className="pointer-events-none absolute start-3 top-3 z-10 [&>span]:px-2.5 [&>span]:py-1.5 [&>span]:text-[0.78rem]" />
           </div>
           <header className="space-y-4 lg:sticky lg:top-[calc(var(--desktop-header-height)+2rem)] lg:py-6">

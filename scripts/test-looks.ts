@@ -47,6 +47,21 @@ for (const look of firstEightLooks) {
   assert(lookCategories.has("category-jewelry"), `${look.slug} includes jewelry styling`);
 }
 
+const firstEightDressLed = firstEightLooks.filter((look) => {
+  const primary = getLookProductItems(look)[0]?.product;
+  return primary?.categoryId === "category-dresses" || primary?.type !== "purchase";
+});
+assert(firstEightDressLed.length <= 2, "the first eight Looks use at most two dress-led compositions");
+
+const firstEightSeparatesLed = firstEightLooks.filter((look) => {
+  const lookCategories = new Set(getLookProductItems(look).map(({ product }) => product.categoryId));
+  return lookCategories.has("category-tops") && lookCategories.has("category-skirts");
+});
+assert(firstEightSeparatesLed.length >= 5, "the first eight Looks use at least five separates or layered compositions");
+
+const firstEightEveryday = firstEightLooks.filter(({ occasions }) => occasions.includes("everyday"));
+assert(firstEightEveryday.length >= 3, "the first eight Looks include at least three everyday compositions");
+
 for (const categoryId of ["category-shoes", "category-jewelry"]) {
   const accessoryIds = firstEightLooks.map((look) => {
     const item = getLookProductItems(look).find(({ product }) => product.categoryId === categoryId);

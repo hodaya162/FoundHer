@@ -14,16 +14,22 @@ export function LookGrid({ featuredFirst = false, headingLevel = 2, layout = "st
   if (layout === "editorial") {
     return (
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-7 md:grid-cols-2 md:gap-x-6 md:gap-y-10">
-        {looks.map((model, index) => (
-          <LookCard
-            key={model.look.id}
-            model={model}
-            priority={prioritizeFirst && index === 0}
-            headingLevel={headingLevel}
-            presentation="editorial"
-            collageVariant={index % 2 === 0 ? "editorial-a" : "editorial-b"}
-          />
-        ))}
+        {looks.map((model, index) => {
+          const primary = model.products[0]?.product;
+          const isDressLed = primary?.categoryId === "category-dresses" || primary?.type !== "purchase";
+          const collageVariant = isDressLed ? "board-dress" : index % 2 === 0 ? "board-separates" : "board-layered";
+
+          return (
+            <LookCard
+              key={model.look.id}
+              model={model}
+              priority={prioritizeFirst && index === 0}
+              headingLevel={headingLevel}
+              presentation="editorial"
+              collageVariant={collageVariant}
+            />
+          );
+        })}
       </div>
     );
   }
