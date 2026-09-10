@@ -37,12 +37,28 @@ assert(new Set(purchaseBrandIds).size < purchaseBrandIds.length, "at least two L
 
 const expectedOccasionOrder = ["everyday", "shabbat", "work", "vacation", "evening_event"];
 assert.deepEqual(looks.slice(0, expectedOccasionOrder.length).map(({ occasions }) => occasions[0]), expectedOccasionOrder, "Look feed opens with varied intentional occasion ordering");
-assert(looks.filter(({ occasions }) => occasions.includes("everyday")).length >= 4, "Everyday discovery includes multiple complete Looks");
+const everydayLooks = looks.filter(({ occasions }) => occasions.includes("everyday"));
+assert(everydayLooks.length >= 6, "Everyday discovery includes a varied set of complete Looks");
 
-for (const look of looks.slice(0, 5)) {
+const firstEightLooks = looks.slice(0, 8);
+for (const look of firstEightLooks) {
   const lookCategories = new Set(getLookProductItems(look).map(({ product }) => product.categoryId));
   assert(lookCategories.has("category-shoes"), `${look.slug} includes footwear styling`);
   assert(lookCategories.has("category-jewelry"), `${look.slug} includes jewelry styling`);
+}
+
+for (const categoryId of ["category-shoes", "category-jewelry"]) {
+  const accessoryIds = firstEightLooks.map((look) => {
+    const item = getLookProductItems(look).find(({ product }) => product.categoryId === categoryId);
+    assert(item, `${look.slug} resolves its ${categoryId} styling item`);
+    return item.product.id;
+  });
+  for (let index = 1; index < accessoryIds.length; index += 1) {
+    assert.notEqual(accessoryIds[index], accessoryIds[index - 1], `${categoryId} does not repeat in adjacent Looks`);
+  }
+  const counts = new Map<string, number>();
+  for (const id of accessoryIds) counts.set(id, (counts.get(id) ?? 0) + 1);
+  assert([...counts.values()].every((count) => count <= 2), `${categoryId} products appear at most twice in the first eight Looks`);
 }
 
 const denimLook = looks.find(({ slug }) => slug === "everyday-denim-and-black");
@@ -51,5 +67,11 @@ const denimCategories = new Set(getLookProductItems(denimLook).map(({ product })
 for (const categoryId of ["category-tops", "category-skirts", "category-shoes", "category-jewelry"]) {
   assert(denimCategories.has(categoryId), `everyday denim Look includes ${categoryId}`);
 }
+
+const everydaySeparates = everydayLooks.filter((look) => {
+  const lookCategories = new Set(getLookProductItems(look).map(({ product }) => product.categoryId));
+  return lookCategories.has("category-tops") && lookCategories.has("category-skirts");
+});
+assert(everydaySeparates.length >= 3, "Everyday Looks include at least three top-and-skirt combinations rather than only dresses");
 
 console.log("Looks tests passed: filters, query composition, ordered moodboards, product routes, and fixture coverage.");
