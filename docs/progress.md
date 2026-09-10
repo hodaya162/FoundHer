@@ -417,3 +417,12 @@ This document must be updated at the end of every future task.
 - Fixture prices drive every tile label and the calculated starting-price summary. Existing occasion colors, 61/39 editorial moodboards, two controlled alternating card variants, URL filters/Search, Favorites/localStorage, Product links, demo disclosures, and Preview SEO safeguards are unchanged.
 - Mobile visual QA passed at 360, 390, 400, and 430px, and desktop remains contained in the existing centered two-column layout at 1280px. Public TASK 023 Preview: `https://foundher-3c7dfx19c-found-her1.vercel.app`.
 - Fixtures, Looks, Search, Favorites, links, TypeScript, lint, and production build pass. Lint retains only the unrelated legacy `PageShell` `<img>` warning. TASK 023 remains in Draft PR #21 and must not be merged before owner approval.
+
+## TASK 023B – Look Variety and Final Content Polish
+
+- The approved Looks UI is unchanged. The first eight cards keep the 61/39 editorial moodboard, price labels, occasion colors, compact Favorites, Search, filters, and mobile spacing from TASK 023.
+- The opening order remains Everyday, Shabbat, Work, Vacation, and Event, followed by three deliberately different Everyday Looks. Six Everyday Looks now exist overall, including three top-and-skirt combinations rather than a dress-only feed.
+- Eight neutral demo products were added to broaden real-life styling: a cream ribbed top, olive maxi skirt, printed maxi skirt, dusty-blue blouse, cream loafers, black canvas sneakers, silver hoop earrings, and a gold chain bracelet. Every source is a separate product-only image with no model, logo, external URL, or combined-outfit fabrication.
+- Within the first eight Looks, no exact shoe or jewelry item appears in adjacent cards, and no shoe or jewelry item appears more than twice. Automated Looks coverage now enforces these limits plus footwear/jewelry presence and Everyday separates coverage.
+- Mobile visual QA passed at 360, 390, 400, and 430px; the first card remains the denim-skirt and black-top Look, and the full feed shows visibly varied footwear, jewelry, silhouettes, and palettes without changing the approved layout. Desktop remains contained at 1280px.
+- Public TASK 023B Preview: `https://foundher-3xajs4lfn-found-her1.vercel.app`. Fixtures, Looks, Search, Favorites, links, TypeScript, lint, and build pass; lint retains only the unrelated legacy `PageShell` `<img>` warning. Draft PR #21 remains open, Draft, and unmerged pending final visual approval.
