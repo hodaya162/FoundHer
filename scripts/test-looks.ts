@@ -35,7 +35,7 @@ for (const categoryId of ["category-dresses", "category-shoes", "category-jewelr
 const purchaseBrandIds = vacationItems.flatMap(({ product }) => product.type === "purchase" ? [product.brandId] : []);
 assert(new Set(purchaseBrandIds).size < purchaseBrandIds.length, "at least two Look products may come from the same brand");
 
-const expectedOccasionOrder = ["everyday", "shabbat", "work", "vacation", "evening_event"];
+const expectedOccasionOrder = ["everyday", "everyday", "work", "shabbat", "everyday", "vacation", "everyday", "evening_event"];
 assert.deepEqual(looks.slice(0, expectedOccasionOrder.length).map(({ occasions }) => occasions[0]), expectedOccasionOrder, "Look feed opens with varied intentional occasion ordering");
 const everydayLooks = looks.filter(({ occasions }) => occasions.includes("everyday"));
 assert(everydayLooks.length >= 6, "Everyday discovery includes a varied set of complete Looks");
@@ -60,7 +60,7 @@ const firstEightSeparatesLed = firstEightLooks.filter((look) => {
 assert(firstEightSeparatesLed.length >= 5, "the first eight Looks use at least five separates or layered compositions");
 
 const firstEightEveryday = firstEightLooks.filter(({ occasions }) => occasions.includes("everyday"));
-assert(firstEightEveryday.length >= 3, "the first eight Looks include at least three everyday compositions");
+assert(firstEightEveryday.length >= 4, "the first eight Looks include at least four everyday compositions");
 
 for (const categoryId of ["category-shoes", "category-jewelry"]) {
   const accessoryIds = firstEightLooks.map((look) => {
