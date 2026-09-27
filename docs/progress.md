@@ -455,4 +455,5 @@ This document must be updated at the end of every future task.
 - Seven Looks use clearly marked demo assets already present in the project. The Model Hero case preserves the original modest store photograph for “ערב בסאטן רך”; it is cropped only with `object-fit` and is never isolated, regenerated, completed, or redrawn.
 - The lab supports URL-based category filtering, persistent Favorites, active detail routes, original Product links, and a developer-only comparison control that renders the same Look through all valid layout variants.
 - TASK 024 is based on the unmerged TASK 021 branch and is intentionally delivered as a separate Draft PR. Home, Rentals, production `/looks`, SEO production configuration, and PR #22 remain untouched.
-- Product approval remains pending the public Preview and owner review. Nothing from the lab is published into the customer Looks feed.
+- Public Preview: `https://foundher-krg7ewpfu-found-her1.vercel.app/looks-lab`. Deployed QA passes at 360, 390, 400, and 430px plus 1280px containment, with no page-level horizontal overflow or broken images. The Preview is `noindex, nofollow`, emits no canonical, and remains blocked by `robots.txt`.
+- Product approval remains pending owner review. Nothing from the lab is published into the customer Looks feed.

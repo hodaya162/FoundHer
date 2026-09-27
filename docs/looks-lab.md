@@ -2,6 +2,8 @@
 
 `/looks-lab` is a temporary visual laboratory for a Hero-led editorial Look language. It is not the public Looks feed and is marked `noindex`.
 
+Public Preview: `https://foundher-krg7ewpfu-found-her1.vercel.app/looks-lab`
+
 ## Rendering pipeline
 
 `HeroLook` selects a Hero Product, ordered supporting Products, category, and deterministic layout variant. Each source is classified as product-only, clean-background, model, or detail, and must pass `modestySafe` and `moodboardReady` before it can render. `backgroundRemovalSafe` is descriptive metadata; the lab does not remove or reconstruct source backgrounds.
