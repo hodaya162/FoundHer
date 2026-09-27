@@ -446,3 +446,13 @@ This document must be updated at the end of every future task.
 - Mobile visual QA passes at 360, 390, 400, and 430px with no horizontal overflow; the first three Looks differ in formula, shoe, jewelry, and palette. Desktop remains contained in the existing centered two-column layout at 1280px.
 - Fixtures, Looks, Search, Favorites, links, TypeScript, lint, and production build pass. Lint retains only the unrelated legacy `PageShell` `<img>` warning. Audit remains separately documented at two high and one critical advisory overall, and one high plus one critical in production dependencies; dependency changes are outside this task.
 - Public Preview: `https://foundher-3z4er5juj-found-her1.vercel.app/looks`. Deployed mobile QA at 360, 390, 400, and 430px confirms no horizontal overflow; the Preview remains publicly accessible over HTTPS, `noindex`, non-canonical, and blocked by `robots.txt`. TASK 023E remains in Draft PR #21 and must not be merged before owner visual approval.
+
+## TASK 024 – FoundHer Looks Lab
+
+- `/looks-lab` is an isolated, `noindex` visual experiment. It does not replace or modify the production `/looks` feed.
+- Eight Hero-led Looks test four deterministic composition families: Hero Center, Hero Edge, Layered Editorial, and Model Hero. Every Look has one visually dominant garment or source photograph, footwear, and at least one accessory.
+- The lab models source-image suitability explicitly with `assetType`, `source`, `modestySafe`, `moodboardReady`, and `backgroundRemovalSafe`. Unsafe or unready assets are excluded before rendering.
+- Seven Looks use clearly marked demo assets already present in the project. The Model Hero case preserves the original modest store photograph for “ערב בסאטן רך”; it is cropped only with `object-fit` and is never isolated, regenerated, completed, or redrawn.
+- The lab supports URL-based category filtering, persistent Favorites, active detail routes, original Product links, and a developer-only comparison control that renders the same Look through all valid layout variants.
+- TASK 024 is based on the unmerged TASK 021 branch and is intentionally delivered as a separate Draft PR. Home, Rentals, production `/looks`, SEO production configuration, and PR #22 remain untouched.
+- Product approval remains pending the public Preview and owner review. Nothing from the lab is published into the customer Looks feed.
