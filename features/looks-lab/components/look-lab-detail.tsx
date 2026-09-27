@@ -42,7 +42,7 @@ export function LookLabDetail({ model }: { model: HeroLookModel }) {
             return (
               <article key={asset.productId} className="min-w-0">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[1rem] bg-[#f6eee7]">
-                  <Link href={asset.href} className="block h-full" aria-label={`לפריט ${asset.product.name}`}>
+                  <Link href={asset.href} className="relative block h-full" aria-label={`לפריט ${asset.product.name}`}>
                     <Image src={asset.image.url} alt={asset.image.alt} fill sizes="(max-width: 639px) 46vw, 220px" className={asset.assetType === "model" ? "object-cover" : "object-contain p-2 mix-blend-multiply"} />
                   </Link>
                   <ProductFavoriteButton productId={asset.product.id} productName={asset.product.name} />
