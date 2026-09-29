@@ -461,3 +461,14 @@ This document must be updated at the end of every future task.
 - Safe deterministic cutouts were created only from full, already-demo Product images; no real store Product was regenerated, recolored, reshaped, or extended. A small set of internal lab-only transparent assets is explicitly non-purchasable and exposes no fake Product route. The real model photograph remains intact and unchanged.
 - The public `/looks` feed, Home, Rentals, Search, global navigation, SEO, and production configuration remain unchanged. Product approval remains pending owner review, and nothing from this lab is published automatically.
 - Refreshed public Preview: `https://foundher-6qmwgttuk-found-her1.vercel.app/looks-lab`. Deployed 390px QA confirms the first three approved art-direction cards, zero broken images, no page-level overflow, `noindex, nofollow`, and no canonical URL. QA also passed at 360, 400, and 430px; desktop remains contained at 1280px.
+
+## TASK 024B – Looks Feed Final Art Direction & Editorial Polish
+
+- The Looks Lab foundation, Product sources, routing, Favorites, category filters, detail links, data model, and global navigation remain unchanged. Home, Rentals, and the public `/looks` feed were not redesigned.
+- Four deterministic composition families now give the feed an explicit editorial vocabulary: Skirt Hero, Layered Street, Clean Minimal, and Photo-led. The first six Looks alternate A/B/C/A/B/C, so adjacent cards never repeat a composition.
+- The first Look uses a slightly more generous Hero canvas. Supporting tops, shoes, and jewelry are larger and use controlled overlap, unequal hierarchy, and intentional negative space instead of equal thumbnail treatment.
+- A restrained “הבחירות של FoundHer” divider follows the first three Looks to break the repeated card rhythm without adding a marketing section.
+- The on-model source remains an intact Photo-led editorial image. Non-transparent demo imagery receives only deterministic crop, contain, blend, mask, and positioning treatment. No Product was AI-redrawn, regenerated, recolored, reshaped, or placed on a generated model.
+- Local mobile QA passes at 360, 390, 400, and 430px with no page-level horizontal overflow. At 1280px the experience remains centered with 496px cards and no desktop redesign. The final public Preview URL will be recorded after deployment.
+- Fixtures, Looks Lab, Looks, Search, Favorites, links, TypeScript, lint, and production build pass. Lint retains only the unrelated legacy `PageShell` `<img>` warning. Audits are reported separately: two high and one critical advisory overall; one high and one critical in production dependencies. Dependency changes remain outside this visual task.
+- Draft PR #23 remains unmerged pending owner visual approval.

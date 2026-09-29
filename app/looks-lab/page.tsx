@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 
 import { PageContainer } from "@/components/layout";
 import { HeroLookCard, LookLabFilters, LookLayoutComparison } from "@/features/looks-lab/components";
@@ -34,7 +35,18 @@ export default async function LooksLabPage({ searchParams }: { searchParams: Pro
           {comparisonOnly ? null : <LookLabFilters active={activeCategory} />}
           {comparisonOnly ? null : (
             <div className="mt-5 space-y-7">
-              {looks.map((model, index) => <HeroLookCard key={model.look.id} model={model} priority={index === 0} />)}
+              {looks.map((model, index) => (
+                <Fragment key={model.look.id}>
+                  <HeroLookCard model={model} priority={index === 0} featured={!activeCategory && index === 0} />
+                  {!activeCategory && index === 2 ? (
+                    <div role="separator" aria-label="הבחירות של FoundHer" className="flex items-center gap-3 py-1 text-[0.72rem] font-semibold tracking-[0.04em] text-primary/75">
+                      <span aria-hidden className="h-px flex-1 bg-[#e8ddd7]" />
+                      <span>הבחירות של FoundHer</span>
+                      <span aria-hidden className="h-px flex-1 bg-[#e8ddd7]" />
+                    </div>
+                  ) : null}
+                </Fragment>
+              ))}
             </div>
           )}
           {comparisonLook ? <LookLayoutComparison model={comparisonLook} overviewOnly={comparisonOnly} /> : null}

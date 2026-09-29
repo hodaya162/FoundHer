@@ -8,12 +8,17 @@ assert.equal(looks.length, 8, "Looks Lab contains exactly eight visual experimen
 
 const firstEight = looks.slice(0, 8);
 const firstThree = firstEight.slice(0, 3);
+const firstSix = firstEight.slice(0, 6);
 assert.deepEqual(
   firstThree.map(({ hero }) => hero.productId),
   ["lab-product-denim-maxi-skirt", "product-demo-champagne-satin-maxi-skirt", "lab-product-black-maxi-skirt"],
   "the approved first three Looks keep denim, cream, and black maxi Heroes",
 );
 assert(firstThree.every(({ hero, supporting }) => [hero, ...supporting].every(({ backgroundRemovalSafe }) => backgroundRemovalSafe)), "the approved first three Looks use clean transparent assets without visible product boxes");
+assert(new Set(firstSix.map(({ look }) => look.layoutVariant)).size >= 3, "the first six Looks use at least three editorial composition variants");
+for (let index = 1; index < firstSix.length; index += 1) {
+  assert.notEqual(firstSix[index - 1].look.layoutVariant, firstSix[index].look.layoutVariant, "adjacent first-six Looks never repeat the same composition");
+}
 const everyday = firstEight.filter(({ look }) => look.category === "everyday");
 assert(everyday.length >= 4, "at least four Lab Looks are Everyday");
 

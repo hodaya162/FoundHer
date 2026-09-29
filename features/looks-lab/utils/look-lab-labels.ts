@@ -17,8 +17,8 @@ export const categoryStyles: Record<LookLabCategory, string> = {
 };
 
 export const variantLabels: Record<LookLabVariant, string> = {
-  "hero-center": "Hero Center",
-  "hero-edge": "Hero Edge",
-  "layered-editorial": "Layered",
-  "model-hero": "Model Hero",
+  "hero-center": "Skirt Hero",
+  "hero-edge": "Layered Street",
+  "layered-editorial": "Clean Minimal",
+  "model-hero": "Photo-led",
 };

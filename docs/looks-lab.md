@@ -2,7 +2,7 @@
 
 `/looks-lab` is a temporary visual laboratory for a Hero-led editorial Look language. It is not the public Looks feed and is marked `noindex`.
 
-Public Preview: `https://foundher-6qmwgttuk-found-her1.vercel.app/looks-lab`
+Public Preview: `TASK 024B preview pending deployment`
 
 ## Rendering pipeline
 
@@ -33,3 +33,14 @@ The only real source in the lab is the existing original model photograph used b
 - The comparison control is lab-only and changes layout, never Products or source imagery.
 - Mobile is authoritative at 360, 390, 400, and 430px. Desktop centers and contains the same experience.
 - Refreshed deployed QA passed at 360, 390, 400, and 430px with no page-level horizontal overflow or broken images. The 390px Preview renders the approved first-three sequence, remains `noindex, nofollow`, and emits no canonical URL. Desktop remains contained with 496px cards at 1280px.
+
+## TASK 024B editorial rhythm
+
+TASK 024B keeps the existing Looks Lab architecture and Product set, while making the feed less mechanically repetitive. The four deterministic composition families are now named and used as follows:
+
+- **Skirt Hero** — the maxi garment leads, while the top, shoes, and jewelry overlap its negative space asymmetrically.
+- **Layered Street** — the top or layer receives more visual weight and supporting products enter the composition from different edges.
+- **Clean Minimal** — one dominant garment, a restrained accessory cluster, and more deliberate breathing room.
+- **Photo-led** — an intact on-model source photograph becomes the editorial Hero; companion Products remain separate and never imply a shared photo shoot.
+
+The first six Looks alternate Skirt Hero, Layered Street, and Clean Minimal without repeating a composition consecutively. The first card receives a slightly taller editorial canvas, accessories and footwear remain inspectable rather than thumbnail-sized, and a quiet “הבחירות של FoundHer” divider changes the feed rhythm after the first three cards. Non-transparent demo sources receive only deterministic containment, blending, and edge-softening; no source Product is regenerated, redrawn, recolored, or extended.

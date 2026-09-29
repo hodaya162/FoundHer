@@ -9,39 +9,39 @@ type PositionSet = { readonly hero: string; readonly supporting: readonly string
 
 const positions: Record<LookLabVariant, PositionSet> = {
   "hero-center": {
-    hero: "end-[16%] bottom-[1%] h-[94%] w-[62%]",
+    hero: "end-[15%] bottom-[1%] h-[95%] w-[63%]",
     supporting: [
-      "start-[2%] top-[3%] h-[34%] w-[35%] -rotate-[1deg]",
-      "start-[3%] bottom-[4%] h-[24%] w-[32%] rotate-[1deg]",
-      "end-[2%] top-[5%] h-[19%] w-[20%] rotate-[2deg]",
-      "start-[35%] top-[7%] h-[17%] w-[18%] -rotate-[2deg]",
+      "start-[0%] top-[7%] z-[1] h-[41%] w-[42%] -rotate-[1deg]",
+      "start-[1%] bottom-[1%] z-[4] h-[29%] w-[35%] rotate-[1deg]",
+      "end-[1%] top-[5%] z-[3] h-[25%] w-[25%] rotate-[1deg]",
+      "end-[24%] top-[4%] z-[4] h-[24%] w-[22%] -rotate-[1deg]",
     ],
   },
   "hero-edge": {
-    hero: "start-[1%] bottom-[1%] h-[95%] w-[65%]",
+    hero: "start-[0%] bottom-[0%] h-[89%] w-[61%]",
     supporting: [
-      "end-[2%] top-[4%] h-[38%] w-[38%] rotate-[1deg]",
-      "end-[3%] bottom-[4%] h-[27%] w-[34%] -rotate-[1deg]",
-      "end-[30%] top-[40%] h-[18%] w-[19%] rotate-[2deg]",
-      "start-[40%] bottom-[8%] h-[17%] w-[18%] -rotate-[1deg]",
+      "end-[0%] top-[4%] z-[3] h-[52%] w-[49%] rotate-[1deg]",
+      "end-[2%] bottom-[2%] z-[4] h-[31%] w-[37%] -rotate-[1deg]",
+      "end-[35%] top-[39%] z-[4] h-[24%] w-[25%] rotate-[2deg]",
+      "start-[37%] bottom-[7%] z-[4] h-[21%] w-[22%] -rotate-[1deg]",
     ],
   },
   "layered-editorial": {
-    hero: "end-[4%] bottom-[1%] h-[94%] w-[61%]",
+    hero: "end-[1%] bottom-[1%] h-[90%] w-[58%]",
     supporting: [
-      "start-[3%] top-[5%] z-0 h-[43%] w-[42%] -rotate-[1deg]",
-      "start-[2%] bottom-[4%] h-[27%] w-[34%] rotate-[1deg]",
-      "start-[33%] top-[9%] h-[18%] w-[19%] rotate-[2deg]",
-      "end-[1%] top-[4%] h-[18%] w-[19%] -rotate-[1deg]",
+      "start-[0%] top-[7%] z-[1] h-[42%] w-[43%] -rotate-[1deg]",
+      "start-[1%] bottom-[4%] z-[4] h-[29%] w-[36%] rotate-[1deg]",
+      "start-[36%] top-[7%] z-[4] h-[24%] w-[21%] rotate-[1deg]",
+      "end-[2%] top-[3%] z-[4] h-[21%] w-[20%] -rotate-[1deg]",
     ],
   },
   "model-hero": {
-    hero: "end-[1%] top-[1%] h-[98%] w-[69%]",
+    hero: "end-[1%] top-[1%] h-[98%] w-[72%]",
     supporting: [
-      "start-[2%] bottom-[4%] h-[29%] w-[34%] -rotate-[1deg]",
-      "start-[3%] top-[5%] h-[22%] w-[27%] rotate-[1deg]",
-      "start-[24%] top-[37%] h-[18%] w-[21%] -rotate-[2deg]",
-      "start-[34%] bottom-[10%] h-[17%] w-[18%] rotate-[1deg]",
+      "start-[1%] bottom-[3%] z-[4] h-[31%] w-[36%] -rotate-[1deg]",
+      "start-[2%] top-[4%] z-[4] h-[25%] w-[29%] rotate-[1deg]",
+      "start-[25%] top-[35%] z-[4] h-[22%] w-[24%] -rotate-[2deg]",
+      "start-[34%] bottom-[9%] z-[4] h-[20%] w-[21%] rotate-[1deg]",
     ],
   },
 };
@@ -52,9 +52,11 @@ function assetClass(asset: ResolvedLookAsset, isHero: boolean) {
   return cn("object-contain mix-blend-multiply", isHero ? "p-1" : "p-1.5");
 }
 
-function assetStyle(asset: ResolvedLookAsset): CSSProperties | undefined {
+function assetStyle(asset: ResolvedLookAsset, isHero: boolean): CSSProperties | undefined {
   if (asset.assetType === "model" || asset.backgroundRemovalSafe) return undefined;
-  const mask = "radial-gradient(ellipse 92% 92% at center, black 74%, transparent 100%)";
+  const mask = isHero
+    ? "radial-gradient(ellipse 88% 96% at center, black 60%, transparent 98%)"
+    : "radial-gradient(ellipse 84% 82% at center, black 54%, transparent 95%)";
   return { maskImage: mask, WebkitMaskImage: mask };
 }
 
@@ -67,19 +69,19 @@ function AssetImage({ asset, isHero, priority }: { asset: ResolvedLookAsset; isH
       priority={priority}
       sizes={isHero ? "(max-width: 767px) 65vw, 340px" : "(max-width: 767px) 36vw, 180px"}
       className={assetClass(asset, isHero)}
-      style={assetStyle(asset)}
+      style={assetStyle(asset, isHero)}
     />
   );
 }
 
-export function HeroLookMoodboard({ className, model, priority = false, variant = model.look.layoutVariant }: { className?: string; model: HeroLookModel; priority?: boolean; variant?: LookLabVariant }) {
+export function HeroLookMoodboard({ className, featured = false, model, priority = false, variant = model.look.layoutVariant }: { className?: string; featured?: boolean; model: HeroLookModel; priority?: boolean; variant?: LookLabVariant }) {
   const modelVariantAllowed = model.hero.assetType === "model";
   const safeVariant = variant === "model-hero" && !modelVariantAllowed ? model.look.layoutVariant : variant;
   const safeLayout = positions[safeVariant];
 
   return (
     <div
-      className={cn("relative isolate aspect-[4/5] max-h-[31rem] overflow-hidden rounded-[1.35rem]", className)}
+      className={cn("relative isolate aspect-[4/5] max-h-[31rem] overflow-hidden rounded-[1.35rem]", featured && "aspect-[7/9] max-h-[33rem]", className)}
       data-layout={safeVariant}
       style={{ background: `radial-gradient(circle at 55% 35%, rgba(255,255,255,.88) 0%, ${model.look.canvasTone} 58%, ${model.look.canvasTone} 100%)` }}
     >
