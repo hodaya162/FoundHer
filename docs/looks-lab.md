@@ -2,7 +2,7 @@
 
 `/looks-lab` is a temporary visual laboratory for a Hero-led editorial Look language. It is not the public Looks feed and is marked `noindex`.
 
-Public Preview: `TASK 024C preview pending deployment`
+Public Preview: `https://foundher-6x5vprxwl-found-her1.vercel.app/looks-lab`
 
 ## Rendering pipeline
 

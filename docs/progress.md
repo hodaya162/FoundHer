@@ -481,3 +481,4 @@ This document must be updated at the end of every future task.
 - Full model photography selects Photo Editorial automatically. The original source is shown with contained fitting and preserved aspect ratio; no head, shoulder, hem, shoe, or meaningful source detail is cropped by FoundHer.
 - The review Preview deliberately contains only three Looks: two product-only compositions and one full-model-photo composition. The former forced comparison surface and four-variant rotation were removed.
 - No AI redraw, generative fill, model generation, hidden-pixel reconstruction, new Product image, Home change, Rentals change, or public `/looks` change is included. Draft PR #23 remains unmerged pending explicit visual approval of the three close-ups.
+- Public review Preview: `https://foundher-6x5vprxwl-found-her1.vercel.app/looks-lab`.
