@@ -9,6 +9,7 @@ import {
   buildBusinessWhatsAppUrl,
   buildRentalWhatsAppUrl,
   businessWhatsAppMessage,
+  createRentalProductUrl,
   createRentalWhatsAppMessage,
 } from "../features/rentals/utils/whatsapp";
 
@@ -53,11 +54,18 @@ const businessWhatsAppUrl = new URL(buildBusinessWhatsAppUrl(shosBusiness!.whats
 assert.equal(`${businessWhatsAppUrl.origin}${businessWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "business WhatsApp destination remains unchanged");
 assert.equal(businessWhatsAppUrl.searchParams.get("text"), businessWhatsAppMessage, "business WhatsApp message preserves Hebrew and emoji");
 
-const productName = "שמלת ערב תחרה שחורה";
-const productWhatsAppUrl = new URL(buildRentalWhatsAppUrl(shosBusiness!.whatsappUrl!, productName));
+const productSlug = "shos-black-evening";
+const previewEnvironment = { VERCEL_URL: "foundher-preview.vercel.app" };
+const productUrl = createRentalProductUrl(productSlug, previewEnvironment);
+const productWhatsAppUrl = new URL(buildRentalWhatsAppUrl(shosBusiness!.whatsappUrl!, productSlug, previewEnvironment));
 assert.equal(`${productWhatsAppUrl.origin}${productWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "product WhatsApp destination remains unchanged");
-assert.equal(productWhatsAppUrl.searchParams.get("text"), createRentalWhatsAppMessage(productName), "product WhatsApp message preserves Hebrew, emoji, and quotation marks");
-assert(createRentalWhatsAppMessage().includes("ראיתי שמלה באתר"), "missing product names use the generic WhatsApp fallback");
+assert.equal(productUrl, "https://foundher-preview.vercel.app/rentals/shos-black-evening", "product URL uses the exact rental slug and current FoundHer origin");
+assert.equal(productWhatsAppUrl.searchParams.get("text"), createRentalWhatsAppMessage(productUrl), "product WhatsApp message preserves Hebrew, emoji, line breaks, and the product URL");
+assert.equal(
+  productWhatsAppUrl.searchParams.get("text"),
+  "היי, הגעתי אליכן דרך FoundHer 🌸\nהתעניינתי בשמלה הזאת:\nhttps://foundher-preview.vercel.app/rentals/shos-black-evening\nאשמח לקבל פרטים לגבי השכרה וזמינות.",
+  "product WhatsApp message matches the approved copy",
+);
 
 for (const route of ["app/rentals/page.tsx", "app/rentals/bridal/page.tsx", "app/rentals/evening/page.tsx", "app/rentals/[slug]/page.tsx"]) {
   assert(existsSync(route), `${route} exists`);

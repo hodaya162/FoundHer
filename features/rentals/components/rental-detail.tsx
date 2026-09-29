@@ -30,7 +30,7 @@ const serviceIcons = {
 
 export function RentalDetail({ item, business }: { item: RentalItem; business: RentalBusiness | null }) {
   const contactDestination = item.contactUrl ?? business?.whatsappUrl;
-  const contactUrl = contactDestination ? buildRentalWhatsAppUrl(contactDestination, item.title) : undefined;
+  const contactUrl = contactDestination ? buildRentalWhatsAppUrl(contactDestination, item.slug) : undefined;
   const mainImage = item.images[0];
   const thumbnails = item.images.slice(1);
 
