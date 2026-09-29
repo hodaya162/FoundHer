@@ -15,7 +15,7 @@ const transparentDemoProductIds = new Set([
   "product-demo-sculptural-gold-hoops",
 ]);
 
-const demo = (productId: string, assetType: "product-only" | "clean-background" | "detail") => ({
+const demo = (productId: string, assetType: "product-cutout" | "product-studio" | "detail") => ({
   productId,
   assetType,
   source: "demo" as const,
@@ -32,7 +32,6 @@ export const labLooks = [
     descriptor: "עירוני · צעיר · שכבות",
     category: "everyday",
     heroProductId: "lab-product-denim-maxi-skirt",
-    layoutVariant: "hero-center",
     canvasTone: "#EEF2F3",
     palette: [
       { name: "ג׳ינס כחול", hex: "#29455F" },
@@ -42,10 +41,10 @@ export const labLooks = [
       { name: "זהב", hex: "#C69B52" },
     ],
     assets: [
-      demo("lab-product-denim-maxi-skirt", "product-only"),
-      demo("product-demo-blue-striped-overshirt", "product-only"),
-      demo("lab-product-white-retro-sneakers", "product-only"),
-      demo("lab-product-black-modest-blouse", "product-only"),
+      demo("lab-product-denim-maxi-skirt", "product-cutout"),
+      demo("product-demo-blue-striped-overshirt", "product-cutout"),
+      demo("lab-product-white-retro-sneakers", "product-cutout"),
+      demo("lab-product-black-modest-blouse", "product-cutout"),
       demo("lab-product-gold-pendant-necklace", "detail"),
     ],
   },
@@ -56,7 +55,6 @@ export const labLooks = [
     descriptor: "רך · נוכח · לא צפוי",
     category: "everyday",
     heroProductId: "product-demo-champagne-satin-maxi-skirt",
-    layoutVariant: "hero-edge",
     canvasTone: "#F5EEE7",
     palette: [
       { name: "קרם", hex: "#E8DDCB" },
@@ -65,9 +63,9 @@ export const labLooks = [
       { name: "זהב", hex: "#C79B4A" },
     ],
     assets: [
-      demo("product-demo-champagne-satin-maxi-skirt", "product-only"),
-      demo("product-demo-burgundy-oversized-knit", "product-only"),
-      demo("lab-product-black-mary-jane", "product-only"),
+      demo("product-demo-champagne-satin-maxi-skirt", "product-cutout"),
+      demo("product-demo-burgundy-oversized-knit", "product-cutout"),
+      demo("lab-product-black-mary-jane", "product-cutout"),
       demo("product-demo-sculptural-gold-hoops", "detail"),
     ],
   },
@@ -78,7 +76,6 @@ export const labLooks = [
     descriptor: "מחויט · צעיר · מדויק",
     category: "work",
     heroProductId: "lab-product-black-maxi-skirt",
-    layoutVariant: "layered-editorial",
     canvasTone: "#F1F0EC",
     palette: [
       { name: "שחור", hex: "#171515" },
@@ -87,9 +84,9 @@ export const labLooks = [
       { name: "זהב", hex: "#C6A059" },
     ],
     assets: [
-      demo("lab-product-black-maxi-skirt", "product-only"),
-      demo("lab-product-light-blue-blouse", "product-only"),
-      demo("lab-product-espresso-loafers", "product-only"),
+      demo("lab-product-black-maxi-skirt", "product-cutout"),
+      demo("lab-product-light-blue-blouse", "product-cutout"),
+      demo("lab-product-espresso-loafers", "product-cutout"),
       demo("lab-product-gold-pendant-necklace", "detail"),
     ],
   },
@@ -100,7 +97,6 @@ export const labLooks = [
     descriptor: "נשי · קליל · מודרני",
     category: "shabbat",
     heroProductId: "product-everyday-printed-maxi-skirt",
-    layoutVariant: "hero-center",
     canvasTone: "#F6F0EE",
     palette: [
       { name: "קרם", hex: "#EFE7D9" },
@@ -109,9 +105,9 @@ export const labLooks = [
       { name: "זהב", hex: "#C5A060" },
     ],
     assets: [
-      demo("product-everyday-printed-maxi-skirt", "product-only"),
-      demo("product-everyday-cream-ribbed-top", "clean-background"),
-      demo("product-dusty-rose-slingbacks", "product-only"),
+      demo("product-everyday-printed-maxi-skirt", "product-studio"),
+      demo("product-everyday-cream-ribbed-top", "product-studio"),
+      demo("product-dusty-rose-slingbacks", "product-studio"),
       demo("product-pearl-drop-earrings", "detail"),
     ],
   },
@@ -122,7 +118,6 @@ export const labLooks = [
     descriptor: "קז׳ואל · עמוק · נוח",
     category: "everyday",
     heroProductId: "product-everyday-olive-maxi-skirt",
-    layoutVariant: "hero-edge",
     canvasTone: "#F1F1EA",
     palette: [
       { name: "זית", hex: "#69705A" },
@@ -131,9 +126,9 @@ export const labLooks = [
       { name: "כסף", hex: "#B8B7B2" },
     ],
     assets: [
-      demo("product-everyday-olive-maxi-skirt", "product-only"),
-      demo("product-demo-burgundy-oversized-knit", "product-only"),
-      demo("product-black-canvas-sneakers", "product-only"),
+      demo("product-everyday-olive-maxi-skirt", "product-studio"),
+      demo("product-demo-burgundy-oversized-knit", "product-cutout"),
+      demo("product-black-canvas-sneakers", "product-studio"),
       demo("product-small-silver-hoop-earrings", "detail"),
     ],
   },
@@ -144,7 +139,6 @@ export const labLooks = [
     descriptor: "רך · נקי · חופשי",
     category: "vacation",
     heroProductId: "product-pleated-modest-dress",
-    layoutVariant: "layered-editorial",
     canvasTone: "#EFF2EC",
     palette: [
       { name: "מרווה", hex: "#8A9A84" },
@@ -153,8 +147,8 @@ export const labLooks = [
       { name: "זהב", hex: "#C59A50" },
     ],
     assets: [
-      demo("product-pleated-modest-dress", "product-only"),
-      demo("product-tan-flat-sandals", "product-only"),
+      demo("product-pleated-modest-dress", "product-studio"),
+      demo("product-tan-flat-sandals", "product-studio"),
       demo("product-demo-sculptural-gold-hoops", "detail"),
     ],
   },
@@ -165,7 +159,6 @@ export const labLooks = [
     descriptor: "יומיומי · גרפי · קל",
     category: "everyday",
     heroProductId: "product-everyday-printed-maxi-skirt",
-    layoutVariant: "layered-editorial",
     canvasTone: "#F2F1EE",
     palette: [
       { name: "שחור", hex: "#1C1A1A" },
@@ -174,9 +167,9 @@ export const labLooks = [
       { name: "זהב", hex: "#C6A15B" },
     ],
     assets: [
-      demo("product-everyday-printed-maxi-skirt", "product-only"),
-      demo("product-everyday-black-modest-blouse", "clean-background"),
-      demo("product-everyday-white-sneakers", "product-only"),
+      demo("product-everyday-printed-maxi-skirt", "product-studio"),
+      demo("product-everyday-black-modest-blouse", "product-studio"),
+      demo("product-everyday-white-sneakers", "product-studio"),
       demo("product-delicate-gold-chain-bracelet", "detail"),
     ],
   },
@@ -187,7 +180,6 @@ export const labLooks = [
     descriptor: "צילום מקור · ערב רך · שכבות",
     category: "event",
     heroProductId: "rental-soft-satin-evening-dress",
-    layoutVariant: "model-hero",
     canvasTone: "#EEF1EE",
     palette: [
       { name: "ירוק עמוק", hex: "#3F5D50" },
@@ -199,13 +191,13 @@ export const labLooks = [
     assets: [
       {
         productId: "rental-soft-satin-evening-dress",
-        assetType: "model",
+        assetType: "model-full",
         source: "real",
         modestySafe: true,
         moodboardReady: true,
         backgroundRemovalSafe: false,
       },
-      demo("product-black-ballet-flats", "product-only"),
+      demo("product-black-ballet-flats", "product-studio"),
       demo("product-delicate-gold-pendant-necklace", "detail"),
       demo("product-pearl-drop-earrings", "detail"),
     ],

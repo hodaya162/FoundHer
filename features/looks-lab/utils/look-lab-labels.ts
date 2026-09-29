@@ -1,4 +1,4 @@
-import type { LookLabCategory, LookLabVariant } from "../types/look-lab";
+import type { LookLabCategory, LookLabLayout } from "../types/look-lab";
 
 export const categoryLabels: Record<LookLabCategory, string> = {
   everyday: "יום־יום",
@@ -16,9 +16,9 @@ export const categoryStyles: Record<LookLabCategory, string> = {
   vacation: "bg-[#dfe9ec] text-[#506a72]",
 };
 
-export const variantLabels: Record<LookLabVariant, string> = {
-  "hero-center": "Skirt Hero",
-  "hero-edge": "Layered Street",
-  "layered-editorial": "Clean Minimal",
-  "model-hero": "Photo-led",
+export const variantLabels: Record<LookLabLayout, string> = {
+  "flatlay-editorial": "Flat-lay editorial",
+  "flatlay-alternative": "Flat-lay alternative",
+  "photo-editorial": "Photo editorial",
+  "split-editorial": "Split editorial",
 };

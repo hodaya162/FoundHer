@@ -41,7 +41,7 @@ export function LookLabDetail({ model }: { model: HeroLookModel }) {
         <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-7 sm:grid-cols-3 lg:grid-cols-4">
           {assets.map((asset) => {
             const externalUrl = asset.product.type === "purchase" ? asset.product.externalUrl : asset.product.availabilityUrl;
-            const productImage = <Image src={asset.image.url} alt={asset.image.alt} fill sizes="(max-width: 639px) 46vw, 220px" className={asset.assetType === "model" ? "object-cover" : "object-contain p-2 mix-blend-multiply"} />;
+            const productImage = <Image src={asset.image.url} alt={asset.image.alt} fill sizes="(max-width: 639px) 46vw, 220px" className="object-contain p-2" />;
             return (
               <article key={asset.productId} className="min-w-0">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[1rem] bg-[#f6eee7]">

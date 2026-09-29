@@ -1,12 +1,12 @@
 import type { ProductImage } from "@/domain/media";
 import type { Product } from "@/domain/product";
 
-export const LOOK_LAB_VARIANTS = ["hero-center", "hero-edge", "layered-editorial", "model-hero"] as const;
+export const LOOK_LAB_LAYOUTS = ["flatlay-editorial", "flatlay-alternative", "photo-editorial", "split-editorial"] as const;
 export const LOOK_LAB_CATEGORIES = ["everyday", "work", "shabbat", "event", "vacation"] as const;
 
-export type LookLabVariant = (typeof LOOK_LAB_VARIANTS)[number];
+export type LookLabLayout = (typeof LOOK_LAB_LAYOUTS)[number];
 export type LookLabCategory = (typeof LOOK_LAB_CATEGORIES)[number];
-export type LookAssetType = "product-only" | "clean-background" | "model" | "detail";
+export type LookAssetType = "product-cutout" | "product-studio" | "model-full" | "model-crop-safe" | "detail" | "unsuitable";
 export type LookAssetSource = "real" | "demo";
 export type LookPaletteColor = {
   readonly name: string;
@@ -30,7 +30,6 @@ export type HeroLook = {
   readonly descriptor: string;
   readonly category: LookLabCategory;
   readonly heroProductId: string;
-  readonly layoutVariant: LookLabVariant;
   readonly canvasTone: `#${string}`;
   readonly palette: readonly LookPaletteColor[];
   readonly assets: readonly LookAsset[];
@@ -46,6 +45,7 @@ export type ResolvedLookAsset = LookAsset & {
 
 export type HeroLookModel = {
   readonly look: HeroLook;
+  readonly layout: LookLabLayout;
   readonly hero: ResolvedLookAsset;
   readonly supporting: readonly ResolvedLookAsset[];
   readonly lowestPrice: number;

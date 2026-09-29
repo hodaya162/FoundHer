@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Fragment } from "react";
-
 import { PageContainer } from "@/components/layout";
-import { HeroLookCard, LookLabFilters, LookLayoutComparison } from "@/features/looks-lab/components";
+import { HeroLookCard, LookLabFilters } from "@/features/looks-lab/components";
 import { getLabLooks } from "@/features/looks-lab/queries/get-lab-looks";
 import { LOOK_LAB_CATEGORIES, type LookLabCategory } from "@/features/looks-lab/types/look-lab";
 
@@ -16,12 +14,10 @@ function parseCategory(value?: string): LookLabCategory | undefined {
   return LOOK_LAB_CATEGORIES.includes(value as LookLabCategory) ? value as LookLabCategory : undefined;
 }
 
-export default async function LooksLabPage({ searchParams }: { searchParams: Promise<{ category?: string; view?: string }> }) {
-  const { category, view } = await searchParams;
+export default async function LooksLabPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+  const { category } = await searchParams;
   const activeCategory = parseCategory(category);
-  const looks = getLabLooks(activeCategory);
-  const comparisonLook = getLabLooks().find(({ look }) => look.layoutVariant === "model-hero") ?? getLabLooks()[0];
-  const comparisonOnly = view === "comparison";
+  const looks = getLabLooks(activeCategory).slice(0, 3);
 
   return (
     <main>
@@ -32,24 +28,10 @@ export default async function LooksLabPage({ searchParams }: { searchParams: Pro
             <h1 className="mt-1 text-2xl font-semibold tracking-[-0.025em]">הפריט שמוביל את הלוק</h1>
             <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-muted">ניסוי חזותי בלבד: פריט Hero אחד, והסטיילינג שנבנה סביבו. אין שינוי בעמוד הלוקים הציבורי.</p>
           </header>
-          {comparisonOnly ? null : <LookLabFilters active={activeCategory} />}
-          {comparisonOnly ? null : (
-            <div className="mt-5 space-y-7">
-              {looks.map((model, index) => (
-                <Fragment key={model.look.id}>
-                  <HeroLookCard model={model} priority={index === 0} featured={!activeCategory && index === 0} />
-                  {!activeCategory && index === 2 ? (
-                    <div role="separator" aria-label="הבחירות של FoundHer" className="flex items-center gap-3 py-1 text-[0.72rem] font-semibold tracking-[0.04em] text-primary/75">
-                      <span aria-hidden className="h-px flex-1 bg-[#e8ddd7]" />
-                      <span>הבחירות של FoundHer</span>
-                      <span aria-hidden className="h-px flex-1 bg-[#e8ddd7]" />
-                    </div>
-                  ) : null}
-                </Fragment>
-              ))}
-            </div>
-          )}
-          {comparisonLook ? <LookLayoutComparison model={comparisonLook} overviewOnly={comparisonOnly} /> : null}
+          <LookLabFilters active={activeCategory} />
+          <div className="mt-5 space-y-7">
+            {looks.map((model, index) => <HeroLookCard key={model.look.id} model={model} priority={index === 0} featured={!activeCategory && index === 0} />)}
+          </div>
         </div>
       </PageContainer>
     </main>

@@ -5,7 +5,9 @@ import { getRentalBusinessById } from "@/lib/repositories/rental-businesses.repo
 
 import { labLooks } from "../data/lab-looks";
 import { getLabDemoProductById } from "../data/lab-demo-products";
-import type { HeroLook, HeroLookModel, LookLabCategory, ResolvedLookAsset } from "../types/look-lab";
+import type { HeroLook, HeroLookModel, LookLabCategory, LookLabLayout, ResolvedLookAsset } from "../types/look-lab";
+
+const reviewOrder = ["lab-denim-stripes-gold", "lab-burgundy-satin", "lab-real-model-soft-satin"] as const;
 
 function amount(product: Product): number {
   return product.type === "purchase" ? product.price : product.rentalPrice;
@@ -17,7 +19,7 @@ function sellerName(product: Product): string {
 }
 
 function resolveAsset(asset: HeroLook["assets"][number]): ResolvedLookAsset | undefined {
-  if (!asset.modestySafe || !asset.moodboardReady) return undefined;
+  if (!asset.modestySafe || !asset.moodboardReady || asset.assetType === "unsuitable") return undefined;
   const repositoryProduct = getProductById(asset.productId);
   const product = repositoryProduct ?? getLabDemoProductById(asset.productId);
   if (!product) return undefined;
@@ -34,6 +36,18 @@ function resolveAsset(asset: HeroLook["assets"][number]): ResolvedLookAsset | un
   };
 }
 
+function selectLayout(assets: readonly ResolvedLookAsset[]): LookLabLayout | undefined {
+  const fullModelAssets = assets.filter(({ assetType }) => assetType === "model-full");
+  if (fullModelAssets.length === 1) return "photo-editorial";
+
+  const cropSafeModelAssets = assets.filter(({ assetType }) => assetType === "model-crop-safe");
+  if (cropSafeModelAssets.length >= 2) return "split-editorial";
+
+  const productBoardReady = assets.every(({ assetType }) => ["product-cutout", "product-studio", "detail"].includes(assetType));
+  if (!productBoardReady) return undefined;
+  return assets.length >= 5 ? "flatlay-editorial" : "flatlay-alternative";
+}
+
 function resolveLook(look: HeroLook): HeroLookModel | undefined {
   const assets = look.assets.flatMap((asset) => {
     const resolved = resolveAsset(asset);
@@ -41,9 +55,12 @@ function resolveLook(look: HeroLook): HeroLookModel | undefined {
   });
   const hero = assets.find(({ productId }) => productId === look.heroProductId);
   if (!hero || assets.length < 3) return undefined;
+  const layout = selectLayout(assets);
+  if (!layout) return undefined;
 
   return {
     look,
+    layout,
     hero,
     supporting: assets.filter(({ productId }) => productId !== hero.productId),
     lowestPrice: Math.min(...assets.map(({ product }) => amount(product))),
@@ -52,12 +69,14 @@ function resolveLook(look: HeroLook): HeroLookModel | undefined {
 }
 
 export function getLabLooks(category?: LookLabCategory): readonly HeroLookModel[] {
+  const order = new Map<string, number>(reviewOrder.map((id, index) => [id, index]));
   return labLooks
     .filter((look) => !category || look.category === category)
     .flatMap((look) => {
       const model = resolveLook(look);
       return model ? [model] : [];
-    });
+    })
+    .sort((left, right) => (order.get(left.look.id) ?? Number.MAX_SAFE_INTEGER) - (order.get(right.look.id) ?? Number.MAX_SAFE_INTEGER));
 }
 
 export function getLabLookBySlug(slug: string): HeroLookModel | undefined {

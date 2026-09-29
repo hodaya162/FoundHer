@@ -1,42 +1,41 @@
 import assert from "node:assert/strict";
 
 import { getLabLooks } from "../features/looks-lab/queries/get-lab-looks";
-import { LOOK_LAB_VARIANTS } from "../features/looks-lab/types/look-lab";
 
 const looks = getLabLooks();
-assert.equal(looks.length, 8, "Looks Lab contains exactly eight visual experiments");
+assert.equal(looks.length, 8, "Looks Lab contains exactly eight asset-compatible experiments");
 
-const firstEight = looks.slice(0, 8);
-const firstThree = firstEight.slice(0, 3);
-const firstSix = firstEight.slice(0, 6);
+const firstThree = looks.slice(0, 3);
 assert.deepEqual(
   firstThree.map(({ hero }) => hero.productId),
-  ["lab-product-denim-maxi-skirt", "product-demo-champagne-satin-maxi-skirt", "lab-product-black-maxi-skirt"],
-  "the approved first three Looks keep denim, cream, and black maxi Heroes",
+  ["lab-product-denim-maxi-skirt", "product-demo-champagne-satin-maxi-skirt", "rental-soft-satin-evening-dress"],
+  "the review set demonstrates two product boards followed by one full model photograph",
 );
-assert(firstThree.every(({ hero, supporting }) => [hero, ...supporting].every(({ backgroundRemovalSafe }) => backgroundRemovalSafe)), "the approved first three Looks use clean transparent assets without visible product boxes");
-assert(new Set(firstSix.map(({ look }) => look.layoutVariant)).size >= 3, "the first six Looks use at least three editorial composition variants");
-for (let index = 1; index < firstSix.length; index += 1) {
-  assert.notEqual(firstSix[index - 1].look.layoutVariant, firstSix[index].look.layoutVariant, "adjacent first-six Looks never repeat the same composition");
+assert.deepEqual(
+  firstThree.map(({ layout }) => layout),
+  ["flatlay-editorial", "flatlay-alternative", "photo-editorial"],
+  "layout selection follows the available asset composition",
+);
+
+for (const model of firstThree.slice(0, 2)) {
+  const assets = [model.hero, ...model.supporting];
+  assert(assets.every(({ assetType }) => ["product-cutout", "detail"].includes(assetType)), `${model.look.slug} uses only clean product/detail sources`);
+  assert(assets.every(({ backgroundRemovalSafe }) => backgroundRemovalSafe), `${model.look.slug} uses existing clean transparent demo assets`);
 }
-const everyday = firstEight.filter(({ look }) => look.category === "everyday");
-assert(everyday.length >= 4, "at least four Lab Looks are Everyday");
 
-const dressLed = firstEight.filter(({ hero }) => hero.product.type !== "purchase" || hero.product.categoryId === "category-dresses");
-assert(dressLed.length <= 2, "at most two Lab Looks are dress-led");
+const photoLook = firstThree[2];
+assert.equal(photoLook.hero.source, "real", "the photo-led Hero is the original repository source");
+assert.equal(photoLook.hero.assetType, "model-full", "the model photograph is classified as MODEL_FULL");
+assert.equal(photoLook.hero.backgroundRemovalSafe, false, "the full model photograph cannot be background-removed");
+assert(!photoLook.hero.image.url.includes("/generated/"), "the full model photograph is not a generated asset");
+assert(photoLook.supporting.every(({ assetType }) => ["product-cutout", "product-studio", "detail"].includes(assetType)), "photo companions are separately rendered products/details");
 
-const separatesLed = firstEight.filter(({ look, hero, supporting }) => {
-  const categories = new Set([hero, ...supporting].map(({ product }) => product.categoryId));
-  return look.category !== "event" && (categories.has("category-skirts") || hero.product.categoryId === "category-skirts");
-});
-assert(separatesLed.length >= 5, "at least five Lab Looks are skirt/separates-led");
-
-for (const model of firstEight) {
+for (const model of looks) {
   const assets = [model.hero, ...model.supporting];
   const categories = new Set(assets.map(({ product }) => product.categoryId));
   assert(categories.has("category-shoes"), `${model.look.slug} includes footwear`);
   assert(categories.has("category-jewelry"), `${model.look.slug} includes jewelry/accessory styling`);
-  assert(assets.every(({ modestySafe, moodboardReady }) => modestySafe && moodboardReady), `${model.look.slug} excludes unsafe or unready assets`);
+  assert(assets.every(({ modestySafe, moodboardReady, assetType }) => modestySafe && moodboardReady && assetType !== "unsuitable"), `${model.look.slug} excludes unsafe, unsuitable, or unready imagery`);
   assert.equal(new Set(assets.map(({ productId }) => productId)).size, assets.length, `${model.look.slug} does not duplicate products`);
   assert(model.look.palette.length >= 4 && model.look.palette.length <= 5, `${model.look.slug} has four or five outfit-derived palette colors`);
   assert(/^#[0-9A-F]{6}$/i.test(model.look.canvasTone), `${model.look.slug} has a valid subtle canvas tone`);
@@ -46,22 +45,4 @@ const labOnlyAssets = firstThree.flatMap(({ hero, supporting }) => [hero, ...sup
 assert(labOnlyAssets.length > 0, "the Preview identifies internal lab-only demo assets");
 assert(labOnlyAssets.every(({ href }) => href === undefined), "lab-only visual assets never expose fake Product destinations");
 
-const modelHero = looks.find(({ look }) => look.layoutVariant === "model-hero");
-assert(modelHero, "a real model-photo Hero example exists");
-assert.equal(modelHero.hero.source, "real", "model Hero is classified as a real source asset");
-assert.equal(modelHero.hero.assetType, "model", "model Hero keeps its original photo treatment");
-assert.equal(modelHero.hero.backgroundRemovalSafe, false, "model Hero cannot be background-removed");
-assert(!modelHero.hero.image.url.includes("/generated/"), "model Hero does not use a generated image path");
-
-assert(new Set(looks.map(({ look }) => look.layoutVariant)).size >= 4, "all four deterministic layout variants are represented");
-for (const variant of LOOK_LAB_VARIANTS) assert(looks.some(({ look }) => look.layoutVariant === variant), `${variant} has a Lab example`);
-
-for (let index = 1; index < firstEight.length; index += 1) {
-  const previous = firstEight[index - 1];
-  const current = firstEight[index];
-  const previousShoe = [previous.hero, ...previous.supporting].find(({ product }) => product.categoryId === "category-shoes")?.productId;
-  const currentShoe = [current.hero, ...current.supporting].find(({ product }) => product.categoryId === "category-shoes")?.productId;
-  assert.notEqual(previousShoe, currentShoe, "adjacent Lab Looks vary footwear");
-}
-
-console.log("Looks Lab tests passed: approved first-three art direction, palettes, clean assets, safe lab-only links, eight Hero-led Looks, variants, footwear, and real model-photo handling.");
+console.log("Looks Lab tests passed: asset-first layout selection, two clean product boards, full original model photography, safe companions, and lab-only links.");

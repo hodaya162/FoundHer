@@ -472,3 +472,12 @@ This document must be updated at the end of every future task.
 - Local and deployed mobile QA pass at 360, 390, 400, and 430px with no page-level horizontal overflow. At 1280px the experience remains centered with 496px cards and no desktop redesign. Public Preview: `https://foundher-cych6bxv2-found-her1.vercel.app/looks-lab`.
 - Fixtures, Looks Lab, Looks, Search, Favorites, links, TypeScript, lint, and production build pass. Lint retains only the unrelated legacy `PageShell` `<img>` warning. Audits are reported separately: two high and one critical advisory overall; one high and one critical in production dependencies. Dependency changes remain outside this visual task.
 - Draft PR #23 remains unmerged pending owner visual approval.
+
+## TASK 024C – Preserve Source Photography
+
+- TASK 024B was visually rejected and was not merged. The core renderer now selects a layout from resolved image types instead of forcing an image into a predetermined sequence.
+- Source classifications are `product-cutout`, `product-studio`, `model-full`, `model-crop-safe`, `detail`, and `unsuitable`. Unsuitable assets cannot enter the renderer.
+- Product-led Looks use two deterministic flat-lay arrangements only when the complete Products can remain visible. The renderer no longer applies edge masks or default background removal.
+- Full model photography selects Photo Editorial automatically. The original source is shown with contained fitting and preserved aspect ratio; no head, shoulder, hem, shoe, or meaningful source detail is cropped by FoundHer.
+- The review Preview deliberately contains only three Looks: two product-only compositions and one full-model-photo composition. The former forced comparison surface and four-variant rotation were removed.
+- No AI redraw, generative fill, model generation, hidden-pixel reconstruction, new Product image, Home change, Rentals change, or public `/looks` change is included. Draft PR #23 remains unmerged pending explicit visual approval of the three close-ups.
