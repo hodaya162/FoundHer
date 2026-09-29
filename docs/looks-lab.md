@@ -2,7 +2,7 @@
 
 `/looks-lab` is a temporary visual laboratory for a Hero-led editorial Look language. It is not the public Looks feed and is marked `noindex`.
 
-Public Preview: pending the refreshed TASK 024 deployment.
+Public Preview: `https://foundher-6qmwgttuk-found-her1.vercel.app/looks-lab`
 
 ## Rendering pipeline
 
@@ -32,3 +32,4 @@ The only real source in the lab is the existing original model photograph used b
 - Look details begin with the same composition and then show each original Product image, seller label, price, and safe internal Product route.
 - The comparison control is lab-only and changes layout, never Products or source imagery.
 - Mobile is authoritative at 360, 390, 400, and 430px. Desktop centers and contains the same experience.
+- Refreshed deployed QA passed at 360, 390, 400, and 430px with no page-level horizontal overflow or broken images. The 390px Preview renders the approved first-three sequence, remains `noindex, nofollow`, and emits no canonical URL. Desktop remains contained with 496px cards at 1280px.
