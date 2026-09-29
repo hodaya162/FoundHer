@@ -4,6 +4,7 @@ import { getProductById } from "@/lib/repositories/products.repository";
 import { getRentalBusinessById } from "@/lib/repositories/rental-businesses.repository";
 
 import { labLooks } from "../data/lab-looks";
+import { getLabDemoProductById } from "../data/lab-demo-products";
 import type { HeroLook, HeroLookModel, LookLabCategory, ResolvedLookAsset } from "../types/look-lab";
 
 function amount(product: Product): number {
@@ -17,7 +18,8 @@ function sellerName(product: Product): string {
 
 function resolveAsset(asset: HeroLook["assets"][number]): ResolvedLookAsset | undefined {
   if (!asset.modestySafe || !asset.moodboardReady) return undefined;
-  const product = getProductById(asset.productId);
+  const repositoryProduct = getProductById(asset.productId);
+  const product = repositoryProduct ?? getLabDemoProductById(asset.productId);
   if (!product) return undefined;
   const image = (asset.imageId ? product.images.find(({ id }) => id === asset.imageId) : undefined) ?? product.images[0];
   if (!image) return undefined;
@@ -26,8 +28,9 @@ function resolveAsset(asset: HeroLook["assets"][number]): ResolvedLookAsset | un
     ...asset,
     product,
     image,
-    sellerName: sellerName(product),
-    href: `/products/${product.slug}`,
+    sellerName: repositoryProduct ? sellerName(product) : "נכס הדגמה למעבדה",
+    href: repositoryProduct ? `/products/${product.slug}` : undefined,
+    isLabOnly: !repositoryProduct,
   };
 }
 

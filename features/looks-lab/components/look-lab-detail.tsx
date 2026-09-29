@@ -9,6 +9,7 @@ import { formatProductPrice } from "@/features/products/utils/format-product-pri
 import type { HeroLookModel } from "../types/look-lab";
 import { categoryLabels, categoryStyles } from "../utils/look-lab-labels";
 import { HeroLookMoodboard } from "./hero-look-moodboard";
+import { LookPalette } from "./look-palette";
 
 function amount(model: HeroLookModel["hero"]): number {
   return model.product.type === "purchase" ? model.product.price : model.product.rentalPrice;
@@ -29,6 +30,7 @@ export function LookLabDetail({ model }: { model: HeroLookModel }) {
             <p className="text-xs font-semibold text-primary">ניסוי עיצוב · תוכן הדגמה</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-[-0.025em]">{model.look.title}</h1>
             <p className="mt-2 text-sm leading-6 text-muted">{model.look.descriptor}</p>
+            <LookPalette colors={model.look.palette} />
           </div>
           <FavoriteButton reference={{ entityType: "look", entityId: model.look.id }} entityLabel={`הלוק ${model.look.title}`} variant="label" />
         </header>
@@ -39,19 +41,18 @@ export function LookLabDetail({ model }: { model: HeroLookModel }) {
         <div className="mt-5 grid grid-cols-2 gap-x-3 gap-y-7 sm:grid-cols-3 lg:grid-cols-4">
           {assets.map((asset) => {
             const externalUrl = asset.product.type === "purchase" ? asset.product.externalUrl : asset.product.availabilityUrl;
+            const productImage = <Image src={asset.image.url} alt={asset.image.alt} fill sizes="(max-width: 639px) 46vw, 220px" className={asset.assetType === "model" ? "object-cover" : "object-contain p-2 mix-blend-multiply"} />;
             return (
               <article key={asset.productId} className="min-w-0">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-[1rem] bg-[#f6eee7]">
-                  <Link href={asset.href} className="relative block h-full" aria-label={`לפריט ${asset.product.name}`}>
-                    <Image src={asset.image.url} alt={asset.image.alt} fill sizes="(max-width: 639px) 46vw, 220px" className={asset.assetType === "model" ? "object-cover" : "object-contain p-2 mix-blend-multiply"} />
-                  </Link>
-                  <ProductFavoriteButton productId={asset.product.id} productName={asset.product.name} />
+                  {asset.href ? <Link href={asset.href} className="relative block h-full" aria-label={`לפריט ${asset.product.name}`}>{productImage}</Link> : <div className="relative h-full" aria-label={asset.product.name}>{productImage}</div>}
+                  {asset.isLabOnly ? null : <ProductFavoriteButton productId={asset.product.id} productName={asset.product.name} />}
                 </div>
                 <div className="pt-2">
-                  <h3 className="truncate text-sm font-semibold"><Link href={asset.href}>{asset.product.name}</Link></h3>
+                  <h3 className="truncate text-sm font-semibold">{asset.href ? <Link href={asset.href}>{asset.product.name}</Link> : asset.product.name}</h3>
                   <p className="mt-1 truncate text-xs text-muted">{asset.sellerName}</p>
                   <p className="mt-1 text-sm font-semibold">{formatProductPrice(amount(asset), asset.product.currency)}</p>
-                  {externalUrl ? <a href={externalUrl} target="_blank" rel="noreferrer" className="mt-2 inline-flex min-h-10 items-center gap-1.5 text-xs font-semibold text-primary">לאתר המקור<ExternalLink className="size-3.5" /></a> : <Link href={asset.href} className="mt-2 inline-flex min-h-10 items-center text-xs font-semibold text-primary">לפרטי הפריט</Link>}
+                  {externalUrl ? <a href={externalUrl} target="_blank" rel="noreferrer" className="mt-2 inline-flex min-h-10 items-center gap-1.5 text-xs font-semibold text-primary">לאתר המקור<ExternalLink className="size-3.5" /></a> : asset.href ? <Link href={asset.href} className="mt-2 inline-flex min-h-10 items-center text-xs font-semibold text-primary">לפרטי הפריט</Link> : <p className="mt-2 text-xs text-muted">נכס המחשה בלבד</p>}
                 </div>
               </article>
             );

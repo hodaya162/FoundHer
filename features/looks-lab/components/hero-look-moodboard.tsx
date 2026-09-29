@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -51,6 +52,12 @@ function assetClass(asset: ResolvedLookAsset, isHero: boolean) {
   return cn("object-contain mix-blend-multiply", isHero ? "p-1" : "p-1.5");
 }
 
+function assetStyle(asset: ResolvedLookAsset): CSSProperties | undefined {
+  if (asset.assetType === "model" || asset.backgroundRemovalSafe) return undefined;
+  const mask = "radial-gradient(ellipse 92% 92% at center, black 74%, transparent 100%)";
+  return { maskImage: mask, WebkitMaskImage: mask };
+}
+
 function AssetImage({ asset, isHero, priority }: { asset: ResolvedLookAsset; isHero: boolean; priority: boolean }) {
   return (
     <Image
@@ -60,6 +67,7 @@ function AssetImage({ asset, isHero, priority }: { asset: ResolvedLookAsset; isH
       priority={priority}
       sizes={isHero ? "(max-width: 767px) 65vw, 340px" : "(max-width: 767px) 36vw, 180px"}
       className={assetClass(asset, isHero)}
+      style={assetStyle(asset)}
     />
   );
 }
@@ -70,7 +78,11 @@ export function HeroLookMoodboard({ className, model, priority = false, variant 
   const safeLayout = positions[safeVariant];
 
   return (
-    <div className={cn("relative isolate aspect-[4/5] max-h-[31rem] overflow-hidden rounded-[1.35rem] bg-[radial-gradient(circle_at_55%_35%,#fffdf9_0%,#f6eee7_48%,#eee0d5_100%)]", className)} data-layout={safeVariant}>
+    <div
+      className={cn("relative isolate aspect-[4/5] max-h-[31rem] overflow-hidden rounded-[1.35rem]", className)}
+      data-layout={safeVariant}
+      style={{ background: `radial-gradient(circle at 55% 35%, rgba(255,255,255,.88) 0%, ${model.look.canvasTone} 58%, ${model.look.canvasTone} 100%)` }}
+    >
       <span aria-hidden className="absolute inset-x-[12%] bottom-[-12%] h-[48%] rounded-full bg-white/55 blur-3xl" />
       <div className={cn("absolute z-[2] overflow-hidden", model.hero.assetType === "model" ? "rounded-[1rem] bg-white shadow-[0_16px_36px_rgba(56,39,33,0.15)]" : "drop-shadow-[0_14px_18px_rgba(65,45,37,0.13)]", safeLayout.hero)}>
         <AssetImage asset={model.hero} isHero priority={priority} />

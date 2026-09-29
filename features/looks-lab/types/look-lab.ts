@@ -8,6 +8,10 @@ export type LookLabVariant = (typeof LOOK_LAB_VARIANTS)[number];
 export type LookLabCategory = (typeof LOOK_LAB_CATEGORIES)[number];
 export type LookAssetType = "product-only" | "clean-background" | "model" | "detail";
 export type LookAssetSource = "real" | "demo";
+export type LookPaletteColor = {
+  readonly name: string;
+  readonly hex: `#${string}`;
+};
 
 export type LookAsset = {
   readonly productId: string;
@@ -27,6 +31,8 @@ export type HeroLook = {
   readonly category: LookLabCategory;
   readonly heroProductId: string;
   readonly layoutVariant: LookLabVariant;
+  readonly canvasTone: `#${string}`;
+  readonly palette: readonly LookPaletteColor[];
   readonly assets: readonly LookAsset[];
 };
 
@@ -34,7 +40,8 @@ export type ResolvedLookAsset = LookAsset & {
   readonly product: Product;
   readonly image: ProductImage;
   readonly sellerName: string;
-  readonly href: `/products/${string}`;
+  readonly href?: `/products/${string}`;
+  readonly isLabOnly: boolean;
 };
 
 export type HeroLookModel = {
