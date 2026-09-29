@@ -18,10 +18,14 @@ type RentalPriceProps = {
 
 export function RentalPrice({ compact = false, currency, price, priceRange, prominent = false }: RentalPriceProps) {
   if (priceRange) {
+    const formattedRange = currency === "ILS"
+      ? `₪${priceRange.min.toLocaleString("he-IL")}–${priceRange.max.toLocaleString("he-IL")}`
+      : `${priceRange.min}–${priceRange.max}`;
+
     return (
       <p className={cn("font-semibold tabular-nums", prominent ? "text-2xl" : "text-sm")}>
         {compact ? null : <span className="block text-[0.68rem] font-normal text-muted">טווח השכרה</span>}
-        {currency === "ILS" ? `₪${priceRange.min.toLocaleString("he-IL")}–${priceRange.max.toLocaleString("he-IL")}` : `${priceRange.min}–${priceRange.max}`}
+        <bdi dir="ltr">{formattedRange}</bdi>
       </p>
     );
   }

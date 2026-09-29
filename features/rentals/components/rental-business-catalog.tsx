@@ -54,7 +54,7 @@ export function RentalBusinessCatalog({ businessName, products }: RentalBusiness
         ))}
       </div>
       <div id="business-rentals-panel" role="tabpanel" aria-labelledby={`business-rentals-${category}-tab`}>
-        <RentalGrid products={visibleProducts} headingLevel={3} />
+        <RentalGrid products={visibleProducts} headingLevel={3} featureOddFinalOnMobile />
       </div>
     </RentalSection>
   );

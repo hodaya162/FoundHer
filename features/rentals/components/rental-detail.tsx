@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Gem, MapPin, MessageCircle, Scissors, Shirt, Sparkles } from "lucide-react";
+import { ArrowRight, Gem, MapPin, Scissors, Shirt, Sparkles } from "lucide-react";
 
 import { PageContainer } from "@/components/layout";
 import { buttonVariants } from "@/components/ui";
@@ -8,7 +8,9 @@ import type { RentalBusiness } from "@/domain/rental-business";
 import type { RentalItem, RentalService } from "@/domain/rental-item";
 import { FavoriteButton } from "@/features/favorites";
 import { cn } from "@/lib/utils";
+import { buildRentalWhatsAppUrl } from "../utils/whatsapp";
 
+import { WhatsAppBrandIcon } from "./brand-icons";
 import { RentalPrice } from "./rental-price";
 import { RentalShareButton } from "./rental-share-button";
 
@@ -27,7 +29,8 @@ const serviceIcons = {
 } satisfies Record<RentalService, typeof Shirt>;
 
 export function RentalDetail({ item, business }: { item: RentalItem; business: RentalBusiness | null }) {
-  const contactUrl = item.contactUrl ?? business?.whatsappUrl;
+  const contactDestination = item.contactUrl ?? business?.whatsappUrl;
+  const contactUrl = contactDestination ? buildRentalWhatsAppUrl(contactDestination, item.title) : undefined;
   const mainImage = item.images[0];
   const thumbnails = item.images.slice(1);
 
@@ -66,9 +69,9 @@ export function RentalDetail({ item, business }: { item: RentalItem; business: R
               </ul>
             </section>
             {contactUrl ? (
-              <a href={contactUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "w-full rounded-full border-foreground bg-foreground text-white hover:bg-foreground/90")}><MessageCircle aria-hidden="true" className="size-5" />יצירת קשר בוואטסאפ</a>
+              <a href={contactUrl} target="_blank" rel="noopener noreferrer" aria-label={`יצירת קשר בוואטסאפ לגבי ${item.title} — נפתח בחלון חדש`} className={cn(buttonVariants({ size: "lg" }), "w-full rounded-full border-foreground bg-foreground text-white hover:bg-foreground/90")}><WhatsAppBrandIcon aria-hidden="true" className="size-5 text-[#25D366]" />יצירת קשר בוואטסאפ</a>
             ) : (
-              <div><button type="button" disabled className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-white opacity-45"><MessageCircle aria-hidden="true" className="size-5" />יצירת קשר</button><p className="mt-2 text-center text-xs text-muted">פרטי קשר מאומתים עדיין אינם זמינים.</p></div>
+              <div><button type="button" disabled className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-white opacity-45"><WhatsAppBrandIcon aria-hidden="true" className="size-5" />יצירת קשר</button><p className="mt-2 text-center text-xs text-muted">פרטי קשר מאומתים עדיין אינם זמינים.</p></div>
             )}
           </aside>
         </div>

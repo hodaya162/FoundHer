@@ -5,6 +5,12 @@ import { getRentalCards } from "../features/rentals/queries/get-rental-cards";
 import { getRentalBusinessDetailsBySlug } from "../features/rentals/queries/get-rental-business-details-by-slug";
 import { getRentalBusinessBySlug } from "../lib/repositories/rental-businesses.repository";
 import { getAllRentals, getRentalBySlug } from "../lib/repositories/rentals.repository";
+import {
+  buildBusinessWhatsAppUrl,
+  buildRentalWhatsAppUrl,
+  businessWhatsAppMessage,
+  createRentalWhatsAppMessage,
+} from "../features/rentals/utils/whatsapp";
 
 const rentals = getAllRentals();
 const bridal = getRentalCards("bridal");
@@ -42,6 +48,16 @@ assert.equal(shosBusiness?.coverImage.url, "/images/rentals/shos/shos-evening-bl
 assert(getRentalBusinessDetailsBySlug("shos-designs")?.products.every(({ isDemo }) => !isDemo), "Shos business catalog contains real items only");
 assert(getRentalBySlug("shos-classic-bridal"), "known rental detail slug resolves");
 assert(getRentalBySlug("shos-black-evening"), "known evening rental detail slug resolves");
+
+const businessWhatsAppUrl = new URL(buildBusinessWhatsAppUrl(shosBusiness!.whatsappUrl!));
+assert.equal(`${businessWhatsAppUrl.origin}${businessWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "business WhatsApp destination remains unchanged");
+assert.equal(businessWhatsAppUrl.searchParams.get("text"), businessWhatsAppMessage, "business WhatsApp message preserves Hebrew and emoji");
+
+const productName = "שמלת ערב תחרה שחורה";
+const productWhatsAppUrl = new URL(buildRentalWhatsAppUrl(shosBusiness!.whatsappUrl!, productName));
+assert.equal(`${productWhatsAppUrl.origin}${productWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "product WhatsApp destination remains unchanged");
+assert.equal(productWhatsAppUrl.searchParams.get("text"), createRentalWhatsAppMessage(productName), "product WhatsApp message preserves Hebrew, emoji, and quotation marks");
+assert(createRentalWhatsAppMessage().includes("ראיתי שמלה באתר"), "missing product names use the generic WhatsApp fallback");
 
 for (const route of ["app/rentals/page.tsx", "app/rentals/bridal/page.tsx", "app/rentals/evening/page.tsx", "app/rentals/[slug]/page.tsx"]) {
   assert(existsSync(route), `${route} exists`);

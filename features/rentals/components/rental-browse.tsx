@@ -63,7 +63,7 @@ export function RentalBrowse({ items, type }: { items: readonly RentalCardModel[
         </div>
       </div>
       <div className="mb-2 flex items-center justify-between gap-3"><p className="text-[0.7rem] text-muted">{filtered.length} שמלות</p>{hasFilters ? <p className="text-[0.7rem] text-muted">תוצאות מסוננות</p> : null}</div>
-      {filtered.length > 0 ? <RentalGrid products={filtered} headingLevel={2} /> : <div className="rounded-[1rem] bg-surface-muted px-5 py-12 text-center"><p className="font-semibold">לא נמצאו שמלות מתאימות</p><button type="button" onClick={reset} className="mt-3 min-h-11 text-sm font-semibold text-primary">ניקוי החיפוש והסינון</button></div>}
+      {filtered.length > 0 ? <RentalGrid products={filtered} headingLevel={2} featureOddFinalOnMobile /> : <div className="rounded-[1rem] bg-surface-muted px-5 py-12 text-center"><p className="font-semibold">לא נמצאו שמלות מתאימות</p><button type="button" onClick={reset} className="mt-3 min-h-11 text-sm font-semibold text-primary">ניקוי החיפוש והסינון</button></div>}
     </div>
   );
 }
