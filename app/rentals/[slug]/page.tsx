@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { createCanonicalUrl } from "@/config/site-url";
+import { siteConfig } from "@/config/site";
+import { createCanonicalUrl, getMetadataBase } from "@/config/site-url";
 import { RentalDetail } from "@/features/rentals/components/rental-detail";
 import { getAllRentals, getRentalBySlug } from "@/lib/repositories/rentals.repository";
 import { getRentalBusinessById } from "@/lib/repositories/rental-businesses.repository";
@@ -14,7 +15,27 @@ export function generateStaticParams() { return getAllRentals().map(({ slug }) =
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = getRentalBySlug((await params).slug);
   if (!item) return { title: "השמלה לא נמצאה", robots: { index: false, follow: false } };
-  return { title: `${item.title} — ${item.businessName}`, description: item.description, alternates: { canonical: createCanonicalUrl(`/rentals/${item.slug}`) }, robots: item.isDemo ? { index: false, follow: true } : undefined, openGraph: { images: item.images[0] ? [{ url: item.images[0].url, alt: item.images[0].alt }] : undefined } };
+  const pathname = `/rentals/${item.slug}`;
+  const canonical = createCanonicalUrl(pathname);
+  const productUrl = new URL(pathname, getMetadataBase()).toString();
+  const image = item.images[0];
+  const title = `${item.title} — ${item.businessName}`;
+
+  return {
+    title,
+    description: item.description,
+    alternates: canonical ? { canonical } : undefined,
+    robots: item.isDemo ? { index: false, follow: true } : undefined,
+    openGraph: {
+      title,
+      description: item.description,
+      type: "website",
+      locale: siteConfig.openGraphLocale,
+      siteName: siteConfig.name,
+      url: productUrl,
+      images: image ? [{ url: image.url, alt: image.alt }] : undefined,
+    },
+  };
 }
 
 export default async function RentalDetailPage({ params }: Props) {

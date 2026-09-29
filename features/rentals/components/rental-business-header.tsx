@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { ExternalLink, Globe, Instagram, MapPin, MessageCircle } from "lucide-react";
+import { ExternalLink, Globe, MapPin } from "lucide-react";
 
 import { Badge, buttonVariants } from "@/components/ui";
 import type { RentalBusiness } from "@/domain/rental-business";
 import { cn } from "@/lib/utils";
+import { buildBusinessWhatsAppUrl } from "../utils/whatsapp";
+import { InstagramBrandIcon, WhatsAppBrandIcon } from "./brand-icons";
 
 type RentalBusinessHeaderProps = {
   business: RentalBusiness;
@@ -12,13 +14,13 @@ type RentalBusinessHeaderProps = {
 export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
   const actions = [
     business.whatsappUrl
-      ? { href: business.whatsappUrl, label: "WhatsApp", icon: MessageCircle }
+      ? { href: buildBusinessWhatsAppUrl(business.whatsappUrl), label: "WhatsApp", icon: WhatsAppBrandIcon, iconClassName: "text-[#25D366]" }
       : null,
     business.instagramUrl
-      ? { href: business.instagramUrl, label: "Instagram", icon: Instagram }
+      ? { href: business.instagramUrl, label: "Instagram", icon: InstagramBrandIcon, iconClassName: "" }
       : null,
     business.websiteUrl
-      ? { href: business.websiteUrl, label: "אתר", icon: Globe }
+      ? { href: business.websiteUrl, label: "אתר", icon: Globe, iconClassName: "text-foreground" }
       : null,
   ].filter((action): action is NonNullable<typeof action> => action !== null);
 
@@ -65,24 +67,24 @@ export function RentalBusinessHeader({ business }: RentalBusinessHeaderProps) {
             ) : null}
             {business.bridalPriceRange || business.eveningPriceRange ? (
               <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                {business.bridalPriceRange ? <p><span className="text-muted">כלה: </span><strong>₪{business.bridalPriceRange.min.toLocaleString("he-IL")}–{business.bridalPriceRange.max.toLocaleString("he-IL")}</strong></p> : null}
-                {business.eveningPriceRange ? <p><span className="text-muted">ערב: </span><strong>₪{business.eveningPriceRange.min.toLocaleString("he-IL")}–{business.eveningPriceRange.max.toLocaleString("he-IL")}</strong></p> : null}
+                {business.bridalPriceRange ? <p><span className="text-muted">כלה: </span><strong><bdi dir="ltr">₪{business.bridalPriceRange.min.toLocaleString("he-IL")}–{business.bridalPriceRange.max.toLocaleString("he-IL")}</bdi></strong></p> : null}
+                {business.eveningPriceRange ? <p><span className="text-muted">ערב: </span><strong><bdi dir="ltr">₪{business.eveningPriceRange.min.toLocaleString("he-IL")}–{business.eveningPriceRange.max.toLocaleString("he-IL")}</bdi></strong></p> : null}
               </div>
             ) : null}
           </div>
         </div>
         {actions.length > 0 ? (
           <nav aria-label={`יצירת קשר עם ${business.name}`} className="mt-5 flex flex-wrap gap-2">
-            {actions.map(({ href, icon: Icon, label }) => (
+            {actions.map(({ href, icon: Icon, iconClassName, label }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${label} של ${business.name} — נפתח בחלון חדש`}
-                className={cn(buttonVariants({ variant: "secondary" }), "min-w-28")}
+                className={cn(buttonVariants({ variant: "secondary" }), "min-w-28 rounded-full bg-white")}
               >
-                <Icon aria-hidden="true" className="size-4" />
+                <Icon aria-hidden="true" className={cn("size-[1.1rem]", iconClassName)} />
                 {label}
                 <ExternalLink aria-hidden="true" className="size-3.5" />
               </a>

@@ -5,6 +5,13 @@ import { getRentalCards } from "../features/rentals/queries/get-rental-cards";
 import { getRentalBusinessDetailsBySlug } from "../features/rentals/queries/get-rental-business-details-by-slug";
 import { getRentalBusinessBySlug } from "../lib/repositories/rental-businesses.repository";
 import { getAllRentals, getRentalBySlug } from "../lib/repositories/rentals.repository";
+import {
+  buildBusinessWhatsAppUrl,
+  buildRentalWhatsAppUrl,
+  businessWhatsAppMessage,
+  createRentalProductUrl,
+  createRentalWhatsAppMessage,
+} from "../features/rentals/utils/whatsapp";
 
 const rentals = getAllRentals();
 const bridal = getRentalCards("bridal");
@@ -42,6 +49,23 @@ assert.equal(shosBusiness?.coverImage.url, "/images/rentals/shos/shos-evening-bl
 assert(getRentalBusinessDetailsBySlug("shos-designs")?.products.every(({ isDemo }) => !isDemo), "Shos business catalog contains real items only");
 assert(getRentalBySlug("shos-classic-bridal"), "known rental detail slug resolves");
 assert(getRentalBySlug("shos-black-evening"), "known evening rental detail slug resolves");
+
+const businessWhatsAppUrl = new URL(buildBusinessWhatsAppUrl(shosBusiness!.whatsappUrl!));
+assert.equal(`${businessWhatsAppUrl.origin}${businessWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "business WhatsApp destination remains unchanged");
+assert.equal(businessWhatsAppUrl.searchParams.get("text"), businessWhatsAppMessage, "business WhatsApp message preserves Hebrew and emoji");
+
+const productSlug = "shos-black-evening";
+const previewEnvironment = { VERCEL_URL: "foundher-preview.vercel.app" };
+const productUrl = createRentalProductUrl(productSlug, previewEnvironment);
+const productWhatsAppUrl = new URL(buildRentalWhatsAppUrl(shosBusiness!.whatsappUrl!, productSlug, previewEnvironment));
+assert.equal(`${productWhatsAppUrl.origin}${productWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "product WhatsApp destination remains unchanged");
+assert.equal(productUrl, "https://foundher-preview.vercel.app/rentals/shos-black-evening", "product URL uses the exact rental slug and current FoundHer origin");
+assert.equal(productWhatsAppUrl.searchParams.get("text"), createRentalWhatsAppMessage(productUrl), "product WhatsApp message preserves Hebrew, emoji, line breaks, and the product URL");
+assert.equal(
+  productWhatsAppUrl.searchParams.get("text"),
+  "היי, הגעתי אליכן דרך FoundHer 🌸\nהתעניינתי בשמלה הזאת:\nhttps://foundher-preview.vercel.app/rentals/shos-black-evening\nאשמח לקבל פרטים לגבי השכרה וזמינות.",
+  "product WhatsApp message matches the approved copy",
+);
 
 for (const route of ["app/rentals/page.tsx", "app/rentals/bridal/page.tsx", "app/rentals/evening/page.tsx", "app/rentals/[slug]/page.tsx"]) {
   assert(existsSync(route), `${route} exists`);

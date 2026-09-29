@@ -9,9 +9,10 @@ type RentalCardProps = {
   product: RentalCardModel;
   priority?: boolean;
   headingLevel?: 2 | 3;
+  featuredMobile?: boolean;
 };
 
-export function RentalCard({ headingLevel = 3, priority = false, product }: RentalCardProps) {
+export function RentalCard({ featuredMobile = false, headingLevel = 3, priority = false, product }: RentalCardProps) {
   const Heading = `h${headingLevel}` as const;
   const href = `/rentals/${product.slug}`;
   const image = product.images[0];
@@ -21,9 +22,18 @@ export function RentalCard({ headingLevel = 3, priority = false, product }: Rent
     <article className="min-w-0">
         <div className="relative">
           <Link href={href} className="group/image block" aria-label={`צפייה בשמלה ${product.title}`}>
-            <div className="relative aspect-[6/7] overflow-hidden rounded-[0.65rem] bg-surface-muted sm:aspect-[3/4] sm:rounded-[0.85rem]">
+            <div className={`${featuredMobile ? "aspect-[4/3] sm:aspect-[3/4]" : "aspect-[6/7] sm:aspect-[3/4]"} relative overflow-hidden rounded-[0.65rem] bg-surface-muted sm:rounded-[0.85rem]`}>
               {image ? (
-                <Image src={image.url} alt={image.alt} fill priority={priority} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover/image:scale-[1.02]" />
+                featuredMobile ? (
+                  <>
+                    <Image src={image.url} alt="" fill priority={priority} sizes="(max-width: 639px) 100vw, 50vw" className="scale-110 object-cover blur-md sm:hidden" />
+                    <span aria-hidden="true" className="absolute inset-0 bg-black/10 sm:hidden" />
+                    <Image src={image.url} alt={image.alt} fill priority={priority} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw" className="object-contain transition-transform duration-500 group-hover/image:scale-[1.02] sm:hidden" />
+                    <Image src={image.url} alt={image.alt} fill priority={priority} sizes="(max-width: 1023px) 50vw, 33vw" className="hidden object-cover transition-transform duration-500 group-hover/image:scale-[1.02] sm:block" />
+                  </>
+                ) : (
+                  <Image src={image.url} alt={image.alt} fill priority={priority} sizes="(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 33vw" className="object-cover transition-transform duration-500 group-hover/image:scale-[1.02]" />
+                )
               ) : (
                 <span className="flex h-full items-center justify-center p-6 text-center text-sm text-muted">תמונה תתווסף בקרוב</span>
               )}
@@ -34,13 +44,13 @@ export function RentalCard({ headingLevel = 3, priority = false, product }: Rent
         </div>
 
         <div className="flex flex-col gap-0.5 px-0.5 pt-2">
-          <Heading className="text-sm font-semibold leading-5 sm:text-base">
+          <div className="mb-0.5">
+            <RentalPrice price={product.price} priceRange={product.priceRange} currency={product.currency} compact />
+          </div>
+          <Heading className="text-[0.82rem] font-medium leading-5 sm:text-sm">
             <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-offset-4">{product.title}</Link>
           </Heading>
           <p title={`${product.businessName} · ${product.location}`} className="truncate text-xs text-muted">{product.businessName} · {browseLocation}</p>
-          <div className="mt-0.5">
-            <RentalPrice price={product.price} priceRange={product.priceRange} currency={product.currency} compact />
-          </div>
         </div>
     </article>
   );
