@@ -333,7 +333,10 @@ This document must be updated at the end of every future task.
 - Rental IDs remain unchanged in the discovery adapter, so Products and Rentals share the same `product` Favorite reference and localStorage state.
 - Public Search now indexes approved Rental entities from the Rentals source of truth and routes those results to Rental details. Legacy demo rental Products remain excluded.
 - Home, Looks, Rentals UI, rental details, real Shos photography, external-contact behavior, global navigation, and production/SEO configuration were not redesigned or modified.
-- TASK 026 remains pending owner visual approval. Its Draft PR must remain unmerged until the public Preview and the three 390px Products states are reviewed.
+- Public Preview: `https://foundher-q8bf0tjes-found-her1.vercel.app/products`. Mobile QA passed at 360, 390, 400, and 430px for the mixed and rental states without horizontal overflow; the 390px `הכל`, `לרכישה`, and `להשכרה` states were captured for owner review. A Shos card was verified to navigate to `/rentals/shos-classic-bridal`.
+- Preview safeguards remain active: checked pages return `X-Robots-Tag: noindex`, emit no canonical, and no production URL was invented.
+- All requested functional checks, TypeScript, lint, and the production build pass. Lint retains the existing `PageShell` `<img>` warning. A new upstream audit state was reported without scope expansion: 4 total vulnerabilities (3 high, 1 critical) and 2 production vulnerabilities (1 high, 1 critical); TASK 026 made no dependency changes.
+- TASK 026 remains pending owner visual approval. Draft PR #25 must remain unmerged until the public Preview and the three 390px Products states are reviewed.
 
 ## TASK 018D â€“ Home Refinement
 
