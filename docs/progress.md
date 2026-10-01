@@ -325,6 +325,16 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 This document must be updated at the end of every future task.
 
+## TASK 022 – Editorial Looks Demo
+
+- `/looks` now presents six manually curated demo Looks using only existing catalog entities and source images. No new brands, product URLs, prices, generated models, or composite outfit photography were introduced.
+- The typed Look model now supports `visualMode` (`model-hero` or `flat-lay`) and an optional `heroProductId`. The rendering layer resolves Products from the existing repository rather than duplicating product definitions.
+- Model Hero preserves the complete original hero photograph and displays companion products as separate thumbnails. Flat Lay places complete source photographs on one editorial canvas without extracting garments, reconstructing pixels, or implying that a model wears another product.
+- Occasion filters cover `הכל`, `יומיום`, `עבודה`, `שבת`, `אירוע`, and `חופשה` through stable URL parameters. Mobile uses a single-column editorial feed; larger layouts progressively use two to four columns.
+- Look detail reuses the same editorial visual system and retains the existing product list, internal product routes, safe unavailable purchase handling, and Favorites/localStorage behavior.
+- Home, Rentals, Search, navigation, SEO, Preview rules, and production configuration remain unchanged.
+- TASK 022 remains subject to owner visual approval and must not be merged before its Preview is reviewed.
+
 ## TASK 018D â€“ Home Refinement
 
 - TASK 018D is a focused refinement branch based on unmerged TASK 018C / PR #19. No prior redesign PR was merged to begin this work, and Home information architecture remains unchanged.

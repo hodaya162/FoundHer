@@ -102,8 +102,12 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   }
 
   for (const look of fixtureLooks) {
-    if (look.productIds.length === 0) {
-      errors.push(`look "${look.id}" must reference at least one product`);
+    if (look.productIds.length < 2 || look.productIds.length > 5) {
+      errors.push(`look "${look.id}" must reference 2–5 products`);
+    }
+
+    if (look.heroProductId && !look.productIds.includes(look.heroProductId)) {
+      errors.push(`look "${look.id}" has a hero product outside its product list`);
     }
 
     for (const productId of look.productIds) {

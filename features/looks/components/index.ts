@@ -12,3 +12,6 @@ export { LookStory } from "./look-story";
 export { LookTags } from "./look-tags";
 export { LooksEmptyState } from "./looks-empty-state";
 export { SimilarLooks } from "./similar-looks";
+export { EditorialLookGrid } from "./editorial-look-grid";
+export { LookEditorialVisual } from "./look-editorial-visual";
+export { LookOccasionFilter } from "./look-occasion-filter";

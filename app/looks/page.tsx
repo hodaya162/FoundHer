@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { PageContainer, PageHeader } from "@/components/layout";
+import { PageContainer } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 import { createCanonicalUrl } from "@/config/site-url";
-import { LookGrid, LooksEmptyState } from "@/features/looks/components";
-import { getAllLooks } from "@/lib/repositories/looks.repository";
+import { EditorialLookGrid, LookOccasionFilter, LooksEmptyState } from "@/features/looks/components";
+import { getLookCardModels, type LookOccasionFilter as LookOccasionFilterValue } from "@/features/looks/queries/get-look-card-models";
 
 const pageTitle = "לוקים והשראה";
 const pageDescription = "רעיונות שלמים ללבוש לשבת, לעבודה, לאירועים וליום־יום.";
@@ -25,14 +25,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LooksPage() {
-  const looks = getAllLooks();
+type LooksPageProps = { searchParams: Promise<{ occasion?: string | string[] }> };
+
+function parseOccasion(value: string | string[] | undefined): LookOccasionFilterValue {
+  const normalized = Array.isArray(value) ? value[0] : value;
+  return normalized === "everyday"
+    || normalized === "work"
+    || normalized === "shabbat"
+    || normalized === "event"
+    || normalized === "vacation"
+    ? normalized
+    : "all";
+}
+
+export default async function LooksPage({ searchParams }: LooksPageProps) {
+  const params = await searchParams;
+  const occasion = parseOccasion(params.occasion);
+  const looks = getLookCardModels(occasion);
 
   return (
     <main>
-      <PageContainer className="pb-16 sm:pb-20">
-        <PageHeader eyebrow="השראה" title="לוקים" description="רעיונות שלמים ליום־יום, שבת ואירועים." />
-        {looks.length > 0 ? <LookGrid looks={looks} featuredFirst /> : <LooksEmptyState />}
+      <PageContainer className="pb-20 pt-7 sm:pb-24 sm:pt-10">
+        <header className="mb-6 max-w-2xl">
+          <p className="type-label text-primary">השראה מפריטים אמיתיים</p>
+          <h1 className="type-page-title mt-2">לוקים ששווה לשמור</h1>
+          <p className="type-body mt-2 text-muted">שילובים ערוכים מהקטלוג, עם צילום מקור נאמן לכל פריט.</p>
+        </header>
+        <LookOccasionFilter selected={occasion} />
+        {looks.length > 0 ? <EditorialLookGrid models={looks} /> : <LooksEmptyState />}
       </PageContainer>
     </main>
   );

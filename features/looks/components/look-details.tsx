@@ -2,7 +2,7 @@ import { PageContainer } from "@/components/layout";
 
 import type { LookDetailsModel } from "../types/look-details";
 import { LookBreadcrumbs } from "./look-breadcrumbs";
-import { LookCoverImage } from "./look-cover-image";
+import { LookEditorialVisual } from "./look-editorial-visual";
 import { LookProductList } from "./look-product-list";
 import { LookSaveButton } from "./look-save-button";
 import { LookStory } from "./look-story";
@@ -19,7 +19,7 @@ export function LookDetails({ details }: LookDetailsProps) {
       <PageContainer className="pb-8 sm:pb-12">
         <LookBreadcrumbs lookTitle={look.title} />
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(19rem,0.7fr)] lg:gap-12">
-          <LookCoverImage image={look.coverImage} variant="hero" priority />
+          <LookEditorialVisual look={look} products={products.map(({ product }) => product)} variant="detail" priority />
           <header className="space-y-5 lg:sticky lg:top-[calc(var(--desktop-header-height)+2rem)] lg:py-8">
             <LookTags look={look} />
             <div>
