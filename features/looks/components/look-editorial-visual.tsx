@@ -11,11 +11,18 @@ type Props = {
   variant?: "card" | "detail";
 };
 
+const modelLedPositions = [
+  "end-[5%] top-[6%] h-[88%] w-[58%]",
+  "start-[5%] top-[8%] h-[31%] w-[31%] -rotate-1",
+  "start-[9%] top-[37%] h-[29%] w-[33%] rotate-1",
+  "start-[4%] bottom-[7%] h-[25%] w-[30%] -rotate-1",
+] as const;
+
 const flatLayPositions = [
-  "end-[5%] top-[5%] h-[72%] w-[62%]",
-  "start-[5%] top-[8%] h-[38%] w-[36%] -rotate-1",
-  "start-[9%] bottom-[8%] h-[34%] w-[38%] rotate-1",
-  "end-[28%] bottom-[3%] h-[25%] w-[28%] -rotate-2",
+  "end-[23%] top-[8%] h-[68%] w-[54%]",
+  "start-[4%] top-[7%] h-[34%] w-[30%] -rotate-1",
+  "end-[4%] bottom-[7%] h-[31%] w-[31%] rotate-1",
+  "start-[7%] bottom-[6%] h-[28%] w-[29%] -rotate-2",
 ] as const;
 
 function ProductPhoto({ className, priority, product }: { className?: string; priority?: boolean; product: Product }) {
@@ -23,7 +30,12 @@ function ProductPhoto({ className, priority, product }: { className?: string; pr
   if (!image) return null;
 
   return (
-    <div className={cn("relative overflow-hidden rounded-[1rem] bg-white/70", className)}>
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-[1rem] bg-white/90 shadow-[0_14px_35px_rgba(71,55,43,0.09)]",
+        className,
+      )}
+    >
       <Image
         src={image.url}
         alt={image.alt}
@@ -40,43 +52,30 @@ export function LookEditorialVisual({ look, priority = false, products, variant 
   const hero = products.find(({ id }) => id === look.heroProductId) ?? products[0];
   const companions = products.filter(({ id }) => id !== hero?.id);
   const isDetail = variant === "detail";
+  const orderedProducts = hero ? [hero, ...companions] : products;
+  const positions = look.visualMode === "flat-lay" ? flatLayPositions : modelLedPositions;
 
-  if (look.visualMode === "flat-lay") {
-    return (
-      <div className={cn("relative overflow-hidden bg-[#f6f0e9]", isDetail ? "aspect-[4/5] rounded-[1.5rem]" : "aspect-[4/5]")}>
-        {products.slice(0, 4).map((product, index) => (
-          <ProductPhoto
-            key={product.id}
-            product={product}
-            priority={priority && index === 0}
-            className={cn("absolute shadow-[0_12px_35px_rgba(71,55,43,0.08)]", flatLayPositions[index])}
-          />
-        ))}
-      </div>
-    );
-  }
-
-  const heroImage = hero?.images[0];
   return (
-    <div className={cn("overflow-hidden bg-[#f6f0e9]", isDetail && "rounded-[1.5rem]")}>
-      <div className={cn("relative", isDetail ? "aspect-[4/5]" : "aspect-[4/5]")}>
-        {heroImage ? (
-          <Image
-            src={heroImage.url}
-            alt={heroImage.alt}
-            fill
-            priority={priority}
-            sizes={isDetail ? "(max-width: 1023px) 100vw, 58vw" : "(max-width: 767px) 100vw, 33vw"}
-            className="object-contain"
-          />
-        ) : null}
-      </div>
-      {companions.length > 0 ? (
-        <div className="grid grid-cols-3 gap-2 border-t border-white/80 bg-[#fbf7f2] p-2.5">
-          {companions.slice(0, 3).map((product) => (
-            <ProductPhoto key={product.id} product={product} className="aspect-square" />
-          ))}
-        </div>
+    <div
+      className={cn(
+        "relative aspect-[5/6] overflow-hidden bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.88),transparent_32%),linear-gradient(145deg,#f8f2eb_0%,#f2e8de_100%)]",
+        isDetail && "rounded-[1.5rem]",
+      )}
+      aria-label={`קומפוזיציית הפריטים של ${look.title}`}
+    >
+      <div aria-hidden="true" className="absolute -bottom-16 -end-12 size-52 rounded-full bg-white/35 blur-2xl" />
+      {orderedProducts.slice(0, 4).map((product, index) => (
+        <ProductPhoto
+          key={product.id}
+          product={product}
+          priority={priority && index === 0}
+          className={cn("absolute", positions[index])}
+        />
+      ))}
+      {products.length > 0 ? (
+        <span className="sr-only">
+          {products.map(({ name }) => name).join(", ")}
+        </span>
       ) : null}
     </div>
   );
