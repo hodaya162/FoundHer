@@ -33,8 +33,6 @@ export const LOOK_SEASON_TAGS = [
 export type LookOccasion = (typeof LOOK_OCCASIONS)[number];
 export type LookStyleTag = (typeof LOOK_STYLE_TAGS)[number];
 export type LookSeasonTag = (typeof LOOK_SEASON_TAGS)[number];
-export type LookVisualMode = "flat-lay" | "model-hero";
-
 export type Look = {
   readonly id: string;
   readonly slug: string;
@@ -42,9 +40,9 @@ export type Look = {
   readonly description: string;
   readonly story: string;
   readonly coverImage: ImageAsset;
+  readonly editorialHeroImage: ImageAsset;
   readonly productIds: readonly string[];
   readonly heroProductId?: string;
-  readonly visualMode: LookVisualMode;
   readonly brandIds: readonly string[];
   readonly occasions: readonly LookOccasion[];
   readonly styleTags: readonly LookStyleTag[];

@@ -110,6 +110,10 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
       errors.push(`look "${look.id}" has a hero product outside its product list`);
     }
 
+    if (!look.editorialHeroImage.url) {
+      errors.push(`look "${look.id}" must define an editorial hero image`);
+    }
+
     for (const productId of look.productIds) {
       if (!productIds.has(productId)) {
         errors.push(`look "${look.id}" references missing product "${productId}"`);

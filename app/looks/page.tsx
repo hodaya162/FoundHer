@@ -49,7 +49,7 @@ export default async function LooksPage({ searchParams }: LooksPageProps) {
         <header className="mb-6 max-w-2xl">
           <p className="type-label text-primary">השראה מפריטים אמיתיים</p>
           <h1 className="type-page-title mt-2">לוקים ששווה לשמור</h1>
-          <p className="type-body mt-2 text-muted">שילובים ערוכים מהקטלוג, עם צילום מקור נאמן לכל פריט.</p>
+          <p className="type-body mt-2 text-muted">הדמיות עריכתיות להשראה; תמונות המוצרים המקוריות מחכות בתוך כל לוק.</p>
         </header>
         <LookOccasionFilter selected={occasion} />
         {looks.length > 0 ? <EditorialLookGrid models={looks} /> : <LooksEmptyState />}

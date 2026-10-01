@@ -30,7 +30,7 @@ export function EditorialLookCard({ model, priority = false }: { model: LookCard
     <article className="group overflow-hidden rounded-[1.25rem] border border-border/60 bg-surface shadow-[0_16px_45px_rgba(50,39,32,0.06)]">
       <div className="relative">
         <Link href={href} aria-label={`פתיחת הלוק ${look.title}`} className="block overflow-hidden">
-          <LookEditorialVisual look={look} products={products} priority={priority} />
+          <LookEditorialVisual look={look} priority={priority} />
         </Link>
         {occasion ? (
           <Badge className={cn("absolute end-3 top-3 border-0 px-3 py-1.5", occasionClassNames[occasion])}>
