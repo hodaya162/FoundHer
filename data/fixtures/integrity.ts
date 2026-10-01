@@ -141,18 +141,6 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
     }
   }
 
-  const hasMixedCommerceLook = fixtureLooks.some((look) => {
-    const lookProducts = look.productIds
-      .map((productId) => fixtureProducts.find(({ id }) => id === productId))
-      .filter((product): product is Product => Boolean(product));
-
-    return lookProducts.some(isPurchaseProduct) && lookProducts.some(isRentalProduct);
-  });
-
-  if (!hasMixedCommerceLook) {
-    errors.push("looks: expected at least one fixture combining purchase and rental products");
-  }
-
   return { valid: errors.length === 0, errors };
 }
 

@@ -25,6 +25,17 @@ const flatLayPositions = [
   "start-[7%] bottom-[6%] h-[28%] w-[29%] -rotate-2",
 ] as const;
 
+const twoProductPositions = [
+  "end-[5%] top-[6%] h-[88%] w-[61%]",
+  "start-[5%] top-[24%] h-[43%] w-[33%] -rotate-1",
+] as const;
+
+const threeProductPositions = [
+  "end-[5%] top-[6%] h-[88%] w-[59%]",
+  "start-[5%] top-[11%] h-[38%] w-[32%] -rotate-1",
+  "start-[7%] bottom-[10%] h-[35%] w-[34%] rotate-1",
+] as const;
+
 function ProductPhoto({ className, priority, product }: { className?: string; priority?: boolean; product: Product }) {
   const image = product.images[0];
   if (!image) return null;
@@ -53,7 +64,13 @@ export function LookEditorialVisual({ look, priority = false, products, variant 
   const companions = products.filter(({ id }) => id !== hero?.id);
   const isDetail = variant === "detail";
   const orderedProducts = hero ? [hero, ...companions] : products;
-  const positions = look.visualMode === "flat-lay" ? flatLayPositions : modelLedPositions;
+  const positions = products.length === 2
+    ? twoProductPositions
+    : products.length === 3
+      ? threeProductPositions
+      : look.visualMode === "flat-lay"
+        ? flatLayPositions
+        : modelLedPositions;
 
   return (
     <div
