@@ -325,6 +325,16 @@ FoundHer is a mobile-first, RTL inspiration platform for modest fashion. Its pro
 
 This document must be updated at the end of every future task.
 
+## TASK 026 – Rental Items in Products
+
+- The general `/products` discovery surface now combines the existing purchase-product fixtures with all 10 approved public Shos rental dresses. Rental records are adapted at query time from the Rentals repository; no Shos product fixture or duplicate entity was created.
+- A compact transaction filter provides `הכל`, `לרכישה`, and `להשכרה`. The default view deterministically alternates purchase and rental cards so both transaction types are visible without introducing ranking or personalization.
+- Product cards keep their existing layout. Rental cards use the clear `להשכרה` badge, preserve the source image and RTL price range, and link directly to the existing `/rentals/[slug]` detail flow.
+- Rental IDs remain unchanged in the discovery adapter, so Products and Rentals share the same `product` Favorite reference and localStorage state.
+- Public Search now indexes approved Rental entities from the Rentals source of truth and routes those results to Rental details. Legacy demo rental Products remain excluded.
+- Home, Looks, Rentals UI, rental details, real Shos photography, external-contact behavior, global navigation, and production/SEO configuration were not redesigned or modified.
+- TASK 026 remains pending owner visual approval. Its Draft PR must remain unmerged until the public Preview and the three 390px Products states are reviewed.
+
 ## TASK 018D â€“ Home Refinement
 
 - TASK 018D is a focused refinement branch based on unmerged TASK 018C / PR #19. No prior redesign PR was merged to begin this work, and Home information architecture remains unchanged.

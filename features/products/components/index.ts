@@ -21,3 +21,4 @@ export { ProductRentalBusiness } from "./product-rental-business";
 export { ProductSection } from "./product-section";
 export { ProductSizes } from "./product-sizes";
 export { ProductTitle } from "./product-title";
+export { ProductTransactionFilter } from "./product-transaction-filter";

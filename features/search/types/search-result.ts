@@ -1,5 +1,6 @@
 import type { Currency } from "@/domain/product";
 import type { ImageAsset } from "@/domain/media";
+import type { RentalPriceRange } from "@/domain/rental-item";
 
 export type SearchEntityType =
   | "look"
@@ -37,10 +38,11 @@ export type PurchaseProductSearchResult = BaseSearchResult & {
 
 export type RentalProductSearchResult = BaseSearchResult & {
   readonly entityType: "rental_product";
-  readonly href: `/products/${string}`;
+  readonly href: `/rentals/${string}`;
   readonly sellerName: string;
   readonly city: string;
   readonly rentalPrice: number;
+  readonly priceRange?: RentalPriceRange;
   readonly currency: Currency;
   readonly rentalTypeLabel: string;
 };

@@ -26,7 +26,12 @@ export function SearchProductResult({ priority = false, result }: Props) {
           <h3 className="type-card-title break-words"><Link href={result.href} className="rounded-sm hover:text-primary focus-visible:outline-offset-4">{result.title}</Link></h3>
           <p className="type-caption">{result.sellerName}</p>
           <div className="flex flex-wrap items-center justify-between gap-1">
-            <ProductPrice amount={rental ? result.rentalPrice : result.price} currency={result.currency} rental={rental} />
+            <ProductPrice
+              amount={rental ? result.rentalPrice : result.price}
+              currency={result.currency}
+              priceRange={rental ? result.priceRange : undefined}
+              rental={rental}
+            />
             {rental ? <p className="type-caption flex items-center gap-1"><MapPin aria-hidden="true" className="size-3.5" />{result.city}</p> : null}
           </div>
         </CardContent>
