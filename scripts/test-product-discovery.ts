@@ -7,9 +7,13 @@ const all = getDiscoverProductCards();
 const purchases = getDiscoverProductCards("purchase");
 const rentals = getDiscoverProductCards("rental");
 const sourceRentals = getRentalCards();
+const eveningRentals = getRentalCards("evening");
+const bridalRentals = getRentalCards("bridal");
 
 assert.equal(sourceRentals.length, 10, "the approved public Shos fixture set contains 10 rentals");
-assert.equal(rentals.length, sourceRentals.length, "all 10 public Shos rentals surface in Products");
+assert.equal(rentals.length, eveningRentals.length, "all public Shos evening rentals surface in Products");
+assert.equal(rentals.length, 5, "Products surfaces the five approved Shos evening dresses");
+assert(bridalRentals.every(({ id }) => rentals.every((rental) => rental.id !== id)), "bridal dresses remain outside Products");
 assert(purchases.length > 0, "existing purchase demos remain available");
 assert(purchases.every(({ transactionType }) => transactionType === "purchase"), "purchase filter contains only purchase items");
 assert(rentals.every(({ transactionType }) => transactionType === "rental"), "rental filter contains only rental items");
@@ -17,7 +21,7 @@ assert(rentals.every(({ transactionType }) => transactionType === "rental"), "re
 const rentalCards = rentals.filter((card) => card.transactionType === "rental");
 
 for (const rental of rentalCards) {
-  const source = sourceRentals.find(({ id }) => id === rental.id);
+  const source = eveningRentals.find(({ id }) => id === rental.id);
   assert(source, `rental discovery card ${rental.id} reuses an existing Rental entity`);
   assert.equal(rental.sourceType, "rental", "rental cards retain their source type");
   assert.equal(rental.href, `/rentals/${source.slug}`, "rental cards link to existing Rental details");

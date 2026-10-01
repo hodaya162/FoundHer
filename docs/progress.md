@@ -327,7 +327,7 @@ This document must be updated at the end of every future task.
 
 ## TASK 026 – Rental Items in Products
 
-- The general `/products` discovery surface now combines the existing purchase-product fixtures with all 10 approved public Shos rental dresses. Rental records are adapted at query time from the Rentals repository; no Shos product fixture or duplicate entity was created.
+- The general `/products` discovery surface now combines the existing purchase-product fixtures with the five approved public Shos evening dresses. Bridal dresses deliberately remain in the dedicated Rentals experience because they do not fit general item browsing. Rental records are adapted at query time from the Rentals repository; no Shos product fixture or duplicate entity was created.
 - A compact transaction filter provides `הכל`, `לרכישה`, and `להשכרה`. The default view deterministically alternates purchase and rental cards so both transaction types are visible without introducing ranking or personalization.
 - Product cards keep their existing layout. Rental cards use the clear `להשכרה` badge, preserve the source image and RTL price range, and link directly to the existing `/rentals/[slug]` detail flow.
 - Rental IDs remain unchanged in the discovery adapter, so Products and Rentals share the same `product` Favorite reference and localStorage state.

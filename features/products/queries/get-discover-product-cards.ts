@@ -39,7 +39,9 @@ export function getDiscoverProductCards(
   filter: ProductTransactionFilter = "all",
 ): readonly ProductCardModel[] {
   const purchases = getPurchaseCards();
-  const rentals = getRentalCards().map(createRentalDiscoveryCardModel);
+  // Bridal discovery remains in the dedicated Rentals experience. The general
+  // Products catalog surfaces only evening rentals, which fit its browsing intent.
+  const rentals = getRentalCards("evening").map(createRentalDiscoveryCardModel);
 
   if (filter === "purchase") return purchases;
   if (filter === "rental") return rentals;
