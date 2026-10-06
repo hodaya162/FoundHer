@@ -33,11 +33,9 @@ export function getLooksBySeason(season: LookSeasonTag): readonly Look[] {
 }
 
 export function getLooksByProductId(productId: string): readonly Look[] {
-  return allLooks.filter(({ productIds }) => productIds.includes(productId));
-}
-
-export function getLooksByBrandId(brandId: string): readonly Look[] {
-  return allLooks.filter(({ brandIds }) => brandIds.includes(brandId));
+  return allLooks.filter(({ productRefs }) => productRefs.some((reference) => (
+    reference.productId === productId || `${reference.sourceId}:${reference.productId}` === productId
+  )));
 }
 
 /** Returns related looks by shared occasion, then style and season, with stable fixture ordering. */

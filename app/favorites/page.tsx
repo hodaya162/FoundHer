@@ -6,6 +6,7 @@ import { getDiscoverProductCards } from "@/features/products/queries/get-discove
 import { getRentalCards } from "@/features/rentals/queries/get-rental-cards";
 import { getAllBrands } from "@/lib/repositories/brands.repository";
 import { getAllLooks } from "@/lib/repositories/looks.repository";
+import { resolveCatalogProductReferences } from "@/lib/catalog/catalog-service";
 
 export const metadata: Metadata = {
   title: "שמורים",
@@ -13,8 +14,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-export default function FavoritesPage() {
+export default async function FavoritesPage() {
   const products = getDiscoverProductCards().filter((product) => product.type === "purchase");
+  const looks = getAllLooks();
+  const catalogRefs = [...new Map(
+    looks.flatMap(({ productRefs }) => productRefs).map((reference) => [`${reference.sourceId}:${reference.productId}`, reference]),
+  ).values()];
+  const catalog = await resolveCatalogProductReferences(catalogRefs);
 
   return (
     <main>
@@ -24,7 +30,7 @@ export default function FavoritesPage() {
           <h1 className="type-page-title">שמורים</h1>
           <p className="type-body mt-2 text-muted">כל מה שאהבת, במקום אחד.</p>
         </header>
-        <FavoritesPageClient looks={getAllLooks()} products={products} rentals={getRentalCards()} brands={getAllBrands()} />
+        <FavoritesPageClient looks={looks} products={products} catalogProducts={catalog.products} rentals={getRentalCards()} brands={getAllBrands()} />
       </PageContainer>
     </main>
   );

@@ -1,13 +1,12 @@
 import type { Look } from "@/domain/look";
-import type { PurchaseProduct, RentalProduct } from "@/domain/product";
+import type { CatalogProduct, CatalogProductReference } from "@/domain/catalog";
 
-export type LookProductItem =
-  | { readonly product: PurchaseProduct; readonly sellerName: string | null }
-  | { readonly product: RentalProduct; readonly sellerName: string | null };
+export type LookProductItem = { readonly product: CatalogProduct };
 
 export type LookDetailsModel = {
   readonly look: Look;
   readonly products: readonly LookProductItem[];
-  readonly unresolvedProductIds: readonly string[];
+  readonly unresolvedProductRefs: readonly CatalogProductReference[];
+  readonly catalogUnavailable: boolean;
   readonly similarLooks: readonly Look[];
 };

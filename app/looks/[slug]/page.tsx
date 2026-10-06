@@ -16,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: LookPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const details = getLookDetailsBySlug(slug);
+  const details = await getLookDetailsBySlug(slug);
 
   if (!details) {
     return { title: "הלוק לא נמצא", robots: { index: false, follow: false } };
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: LookPageProps): Promise<Metad
 
 export default async function LookPage({ params }: LookPageProps) {
   const { slug } = await params;
-  const details = getLookDetailsBySlug(slug);
+  const details = await getLookDetailsBySlug(slug);
   if (!details) notFound();
 
   return <LookDetails details={details} />;

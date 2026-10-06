@@ -28,7 +28,7 @@ export function LookCard({ headingLevel = 2, look, priority = false }: LookCardP
       <div className="space-y-2 px-0.5 pb-2 pt-3">
         <div className="flex items-center justify-between gap-2">
           <LookTags look={look} compact />
-          <LookMeta productCount={look.productIds.length} />
+          <LookMeta productCount={look.productRefs.length} />
         </div>
         <Heading className="type-card-title">
           <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">

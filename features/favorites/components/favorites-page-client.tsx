@@ -7,7 +7,9 @@ import { useState } from "react";
 import { buttonVariants, EmptyState } from "@/components/ui";
 import type { Brand } from "@/domain/brand";
 import type { Look } from "@/domain/look";
+import type { CatalogProduct } from "@/domain/catalog";
 import { LookGrid } from "@/features/looks/components";
+import { LookProductItem } from "@/features/looks/components";
 import { ProductGrid } from "@/features/products/components";
 import type { PurchaseProductCard } from "@/features/products/types/product-card";
 import { RentalGrid } from "@/features/rentals/components";
@@ -23,6 +25,7 @@ type FavoriteCategory = "all" | "looks" | "products" | "rentals" | "brands";
 type Props = {
   looks: readonly Look[];
   products: readonly PurchaseProductCard[];
+  catalogProducts: readonly CatalogProduct[];
   rentals: readonly RentalCardModel[];
   brands: readonly Brand[];
 };
@@ -73,7 +76,7 @@ function Section({ children, count, id, title }: { children: React.ReactNode; co
   );
 }
 
-export function FavoritesPageClient({ brands, looks, products, rentals }: Props) {
+export function FavoritesPageClient({ brands, catalogProducts, looks, products, rentals }: Props) {
   const [category, setCategory] = useState<FavoriteCategory>("all");
   const references = useFavorites();
   const ids = (type: FavoriteEntityType) => new Set(references.filter((item) => item.entityType === type).map((item) => item.entityId));
@@ -82,9 +85,10 @@ export function FavoritesPageClient({ brands, looks, products, rentals }: Props)
   const brandIds = ids("brand");
   const savedLooks = looks.filter((look) => lookIds.has(look.id));
   const savedProducts = products.filter((product) => productIds.has(product.id));
+  const savedCatalogProducts = catalogProducts.filter((product) => productIds.has(product.id));
   const savedRentals = rentals.filter((product) => productIds.has(product.id));
   const savedBrands = brands.filter((brand) => brandIds.has(brand.id));
-  const total = savedLooks.length + savedProducts.length + savedRentals.length + savedBrands.length;
+  const total = savedLooks.length + savedProducts.length + savedCatalogProducts.length + savedRentals.length + savedBrands.length;
 
   const section = (id: Exclude<FavoriteCategory, "all">) => category === "all" || category === id;
 
@@ -107,7 +111,18 @@ export function FavoritesPageClient({ brands, looks, products, rentals }: Props)
       {total === 0 ? <EmptyFavorites /> : (
         <div className="space-y-12">
           {section("looks") && savedLooks.length > 0 ? <Section id="looks" title="לוקים שמורים" count={savedLooks.length}><LookGrid looks={savedLooks} headingLevel={3} /></Section> : null}
-          {section("products") && savedProducts.length > 0 ? <Section id="products" title="פריטים שמורים" count={savedProducts.length}><ProductGrid products={savedProducts} priorityCount={1} /></Section> : null}
+          {section("products") && (savedProducts.length > 0 || savedCatalogProducts.length > 0) ? (
+            <Section id="products" title="פריטים שמורים" count={savedProducts.length + savedCatalogProducts.length}>
+              <div className="space-y-6">
+                {savedProducts.length > 0 ? <ProductGrid products={savedProducts} priorityCount={1} /> : null}
+                {savedCatalogProducts.length > 0 ? (
+                  <ul className="hide-scrollbar -mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:px-0 lg:grid-cols-3">
+                    {savedCatalogProducts.map((product) => <LookProductItem key={product.id} item={{ product }} />)}
+                  </ul>
+                ) : null}
+              </div>
+            </Section>
+          ) : null}
           {section("rentals") && savedRentals.length > 0 ? <Section id="rentals" title="השכרות שמורות" count={savedRentals.length}><RentalGrid products={savedRentals} /></Section> : null}
           {section("brands") && savedBrands.length > 0 ? (
             <Section id="brands" title="מותגים שמורים" count={savedBrands.length}>
@@ -116,7 +131,7 @@ export function FavoritesPageClient({ brands, looks, products, rentals }: Props)
           ) : null}
           {category !== "all" && (
             (category === "looks" && savedLooks.length === 0)
-            || (category === "products" && savedProducts.length === 0)
+            || (category === "products" && savedProducts.length === 0 && savedCatalogProducts.length === 0)
             || (category === "rentals" && savedRentals.length === 0)
             || (category === "brands" && savedBrands.length === 0)
           ) ? <CategoryEmpty category={category} /> : null}

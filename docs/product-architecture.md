@@ -93,7 +93,7 @@ Implemented hierarchy:
 
 ### Look Details
 
-A look detail page tells the styling story, presents the complete visual, and resolves its linked products and brands. Products must preserve the editorial order defined by `productIds`. Purchase and rental products may appear together.
+A look detail page tells the styling story, presents the complete visual, and resolves its linked catalog products. Products preserve the editorial order defined by `productRefs`; remote source data is not duplicated inside the Look.
 
 Look details must not duplicate product entities or replace their dedicated detail pages.
 
@@ -108,7 +108,7 @@ Implemented hierarchy:
 → Similar Looks
 ```
 
-Look products resolve through repositories in `productIds` order. Missing products are omitted without breaking the Look, while purchase brands and rental businesses degrade to clear fallback labels when an association is unavailable.
+Look products resolve through the server-side Catalog service in `productRefs` order. Missing, sold-out, removed, or temporarily unavailable source products are omitted without breaking the Look and produce a quiet availability message.
 
 Similar Looks uses a deterministic score: shared occasion has the highest weight, followed by shared style and shared season. The current Look is excluded, fixture order breaks ties, and at most three results are returned.
 
@@ -155,14 +155,17 @@ Profile must not collect or promise personal data handling before authentication
 - stable `id` and `slug`
 - editorial `title`, `description`, and `story`
 - `coverImage`
-- ordered `productIds`
-- linked `brandIds`
+- ordered `productRefs` containing `sourceId` and the provider's stable external product ID
 - typed `occasions`, `styleTags`, and `seasonTags`
 - `featured` and `createdAt`
 
 Identifiers use stable English values such as `wedding_guest`, `elegant`, and `all_season`. Hebrew labels belong in presentation code, not domain identifiers.
 
-Looks reference products by ID and never embed or duplicate product records. `getProductsByIds` resolves known products in the order supplied by the look.
+Looks reference catalog products and never embed or duplicate remote product records. The Catalog provider resolves the newest normalized product data in the order supplied by the Look.
+
+### External catalog boundary
+
+`CatalogProvider` isolates store-specific transport and normalization. UI components consume only `CatalogProduct`, while a central source registry supplies attribution and canonical base URLs. Mini Allenby's implementation uses its public Shopify storefront JSON with server-side revalidation and timeout handling. Future Shopify stores, feeds, CSV imports, or custom catalogs can implement the same interface without changing Look cards.
 
 ## Mixed Purchase and Rental Looks
 

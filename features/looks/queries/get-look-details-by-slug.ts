@@ -1,36 +1,23 @@
-import { getBrandById } from "@/lib/repositories/brands.repository";
 import { getLookBySlug, getSimilarLooks } from "@/lib/repositories/looks.repository";
-import { getProductsByIds } from "@/lib/repositories/products.repository";
-import { getRentalBusinessById } from "@/lib/repositories/rental-businesses.repository";
+import { resolveCatalogProductReferences } from "@/lib/catalog/catalog-service";
 
 import type { LookDetailsModel, LookProductItem } from "../types/look-details";
 
-export function getLookDetailsBySlug(slug: string): LookDetailsModel | undefined {
+export async function getLookDetailsBySlug(slug: string): Promise<LookDetailsModel | undefined> {
   const look = getLookBySlug(slug);
   if (!look) return undefined;
 
-  const products = getProductsByIds(look.productIds);
-  const resolvedIds = new Set(products.map(({ id }) => id));
-  const items: LookProductItem[] = products.map((product) => {
-    if (product.type === "purchase") {
-      const brand = getBrandById(product.brandId);
-      return {
-        product,
-        sellerName: brand ? (brand.isDemo ? `${brand.name} · תוכן לדוגמה` : brand.name) : null,
-      };
-    }
-
-    const business = getRentalBusinessById(product.rentalBusinessId);
-    return {
-      product,
-      sellerName: business ? (business.isDemo ? `${business.name} · תוכן לדוגמה` : business.name) : null,
-    };
-  });
+  const resolved = await resolveCatalogProductReferences(look.productRefs, { availableOnly: true });
+  const resolvedIds = new Set(resolved.products.map(({ externalId, sourceId }) => `${sourceId}:${externalId}`));
+  const items: LookProductItem[] = resolved.products.map((product) => ({ product }));
 
   return {
     look,
     products: items,
-    unresolvedProductIds: look.productIds.filter((id) => !resolvedIds.has(id)),
+    unresolvedProductRefs: look.productRefs.filter(
+      ({ productId, sourceId }) => !resolvedIds.has(`${sourceId}:${productId}`),
+    ),
+    catalogUnavailable: resolved.unavailableSourceIds.length > 0,
     similarLooks: getSimilarLooks(look, 3),
   };
 }
