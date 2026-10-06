@@ -1,4 +1,3 @@
-import type { ImageAsset } from "./media";
 import type { CatalogProductReference } from "./catalog";
 
 export const LOOK_OCCASIONS = [
@@ -35,14 +34,22 @@ export type LookOccasion = (typeof LOOK_OCCASIONS)[number];
 export type LookStyleTag = (typeof LOOK_STYLE_TAGS)[number];
 export type LookSeasonTag = (typeof LOOK_SEASON_TAGS)[number];
 
+export type LookCompositionLayout = "photo-product" | "photo-pair" | "single-photo";
+export type LookImagePresentation = "model-full" | "clean-product";
+
+export type LookComposition = {
+  readonly layout: LookCompositionLayout;
+  readonly heroProductId: string;
+  readonly imageTypes: Readonly<Record<string, LookImagePresentation>>;
+};
+
 export type Look = {
   readonly id: string;
   readonly slug: string;
   readonly title: string;
   readonly description: string;
-  readonly story: string;
-  readonly coverImage: ImageAsset;
   readonly productRefs: readonly CatalogProductReference[];
+  readonly composition: LookComposition;
   readonly occasions: readonly LookOccasion[];
   readonly styleTags: readonly LookStyleTag[];
   readonly seasonTags: readonly LookSeasonTag[];

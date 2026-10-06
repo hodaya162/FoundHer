@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import type { Look } from "@/domain/look";
 import { LookSaveButton } from "@/features/looks/components";
+import { RealLookComposition } from "@/features/looks/components";
+import type { LookCardModel } from "@/features/looks/types/look-card";
 import { occasionLabels } from "@/features/looks/utils/look-labels";
 import { ProductFavoriteButton } from "@/features/products/components/product-favorite-button";
 import type { PurchaseProductCard } from "@/features/products/types/product-card";
@@ -44,17 +45,17 @@ export function ProductsRail({ products }: { products: readonly PurchaseProductC
   );
 }
 
-export function LooksRail({ looks }: { looks: readonly Look[] }) {
-  if (looks.length === 0) return null;
+export function LooksRail({ models }: { models: readonly LookCardModel[] }) {
+  if (models.length === 0) return null;
   return (
     <HomeSection title="לוקים מומלצים" id="home-looks-title" href="/looks">
       <div className={railViewportClass}>
         <div className={railTrackClass}>
-          {looks.map((look) => (
+          {models.map(({ look, products }) => (
             <article key={look.id} className="w-[43vw] max-w-[9.75rem] shrink-0 snap-start sm:w-60 sm:max-w-none">
               <div className="relative aspect-[4/5] overflow-hidden rounded-card bg-surface-muted">
                 <Link href={`/looks/${look.slug}`} aria-label={`פתיחת הלוק ${look.title}`} className="group relative block h-full">
-                  <Image src={look.coverImage.url} alt={look.coverImage.alt} fill sizes="(max-width: 639px) 43vw, 240px" className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+                  <RealLookComposition look={look} products={products} variant="rail" />
                   <span aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                   <h3 className="absolute inset-x-2 bottom-2 line-clamp-1 rounded-full bg-white/88 px-2 py-1.5 text-center text-xs font-semibold leading-3 text-foreground backdrop-blur-sm">{occasionLabels[look.occasions[0]]}</h3>
                 </Link>

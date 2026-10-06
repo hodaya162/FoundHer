@@ -16,6 +16,7 @@ import { getFeaturedPurchaseProductCards } from "@/features/products/queries/get
 import { getFeaturedRentalCards } from "@/features/rentals/queries/get-rental-cards";
 import { getFeaturedBrands } from "@/lib/repositories/brands.repository";
 import { getFeaturedLooks } from "@/lib/repositories/looks.repository";
+import { getLookCardModels } from "@/features/looks/queries/get-look-card-models";
 
 const title = "השראה לאופנה צנועה";
 const description = "גלי לוקים שלמים, אופנה צנועה, פריטים ושמלות להשכרה ממותגים ועסקים נבחרים.";
@@ -32,18 +33,17 @@ export const metadata: Metadata = {
     locale: siteConfig.openGraphLocale,
     siteName: siteConfig.name,
     url: canonical,
-    images: [{ url: "/images/generated/looks/summer-event-classic.webp", alt: "השראה ללוק צנוע שלם ב־FoundHer" }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/generated/looks/summer-event-classic.webp"],
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
   const looks = getFeaturedLooks();
+  const lookModels = await getLookCardModels(looks);
   const rentals = getFeaturedRentalCards();
   const products = getFeaturedPurchaseProductCards();
   const brands = getFeaturedBrands();
@@ -54,12 +54,12 @@ export default function HomePage() {
         <div className="space-y-4 sm:space-y-5">
           <HomeSearch />
           <HomeCategoryRail />
-          <HomeHero image={looks[0]?.coverImage} />
+          <HomeHero image={lookModels[0]?.products[0]?.images[0]} />
         </div>
 
         <div className="mt-5 space-y-6 sm:mt-12 sm:space-y-12">
           <ProductsRail products={products} />
-          <LooksRail looks={looks} />
+          <LooksRail models={lookModels} />
           <FavoriteBrandsRail brands={brands} />
           <RentalsRail products={rentals} />
         </div>

@@ -2,12 +2,11 @@ import { PageContainer } from "@/components/layout";
 
 import type { LookDetailsModel } from "../types/look-details";
 import { LookBreadcrumbs } from "./look-breadcrumbs";
-import { LookCoverImage } from "./look-cover-image";
 import { LookProductList } from "./look-product-list";
 import { LookSaveButton } from "./look-save-button";
-import { LookStory } from "./look-story";
 import { LookTags } from "./look-tags";
 import { SimilarLooks } from "./similar-looks";
+import { RealLookComposition } from "./real-look-composition";
 
 type LookDetailsProps = { details: LookDetailsModel };
 
@@ -19,7 +18,9 @@ export function LookDetails({ details }: LookDetailsProps) {
       <PageContainer className="pb-8 sm:pb-12">
         <LookBreadcrumbs lookTitle={look.title} />
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(19rem,0.7fr)] lg:gap-12">
-          <LookCoverImage image={look.coverImage} variant="hero" priority />
+          <div className="overflow-hidden rounded-card bg-surface-muted">
+            <RealLookComposition look={look} products={products.map(({ product }) => product)} variant="hero" priority />
+          </div>
           <header className="space-y-5 lg:sticky lg:top-[calc(var(--desktop-header-height)+2rem)] lg:py-8">
             <LookTags look={look} />
             <div>
@@ -32,7 +33,6 @@ export function LookDetails({ details }: LookDetailsProps) {
             </div>
           </header>
         </div>
-        <LookStory look={look} />
         <LookProductList products={products} unresolvedCount={unresolvedProductRefs.length} catalogUnavailable={catalogUnavailable} />
         <SimilarLooks looks={similarLooks} />
       </PageContainer>

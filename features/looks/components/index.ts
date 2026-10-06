@@ -1,14 +1,13 @@
 export { LookBreadcrumbs } from "./look-breadcrumbs";
 export { LookCard } from "./look-card";
-export { LookCoverImage } from "./look-cover-image";
 export { LookDetails } from "./look-details";
 export { LookGrid } from "./look-grid";
 export { LookGridSkeleton } from "./look-grid-skeleton";
+export { RealLookComposition } from "./real-look-composition";
 export { LookMeta } from "./look-meta";
 export { LookProductItem } from "./look-product-item";
 export { LookProductList } from "./look-product-list";
 export { LookSaveButton } from "./look-save-button";
-export { LookStory } from "./look-story";
 export { LookTags } from "./look-tags";
 export { LooksEmptyState } from "./looks-empty-state";
 export { SimilarLooks } from "./similar-looks";

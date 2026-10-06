@@ -46,7 +46,7 @@ export function LookProductItem({ item }: LookProductItemProps) {
             currency={product.currency}
           />
           <a href={href} target="_blank" rel="noopener noreferrer" className="type-label inline-flex items-center gap-1.5 text-primary">
-            למוצר באתר Mini Allenby
+            לרכישה באתר Mini Allenby
             <ExternalLink aria-hidden="true" className="size-3.5" />
           </a>
         </div>

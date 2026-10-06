@@ -75,5 +75,8 @@ await assert.rejects(() => failedProvider.getProducts(), /HTTP 503/, "provider f
 
 assert(looks.every((look) => look.productRefs.every(({ sourceId }) => sourceId === "mini-allenby")), "live Look slots reference the real catalog source only");
 assert(looks.every((look) => look.productRefs.every(({ productId }) => /^\d+$/.test(productId))), "Look product refs use stable Shopify IDs rather than embedded product objects");
+assert.equal(looks.length, 3, "the visual approval set contains exactly three real curated Looks");
+assert(looks.every((look) => look.productRefs.some(({ productId, sourceId }) => `${sourceId}:${productId}` === look.composition.heroProductId)), "every Look hero is one of its real catalog references");
+assert(looks.every((look) => !Object.hasOwn(look, "coverImage")), "Looks do not store unrelated or generated cover images");
 
 console.log("Catalog tests passed: normalization, categories, stable IDs, availability, malformed data, and provider failure.");

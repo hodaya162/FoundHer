@@ -1,14 +1,14 @@
-import type { Look } from "@/domain/look";
 import { LookGrid } from "@/features/looks/components";
+import type { LookCardModel } from "@/features/looks/types/look-card";
 
 import { EditorialSection } from "./editorial-section";
 
 type FeaturedLooksProps = {
-  looks: readonly Look[];
+  models: readonly LookCardModel[];
 };
 
-export function FeaturedLooks({ looks }: FeaturedLooksProps) {
-  if (looks.length === 0) {
+export function FeaturedLooks({ models }: FeaturedLooksProps) {
+  if (models.length === 0) {
     return null;
   }
 
@@ -21,7 +21,7 @@ export function FeaturedLooks({ looks }: FeaturedLooksProps) {
       actionHref="/looks"
       actionLabel="כל הלוקים"
     >
-      <LookGrid looks={looks} headingLevel={3} prioritizeFirst={false} featuredFirst />
+      <LookGrid models={models} headingLevel={3} prioritizeFirst={false} featuredFirst />
     </EditorialSection>
   );
 }

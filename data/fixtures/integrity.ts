@@ -113,6 +113,16 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
       if (!reference.productId.trim()) errors.push(`look "${look.id}" has an empty catalog product reference`);
     }
 
+    const stableReferenceIds = new Set(look.productRefs.map(({ productId, sourceId }) => `${sourceId}:${productId}`));
+    if (!stableReferenceIds.has(look.composition.heroProductId)) {
+      errors.push(`look "${look.id}" composition hero must belong to its product references`);
+    }
+    for (const productId of Object.keys(look.composition.imageTypes)) {
+      if (!stableReferenceIds.has(productId)) {
+        errors.push(`look "${look.id}" has image presentation metadata for an unknown product`);
+      }
+    }
+
     for (const occasion of look.occasions) {
       if (!validOccasions.has(occasion)) {
         errors.push(`look "${look.id}" has invalid occasion "${occasion}"`);

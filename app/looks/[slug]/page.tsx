@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: LookPageProps): Promise<Metad
     return { title: "הלוק לא נמצא", robots: { index: false, follow: false } };
   }
 
-  return createLookMetadata(details.look);
+  return createLookMetadata(details.look, details.products[0]?.product.images[0]);
 }
 
 export default async function LookPage({ params }: LookPageProps) {
