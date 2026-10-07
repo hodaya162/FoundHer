@@ -41,7 +41,22 @@ export const looks = candidates.map((candidate, index) => ({
   title: candidate.title,
   description: candidate.description,
   productRefs: candidate.productIds.map((productId) => ({ sourceId, productId })),
-  composition: { heroProductId: `${sourceId}:${candidate.heroProductId}` },
+  composition: {
+    heroProductId: `${sourceId}:${candidate.heroProductId}`,
+    prototype: index === 0 ? {
+      layout: "EDITORIAL_OVERLAP_LEFT" as const,
+      dominant: { productId: `${sourceId}:8127186239674`, imageIndex: 0, presentation: "MODEL_FULL" as const },
+      supporting: { productId: `${sourceId}:7027663863994`, imageIndex: 0, presentation: "PRODUCT_CLEAN" as const },
+    } : index === 1 ? {
+      layout: "PHOTO_LED" as const,
+      dominant: { productId: `${sourceId}:8520914469050`, imageIndex: 0, presentation: "MODEL_FULL" as const },
+      supporting: { productId: `${sourceId}:8484734173370`, imageIndex: 6, presentation: "MODEL_CROP_SAFE" as const },
+    } : index === 3 ? {
+      layout: "EDITORIAL_OVERLAP_RIGHT" as const,
+      dominant: { productId: `${sourceId}:8520994455738`, imageIndex: 0, presentation: "MODEL_FULL" as const },
+      supporting: { productId: `${sourceId}:7027670778042`, imageIndex: 0, presentation: "PRODUCT_CLEAN" as const },
+    } : undefined,
+  },
   occasions: candidate.occasions,
   styleTags: candidate.styleTags,
   seasonTags: ["all_season"] as const,

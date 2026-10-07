@@ -118,6 +118,21 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
       errors.push(`look "${look.id}" composition hero must belong to its product references`);
     }
 
+    const prototype = look.composition.prototype;
+    if (prototype) {
+      if (prototype.dominant.productId === prototype.supporting.productId) {
+        errors.push(`look "${look.id}" prototype must use two distinct products`);
+      }
+      for (const selection of [prototype.dominant, prototype.supporting]) {
+        if (!stableReferenceIds.has(selection.productId)) {
+          errors.push(`look "${look.id}" prototype image must belong to its product references`);
+        }
+        if (!Number.isInteger(selection.imageIndex) || selection.imageIndex < 0) {
+          errors.push(`look "${look.id}" prototype image index must be a non-negative integer`);
+        }
+      }
+    }
+
     for (const occasion of look.occasions) {
       if (!validOccasions.has(occasion)) {
         errors.push(`look "${look.id}" has invalid occasion "${occasion}"`);
