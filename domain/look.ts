@@ -34,13 +34,8 @@ export type LookOccasion = (typeof LOOK_OCCASIONS)[number];
 export type LookStyleTag = (typeof LOOK_STYLE_TAGS)[number];
 export type LookSeasonTag = (typeof LOOK_SEASON_TAGS)[number];
 
-export type LookCompositionLayout = "photo-product" | "photo-pair" | "single-photo";
-export type LookImagePresentation = "model-full" | "clean-product";
-
 export type LookComposition = {
-  readonly layout: LookCompositionLayout;
   readonly heroProductId: string;
-  readonly imageTypes: Readonly<Record<string, LookImagePresentation>>;
 };
 
 export type Look = {

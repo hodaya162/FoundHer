@@ -7,14 +7,15 @@ type LookGridProps = {
   headingLevel?: 2 | 3;
   prioritizeFirst?: boolean;
   featuredFirst?: boolean;
+  showCandidateNumbers?: boolean;
 };
 
-export function LookGrid({ featuredFirst = false, headingLevel = 2, models, prioritizeFirst = true }: LookGridProps) {
+export function LookGrid({ featuredFirst = false, headingLevel = 2, models, prioritizeFirst = true, showCandidateNumbers = false }: LookGridProps) {
   return (
     <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 lg:grid-cols-3">
       {models.map((model, index) => (
         <div key={model.look.id} className={featuredFirst && index === 0 ? "col-span-2 lg:col-span-1" : undefined}>
-          <LookCard model={model} priority={prioritizeFirst && index === 0} headingLevel={headingLevel} />
+          <LookCard candidateNumber={showCandidateNumbers ? index + 1 : undefined} model={model} priority={prioritizeFirst && index === 0} headingLevel={headingLevel} />
         </div>
       ))}
     </div>

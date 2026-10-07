@@ -33,8 +33,8 @@ export default async function LooksPage() {
   return (
     <main>
       <PageContainer className="pb-16 sm:pb-20">
-        <PageHeader eyebrow="השראה" title="לוקים" description="רעיונות שלמים ליום־יום, שבת ואירועים." />
-        {models.length > 0 ? <LookGrid models={models} featuredFirst /> : <LooksEmptyState />}
+        <PageHeader eyebrow="סקירה פנימית" title="לוקים" description={`${models.length} מועמדים אמיתיים לבחירה ולאוצרות.`} />
+        {models.length > 0 ? <LookGrid models={models} showCandidateNumbers /> : <LooksEmptyState />}
       </PageContainer>
     </main>
   );

@@ -27,6 +27,7 @@ export function LookDetails({ details }: LookDetailsProps) {
               <p className="type-label mb-2 text-primary">לוק שלם</p>
               <h1 className="type-page-title">{look.title}</h1>
               <p className="type-body mt-3 max-w-xl text-muted">{look.description}</p>
+              <p className="mt-2 text-xs leading-relaxed text-muted">תמונת ההשראה מציגה את פריט ה־Hero. הרכב הלוק המלא מופיע ברשימת הפריטים.</p>
             </div>
             <div className="flex items-center gap-3">
               <LookSaveButton lookId={look.id} lookTitle={look.title} />

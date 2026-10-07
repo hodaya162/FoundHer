@@ -1,71 +1,50 @@
-import type { Look } from "@/domain/look";
+import type { Look, LookOccasion, LookStyleTag } from "@/domain/look";
 
-export const looks = [
-  {
-    id: "look-denim-soft-everyday",
-    slug: "denim-soft-everyday",
-    title: "ג׳ינס ובהיר ליום־יום",
-    description: "חצאית ג׳ינס מקסי עם חולצת בייסיק בהירה.",
-    productRefs: [
-      { sourceId: "mini-allenby", productId: "8127186239674" },
-      { sourceId: "mini-allenby", productId: "7027663863994" },
-    ],
-    composition: {
-      layout: "photo-product",
-      heroProductId: "mini-allenby:8127186239674",
-      imageTypes: {
-        "mini-allenby:8127186239674": "model-full",
-        "mini-allenby:7027663863994": "clean-product",
-      },
-    },
-    occasions: ["everyday"],
-    styleTags: ["casual", "modern", "soft"],
-    seasonTags: ["all_season"],
-    featured: true,
-    createdAt: "2026-10-06T09:00:00.000Z",
-  },
-  {
-    id: "look-navy-collar-work",
-    slug: "navy-collar-work",
-    title: "כחול רך לעבודה",
-    description: "חצאית כחולה מלאה עם חולצת צווארון בגוון טבעי.",
-    productRefs: [
-      { sourceId: "mini-allenby", productId: "8520914469050" },
-      { sourceId: "mini-allenby", productId: "8484734173370" },
-    ],
-    composition: {
-      layout: "photo-pair",
-      heroProductId: "mini-allenby:8520914469050",
-      imageTypes: {
-        "mini-allenby:8520914469050": "model-full",
-        "mini-allenby:8484734173370": "model-full",
-      },
-    },
-    occasions: ["work"],
-    styleTags: ["minimal", "classic", "soft"],
-    seasonTags: ["all_season"],
-    featured: true,
-    createdAt: "2026-10-06T09:10:00.000Z",
-  },
-  {
-    id: "look-white-lace-shabbat",
-    slug: "white-lace-shabbat",
-    title: "תחרה לבנה לשבת",
-    description: "שמלת תחרה ארוכה ונקייה לשבת או לאירוע קל.",
-    productRefs: [
-      { sourceId: "mini-allenby", productId: "8412275310778" },
-    ],
-    composition: {
-      layout: "single-photo",
-      heroProductId: "mini-allenby:8412275310778",
-      imageTypes: {
-        "mini-allenby:8412275310778": "model-full",
-      },
-    },
-    occasions: ["shabbat", "evening_event"],
-    styleTags: ["elegant", "romantic", "classic"],
-    seasonTags: ["spring", "summer"],
-    featured: true,
-    createdAt: "2026-10-06T09:20:00.000Z",
-  },
-] as const satisfies readonly Look[];
+type Candidate = {
+  readonly slug: string;
+  readonly title: string;
+  readonly description: string;
+  readonly productIds: readonly string[];
+  readonly heroProductId: string;
+  readonly occasions: readonly LookOccasion[];
+  readonly styleTags: readonly LookStyleTag[];
+};
+
+const sourceId = "mini-allenby";
+
+const candidates: readonly Candidate[] = [
+  { slug: "denim-white-everyday", title: "ג׳ינס ולבן ליומיום", description: "חצאית ג׳ינס מקסי עם חולצת בייסיק לבנה.", productIds: ["8127186239674", "7027663863994"], heroProductId: "8127186239674", occasions: ["everyday"], styleTags: ["casual", "modern"] },
+  { slug: "navy-collar-work", title: "כחול וצווארון לעבודה", description: "חצאית כחולה עם חולצת צווארון נקייה.", productIds: ["8520914469050", "8484734173370"], heroProductId: "8520914469050", occasions: ["work"], styleTags: ["minimal", "classic"] },
+  { slug: "white-lace-shabbat", title: "תחרה לבנה לשבת", description: "שמלת תחרה ארוכה לשבת או לאירוע קל.", productIds: ["8412275310778"], heroProductId: "8412275310778", occasions: ["shabbat", "evening_event"], styleTags: ["elegant", "romantic"] },
+  { slug: "plaid-basic-everyday", title: "משבצות ובייסיק ליומיום", description: "חצאית משבצות עם חולצת בייסיק ארוכה.", productIds: ["8520994455738", "7027670778042"], heroProductId: "8520994455738", occasions: ["everyday"], styleTags: ["casual", "classic"] },
+  { slug: "satin-clean-shabbat", title: "סאטן וחלק לשבת", description: "חצאית סאטן קלאסית עם חולצה חלקה.", productIds: ["8459122901178", "8356922884282"], heroProductId: "8459122901178", occasions: ["shabbat"], styleTags: ["elegant", "soft"] },
+  { slug: "pleats-buttons-work", title: "פליסה וכפתורים לעבודה", description: "חצאית פליסה מבריקה עם חולצת כפתורים.", productIds: ["8487643840698", "8484735516858"], heroProductId: "8487643840698", occasions: ["work"], styleTags: ["modern", "elegant"] },
+  { slug: "stripes-classic-vacation", title: "פסים ובהיר לחופשה", description: "חצאית פסים עם חולצה קלאסית בהירה.", productIds: ["8520968274106", "8356922884282"], heroProductId: "8520968274106", occasions: ["vacation", "everyday"], styleTags: ["casual", "soft"] },
+  { slug: "tulle-lace-shabbat", title: "טול ותחרה לשבת", description: "חצאית טול קומות עם חולצת תחרה.", productIds: ["8520941306042", "8520932393146"], heroProductId: "8520941306042", occasions: ["shabbat"], styleTags: ["romantic", "elegant"] },
+  { slug: "bandana-oversize-everyday", title: "בנדנה ואוברסייז ליומיום", description: "חצאית עם חגורת בנדנה וחולצה אוברסייז.", productIds: ["8487648952506", "8459126833338"], heroProductId: "8487648952506", occasions: ["everyday"], styleTags: ["modern", "casual"] },
+  { slug: "rib-basic-urban", title: "ריפ ובייסיק עירוני", description: "חצאית ריפ עם שרוך וחולצת שלושת־רבעי.", productIds: ["8459123589306", "8459132567738"], heroProductId: "8459123589306", occasions: ["everyday"], styleTags: ["casual", "minimal"] },
+  { slug: "odel-square-work", title: "אודל ומרובע לעבודה", description: "חצאית אודל עם חגורה וחולצה בפתח מרובע.", productIds: ["8459116085434", "8459124179130"], heroProductId: "8459116085434", occasions: ["work"], styleTags: ["modern", "classic"] },
+  { slug: "maayan-collar-work", title: "מעיין וצווארון לעבודה", description: "חצאית מעיין עם חולצת צווארון.", productIds: ["8484734009530", "8484734173370"], heroProductId: "8484734009530", occasions: ["work"], styleTags: ["minimal", "soft"] },
+  { slug: "soft-satin-shabbat", title: "סאטן רך לשבת", description: "חצאית סאטן עם שרוך וחולצת תחרה.", productIds: ["8359067812026", "8520932393146"], heroProductId: "8359067812026", occasions: ["shabbat"], styleTags: ["romantic", "soft"] },
+  { slug: "drill-long-sleeve-work", title: "דריל ושרוול ארוך", description: "חצאית דריל בגזרת A עם חולצת בייסיק ארוכה.", productIds: ["7031886676154", "8096945438906"], heroProductId: "7031886676154", occasions: ["work", "everyday"], styleTags: ["classic", "casual"] },
+  { slug: "denim-a-basic-everyday", title: "ג׳ינס A ובייסיק", description: "חצאית ג׳ינס בגזרת A עם חולצת בייסיק.", productIds: ["7031886446778", "8103887765690"], heroProductId: "7031886446778", occasions: ["everyday"], styleTags: ["casual", "minimal"] },
+  { slug: "black-clean-work", title: "שחור נקי לעבודה", description: "חצאית ג׳רסי שחורה עם חולצה קלאסית.", productIds: ["8103888748730", "8484735516858"], heroProductId: "8103888748730", occasions: ["work"], styleTags: ["minimal", "classic"] },
+  { slug: "light-embroidery-shabbat", title: "רקמה בהירה לשבת", description: "שמלה רקומה בגוונים בהירים.", productIds: ["8521040330938"], heroProductId: "8521040330938", occasions: ["shabbat"], styleTags: ["romantic", "soft"] },
+  { slug: "plaid-dress-everyday", title: "משבצות ליום מסודר", description: "שמלת משבצות עם חגורה ליום מסודר.", productIds: ["8520905261242"], heroProductId: "8520905261242", occasions: ["everyday", "work"], styleTags: ["classic", "casual"] },
+  { slug: "striped-lace-event", title: "תחרה ופסים לאירוע", description: "שמלת תחרה עם פסים לאירוע ערב.", productIds: ["8521001894074"], heroProductId: "8521001894074", occasions: ["evening_event"], styleTags: ["elegant", "modern"] },
+  { slug: "soft-tulle-event", title: "טול רך לאירוע", description: "שמלת טול עם כיווצים לאירוע.", productIds: ["8520992030906"], heroProductId: "8520992030906", occasions: ["evening_event"], styleTags: ["romantic", "formal"] },
+];
+
+export const looks = candidates.map((candidate, index) => ({
+  id: `look-candidate-${String(index + 1).padStart(2, "0")}`,
+  slug: candidate.slug,
+  title: candidate.title,
+  description: candidate.description,
+  productRefs: candidate.productIds.map((productId) => ({ sourceId, productId })),
+  composition: { heroProductId: `${sourceId}:${candidate.heroProductId}` },
+  occasions: candidate.occasions,
+  styleTags: candidate.styleTags,
+  seasonTags: ["all_season"] as const,
+  featured: index < 3,
+  createdAt: new Date(Date.UTC(2026, 9, 7, 9, index)).toISOString(),
+})) satisfies readonly Look[];
