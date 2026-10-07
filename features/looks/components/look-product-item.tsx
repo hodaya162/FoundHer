@@ -16,7 +16,7 @@ export function LookProductItem({ item }: LookProductItemProps) {
     <li>
       <article className="flex gap-3 rounded-card border border-border/60 bg-surface p-2.5">
         <div className="relative w-24 shrink-0 sm:w-28">
-          <a href={href} target="_blank" rel="noopener noreferrer" className="group/image relative block aspect-[4/5] overflow-hidden rounded-[0.85rem] bg-surface-muted" aria-label={`צפייה בפריט ${product.title} באתר Mini Allenby`}>
+          <a href={href} target="_blank" rel="noopener noreferrer" className="group/image relative block aspect-[4/5] overflow-hidden rounded-[0.85rem] bg-surface-muted" aria-label={`צפייה בפריט ${product.title} באתר ${product.brand}`}>
             {image?.url ? (
               <Image
                 src={image.url}
@@ -41,12 +41,11 @@ export function LookProductItem({ item }: LookProductItemProps) {
               </a>
             </h3>
           </div>
-          <ProductPrice
-            amount={product.price}
-            currency={product.currency}
-          />
+          {product.price === undefined ? <p className="type-caption">מחיר באתר המקור</p> : (
+            <ProductPrice amount={product.price} currency={product.currency} />
+          )}
           <a href={href} target="_blank" rel="noopener noreferrer" className="type-label inline-flex items-center gap-1.5 text-primary">
-            לרכישה באתר Mini Allenby
+            לרכישה באתר {product.brand}
             <ExternalLink aria-hidden="true" className="size-3.5" />
           </a>
         </div>

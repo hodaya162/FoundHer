@@ -11,6 +11,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
+      { protocol: "https", hostname: "ayala-dresses.web.app", pathname: "/images/**" },
       { protocol: "https", hostname: "cdn.shopify.com", pathname: "/s/files/**" },
     ],
   },

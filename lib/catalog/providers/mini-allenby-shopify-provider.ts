@@ -187,7 +187,9 @@ export class MiniAllenbyShopifyProvider implements CatalogProvider {
     if (images.length === 0) return undefined;
     const variants = createVariants(input, id, createVariantImageMap(input, images));
     if (variants.length === 0) return undefined;
-    const price = Math.min(...variants.map((variant) => variant.price));
+    const variantPrices = variants.flatMap((variant) => variant.price === undefined ? [] : [variant.price]);
+    if (variantPrices.length === 0) return undefined;
+    const price = Math.min(...variantPrices);
     const compareAtPrices = variants.flatMap((variant) => variant.compareAtPrice === undefined ? [] : [variant.compareAtPrice]);
     const productType = stringValue(input.product_type);
     const tags = Array.isArray(input.tags) ? input.tags.flatMap((tag) => stringValue(tag) ?? []) : [];

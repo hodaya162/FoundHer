@@ -66,6 +66,7 @@ assert.equal(normalizeCatalogValue("gary").normalized, "gray");
 assert.equal(normalizeCatalogValue("m").normalized, "M");
 assert.equal(mapCatalogCategory({ title: "גקט בלון" }), "outerwear");
 assert.equal(mapCatalogCategory({ title: "חולצה קלאסית" }), "tops");
+assert.equal(mapCatalogCategory({ title: "בגד ים צנוע" }), "swimwear");
 assert.equal(mapCatalogCategory({ title: "פריט לא מסווג" }), "other");
 
 const malformedProvider = new MiniAllenbyShopifyProvider(async () => new Response("{}", { status: 200 }));
@@ -73,10 +74,10 @@ await assert.rejects(() => malformedProvider.getProducts(), /malformed/, "malfor
 const failedProvider = new MiniAllenbyShopifyProvider(async () => new Response("unavailable", { status: 503 }));
 await assert.rejects(() => failedProvider.getProducts(), /HTTP 503/, "provider failures are surfaced to the safe service boundary");
 
-assert(looks.every((look) => look.productRefs.every(({ sourceId }) => sourceId === "mini-allenby")), "live Look slots reference the real catalog source only");
-assert(looks.every((look) => look.productRefs.every(({ productId }) => /^\d+$/.test(productId))), "Look product refs use stable Shopify IDs rather than embedded product objects");
-assert.equal(looks.length, 20, "the visual curation set contains twenty real candidate Looks");
-assert(looks.filter(({ productRefs }) => productRefs.length > 1).length >= 15, "the candidate set prioritizes separates over single dresses");
+const miniAllenbyLooks = looks.filter(({ productRefs }) => productRefs.every(({ sourceId }) => sourceId === "mini-allenby"));
+assert(miniAllenbyLooks.every((look) => look.productRefs.every(({ productId }) => /^\d+$/.test(productId))), "Mini Allenby Look refs use stable Shopify IDs rather than embedded product objects");
+assert.equal(miniAllenbyLooks.length, 20, "the Mini Allenby visual curation set remains unchanged at twenty candidate Looks");
+assert(miniAllenbyLooks.filter(({ productRefs }) => productRefs.length > 1).length >= 15, "the Mini Allenby candidate set continues to prioritize separates");
 assert(looks.every((look) => look.productRefs.some(({ productId, sourceId }) => `${sourceId}:${productId}` === look.composition.heroProductId)), "every Look hero is one of its real catalog references");
 assert(looks.every((look) => !Object.hasOwn(look, "coverImage")), "Looks do not store unrelated or generated cover images");
 const prototypeLooks = looks.filter(({ composition }) => composition.prototype);
@@ -86,6 +87,6 @@ assert(prototypeLooks.every((look) => {
   const prototype = look.composition.prototype;
   return prototype && refs.has(prototype.dominant.productId) && refs.has(prototype.supporting.productId);
 }), "prototype imagery resolves only from products that compose the Look");
-assert.equal(looks.filter(({ composition }) => !composition.prototype).length, 17, "the other seventeen candidates retain their existing renderer");
+assert.equal(miniAllenbyLooks.filter(({ composition }) => !composition.prototype).length, 17, "the other seventeen Mini Allenby candidates retain their existing renderer");
 
 console.log("Catalog tests passed: normalization, categories, stable IDs, availability, malformed data, and provider failure.");

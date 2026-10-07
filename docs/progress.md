@@ -351,7 +351,7 @@ This document must be updated at the end of every future task.
 - Added a provider-agnostic Catalog domain (`CatalogProduct`, `CatalogVariant`, `CatalogSource`, stable product references) that is independent of Shopify response shapes.
 - Added Mini Allenby through the public Shopify storefront endpoint `/products.json?limit=250`; no credentials, Admin API, browser-side catalog fetch, or copied product records are used.
 - The server provider validates the response, accepts only HTTPS Shopify CDN images, normalizes prices/options/categories, caches with a three-hour revalidation interval, and fails to a safe unavailable state.
-- Raw color/size values remain intact alongside normalized values. The initial category vocabulary is tops, skirts, dresses, outerwear, accessories, and other.
+- Raw color/size values remain intact alongside normalized values. The category vocabulary is tops, skirts, dresses, outerwear, accessories, swimwear, and other.
 - Looks now hold ordered `{ sourceId, productId }` references. Their live product slots resolve only real, available Mini Allenby products; the former demo purchase fixtures no longer participate in the Looks product flow.
 - Look detail cards show the original Shopify CDN image, real current price, availability-derived inclusion, stable Favorites identity, and a safe external link to the canonical Mini Allenby product page.
 - Editorial Look cover images remain inspiration only. Product truth is always the separately resolved catalog data shown under “הפריטים בלוק”.

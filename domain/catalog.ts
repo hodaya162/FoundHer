@@ -6,6 +6,7 @@ export const CATALOG_CATEGORIES = [
   "dresses",
   "outerwear",
   "accessories",
+  "swimwear",
   "other",
 ] as const;
 
@@ -21,7 +22,7 @@ export type CatalogVariant = {
   readonly id: string;
   readonly externalId: string;
   readonly title: string;
-  readonly price: number;
+  readonly price?: number;
   readonly compareAtPrice?: number;
   readonly sku?: string;
   readonly size?: NormalizedCatalogValue;
@@ -38,7 +39,7 @@ export type CatalogProduct = {
   readonly title: string;
   readonly description?: string;
   readonly category: CatalogCategory;
-  readonly price: number;
+  readonly price?: number;
   readonly compareAtPrice?: number;
   readonly currency: CatalogCurrency;
   readonly productUrl: string;
@@ -46,7 +47,7 @@ export type CatalogProduct = {
   readonly variants: readonly CatalogVariant[];
   readonly sizes: readonly NormalizedCatalogValue[];
   readonly colors: readonly NormalizedCatalogValue[];
-  readonly available: boolean;
+  readonly available?: boolean;
   readonly tags: readonly string[];
   readonly lastSyncedAt: string;
 };
@@ -61,6 +62,6 @@ export type CatalogSource = {
   readonly name: string;
   readonly brandName: string;
   readonly baseUrl: string;
-  readonly type: "shopify-public-storefront";
+  readonly type: "shopify-public-storefront" | "firestore-public-rest";
 };
 
