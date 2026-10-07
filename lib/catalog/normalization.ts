@@ -16,7 +16,7 @@ export function normalizeCatalogValue(raw: string): NormalizedCatalogValue {
   const trimmed = raw.trim();
   const lower = trimmed.toLocaleLowerCase("en-US");
   const aliased = VALUE_ALIASES[trimmed] ?? VALUE_ALIASES[lower] ?? lower;
-  const normalized = /^(xs|s|m|l|xl|xxl)$/i.test(aliased)
+  const normalized = /^(xs|s|m|l|xl|xxl)(-(xs|s|m|l|xl|xxl))*$/i.test(aliased)
     ? aliased.toUpperCase()
     : aliased;
 

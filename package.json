@@ -14,6 +14,7 @@
     "test:favorites": "tsx scripts/test-favorites.ts",
     "test:rentals": "tsx scripts/test-rentals.ts",
     "test:catalog": "tsx scripts/test-catalog.ts",
+    "test:ayala": "tsx scripts/test-ayala-catalog.ts",
     "test:links": "tsx scripts/test-link-integrity.ts",
     "test:production-config": "tsx scripts/test-production-config.ts",
     "typecheck": "tsc --noEmit",

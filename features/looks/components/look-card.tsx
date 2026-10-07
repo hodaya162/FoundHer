@@ -19,6 +19,7 @@ export function LookCard({ candidateNumber, headingLevel = 2, model, priority = 
   const Heading = headingLevel === 2 ? "h2" : "h3";
   const href = `/looks/${look.slug}`;
   const startingPrice = formatLookStartingPrice(products);
+  const isAyalaCandidate = products.some(({ sourceId }) => sourceId === "ayala");
 
   return (
     <article className="break-inside-avoid">
@@ -32,6 +33,7 @@ export function LookCard({ candidateNumber, headingLevel = 2, model, priority = 
       <div className="space-y-2 px-0.5 pb-2 pt-3">
         <div className="flex items-center gap-2">
           <LookTags look={look} compact />
+          {isAyalaCandidate ? <span className="type-caption text-primary">אילה שמלות · מועמד</span> : null}
         </div>
         <Heading className="type-card-title">
           <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">

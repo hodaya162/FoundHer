@@ -26,14 +26,24 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function LooksPage() {
-  const looks = getAllLooks();
+type LooksPageProps = { readonly searchParams: Promise<{ readonly review?: string }> };
+
+export default async function LooksPage({ searchParams }: LooksPageProps) {
+  const { review } = await searchParams;
+  const reviewSourceId = review === "ayala" ? "ayala" : undefined;
+  const looks = reviewSourceId
+    ? getAllLooks().filter(({ productRefs }) => productRefs.some(({ sourceId }) => sourceId === reviewSourceId))
+    : getAllLooks();
   const models = await getLookCardModels(looks);
 
   return (
     <main>
       <PageContainer className="pb-16 sm:pb-20">
-        <PageHeader eyebrow="סקירה פנימית" title="לוקים" description={`${models.length} מועמדים אמיתיים לבחירה ולאוצרות.`} />
+        <PageHeader
+          eyebrow="סקירה פנימית"
+          title={reviewSourceId ? "מועמדי אילה שמלות" : "לוקים"}
+          description={`${models.length} מועמדים אמיתיים לבחירה ולאוצרות.`}
+        />
         {models.length > 0 ? <LookGrid models={models} showCandidateNumbers /> : <LooksEmptyState />}
       </PageContainer>
     </main>

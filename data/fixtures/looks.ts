@@ -8,6 +8,7 @@ type Candidate = {
   readonly heroProductId: string;
   readonly occasions: readonly LookOccasion[];
   readonly styleTags: readonly LookStyleTag[];
+  readonly sourceId?: string;
 };
 
 const sourceId = "mini-allenby";
@@ -33,16 +34,26 @@ const candidates: readonly Candidate[] = [
   { slug: "plaid-dress-everyday", title: "משבצות ליום מסודר", description: "שמלת משבצות עם חגורה ליום מסודר.", productIds: ["8520905261242"], heroProductId: "8520905261242", occasions: ["everyday", "work"], styleTags: ["classic", "casual"] },
   { slug: "striped-lace-event", title: "תחרה ופסים לאירוע", description: "שמלת תחרה עם פסים לאירוע ערב.", productIds: ["8521001894074"], heroProductId: "8521001894074", occasions: ["evening_event"], styleTags: ["elegant", "modern"] },
   { slug: "soft-tulle-event", title: "טול רך לאירוע", description: "שמלת טול עם כיווצים לאירוע.", productIds: ["8520992030906"], heroProductId: "8520992030906", occasions: ["evening_event"], styleTags: ["romantic", "formal"] },
+  { slug: "ayala-aviv-pink-shabbat", title: "ורוד אביבי לשבת", description: "שמלת אביב ורודה של אילה שמלות.", productIds: ["aviv-pink"], heroProductId: "aviv-pink", occasions: ["shabbat"], styleTags: ["romantic", "soft"], sourceId: "ayala" },
+  { slug: "ayala-tevel-wine-event", title: "יין חגיגי לערב", description: "שמלת תבל בגוון יין של אילה שמלות.", productIds: ["chagim-beet"], heroProductId: "chagim-beet", occasions: ["evening_event"], styleTags: ["elegant", "formal"], sourceId: "ayala" },
+  { slug: "ayala-tevel-mint-shabbat", title: "מנטה לחג ולשבת", description: "שמלת תבל בגוון מנטה של אילה שמלות.", productIds: ["chagim-mint"], heroProductId: "chagim-mint", occasions: ["shabbat"], styleTags: ["elegant", "soft"], sourceId: "ayala" },
+  { slug: "ayala-cinderella-scarlet-event", title: "סקרלט לאירוע", description: "שמלת סינדרלה בגוון סקרלט של אילה שמלות.", productIds: ["cinderella-scarlet"], heroProductId: "cinderella-scarlet", occasions: ["evening_event"], styleTags: ["elegant", "formal"], sourceId: "ayala" },
+  { slug: "ayala-cinderella-turquoise-shabbat", title: "טורקיז לשבת", description: "שמלת סינדרלה בגוון טורקיז של אילה שמלות.", productIds: ["cinderella-turquoise"], heroProductId: "cinderella-turquoise", occasions: ["shabbat", "evening_event"], styleTags: ["romantic", "elegant"], sourceId: "ayala" },
+  { slug: "ayala-heidi-daisy-everyday", title: "פרחים ליום אביבי", description: "שמלת היידי חרצית של אילה שמלות.", productIds: ["heidi-daisy"], heroProductId: "heidi-daisy", occasions: ["everyday", "vacation"], styleTags: ["casual", "romantic"], sourceId: "ayala" },
+  { slug: "ayala-heidi-lavender-shabbat", title: "לבנדר רך לשבת", description: "שמלת היידי לבנדר של אילה שמלות.", productIds: ["heidi-lavender"], heroProductId: "heidi-lavender", occasions: ["shabbat"], styleTags: ["romantic", "soft"], sourceId: "ayala" },
+  { slug: "ayala-rapunzel-purple-event", title: "סגול לערב", description: "שמלת רפונזל סגולה של אילה שמלות.", productIds: ["rapunzel-purple"], heroProductId: "rapunzel-purple", occasions: ["evening_event"], styleTags: ["elegant", "romantic"], sourceId: "ayala" },
 ];
 
-export const looks = candidates.map((candidate, index) => ({
+export const looks = candidates.map((candidate, index) => {
+  const candidateSourceId = candidate.sourceId ?? sourceId;
+  return ({
   id: `look-candidate-${String(index + 1).padStart(2, "0")}`,
   slug: candidate.slug,
   title: candidate.title,
   description: candidate.description,
-  productRefs: candidate.productIds.map((productId) => ({ sourceId, productId })),
+  productRefs: candidate.productIds.map((productId) => ({ sourceId: candidateSourceId, productId })),
   composition: {
-    heroProductId: `${sourceId}:${candidate.heroProductId}`,
+    heroProductId: `${candidateSourceId}:${candidate.heroProductId}`,
     prototype: index === 0 ? {
       layout: "EDITORIAL_OVERLAP_LEFT" as const,
       dominant: { productId: `${sourceId}:8127186239674`, imageIndex: 0, presentation: "MODEL_FULL" as const },
@@ -62,4 +73,5 @@ export const looks = candidates.map((candidate, index) => ({
   seasonTags: ["all_season"] as const,
   featured: index < 3,
   createdAt: new Date(Date.UTC(2026, 9, 7, 9, index)).toISOString(),
-})) satisfies readonly Look[];
+  });
+}) satisfies readonly Look[];

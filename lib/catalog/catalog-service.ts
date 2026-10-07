@@ -1,11 +1,17 @@
 import type { CatalogProduct, CatalogProductReference } from "@/domain/catalog";
 
 import type { CatalogProvider } from "./catalog-provider";
+import { AyalaFirestoreProvider } from "./providers/ayala-firestore-provider";
 import { MiniAllenbyShopifyProvider } from "./providers/mini-allenby-shopify-provider";
 
-const providers: ReadonlyMap<string, CatalogProvider> = new Map([
+const providers: ReadonlyMap<string, CatalogProvider> = new Map<string, CatalogProvider>([
+  ["ayala", new AyalaFirestoreProvider()],
   ["mini-allenby", new MiniAllenbyShopifyProvider()],
 ]);
+
+export function getCatalogProvider(sourceId: string): CatalogProvider | undefined {
+  return providers.get(sourceId);
+}
 
 export type CatalogResult = {
   readonly products: readonly CatalogProduct[];
