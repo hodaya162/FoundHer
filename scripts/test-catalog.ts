@@ -75,5 +75,17 @@ await assert.rejects(() => failedProvider.getProducts(), /HTTP 503/, "provider f
 
 assert(looks.every((look) => look.productRefs.every(({ sourceId }) => sourceId === "mini-allenby")), "live Look slots reference the real catalog source only");
 assert(looks.every((look) => look.productRefs.every(({ productId }) => /^\d+$/.test(productId))), "Look product refs use stable Shopify IDs rather than embedded product objects");
+assert.equal(looks.length, 20, "the visual curation set contains twenty real candidate Looks");
+assert(looks.filter(({ productRefs }) => productRefs.length > 1).length >= 15, "the candidate set prioritizes separates over single dresses");
+assert(looks.every((look) => look.productRefs.some(({ productId, sourceId }) => `${sourceId}:${productId}` === look.composition.heroProductId)), "every Look hero is one of its real catalog references");
+assert(looks.every((look) => !Object.hasOwn(look, "coverImage")), "Looks do not store unrelated or generated cover images");
+const prototypeLooks = looks.filter(({ composition }) => composition.prototype);
+assert.deepEqual(prototypeLooks.map(({ id }) => id), ["look-candidate-01", "look-candidate-02", "look-candidate-04"], "only candidates #01, #02 and #04 use the visual prototype");
+assert(prototypeLooks.every((look) => {
+  const refs = new Set(look.productRefs.map(({ productId, sourceId }) => `${sourceId}:${productId}`));
+  const prototype = look.composition.prototype;
+  return prototype && refs.has(prototype.dominant.productId) && refs.has(prototype.supporting.productId);
+}), "prototype imagery resolves only from products that compose the Look");
+assert.equal(looks.filter(({ composition }) => !composition.prototype).length, 17, "the other seventeen candidates retain their existing renderer");
 
 console.log("Catalog tests passed: normalization, categories, stable IDs, availability, malformed data, and provider failure.");

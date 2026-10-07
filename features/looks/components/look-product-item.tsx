@@ -13,16 +13,16 @@ export function LookProductItem({ item }: LookProductItemProps) {
   const href = product.productUrl;
 
   return (
-    <li className="w-[68vw] max-w-64 shrink-0 snap-start sm:w-auto sm:max-w-none">
-      <article className="h-full bg-transparent">
-        <div className="relative">
-          <a href={href} target="_blank" rel="noopener noreferrer" className="group/image relative block aspect-[4/5] overflow-hidden rounded-card bg-surface-muted" aria-label={`צפייה בפריט ${product.title} באתר Mini Allenby`}>
+    <li>
+      <article className="flex gap-3 rounded-card border border-border/60 bg-surface p-2.5">
+        <div className="relative w-24 shrink-0 sm:w-28">
+          <a href={href} target="_blank" rel="noopener noreferrer" className="group/image relative block aspect-[4/5] overflow-hidden rounded-[0.85rem] bg-surface-muted" aria-label={`צפייה בפריט ${product.title} באתר Mini Allenby`}>
             {image?.url ? (
               <Image
                 src={image.url}
                 alt={image.alt}
                 fill
-                sizes="(max-width: 639px) 68vw, (max-width: 1023px) 50vw, 25vw"
+                sizes="112px"
                 className="object-contain transition-transform duration-300 group-hover/image:scale-[1.02]"
               />
             ) : (
@@ -32,10 +32,10 @@ export function LookProductItem({ item }: LookProductItemProps) {
           <ProductFavoriteButton productId={product.id} productName={product.title} />
         </div>
 
-        <div className="flex min-w-0 flex-col items-start gap-1.5 pt-3">
+        <div className="flex min-w-0 flex-1 flex-col items-start justify-center gap-1.5 py-1">
           <div className="min-w-0 w-full">
             <p className="type-caption truncate">{product.brand}</p>
-            <h3 className="type-card-title mt-1">
+            <h3 className="text-sm font-semibold leading-snug sm:text-base">
               <a href={href} target="_blank" rel="noopener noreferrer" className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 {product.title}
               </a>
@@ -46,7 +46,7 @@ export function LookProductItem({ item }: LookProductItemProps) {
             currency={product.currency}
           />
           <a href={href} target="_blank" rel="noopener noreferrer" className="type-label inline-flex items-center gap-1.5 text-primary">
-            למוצר באתר Mini Allenby
+            לרכישה באתר Mini Allenby
             <ExternalLink aria-hidden="true" className="size-3.5" />
           </a>
         </div>

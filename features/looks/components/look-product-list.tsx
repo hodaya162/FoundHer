@@ -17,7 +17,7 @@ export function LookProductList({ catalogUnavailable = false, products, unresolv
         <h2 id="look-products-title" className="type-section-title mt-1">הפריטים בלוק</h2>
       </div>
       {products.length > 0 ? (
-        <ul className="hide-scrollbar -mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:px-0 lg:grid-cols-3">
+        <ul className="grid gap-3 sm:grid-cols-2">
           {products.map((item) => <LookProductItem key={item.product.id} item={item} />)}
         </ul>
       ) : (

@@ -21,8 +21,9 @@ type BaseSearchResult = {
   readonly score: number;
 };
 
-export type LookSearchResult = BaseSearchResult & {
+export type LookSearchResult = Omit<BaseSearchResult, "image"> & {
   readonly entityType: "look";
+  readonly image?: ImageAsset;
   readonly href: `/looks/${string}`;
   readonly contextLabel: string;
 };

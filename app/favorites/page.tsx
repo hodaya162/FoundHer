@@ -7,6 +7,7 @@ import { getRentalCards } from "@/features/rentals/queries/get-rental-cards";
 import { getAllBrands } from "@/lib/repositories/brands.repository";
 import { getAllLooks } from "@/lib/repositories/looks.repository";
 import { resolveCatalogProductReferences } from "@/lib/catalog/catalog-service";
+import type { LookCardModel } from "@/features/looks/types/look-card";
 
 export const metadata: Metadata = {
   title: "שמורים",
@@ -21,6 +22,17 @@ export default async function FavoritesPage() {
     looks.flatMap(({ productRefs }) => productRefs).map((reference) => [`${reference.sourceId}:${reference.productId}`, reference]),
   ).values()];
   const catalog = await resolveCatalogProductReferences(catalogRefs);
+  const catalogById = new Map(catalog.products.flatMap((product) => [
+    [product.id, product],
+    [`${product.sourceId}:${product.externalId}`, product],
+  ]));
+  const lookModels: readonly LookCardModel[] = looks.flatMap((look) => {
+    const resolvedProducts = look.productRefs.flatMap((reference) => {
+      const product = catalogById.get(`${reference.sourceId}:${reference.productId}`);
+      return product ? [product] : [];
+    });
+    return resolvedProducts.length > 0 ? [{ look, products: resolvedProducts, unresolvedProductCount: look.productRefs.length - resolvedProducts.length }] : [];
+  });
 
   return (
     <main>
@@ -30,7 +42,7 @@ export default async function FavoritesPage() {
           <h1 className="type-page-title">שמורים</h1>
           <p className="type-body mt-2 text-muted">כל מה שאהבת, במקום אחד.</p>
         </header>
-        <FavoritesPageClient looks={looks} products={products} catalogProducts={catalog.products} rentals={getRentalCards()} brands={getAllBrands()} />
+        <FavoritesPageClient lookModels={lookModels} products={products} catalogProducts={catalog.products} rentals={getRentalCards()} brands={getAllBrands()} />
       </PageContainer>
     </main>
   );

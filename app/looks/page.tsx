@@ -4,6 +4,7 @@ import { PageContainer, PageHeader } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 import { createCanonicalUrl } from "@/config/site-url";
 import { LookGrid, LooksEmptyState } from "@/features/looks/components";
+import { getLookCardModels } from "@/features/looks/queries/get-look-card-models";
 import { getAllLooks } from "@/lib/repositories/looks.repository";
 
 const pageTitle = "לוקים והשראה";
@@ -25,14 +26,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LooksPage() {
+export default async function LooksPage() {
   const looks = getAllLooks();
+  const models = await getLookCardModels(looks);
 
   return (
     <main>
       <PageContainer className="pb-16 sm:pb-20">
-        <PageHeader eyebrow="השראה" title="לוקים" description="רעיונות שלמים ליום־יום, שבת ואירועים." />
-        {looks.length > 0 ? <LookGrid looks={looks} featuredFirst /> : <LooksEmptyState />}
+        <PageHeader eyebrow="סקירה פנימית" title="לוקים" description={`${models.length} מועמדים אמיתיים לבחירה ולאוצרות.`} />
+        {models.length > 0 ? <LookGrid models={models} showCandidateNumbers /> : <LooksEmptyState />}
       </PageContainer>
     </main>
   );

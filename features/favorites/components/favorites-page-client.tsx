@@ -6,9 +6,9 @@ import { useState } from "react";
 
 import { buttonVariants, EmptyState } from "@/components/ui";
 import type { Brand } from "@/domain/brand";
-import type { Look } from "@/domain/look";
 import type { CatalogProduct } from "@/domain/catalog";
 import { LookGrid } from "@/features/looks/components";
+import type { LookCardModel } from "@/features/looks/types/look-card";
 import { LookProductItem } from "@/features/looks/components";
 import { ProductGrid } from "@/features/products/components";
 import type { PurchaseProductCard } from "@/features/products/types/product-card";
@@ -23,7 +23,7 @@ import { FavoriteBrandCard } from "./favorite-brand-card";
 type FavoriteCategory = "all" | "looks" | "products" | "rentals" | "brands";
 
 type Props = {
-  looks: readonly Look[];
+  lookModels: readonly LookCardModel[];
   products: readonly PurchaseProductCard[];
   catalogProducts: readonly CatalogProduct[];
   rentals: readonly RentalCardModel[];
@@ -76,14 +76,14 @@ function Section({ children, count, id, title }: { children: React.ReactNode; co
   );
 }
 
-export function FavoritesPageClient({ brands, catalogProducts, looks, products, rentals }: Props) {
+export function FavoritesPageClient({ brands, catalogProducts, lookModels, products, rentals }: Props) {
   const [category, setCategory] = useState<FavoriteCategory>("all");
   const references = useFavorites();
   const ids = (type: FavoriteEntityType) => new Set(references.filter((item) => item.entityType === type).map((item) => item.entityId));
   const lookIds = ids("look");
   const productIds = ids("product");
   const brandIds = ids("brand");
-  const savedLooks = looks.filter((look) => lookIds.has(look.id));
+  const savedLooks = lookModels.filter(({ look }) => lookIds.has(look.id));
   const savedProducts = products.filter((product) => productIds.has(product.id));
   const savedCatalogProducts = catalogProducts.filter((product) => productIds.has(product.id));
   const savedRentals = rentals.filter((product) => productIds.has(product.id));
@@ -110,7 +110,7 @@ export function FavoritesPageClient({ brands, catalogProducts, looks, products, 
 
       {total === 0 ? <EmptyFavorites /> : (
         <div className="space-y-12">
-          {section("looks") && savedLooks.length > 0 ? <Section id="looks" title="לוקים שמורים" count={savedLooks.length}><LookGrid looks={savedLooks} headingLevel={3} /></Section> : null}
+          {section("looks") && savedLooks.length > 0 ? <Section id="looks" title="לוקים שמורים" count={savedLooks.length}><LookGrid models={savedLooks} headingLevel={3} /></Section> : null}
           {section("products") && (savedProducts.length > 0 || savedCatalogProducts.length > 0) ? (
             <Section id="products" title="פריטים שמורים" count={savedProducts.length + savedCatalogProducts.length}>
               <div className="space-y-6">

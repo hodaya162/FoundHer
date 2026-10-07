@@ -65,7 +65,7 @@ export function searchFoundHer(query: string): SearchResults {
         ...look.seasonTags.flatMap((value) => [value, seasonLabels[value]]),
       ],
       relations: linkedBrandNames,
-      description: [look.description, look.story],
+      description: [look.description],
     });
 
     if (match.score === 0) return [];
@@ -78,7 +78,6 @@ export function searchFoundHer(query: string): SearchResults {
         slug: look.slug,
         title: look.title,
         subtitle: look.description,
-        image: look.coverImage,
         matchedFields: match.matchedFields,
         score: match.score,
         href: `/looks/${look.slug}`,
