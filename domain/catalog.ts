@@ -6,6 +6,7 @@ export const CATALOG_CATEGORIES = [
   "dresses",
   "outerwear",
   "accessories",
+  "swimwear",
   "other",
 ] as const;
 

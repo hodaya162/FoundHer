@@ -37,6 +37,7 @@ export function mapCatalogCategory(input: { readonly productType?: string; reado
 
   if (/חצאית|חאצית|skirt/.test(value)) return "skirts";
   if (/שמלה|dress/.test(value)) return "dresses";
+  if (/בגד ים|בגדי ים|swimwear|swimsuit/.test(value)) return "swimwear";
   if (/גקט|ז'קט|מעיל|קרדיגן|jacket|blazer|outerwear/.test(value)) return "outerwear";
   if (/מטפחת|צעיף|גרביון|טייץ|תכשיט|שרשרת|עגיל|תיק|חגורה|accessor|scarf|bag|belt/.test(value)) return "accessories";
   if (/חולצ|shirt|top|blouse|basic/.test(value)) return "tops";

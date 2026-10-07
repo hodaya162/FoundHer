@@ -42,6 +42,7 @@ const candidates: readonly Candidate[] = [
   { slug: "ayala-heidi-daisy-everyday", title: "פרחים ליום אביבי", description: "שמלת היידי חרצית של אילה שמלות.", productIds: ["heidi-daisy"], heroProductId: "heidi-daisy", occasions: ["everyday", "vacation"], styleTags: ["casual", "romantic"], sourceId: "ayala" },
   { slug: "ayala-heidi-lavender-shabbat", title: "לבנדר רך לשבת", description: "שמלת היידי לבנדר של אילה שמלות.", productIds: ["heidi-lavender"], heroProductId: "heidi-lavender", occasions: ["shabbat"], styleTags: ["romantic", "soft"], sourceId: "ayala" },
   { slug: "ayala-rapunzel-purple-event", title: "סגול לערב", description: "שמלת רפונזל סגולה של אילה שמלות.", productIds: ["rapunzel-purple"], heroProductId: "rapunzel-purple", occasions: ["evening_event"], styleTags: ["elegant", "romantic"], sourceId: "ayala" },
+  { slug: "ayala-bordeaux-swim-vacation", title: "בורדו לחופשה", description: "בגד ים בורדו של אילה שמלות.", productIds: ["swim-bordeaux"], heroProductId: "swim-bordeaux", occasions: ["vacation"], styleTags: ["modern", "casual"], sourceId: "ayala" },
 ];
 
 export const looks = candidates.map((candidate, index) => {

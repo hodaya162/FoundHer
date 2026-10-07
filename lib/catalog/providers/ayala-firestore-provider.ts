@@ -130,7 +130,7 @@ export class AyalaFirestoreProvider implements CatalogProvider {
       brand: this.source.brandName,
       title,
       ...(description ? { description } : {}),
-      category: sourceCategory === "swim" ? "other" : "dresses",
+      category: sourceCategory === "swim" ? "swimwear" : "dresses",
       ...(price === undefined ? {} : { price }),
       ...(compareAtPrice === undefined ? {} : { compareAtPrice }),
       currency: "ILS",

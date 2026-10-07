@@ -66,6 +66,7 @@ assert.equal(normalizeCatalogValue("gary").normalized, "gray");
 assert.equal(normalizeCatalogValue("m").normalized, "M");
 assert.equal(mapCatalogCategory({ title: "גקט בלון" }), "outerwear");
 assert.equal(mapCatalogCategory({ title: "חולצה קלאסית" }), "tops");
+assert.equal(mapCatalogCategory({ title: "בגד ים צנוע" }), "swimwear");
 assert.equal(mapCatalogCategory({ title: "פריט לא מסווג" }), "other");
 
 const malformedProvider = new MiniAllenbyShopifyProvider(async () => new Response("{}", { status: 200 }));
