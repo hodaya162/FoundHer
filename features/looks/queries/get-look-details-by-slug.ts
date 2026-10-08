@@ -3,6 +3,7 @@ import { resolveCatalogProductReferences } from "@/lib/catalog/catalog-service";
 
 import type { LookDetailsModel, LookProductItem } from "../types/look-details";
 import { getLookCardModels } from "./get-look-card-models";
+import { getEditorialLookPresentation } from "../data/editorial-look-presentations";
 
 export async function getLookDetailsBySlug(slug: string): Promise<LookDetailsModel | undefined> {
   const look = getLookBySlug(slug);
@@ -22,5 +23,8 @@ export async function getLookDetailsBySlug(slug: string): Promise<LookDetailsMod
     ),
     catalogUnavailable: resolved.unavailableSourceIds.length > 0,
     similarLooks,
+    ...(getEditorialLookPresentation(look.slug)
+      ? { editorialPresentation: getEditorialLookPresentation(look.slug) }
+      : {}),
   };
 }

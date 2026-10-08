@@ -2,6 +2,8 @@ export { LookBreadcrumbs } from "./look-breadcrumbs";
 export { LookCard } from "./look-card";
 export { LookDetails } from "./look-details";
 export { LookGrid } from "./look-grid";
+export { EditorialLookFeed } from "./editorial-look-feed";
+export { LookOccasionFilters } from "./look-occasion-filters";
 export { LookGridSkeleton } from "./look-grid-skeleton";
 export { RealLookComposition } from "./real-look-composition";
 export { LookMeta } from "./look-meta";
