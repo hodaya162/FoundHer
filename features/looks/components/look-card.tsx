@@ -5,7 +5,7 @@ import type { LookCardModel } from "../types/look-card";
 import { LookSaveButton } from "./look-save-button";
 import { LookTags } from "./look-tags";
 import { RealLookComposition } from "./real-look-composition";
-import { formatLookStartingPrice } from "../utils/look-price";
+import { formatLookTotalPrice } from "../utils/look-price";
 
 type LookCardProps = {
   candidateNumber?: number;
@@ -18,7 +18,7 @@ export function LookCard({ candidateNumber, headingLevel = 2, model, priority = 
   const { look, products } = model;
   const Heading = headingLevel === 2 ? "h2" : "h3";
   const href = `/looks/${look.slug}`;
-  const startingPrice = formatLookStartingPrice(products);
+  const totalPrice = formatLookTotalPrice(products);
   const isAyalaCandidate = products.some(({ sourceId }) => sourceId === "ayala");
 
   return (
@@ -40,7 +40,10 @@ export function LookCard({ candidateNumber, headingLevel = 2, model, priority = 
             {look.title}
           </Link>
         </Heading>
-        {startingPrice ? <p className="text-xs font-medium text-primary">{products.length} {products.length === 1 ? "פריט" : "פריטים"} · החל מ־{startingPrice}</p> : null}
+        <p className="text-xs font-medium text-primary">
+          {products.length} {products.length === 1 ? "פריט" : "פריטים"}
+          {totalPrice ? <> · {totalPrice}</> : null}
+        </p>
       </div>
     </article>
   );

@@ -2,6 +2,7 @@ import type { Look } from "@/domain/look";
 import { resolveCatalogProductReferences } from "@/lib/catalog/catalog-service";
 
 import type { LookCardModel } from "../types/look-card";
+import { getEditorialLookPresentation } from "../data/editorial-look-presentations";
 
 export async function getLookCardModels(looks: readonly Look[]): Promise<readonly LookCardModel[]> {
   const references = [...new Map(
@@ -21,6 +22,13 @@ export async function getLookCardModels(looks: readonly Look[]): Promise<readonl
     });
     const heroAvailable = products.some(({ id }) => id === look.composition.heroProductId);
     if (!heroAvailable || products.length === 0) return [];
-    return [{ look, products, unresolvedProductCount: look.productRefs.length - products.length }];
+    return [{
+      look,
+      products,
+      unresolvedProductCount: look.productRefs.length - products.length,
+      ...(getEditorialLookPresentation(look.slug)
+        ? { editorialPresentation: getEditorialLookPresentation(look.slug) }
+        : {}),
+    }];
   });
 }
