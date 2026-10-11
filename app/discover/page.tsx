@@ -9,6 +9,8 @@ import { buttonVariants } from "@/components/ui";
 import { ProductGrid } from "@/features/products/components";
 import { getDiscoverProductCards } from "@/features/products/queries/get-discover-product-cards";
 import { cn } from "@/lib/utils";
+import { CatalogProductReviewGrid } from "@/features/catalog/components/catalog-product-review-grid";
+import { getCatalogProductsSafe } from "@/lib/catalog/catalog-service";
 
 const pageTitle = "לגלות אופנה צנועה";
 const pageDescription = "פריטים נבחרים לרכישה ולהשכרה ממותגים ומסטודיו שמבינים אופנה צנועה.";
@@ -29,7 +31,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DiscoverPage() {
+type DiscoverPageProps = {
+  readonly searchParams: Promise<{ readonly review?: string }>;
+};
+
+export default async function DiscoverPage({ searchParams }: DiscoverPageProps) {
+  const { review } = await searchParams;
+  if (review === "esti-belle") {
+    const catalogProducts = await getCatalogProductsSafe("esti-belle");
+    return (
+      <main>
+        <PageContainer className="pb-16 sm:pb-20">
+          <PageHeader
+            eyebrow="סקירה פנימית"
+            title="קטלוג Esti Belle"
+            description={`${catalogProducts.length} שמלות ערב אמיתיות שסופקו ואושרו על ידי המותג.`}
+          />
+          <CatalogProductReviewGrid products={catalogProducts} />
+        </PageContainer>
+      </main>
+    );
+  }
+
   const products = getDiscoverProductCards();
 
   return (

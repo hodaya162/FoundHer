@@ -11,6 +11,12 @@ export function LookProductItem({ item }: LookProductItemProps) {
   const { product } = item;
   const image = product.images[0];
   const href = product.productUrl;
+  const contactCta = product.purchaseType === "contact";
+  const actionLabel = contactCta
+    ? product.contactChannel === "instagram"
+      ? `לפרטים ב־Instagram של ${product.brand}`
+      : `לפרטים אצל ${product.brand}`
+    : `לרכישה באתר ${product.brand}`;
 
   return (
     <li>
@@ -45,7 +51,7 @@ export function LookProductItem({ item }: LookProductItemProps) {
             <ProductPrice amount={product.price} currency={product.currency} />
           )}
           <a href={href} target="_blank" rel="noopener noreferrer" className="type-label inline-flex items-center gap-1.5 text-primary">
-            לרכישה באתר {product.brand}
+            {actionLabel}
             <ExternalLink aria-hidden="true" className="size-3.5" />
           </a>
         </div>

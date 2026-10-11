@@ -43,6 +43,9 @@ const candidates: readonly Candidate[] = [
   { slug: "ayala-heidi-lavender-shabbat", title: "לבנדר רך לשבת", description: "שמלת היידי לבנדר של אילה שמלות.", productIds: ["heidi-lavender"], heroProductId: "heidi-lavender", occasions: ["shabbat"], styleTags: ["romantic", "soft"], sourceId: "ayala" },
   { slug: "ayala-rapunzel-purple-event", title: "סגול לערב", description: "שמלת רפונזל סגולה של אילה שמלות.", productIds: ["rapunzel-purple"], heroProductId: "rapunzel-purple", occasions: ["evening_event"], styleTags: ["elegant", "romantic"], sourceId: "ayala" },
   { slug: "ayala-bordeaux-swim-vacation", title: "בורדו לחופשה", description: "בגד ים בורדו של אילה שמלות.", productIds: ["swim-bordeaux"], heroProductId: "swim-bordeaux", occasions: ["vacation"], styleTags: ["modern", "casual"], sourceId: "ayala" },
+  { slug: "esti-belle-champagne-event", title: "שמפניה לאירוע", description: "שמלת ערב Esti Belle 01 במרכז הלוק.", productIds: ["esti-belle-01"], heroProductId: "esti-belle-01", occasions: ["evening_event"], styleTags: ["elegant", "formal"], sourceId: "esti-belle" },
+  { slug: "esti-belle-blue-shabbat", title: "כחול רך לשבת", description: "שמלת ערב Esti Belle 03 במרכז הלוק.", productIds: ["esti-belle-03"], heroProductId: "esti-belle-03", occasions: ["shabbat", "evening_event"], styleTags: ["romantic", "elegant"], sourceId: "esti-belle" },
+  { slug: "esti-belle-black-event", title: "שחור לערב", description: "שמלת ערב Esti Belle 09 במרכז הלוק.", productIds: ["esti-belle-09"], heroProductId: "esti-belle-09", occasions: ["evening_event"], styleTags: ["classic", "formal"], sourceId: "esti-belle" },
 ];
 
 export const looks = candidates.map((candidate, index) => {

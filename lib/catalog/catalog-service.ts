@@ -1,11 +1,15 @@
 import type { CatalogProduct, CatalogProductReference } from "@/domain/catalog";
 
 import type { CatalogProvider } from "./catalog-provider";
+import { ESTI_BELLE_SOURCE } from "@/config/catalog-sources";
+import { estiBelleManualCatalog } from "@/data/catalog/manual/esti-belle";
 import { AyalaFirestoreProvider } from "./providers/ayala-firestore-provider";
+import { ManualCatalogProvider } from "./providers/manual-catalog-provider";
 import { MiniAllenbyShopifyProvider } from "./providers/mini-allenby-shopify-provider";
 
 const providers: ReadonlyMap<string, CatalogProvider> = new Map<string, CatalogProvider>([
   ["ayala", new AyalaFirestoreProvider()],
+  ["esti-belle", new ManualCatalogProvider(ESTI_BELLE_SOURCE, estiBelleManualCatalog)],
   ["mini-allenby", new MiniAllenbyShopifyProvider()],
 ]);
 
@@ -61,7 +65,7 @@ export async function resolveCatalogProductReferences(
     const product = productsBySource.get(reference.sourceId)?.find(
       (candidate) => candidate.externalId === reference.productId || candidate.id === reference.productId,
     );
-    if (!product || (options.availableOnly && !product.available)) return [];
+    if (!product || (options.availableOnly && product.available === false)) return [];
     return [product];
   });
 

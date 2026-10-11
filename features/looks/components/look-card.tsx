@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { getCatalogSourceById } from "@/config/catalog-sources";
 import type { LookCardModel } from "../types/look-card";
 
 import { LookSaveButton } from "./look-save-button";
@@ -19,7 +20,11 @@ export function LookCard({ candidateNumber, headingLevel = 2, model, priority = 
   const Heading = headingLevel === 2 ? "h2" : "h3";
   const href = `/looks/${look.slug}`;
   const totalPrice = formatLookTotalPrice(products);
-  const isAyalaCandidate = products.some(({ sourceId }) => sourceId === "ayala");
+  const firstProduct = products[0];
+  const reviewSource = firstProduct && products.every(({ sourceId }) => sourceId === firstProduct.sourceId)
+    ? getCatalogSourceById(firstProduct.sourceId)
+    : undefined;
+  const showSourceCandidate = reviewSource?.id === "ayala" || reviewSource?.id === "esti-belle";
 
   return (
     <article className="break-inside-avoid">
@@ -33,7 +38,7 @@ export function LookCard({ candidateNumber, headingLevel = 2, model, priority = 
       <div className="space-y-2 px-0.5 pb-2 pt-3">
         <div className="flex items-center gap-2">
           <LookTags look={look} compact />
-          {isAyalaCandidate ? <span className="type-caption text-primary">אילה שמלות · מועמד</span> : null}
+          {showSourceCandidate ? <span className="type-caption text-primary">{reviewSource.brandName} · מועמד</span> : null}
         </div>
         <Heading className="type-card-title">
           <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">

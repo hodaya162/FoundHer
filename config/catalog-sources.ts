@@ -16,8 +16,22 @@ export const AYALA_SOURCE = {
   type: "firestore-public-rest",
 } as const satisfies CatalogSource;
 
+export const ESTI_BELLE_SOURCE = {
+  id: "esti-belle",
+  name: "Esti Belle",
+  brandName: "Esti Belle",
+  baseUrl: "https://www.instagram.com/esti_belle",
+  type: "manual",
+} as const satisfies CatalogSource;
+
+export const ESTI_BELLE_CONTACT = {
+  instagramUrl: "https://www.instagram.com/esti_belle",
+  whatsappUrl: undefined,
+} as const;
+
 export const catalogSources = {
   AYALA: AYALA_SOURCE,
+  ESTI_BELLE: ESTI_BELLE_SOURCE,
   MINI_ALLENBY: MINI_ALLENBY_SOURCE,
 } as const;
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { PageContainer, PageHeader } from "@/components/layout";
+import { getCatalogSourceById } from "@/config/catalog-sources";
 import { siteConfig } from "@/config/site";
 import { createCanonicalUrl } from "@/config/site-url";
 import type { LookOccasion } from "@/domain/look";
@@ -37,7 +38,8 @@ type LooksPageProps = {
 
 export default async function LooksPage({ searchParams }: LooksPageProps) {
   const { occasion, review } = await searchParams;
-  const reviewSourceId = review === "ayala" ? "ayala" : undefined;
+  const reviewSourceId = review === "ayala" || review === "esti-belle" ? review : undefined;
+  const reviewSource = reviewSourceId ? getCatalogSourceById(reviewSourceId) : undefined;
   const allLooks = getAllLooks();
   const prototypeSlugs = new Set(getEditorialPrototypeSlugs());
   const looks = reviewSourceId
@@ -54,7 +56,7 @@ export default async function LooksPage({ searchParams }: LooksPageProps) {
           <>
             <PageHeader
               eyebrow="סקירה פנימית"
-              title={reviewSourceId ? "מועמדי אילה שמלות" : "כל מועמדי הלוקים"}
+              title={reviewSource ? `מועמדי ${reviewSource.brandName}` : "כל מועמדי הלוקים"}
               description={`${models.length} מועמדים אמיתיים לבחירה ולאוצרות.`}
             />
             {models.length > 0 ? <LookGrid models={models} showCandidateNumbers /> : <LooksEmptyState />}
