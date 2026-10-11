@@ -43,6 +43,8 @@ export type CatalogProduct = {
   readonly compareAtPrice?: number;
   readonly currency: CatalogCurrency;
   readonly productUrl: string;
+  readonly purchaseType?: "external" | "contact";
+  readonly contactChannel?: "instagram" | "whatsapp";
   readonly images: readonly ImageAsset[];
   readonly variants: readonly CatalogVariant[];
   readonly sizes: readonly NormalizedCatalogValue[];
@@ -62,6 +64,6 @@ export type CatalogSource = {
   readonly name: string;
   readonly brandName: string;
   readonly baseUrl: string;
-  readonly type: "shopify-public-storefront" | "firestore-public-rest";
+  readonly type: "shopify-public-storefront" | "firestore-public-rest" | "manual";
 };
 

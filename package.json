@@ -15,6 +15,7 @@
     "test:rentals": "tsx scripts/test-rentals.ts",
     "test:catalog": "tsx scripts/test-catalog.ts",
     "test:ayala": "tsx scripts/test-ayala-catalog.ts",
+    "test:esti-belle": "tsx scripts/test-esti-belle-catalog.ts",
     "test:looks": "tsx scripts/test-editorial-looks.ts",
     "test:links": "tsx scripts/test-link-integrity.ts",
     "test:production-config": "tsx scripts/test-production-config.ts",
