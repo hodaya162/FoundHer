@@ -102,8 +102,16 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   }
 
   for (const look of fixtureLooks) {
-    if (look.productIds.length === 0) {
-      errors.push(`look "${look.id}" must reference at least one product`);
+    if (look.productIds.length < 2 || look.productIds.length > 5) {
+      errors.push(`look "${look.id}" must reference 2–5 products`);
+    }
+
+    if (look.heroProductId && !look.productIds.includes(look.heroProductId)) {
+      errors.push(`look "${look.id}" has a hero product outside its product list`);
+    }
+
+    if (!look.editorialHeroImage.url) {
+      errors.push(`look "${look.id}" must define an editorial hero image`);
     }
 
     for (const productId of look.productIds) {
@@ -135,18 +143,6 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
         errors.push(`look "${look.id}" has invalid season tag "${seasonTag}"`);
       }
     }
-  }
-
-  const hasMixedCommerceLook = fixtureLooks.some((look) => {
-    const lookProducts = look.productIds
-      .map((productId) => fixtureProducts.find(({ id }) => id === productId))
-      .filter((product): product is Product => Boolean(product));
-
-    return lookProducts.some(isPurchaseProduct) && lookProducts.some(isRentalProduct);
-  });
-
-  if (!hasMixedCommerceLook) {
-    errors.push("looks: expected at least one fixture combining purchase and rental products");
   }
 
   return { valid: errors.length === 0, errors };
