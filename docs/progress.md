@@ -446,3 +446,39 @@ This document must be updated at the end of every future task.
 - Mobile visual QA passes at 360, 390, 400, and 430px with no horizontal overflow; the first three Looks differ in formula, shoe, jewelry, and palette. Desktop remains contained in the existing centered two-column layout at 1280px.
 - Fixtures, Looks, Search, Favorites, links, TypeScript, lint, and production build pass. Lint retains only the unrelated legacy `PageShell` `<img>` warning. Audit remains separately documented at two high and one critical advisory overall, and one high plus one critical in production dependencies; dependency changes are outside this task.
 - Public Preview: `https://foundher-3z4er5juj-found-her1.vercel.app/looks`. Deployed mobile QA at 360, 390, 400, and 430px confirms no horizontal overflow; the Preview remains publicly accessible over HTTPS, `noindex`, non-canonical, and blocked by `robots.txt`. TASK 023E remains in Draft PR #21 and must not be merged before owner visual approval.
+
+## TASK 024 – FoundHer Looks Lab
+
+- `/looks-lab` is an isolated, `noindex` visual experiment. It does not replace or modify the production `/looks` feed.
+- Eight Hero-led Looks test four deterministic composition families: Hero Center, Hero Edge, Layered Editorial, and Model Hero. Every Look has one visually dominant garment or source photograph, footwear, and at least one accessory.
+- The lab models source-image suitability explicitly with `assetType`, `source`, `modestySafe`, `moodboardReady`, and `backgroundRemovalSafe`. Unsafe or unready assets are excluded before rendering.
+- Seven Looks use clearly marked demo assets already present in the project. The Model Hero case preserves the original modest store photograph for “ערב בסאטן רך”; it is cropped only with `object-fit` and is never isolated, regenerated, completed, or redrawn.
+- The lab supports URL-based category filtering, persistent Favorites, active detail routes, original Product links, and a developer-only comparison control that renders the same Look through all valid layout variants.
+- TASK 024 is based on the unmerged TASK 021 branch and is intentionally delivered as a separate Draft PR. Home, Rentals, production `/looks`, SEO production configuration, and PR #22 remain untouched.
+- Public Preview: `https://foundher-m6xu7b936-found-her1.vercel.app/looks-lab`. Deployed QA passes at 360, 390, 400, and 430px plus 1280px containment, with no page-level horizontal overflow or broken images. The Preview is `noindex, nofollow`, emits no canonical, and remains blocked by `robots.txt`.
+- Product approval remains pending owner review. Nothing from the lab is published into the customer Looks feed.
+- Approved-reference refinement: the first three lab cards now follow the locked denim/light-blue, cream/burgundy, and black/light-blue compositions. Each card has one dominant maxi Hero, asymmetrically arranged clean supporting products, a palette-derived subtle canvas, and four or five visible color swatches derived from the actual outfit.
+- Safe deterministic cutouts were created only from full, already-demo Product images; no real store Product was regenerated, recolored, reshaped, or extended. A small set of internal lab-only transparent assets is explicitly non-purchasable and exposes no fake Product route. The real model photograph remains intact and unchanged.
+- The public `/looks` feed, Home, Rentals, Search, global navigation, SEO, and production configuration remain unchanged. Product approval remains pending owner review, and nothing from this lab is published automatically.
+- Refreshed public Preview: `https://foundher-6qmwgttuk-found-her1.vercel.app/looks-lab`. Deployed 390px QA confirms the first three approved art-direction cards, zero broken images, no page-level overflow, `noindex, nofollow`, and no canonical URL. QA also passed at 360, 400, and 430px; desktop remains contained at 1280px.
+
+## TASK 024B – Looks Feed Final Art Direction & Editorial Polish
+
+- The Looks Lab foundation, Product sources, routing, Favorites, category filters, detail links, data model, and global navigation remain unchanged. Home, Rentals, and the public `/looks` feed were not redesigned.
+- Four deterministic composition families now give the feed an explicit editorial vocabulary: Skirt Hero, Layered Street, Clean Minimal, and Photo-led. The first six Looks alternate A/B/C/A/B/C, so adjacent cards never repeat a composition.
+- The first Look uses a slightly more generous Hero canvas. Supporting tops, shoes, and jewelry are larger and use controlled overlap, unequal hierarchy, and intentional negative space instead of equal thumbnail treatment.
+- A restrained “הבחירות של FoundHer” divider follows the first three Looks to break the repeated card rhythm without adding a marketing section.
+- The on-model source remains an intact Photo-led editorial image. Non-transparent demo imagery receives only deterministic crop, contain, blend, mask, and positioning treatment. No Product was AI-redrawn, regenerated, recolored, reshaped, or placed on a generated model.
+- Local and deployed mobile QA pass at 360, 390, 400, and 430px with no page-level horizontal overflow. At 1280px the experience remains centered with 496px cards and no desktop redesign. Public Preview: `https://foundher-cych6bxv2-found-her1.vercel.app/looks-lab`.
+- Fixtures, Looks Lab, Looks, Search, Favorites, links, TypeScript, lint, and production build pass. Lint retains only the unrelated legacy `PageShell` `<img>` warning. Audits are reported separately: two high and one critical advisory overall; one high and one critical in production dependencies. Dependency changes remain outside this visual task.
+- Draft PR #23 remains unmerged pending owner visual approval.
+
+## TASK 024C – Preserve Source Photography
+
+- TASK 024B was visually rejected and was not merged. The core renderer now selects a layout from resolved image types instead of forcing an image into a predetermined sequence.
+- Source classifications are `product-cutout`, `product-studio`, `model-full`, `model-crop-safe`, `detail`, and `unsuitable`. Unsuitable assets cannot enter the renderer.
+- Product-led Looks use two deterministic flat-lay arrangements only when the complete Products can remain visible. The renderer no longer applies edge masks or default background removal.
+- Full model photography selects Photo Editorial automatically. The original source is shown with contained fitting and preserved aspect ratio; no head, shoulder, hem, shoe, or meaningful source detail is cropped by FoundHer.
+- The review Preview deliberately contains only three Looks: two product-only compositions and one full-model-photo composition. The former forced comparison surface and four-variant rotation were removed.
+- No AI redraw, generative fill, model generation, hidden-pixel reconstruction, new Product image, Home change, Rentals change, or public `/looks` change is included. Draft PR #23 remains unmerged pending explicit visual approval of the three close-ups.
+- Public review Preview: `https://foundher-6x5vprxwl-found-her1.vercel.app/looks-lab`.
