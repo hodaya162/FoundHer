@@ -16,15 +16,21 @@ export function RentalCard({ featuredMobile = false, headingLevel = 3, priority 
   const Heading = `h${headingLevel}` as const;
   const href = `/rentals/${product.slug}`;
   const image = product.images[0];
-  const browseLocation = product.location.split(",")[0] ?? product.location;
+  const browseLocation = product.location?.split(",")[0];
+  const preserveFullImage = product.sourceType === "manual-rental";
 
   return (
-    <article className="min-w-0">
+    <article id={product.id} className="min-w-0 scroll-mt-4">
         <div className="relative">
           <Link href={href} className="group/image block" aria-label={`צפייה בשמלה ${product.title}`}>
             <div className={`${featuredMobile ? "aspect-[4/3] sm:aspect-[3/4]" : "aspect-[6/7] sm:aspect-[3/4]"} relative overflow-hidden rounded-[0.65rem] bg-surface-muted sm:rounded-[0.85rem]`}>
               {image ? (
-                featuredMobile ? (
+                preserveFullImage ? (
+                  <>
+                    <Image src={image.url} alt="" fill priority={priority} sizes="(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 33vw" className="scale-110 object-cover blur-lg opacity-30" />
+                    <Image src={image.url} alt={image.alt} fill priority={priority} sizes="(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 33vw" className="object-contain transition-transform duration-500 group-hover/image:scale-[1.02]" />
+                  </>
+                ) : featuredMobile ? (
                   <>
                     <Image src={image.url} alt="" fill priority={priority} sizes="(max-width: 639px) 100vw, 50vw" className="scale-110 object-cover blur-md sm:hidden" />
                     <span aria-hidden="true" className="absolute inset-0 bg-black/10 sm:hidden" />
@@ -37,7 +43,8 @@ export function RentalCard({ featuredMobile = false, headingLevel = 3, priority 
               ) : (
                 <span className="flex h-full items-center justify-center p-6 text-center text-sm text-muted">תמונה תתווסף בקרוב</span>
               )}
-              {product.isDemo ? <span className="absolute bottom-2.5 start-2.5 rounded-full bg-background/90 px-2 py-1 text-[0.62rem] text-muted">תוכן לדוגמה</span> : null}
+              <span className="absolute bottom-2.5 start-2.5 rounded-full bg-background/92 px-2 py-1 text-[0.62rem] font-medium text-foreground shadow-sm">להשכרה</span>
+              {product.isDemo ? <span className="absolute bottom-2.5 end-2.5 rounded-full bg-background/90 px-2 py-1 text-[0.62rem] text-muted">תוכן לדוגמה</span> : null}
             </div>
           </Link>
           <ProductFavoriteButton productId={product.id} productName={product.title} className="absolute end-1 top-1 z-[var(--z-base)] border-0 bg-transparent p-2 before:absolute before:size-7 before:rounded-full before:bg-white/92 before:shadow-sm [&_svg]:relative [&_svg]:z-[1] [&_svg]:size-3.5" />
@@ -50,7 +57,8 @@ export function RentalCard({ featuredMobile = false, headingLevel = 3, priority 
           <Heading className="text-[0.82rem] font-medium leading-5 sm:text-sm">
             <Link href={href} className="rounded-sm hover:text-primary focus-visible:outline-offset-4">{product.title}</Link>
           </Heading>
-          <p title={`${product.businessName} · ${product.location}`} className="truncate text-xs text-muted">{product.businessName} · {browseLocation}</p>
+          <p title={[product.businessName, product.location].filter(Boolean).join(" · ")} className="truncate text-xs text-muted">{[product.businessName, browseLocation].filter(Boolean).join(" · ")}</p>
+          {product.sizeRange ? <p className="text-xs text-muted">מידות: <bdi dir="ltr">{product.sizeRange}</bdi></p> : null}
         </div>
     </article>
   );

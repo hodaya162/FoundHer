@@ -5,7 +5,7 @@ export type RentalCardModel = RentalItem & {
   readonly rentalBusiness: RentalBusiness | null;
   /** Legacy aliases retained for existing non-Rentals consumers. */
   readonly name: string;
-  readonly city: string;
+  readonly city?: string;
   readonly rentalPrice: number;
 };
 
