@@ -5,6 +5,7 @@ import { getAllCategories } from "@/lib/repositories/categories.repository";
 import { getAllLooks } from "@/lib/repositories/looks.repository";
 import { getAllProducts } from "@/lib/repositories/products.repository";
 import { getAllRentalBusinesses } from "@/lib/repositories/rental-businesses.repository";
+import { getRentalCards } from "@/features/rentals/queries/get-rental-cards";
 
 import type {
   BrandSearchResult,
@@ -45,7 +46,6 @@ export function searchFoundHer(query: string): SearchResults {
   const rentalBusinesses = getAllRentalBusinesses();
   const categories = getAllCategories();
   const brandsById = new Map(brands.map((brand) => [brand.id, brand]));
-  const rentalBusinessesById = new Map(rentalBusinesses.map((business) => [business.id, business]));
   const categoriesById = new Map(categories.map((category) => [category.id, category]));
 
   const lookResults = rank<LookSearchResult>(getAllLooks().flatMap((look, index) => {
@@ -136,45 +136,45 @@ export function searchFoundHer(query: string): SearchResults {
       return;
     }
 
-    const business = rentalBusinessesById.get(product.rentalBusinessId);
-    if (business?.isDemo !== false) return;
-    const rentalTypeLabel = getRentalTypeLabel(product.type);
+    // Legacy demo rental Products remain excluded. Public rentals are indexed
+    // from their single source of truth below.
+  });
+
+  getRentalCards().forEach((rental, index) => {
+    const image = rental.images[0];
+    if (!image) return;
+    const rentalTypeLabel = getRentalTypeLabel(
+      rental.type === "bridal" ? "rental_bridal" : "rental_evening",
+    );
     const match = scoreSearchDocument(normalizedQuery, {
-      title: [product.name],
-      tags: [
-        category?.name ?? "",
-        ...product.availableSizes,
-        rentalTypeLabel,
-        "להשכרה",
-        "השכרה",
-      ],
-      relations: [business?.name ?? "", product.city],
-      description: [product.description],
+      title: [rental.title],
+      tags: [rentalTypeLabel, rental.type === "bridal" ? "כלה" : "ערב", "להשכרה", "השכרה"],
+      relations: [rental.businessName, rental.location],
+      description: [rental.description],
     });
 
-    if (match.score > 0) {
-      rentalResults.push({
-        index,
-        result: {
-          entityType: "rental_product",
-          id: product.id,
-          slug: product.slug,
-          title: product.name,
-          subtitle: product.description,
-          image,
-          matchedFields: match.matchedFields,
-          score: match.score,
-          href: `/products/${product.slug}`,
-          sellerName: business
-            ? `${business.name}${business.isDemo ? " · תוכן לדוגמה" : ""}`
-            : "עסק השכרה לא זמין",
-          city: product.city,
-          rentalPrice: product.rentalPrice,
-          currency: product.currency,
-          rentalTypeLabel,
-        },
-      });
-    }
+    if (match.score === 0) return;
+
+    rentalResults.push({
+      index,
+      result: {
+        entityType: "rental_product",
+        id: rental.id,
+        slug: rental.slug,
+        title: rental.title,
+        subtitle: rental.description,
+        image,
+        matchedFields: match.matchedFields,
+        score: match.score,
+        href: `/rentals/${rental.slug}`,
+        sellerName: rental.businessName,
+        city: rental.location,
+        rentalPrice: rental.price ?? rental.priceRange?.min ?? 0,
+        priceRange: rental.priceRange,
+        currency: rental.currency,
+        rentalTypeLabel,
+      },
+    });
   });
 
   const brandResults = rank<BrandSearchResult>(brands.flatMap((brand, index) => {

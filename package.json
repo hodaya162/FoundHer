@@ -13,6 +13,7 @@
     "test:search": "tsx scripts/test-search.ts",
     "test:favorites": "tsx scripts/test-favorites.ts",
     "test:rentals": "tsx scripts/test-rentals.ts",
+    "test:product-discovery": "tsx scripts/test-product-discovery.ts",
     "test:links": "tsx scripts/test-link-integrity.ts",
     "test:production-config": "tsx scripts/test-production-config.ts",
     "typecheck": "tsc --noEmit",

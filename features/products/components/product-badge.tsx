@@ -8,8 +8,8 @@ export type ProductBadgeProps = {
 
 const badgeLabels: Record<ProductType, string> = {
   purchase: "לרכישה",
-  rental_evening: "השכרת ערב",
-  rental_bridal: "השכרת כלה",
+  rental_evening: "להשכרה",
+  rental_bridal: "להשכרה",
 };
 
 export function ProductBadge({ type }: ProductBadgeProps) {

@@ -16,7 +16,7 @@ export type ProductCardProps = {
 };
 
 export function ProductCard({ product, priority = false }: ProductCardProps) {
-  const href = `/products/${product.slug}`;
+  const href = product.href;
   const isPurchase = product.type === "purchase";
 
   return (
@@ -37,13 +37,18 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
         <CardContent className="flex flex-1 flex-col gap-1.5 px-0 pb-2 pt-3">
           <ProductCardMeta
             sellerName={product.sellerName}
-            detail={isPurchase ? "לרכישה" : product.city}
+            detail={isPurchase ? "לרכישה" : ""}
           />
           <ProductTitle href={href} name={product.name} />
           {isPurchase ? (
             <ProductPrice amount={product.price} currency={product.currency} />
           ) : (
-            <ProductPrice amount={product.rentalPrice} currency={product.currency} rental />
+            <ProductPrice
+              amount={product.rentalPrice}
+              currency={product.currency}
+              priceRange={product.priceRange}
+              rental
+            />
           )}
         </CardContent>
       </Card>

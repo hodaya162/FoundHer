@@ -3,14 +3,17 @@ import assert from "node:assert/strict";
 import { searchFoundHer } from "../features/search/queries/search-foundher";
 import { getAllLooks } from "../lib/repositories/looks.repository";
 import { getAllProducts } from "../lib/repositories/products.repository";
+import { getRentalCards } from "../features/rentals/queries/get-rental-cards";
 
 const firstLook = getAllLooks()[0];
 const firstPurchase = getAllProducts().find((product) => product.type === "purchase");
 const firstRental = getAllProducts().find((product) => product.type !== "purchase");
+const firstShosRental = getRentalCards()[0];
 
 assert(firstLook, "A Look fixture is required for Search tests");
 assert(firstPurchase, "A purchase Product fixture is required for Search tests");
 assert(firstRental, "A rental Product fixture is required for Search tests");
+assert(firstShosRental, "A public Shos Rental fixture is required for Search tests");
 
 assert.equal(searchFoundHer("   ").total, 0, "empty queries return no results");
 
@@ -40,6 +43,10 @@ const rental = searchFoundHer(firstRental.name);
 assert.equal(rental.rentals.length, 0, "demo rental Products never surface in public Search");
 assert(!rental.products.some(({ id }) => id === firstRental.id), "a rental Product is never classified as purchase");
 
+const shosRental = searchFoundHer(firstShosRental.title);
+assert.equal(shosRental.rentals[0]?.id, firstShosRental.id, "a Shos rental title finds the source Rental entity");
+assert.equal(shosRental.rentals[0]?.href, `/rentals/${firstShosRental.slug}`, "Shos rental results link to Rental details");
+
 for (const query of ["שוס עיצובים", "כלה", "ערב", "שתולים", "אשדוד"]) {
   assert(searchFoundHer(query).rentalBusinesses.some(({ slug }) => slug === "shos-designs"), `Shos is discoverable for ${query}`);
 }
@@ -48,4 +55,4 @@ assert.equal(exactLook.looks[0]?.href, `/looks/${firstLook.slug}`, "Look result 
 assert.equal(purchase.products[0]?.href, `/products/${firstPurchase.slug}`, "Product result URLs target Product details");
 assert.equal(searchFoundHer("Rental Business B").rentalBusinesses.length, 0, "Rental Business B never surfaces in public Search");
 
-console.log("Search tests passed: empty, relevance, entity grouping, multiword matching, and URLs.");
+console.log("Search tests passed: empty, relevance, entity grouping, public rentals, multiword matching, and URLs.");
