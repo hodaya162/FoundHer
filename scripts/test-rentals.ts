@@ -53,15 +53,15 @@ assert(getRentalBySlug("shos-black-evening"), "known evening rental detail slug 
 const tehilaItems = rentals.filter(({ sourceId }) => sourceId === "tehila-borkhov");
 const expectedTehila = [
   {
-    id: "tehila-borkhov-rental-01", price: 800, sizeRange: "S–XL", primary: "IMG-20261011-WA0107.jpg",
+    id: "tehila-borkhov-rental-01", price: 800, sizeRange: "S–XL", primary: "IMG-20261011-WA0098.jpg",
     filenames: ["IMG-20261011-WA0098.jpg", "IMG-20261011-WA0105.jpg", "IMG-20261011-WA0101.jpg", "IMG-20261011-WA0106.jpg", "IMG-20261011-WA0103.jpg", "IMG-20261011-WA0099.jpg", "IMG-20261011-WA0108.jpg", "IMG-20261011-WA0102.jpg", "IMG-20261011-WA0104.jpg", "IMG-20261011-WA0100.jpg", "IMG-20261011-WA0107.jpg"],
   },
   {
-    id: "tehila-borkhov-rental-02", price: 600, sizeRange: "S–M", primary: "IMG-20261011-WA0111.jpg",
+    id: "tehila-borkhov-rental-02", price: 600, sizeRange: "S–M", primary: "IMG-20261011-WA0113.jpg",
     filenames: ["IMG-20261011-WA0109.jpg", "IMG-20261011-WA0110.jpg", "IMG-20261011-WA0111.jpg", "IMG-20261011-WA0117.jpg", "IMG-20261011-WA0113.jpg", "IMG-20261011-WA0112.jpg", "IMG-20261011-WA0115.jpg", "IMG-20261011-WA0119.jpg", "IMG-20261011-WA0114.jpg", "IMG-20261011-WA0116.jpg", "IMG-20261011-WA0118.jpg"],
   },
   {
-    id: "tehila-borkhov-rental-03", price: 800, sizeRange: "XS–M", primary: "IMG-20261011-WA0129.jpg",
+    id: "tehila-borkhov-rental-03", price: 800, sizeRange: "XS–M", primary: "IMG-20261011-WA0120.jpg",
     filenames: ["IMG-20261011-WA0120.jpg", "IMG-20261011-WA0121.jpg", "IMG-20261011-WA0122.jpg", "IMG-20261011-WA0123.jpg", "IMG-20261011-WA0125.jpg", "IMG-20261011-WA0129.jpg", "IMG-20261011-WA0127.jpg", "IMG-20261011-WA0124.jpg", "IMG-20261011-WA0126.jpg", "IMG-20261011-WA0128.jpg"],
   },
 ] as const;
@@ -85,7 +85,7 @@ for (const expected of expectedTehila) {
 }
 assert.equal(new Set(tehilaItems.flatMap(({ images }) => images.map(({ url }) => url))).size, 32, "Tehila gallery mapping contains 32 unique authorized images");
 assert(tehilaItems.every(({ sourceType }) => sourceType === "manual-rental"), "Tehila uses the manual rental source type");
-assert.equal(getRentalBySlug("tehila-borkhov-rental-03")?.color, "שחור", "only the verified black dress carries a color value");
+assert(tehilaItems.every(({ color }) => color === undefined), "Tehila items expose no image-inferred color metadata");
 
 const businessWhatsAppUrl = new URL(buildBusinessWhatsAppUrl(shosBusiness!.whatsappUrl!));
 assert.equal(`${businessWhatsAppUrl.origin}${businessWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "business WhatsApp destination remains unchanged");
