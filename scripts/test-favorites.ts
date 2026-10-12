@@ -20,6 +20,7 @@ class MemoryStorage implements KeyValueStorage {
 const look: FavoriteReference = { entityType: "look", entityId: "look-1" };
 const product: FavoriteReference = { entityType: "product", entityId: "product-1" };
 const brand: FavoriteReference = { entityType: "brand", entityId: "brand-1" };
+const tehilaRental: FavoriteReference = { entityType: "product", entityId: "tehila-borkhov-rental-01" };
 
 const memory = new MemoryStorage();
 const service = createFavoritesService(new LocalFavoritesStorage(memory));
@@ -41,6 +42,7 @@ assert.equal(service.isFavorite(product), false, "toggles a favorite off");
 const serialized = serializeFavorites([look, brand]);
 assert.deepEqual(deserializeFavorites(serialized), [look, brand], "serialization round-trips stably");
 assert.equal(serializeFavorites(deserializeFavorites(serialized)), serialized, "serialization is stable");
+assert.deepEqual(deserializeFavorites(serializeFavorites([tehilaRental])), [tehilaRental], "Tehila rental favorite keeps only its stable reference");
 assert.deepEqual(deserializeFavorites("not-json"), [], "malformed JSON is ignored");
 assert.deepEqual(deserializeFavorites('[{"entityType":"unknown","entityId":"1"}]'), [], "old or invalid values are ignored");
 

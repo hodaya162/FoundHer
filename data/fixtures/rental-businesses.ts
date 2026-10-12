@@ -2,6 +2,24 @@ import type { RentalBusiness } from "@/domain/rental-business";
 
 export const rentalBusinesses = [
   {
+    id: "rental-business-tehila-borkhov",
+    slug: "tehila-borkhov",
+    name: "תהילה בורכוב",
+    description: "שמלות ערב צנועות להשכרה. זמינות, מיקום ופרטי ההשכרה נמסרים בתיאום ישיר מול המשכירה.",
+    city: "מיקום בתיאום",
+    logo: { id: "tehila-borkhov-logo", url: "/images/rentals/tehila-borkhov/IMG-20261011-WA0107.jpg", alt: "שמלת ערב להשכרה של תהילה בורכוב" },
+    coverImage: { id: "tehila-borkhov-cover", url: "/images/rentals/tehila-borkhov/IMG-20261011-WA0107.jpg", alt: "קולקציית שמלות הערב להשכרה של תהילה בורכוב" },
+    gallery: [
+      { id: "tehila-borkhov-gallery-01", url: "/images/rentals/tehila-borkhov/IMG-20261011-WA0107.jpg", alt: "שמלת ערב פרחונית להשכרה של תהילה בורכוב" },
+      { id: "tehila-borkhov-gallery-02", url: "/images/rentals/tehila-borkhov/IMG-20261011-WA0111.jpg", alt: "שמלת ערב בהירה להשכרה של תהילה בורכוב" },
+      { id: "tehila-borkhov-gallery-03", url: "/images/rentals/tehila-borkhov/IMG-20261011-WA0129.jpg", alt: "שמלת ערב שחורה להשכרה של תהילה בורכוב" },
+    ],
+    services: ["rental"],
+    eveningPriceRange: { min: 600, max: 800 },
+    isDemo: false,
+    featured: false,
+  },
+  {
     id: "rental-business-laelle",
     slug: "shos-designs",
     name: "שוס עיצובים",

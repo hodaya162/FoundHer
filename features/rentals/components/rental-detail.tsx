@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Gem, MapPin, Scissors, Shirt, Sparkles } from "lucide-react";
 
@@ -12,6 +11,7 @@ import { buildRentalWhatsAppUrl } from "../utils/whatsapp";
 
 import { WhatsAppBrandIcon } from "./brand-icons";
 import { RentalPrice } from "./rental-price";
+import { RentalImageGallery } from "./rental-image-gallery";
 import { RentalShareButton } from "./rental-share-button";
 
 const serviceLabels: Record<RentalService, string> = {
@@ -31,14 +31,13 @@ const serviceIcons = {
 export function RentalDetail({ item, business }: { item: RentalItem; business: RentalBusiness | null }) {
   const contactDestination = item.contactUrl ?? business?.whatsappUrl;
   const contactUrl = contactDestination ? buildRentalWhatsAppUrl(contactDestination, item.slug) : undefined;
-  const mainImage = item.images[0];
-  const thumbnails = item.images.slice(1);
+  const isTehilaManualRental = item.sourceId === "tehila-borkhov";
 
   return (
     <main className="bg-[#fffaf7]">
       <PageContainer className="pb-14 pt-3 sm:pb-24 sm:pt-6">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(20rem,0.75fr)] lg:gap-12">
-          <section aria-label={`גלריית תמונות של ${item.title}`} className={cn("relative grid items-start gap-2", thumbnails.length > 0 && "grid-cols-[minmax(0,1fr)_4.75rem] sm:grid-cols-[minmax(0,1fr)_6rem]")}>
+          <section aria-label={`גלריית תמונות של ${item.title}`} className="relative">
             <div className="absolute inset-x-3 top-3 z-[1] flex items-center justify-between">
               <Link href={`/rentals/${item.type}`} aria-label={`חזרה לשמלות ${item.type === "bridal" ? "כלה" : "ערב"}`} className="inline-grid size-11 place-items-center rounded-full bg-white/92 text-foreground shadow-sm"><ArrowRight aria-hidden="true" className="size-5" /></Link>
               <div className="flex items-center gap-1.5">
@@ -46,18 +45,15 @@ export function RentalDetail({ item, business }: { item: RentalItem; business: R
                 <RentalShareButton title={item.title} />
               </div>
             </div>
-            {mainImage ? (
-              <figure className="relative aspect-[3/4] overflow-hidden rounded-[0.9rem] bg-surface-muted"><Image src={mainImage.url} alt={mainImage.alt} fill priority sizes="(max-width: 1023px) 100vw, 60vw" className="object-cover" /></figure>
-            ) : (
-              <div className="flex aspect-[3/4] items-center justify-center rounded-[0.9rem] bg-surface-muted text-sm text-muted">תמונה תתווסף בקרוב</div>
-            )}
-            {thumbnails.length > 0 ? <div className="grid gap-2">{thumbnails.map((image) => <figure key={image.id} className="relative aspect-[3/4] overflow-hidden rounded-[0.65rem] bg-surface-muted"><Image src={image.url} alt={image.alt} fill sizes="6rem" className="object-cover" /></figure>)}</div> : null}
+            <RentalImageGallery images={item.images} title={item.title} />
           </section>
 
           <aside className="space-y-5 px-1 lg:sticky lg:top-24 lg:self-start lg:pt-8">
             <div><p className="mb-1 text-xs font-semibold text-primary">{item.type === "bridal" ? "שמלת כלה להשכרה" : "שמלת ערב להשכרה"}</p><h1 className="text-[2rem] font-normal leading-tight tracking-[-0.02em] [font-family:FrankRuehl,serif] sm:text-4xl">{item.title}</h1>{item.isDemo ? <p className="mt-1 text-xs text-muted">תוכן לדוגמה</p> : null}</div>
-            <div><Link href={business ? `/rental-businesses/${business.slug}` : "/rentals"} className="text-sm font-semibold hover:text-primary">{item.businessName}</Link>{business?.ownerName ? <span className="text-sm text-muted"> · {business.ownerName}</span> : null}<p className="mt-1.5 flex items-center gap-1.5 text-sm text-muted"><MapPin aria-hidden="true" className="size-4" />{item.location}</p></div>
+            <div><Link href={business ? `/rental-businesses/${business.slug}` : "/rentals"} className="text-sm font-semibold hover:text-primary">{item.businessName}</Link>{business?.ownerName ? <span className="text-sm text-muted"> · {business.ownerName}</span> : null}{item.location ? <p className="mt-1.5 flex items-center gap-1.5 text-sm text-muted"><MapPin aria-hidden="true" className="size-4" />{item.location}</p> : null}</div>
             <div className="border-y border-border/75 py-4"><RentalPrice price={item.price} priceRange={item.priceRange} currency={item.currency} prominent /></div>
+            {item.sizeRange ? <p className="text-sm font-medium">מידות: <bdi dir="ltr">{item.sizeRange}</bdi></p> : null}
+            {item.availabilityStatus === "date-coordination" ? <p className="rounded-[0.75rem] bg-surface-muted px-4 py-3 text-sm">זמינות בתיאום מול המשכירה ולפי תאריך</p> : null}
             <p className="text-sm leading-6 text-muted">{item.description}</p>
             <section aria-labelledby="rental-services">
               <h2 id="rental-services" className="sr-only">שירותים</h2>
@@ -71,7 +67,7 @@ export function RentalDetail({ item, business }: { item: RentalItem; business: R
             {contactUrl ? (
               <a href={contactUrl} target="_blank" rel="noopener noreferrer" aria-label={`יצירת קשר בוואטסאפ לגבי ${item.title} — נפתח בחלון חדש`} className={cn(buttonVariants({ size: "lg" }), "w-full rounded-full border-foreground bg-foreground text-white hover:bg-foreground/90")}><WhatsAppBrandIcon aria-hidden="true" className="size-5 text-[#25D366]" />יצירת קשר בוואטסאפ</a>
             ) : (
-              <div><button type="button" disabled className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-white opacity-45"><WhatsAppBrandIcon aria-hidden="true" className="size-5" />יצירת קשר</button><p className="mt-2 text-center text-xs text-muted">פרטי קשר מאומתים עדיין אינם זמינים.</p></div>
+              <div><button type="button" disabled className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-white opacity-45"><WhatsAppBrandIcon aria-hidden="true" className="size-5" />{isTehilaManualRental ? "לבדיקת זמינות והשכרה" : "יצירת קשר"}</button><p className="mt-2 text-center text-xs text-muted">{isTehilaManualRental ? "פרטי קשר מאומתים עדיין אינם זמינים. ההשכרה מתבצעת ישירות מול תהילה בורכוב, ולא דרך FoundHer." : "פרטי קשר מאומתים עדיין אינם זמינים."}</p></div>
             )}
           </aside>
         </div>

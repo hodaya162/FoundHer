@@ -14,6 +14,10 @@ export type RentalPriceRange = {
   readonly max: number;
 };
 
+export type RentalAvailabilityStatus = "date-coordination";
+export type RentalContactType = "whatsapp" | "pending";
+export type RentalSourceType = "manual-rental";
+
 export type RentalItem = {
   readonly id: string;
   readonly slug: string;
@@ -22,15 +26,20 @@ export type RentalItem = {
   readonly description: string;
   readonly businessId: string;
   readonly businessName: string;
-  readonly location: string;
+  readonly location?: string;
   readonly images: readonly ProductImage[];
   readonly price?: number;
   readonly priceRange?: RentalPriceRange;
   readonly currency: Currency;
   readonly sizes?: readonly ProductSize[];
+  readonly sizeRange?: string;
   readonly color?: string;
   readonly style?: string;
   readonly services: readonly RentalService[];
   readonly contactUrl?: string;
+  readonly contactType?: RentalContactType;
+  readonly availabilityStatus?: RentalAvailabilityStatus;
+  readonly sourceType?: RentalSourceType;
+  readonly sourceId?: string;
   readonly isDemo: boolean;
 };

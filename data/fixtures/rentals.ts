@@ -1,5 +1,41 @@
 import type { RentalItem } from "@/domain/rental-item";
 
+const tehilaImageBase = "/images/rentals/tehila-borkhov";
+
+function tehilaImages(
+  rentalNumber: "01" | "02" | "03",
+  filenames: readonly string[],
+  primaryFilename: string,
+) {
+  const ordered = [primaryFilename, ...filenames.filter((filename) => filename !== primaryFilename)];
+  return ordered.map((filename, index) => ({
+    id: `tehila-borkhov-rental-${rentalNumber}-image-${String(index + 1).padStart(2, "0")}`,
+    url: `${tehilaImageBase}/${filename}`,
+    alt: `שמלת ערב להשכרה ${rentalNumber} של תהילה בורכוב${index === 0 ? " — תמונה ראשית" : ""}`,
+  }));
+}
+
+const tehilaRental01Images = tehilaImages("01", [
+  "IMG-20261011-WA0098.jpg", "IMG-20261011-WA0105.jpg", "IMG-20261011-WA0101.jpg",
+  "IMG-20261011-WA0106.jpg", "IMG-20261011-WA0103.jpg", "IMG-20261011-WA0099.jpg",
+  "IMG-20261011-WA0108.jpg", "IMG-20261011-WA0102.jpg", "IMG-20261011-WA0104.jpg",
+  "IMG-20261011-WA0100.jpg", "IMG-20261011-WA0107.jpg",
+], "IMG-20261011-WA0107.jpg");
+
+const tehilaRental02Images = tehilaImages("02", [
+  "IMG-20261011-WA0109.jpg", "IMG-20261011-WA0110.jpg", "IMG-20261011-WA0111.jpg",
+  "IMG-20261011-WA0117.jpg", "IMG-20261011-WA0113.jpg", "IMG-20261011-WA0112.jpg",
+  "IMG-20261011-WA0115.jpg", "IMG-20261011-WA0119.jpg", "IMG-20261011-WA0114.jpg",
+  "IMG-20261011-WA0116.jpg", "IMG-20261011-WA0118.jpg",
+], "IMG-20261011-WA0111.jpg");
+
+const tehilaRental03Images = tehilaImages("03", [
+  "IMG-20261011-WA0120.jpg", "IMG-20261011-WA0121.jpg", "IMG-20261011-WA0122.jpg",
+  "IMG-20261011-WA0123.jpg", "IMG-20261011-WA0125.jpg", "IMG-20261011-WA0129.jpg",
+  "IMG-20261011-WA0127.jpg", "IMG-20261011-WA0124.jpg", "IMG-20261011-WA0126.jpg",
+  "IMG-20261011-WA0128.jpg",
+], "IMG-20261011-WA0129.jpg");
+
 export const rentals = [
   {
     id: "rental-shos-classic-bridal",
@@ -149,6 +185,64 @@ export const rentals = [
     priceRange: { min: 500, max: 1500 },
     currency: "ILS",
     services: ["rental", "alterations", "custom_design"],
+    isDemo: false,
+  },
+  {
+    id: "tehila-borkhov-rental-01",
+    slug: "tehila-borkhov-rental-01",
+    type: "evening",
+    title: "שמלת ערב להשכרה 01",
+    description: "שמלת ערב צנועה להשכרה. זמינות ההשכרה נקבעת לפי התאריך ובתיאום ישיר מול המשכירה.",
+    businessId: "rental-business-tehila-borkhov",
+    businessName: "תהילה בורכוב",
+    images: tehilaRental01Images,
+    price: 800,
+    currency: "ILS",
+    sizeRange: "S–XL",
+    services: ["rental"],
+    contactType: "pending",
+    availabilityStatus: "date-coordination",
+    sourceType: "manual-rental",
+    sourceId: "tehila-borkhov",
+    isDemo: false,
+  },
+  {
+    id: "tehila-borkhov-rental-02",
+    slug: "tehila-borkhov-rental-02",
+    type: "evening",
+    title: "שמלת ערב להשכרה 02",
+    description: "שמלת ערב צנועה להשכרה. זמינות ההשכרה נקבעת לפי התאריך ובתיאום ישיר מול המשכירה.",
+    businessId: "rental-business-tehila-borkhov",
+    businessName: "תהילה בורכוב",
+    images: tehilaRental02Images,
+    price: 600,
+    currency: "ILS",
+    sizeRange: "S–M",
+    services: ["rental"],
+    contactType: "pending",
+    availabilityStatus: "date-coordination",
+    sourceType: "manual-rental",
+    sourceId: "tehila-borkhov",
+    isDemo: false,
+  },
+  {
+    id: "tehila-borkhov-rental-03",
+    slug: "tehila-borkhov-rental-03",
+    type: "evening",
+    title: "שמלת ערב להשכרה 03",
+    description: "שמלת ערב שחורה וצנועה להשכרה. זמינות ההשכרה נקבעת לפי התאריך ובתיאום ישיר מול המשכירה.",
+    businessId: "rental-business-tehila-borkhov",
+    businessName: "תהילה בורכוב",
+    images: tehilaRental03Images,
+    price: 800,
+    currency: "ILS",
+    sizeRange: "XS–M",
+    color: "שחור",
+    services: ["rental"],
+    contactType: "pending",
+    availabilityStatus: "date-coordination",
+    sourceType: "manual-rental",
+    sourceId: "tehila-borkhov",
     isDemo: false,
   },
   {
