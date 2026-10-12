@@ -12,7 +12,7 @@ import { SimilarLooks } from "./similar-looks";
 type LookDetailsProps = { details: LookDetailsModel };
 
 export function LookDetails({ details }: LookDetailsProps) {
-  const { look, products, similarLooks, unresolvedProductIds } = details;
+  const { catalogUnavailable, look, products, similarLooks, unresolvedProductRefs } = details;
 
   return (
     <main>
@@ -33,7 +33,7 @@ export function LookDetails({ details }: LookDetailsProps) {
           </header>
         </div>
         <LookStory look={look} />
-        <LookProductList products={products} unresolvedCount={unresolvedProductIds.length} />
+        <LookProductList products={products} unresolvedCount={unresolvedProductRefs.length} catalogUnavailable={catalogUnavailable} />
         <SimilarLooks looks={similarLooks} />
       </PageContainer>
     </main>

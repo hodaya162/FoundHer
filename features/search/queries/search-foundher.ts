@@ -5,6 +5,7 @@ import { getAllCategories } from "@/lib/repositories/categories.repository";
 import { getAllLooks } from "@/lib/repositories/looks.repository";
 import { getAllProducts } from "@/lib/repositories/products.repository";
 import { getAllRentalBusinesses } from "@/lib/repositories/rental-businesses.repository";
+import { getCatalogSourceById } from "@/config/catalog-sources";
 
 import type {
   BrandSearchResult,
@@ -49,10 +50,10 @@ export function searchFoundHer(query: string): SearchResults {
   const categoriesById = new Map(categories.map((category) => [category.id, category]));
 
   const lookResults = rank<LookSearchResult>(getAllLooks().flatMap((look, index) => {
-    const linkedBrandNames = look.brandIds.flatMap((brandId) => {
-      const brand = brandsById.get(brandId);
-      return brand ? [brand.name] : [];
-    });
+    const linkedBrandNames = [...new Set(look.productRefs.flatMap(({ sourceId }) => {
+      const source = getCatalogSourceById(sourceId);
+      return source ? [source.brandName] : [];
+    }))];
     const contextLabel = occasionLabels[look.occasions[0]] ?? "השראה";
     const match = scoreSearchDocument(normalizedQuery, {
       title: [look.title],

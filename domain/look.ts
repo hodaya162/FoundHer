@@ -1,4 +1,5 @@
 import type { ImageAsset } from "./media";
+import type { CatalogProductReference } from "./catalog";
 
 export const LOOK_OCCASIONS = [
   "wedding_guest",
@@ -41,8 +42,7 @@ export type Look = {
   readonly description: string;
   readonly story: string;
   readonly coverImage: ImageAsset;
-  readonly productIds: readonly string[];
-  readonly brandIds: readonly string[];
+  readonly productRefs: readonly CatalogProductReference[];
   readonly occasions: readonly LookOccasion[];
   readonly styleTags: readonly LookStyleTag[];
   readonly seasonTags: readonly LookSeasonTag[];

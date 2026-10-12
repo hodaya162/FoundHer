@@ -6,6 +6,7 @@ import {
   LOOK_STYLE_TAGS,
 } from "@/domain/look";
 import type { Look } from "@/domain/look";
+import { getCatalogSourceById } from "@/config/catalog-sources";
 import { brands } from "./brands";
 import { categories } from "./categories";
 import { looks } from "./looks";
@@ -70,7 +71,6 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   validateUniqueEntities("looks", looks, errors);
   validateUniqueEntities("categories", categories, errors);
 
-  const productIds = new Set<string>(products.map(({ id }) => id));
   const brandIds = new Set<string>(brands.map(({ id }) => id));
   const rentalBusinessIds = new Set<string>(rentalBusinesses.map(({ id }) => id));
   const categoryIds = new Set<string>(categories.map(({ id }) => id));
@@ -102,20 +102,15 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
   }
 
   for (const look of fixtureLooks) {
-    if (look.productIds.length === 0) {
+    if (look.productRefs.length === 0) {
       errors.push(`look "${look.id}" must reference at least one product`);
     }
 
-    for (const productId of look.productIds) {
-      if (!productIds.has(productId)) {
-        errors.push(`look "${look.id}" references missing product "${productId}"`);
+    for (const reference of look.productRefs) {
+      if (!getCatalogSourceById(reference.sourceId)) {
+        errors.push(`look "${look.id}" references missing catalog source "${reference.sourceId}"`);
       }
-    }
-
-    for (const brandId of look.brandIds) {
-      if (!brandIds.has(brandId)) {
-        errors.push(`look "${look.id}" references missing brand "${brandId}"`);
-      }
+      if (!reference.productId.trim()) errors.push(`look "${look.id}" has an empty catalog product reference`);
     }
 
     for (const occasion of look.occasions) {
@@ -135,18 +130,6 @@ export function validateFixtureIntegrity(): FixtureIntegrityResult {
         errors.push(`look "${look.id}" has invalid season tag "${seasonTag}"`);
       }
     }
-  }
-
-  const hasMixedCommerceLook = fixtureLooks.some((look) => {
-    const lookProducts = look.productIds
-      .map((productId) => fixtureProducts.find(({ id }) => id === productId))
-      .filter((product): product is Product => Boolean(product));
-
-    return lookProducts.some(isPurchaseProduct) && lookProducts.some(isRentalProduct);
-  });
-
-  if (!hasMixedCommerceLook) {
-    errors.push("looks: expected at least one fixture combining purchase and rental products");
   }
 
   return { valid: errors.length === 0, errors };
