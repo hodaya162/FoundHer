@@ -7,9 +7,9 @@ import type { RentalBusiness } from "@/domain/rental-business";
 import type { RentalItem, RentalService } from "@/domain/rental-item";
 import { FavoriteButton } from "@/features/favorites";
 import { cn } from "@/lib/utils";
-import { buildRentalWhatsAppUrl } from "../utils/whatsapp";
+import { buildProviderRentalWhatsAppUrl, buildRentalWhatsAppUrl } from "../utils/whatsapp";
 
-import { WhatsAppBrandIcon } from "./brand-icons";
+import { InstagramBrandIcon, WhatsAppBrandIcon } from "./brand-icons";
 import { RentalPrice } from "./rental-price";
 import { RentalImageGallery } from "./rental-image-gallery";
 import { RentalShareButton } from "./rental-share-button";
@@ -29,9 +29,13 @@ const serviceIcons = {
 } satisfies Record<RentalService, typeof Shirt>;
 
 export function RentalDetail({ item, business }: { item: RentalItem; business: RentalBusiness | null }) {
-  const contactDestination = item.contactUrl ?? business?.whatsappUrl;
-  const contactUrl = contactDestination ? buildRentalWhatsAppUrl(contactDestination, item.slug) : undefined;
   const isTehilaManualRental = item.sourceId === "tehila-borkhov";
+  const contactDestination = item.contactUrl ?? business?.whatsappUrl;
+  const contactUrl = contactDestination
+    ? isTehilaManualRental
+      ? buildProviderRentalWhatsAppUrl(contactDestination, item.businessName, item.title)
+      : buildRentalWhatsAppUrl(contactDestination, item.slug)
+    : undefined;
 
   return (
     <main className="bg-[#fffaf7]">
@@ -65,9 +69,9 @@ export function RentalDetail({ item, business }: { item: RentalItem; business: R
               </ul>
             </section>
             {contactUrl ? (
-              <a href={contactUrl} target="_blank" rel="noopener noreferrer" aria-label={`יצירת קשר בוואטסאפ לגבי ${item.title} — נפתח בחלון חדש`} className={cn(buttonVariants({ size: "lg" }), "w-full rounded-full border-foreground bg-foreground text-white hover:bg-foreground/90")}><WhatsAppBrandIcon aria-hidden="true" className="size-5 text-[#25D366]" />יצירת קשר בוואטסאפ</a>
+              <div className="space-y-2"><a href={contactUrl} target="_blank" rel="noopener noreferrer" aria-label={`יצירת קשר בוואטסאפ לגבי ${item.title} — נפתח בחלון חדש`} className={cn(buttonVariants({ size: "lg" }), "w-full rounded-full border-foreground bg-foreground text-white hover:bg-foreground/90")}><WhatsAppBrandIcon aria-hidden="true" className="size-5 text-[#25D366]" />{isTehilaManualRental ? "לבדיקת זמינות והשכרה" : "יצירת קשר בוואטסאפ"}</a>{business?.instagramUrl ? <a href={business.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 text-sm font-medium text-muted underline-offset-4 hover:text-foreground hover:underline"><InstagramBrandIcon aria-hidden="true" className="size-4" />{isTehilaManualRental ? "לאינסטגרם של תהילה" : "לאינסטגרם"}</a> : null}<p className="text-center text-xs text-muted">ההשכרה מתבצעת ישירות מול המשכירה.</p></div>
             ) : (
-              <div><button type="button" disabled className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-white opacity-45"><WhatsAppBrandIcon aria-hidden="true" className="size-5" />{isTehilaManualRental ? "לבדיקת זמינות והשכרה" : "יצירת קשר"}</button><p className="mt-2 text-center text-xs text-muted">{isTehilaManualRental ? "פרטי הקשר יתווספו לאחר אימות" : "פרטי קשר מאומתים עדיין אינם זמינים."}</p>{isTehilaManualRental ? <p className="mt-1 text-center text-xs text-muted">ההשכרה מתבצעת ישירות מול המשכירה.</p> : null}</div>
+              <div><button type="button" disabled className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-foreground px-6 text-sm font-semibold text-white opacity-45"><WhatsAppBrandIcon aria-hidden="true" className="size-5" />יצירת קשר</button><p className="mt-2 text-center text-xs text-muted">פרטי קשר מאומתים עדיין אינם זמינים.</p></div>
             )}
           </aside>
         </div>

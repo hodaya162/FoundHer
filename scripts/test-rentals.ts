@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 import { getRentalCards } from "../features/rentals/queries/get-rental-cards";
 import { getRentalBusinessDetailsBySlug } from "../features/rentals/queries/get-rental-business-details-by-slug";
@@ -7,9 +7,11 @@ import { getRentalBusinessBySlug } from "../lib/repositories/rental-businesses.r
 import { getAllRentals, getRentalBySlug } from "../lib/repositories/rentals.repository";
 import {
   buildBusinessWhatsAppUrl,
+  buildProviderRentalWhatsAppUrl,
   buildRentalWhatsAppUrl,
   businessWhatsAppMessage,
   createRentalProductUrl,
+  createProviderRentalWhatsAppMessage,
   createRentalWhatsAppMessage,
 } from "../features/rentals/utils/whatsapp";
 
@@ -51,6 +53,7 @@ assert(getRentalBySlug("shos-classic-bridal"), "known rental detail slug resolve
 assert(getRentalBySlug("shos-black-evening"), "known evening rental detail slug resolves");
 
 const tehilaItems = rentals.filter(({ sourceId }) => sourceId === "tehila-borkhov");
+const tehilaBusiness = getRentalBusinessBySlug("tehila-borkhov");
 const expectedTehila = [
   {
     id: "tehila-borkhov-rental-01", price: 800, sizeRange: "S–XL", primary: "IMG-20261011-WA0098.jpg",
@@ -79,13 +82,24 @@ for (const expected of expectedTehila) {
   assert.equal(item.images[0]?.url.split("/").at(-1), expected.primary, `${expected.id} uses the visually selected primary image`);
   assert(item.images.every(({ url }) => existsSync(`public${url}`)), `${expected.id} images all exist locally`);
   assert.equal(item.availabilityStatus, "date-coordination", `${expected.id} never exposes a fake stock state`);
-  assert.equal(item.contactType, "pending", `${expected.id} exposes the missing verified-contact state`);
+  assert.equal(item.contactType, "whatsapp", `${expected.id} exposes its verified WhatsApp contact state`);
   assert.equal(item.contactUrl, undefined, `${expected.id} does not invent contact information`);
   assert.equal(item.priceRange, undefined, `${expected.id} uses its verified rental price, not a purchase/range fallback`);
 }
 assert.equal(new Set(tehilaItems.flatMap(({ images }) => images.map(({ url }) => url))).size, 32, "Tehila gallery mapping contains 32 unique authorized images");
 assert(tehilaItems.every(({ sourceType }) => sourceType === "manual-rental"), "Tehila uses the manual rental source type");
 assert(tehilaItems.every(({ color }) => color === undefined), "Tehila items expose no image-inferred color metadata");
+assert.equal(tehilaBusiness?.whatsappUrl, "https://wa.me/972532242193", "Tehila verified phone is normalized to 972532242193");
+assert.equal(tehilaBusiness?.instagramUrl, "https://www.instagram.com/tehila_borochov", "Tehila uses the verified canonical Instagram URL");
+for (const item of tehilaItems) {
+  const message = createProviderRentalWhatsAppMessage("תהילה בורכוב", item.title);
+  const whatsappLink: globalThis.URL = new globalThis.URL(buildProviderRentalWhatsAppUrl(tehilaBusiness!.whatsappUrl!, "תהילה בורכוב", item.title));
+  assert.equal(`${whatsappLink.origin}${whatsappLink.pathname}`, "https://wa.me/972532242193", `${item.id} opens the verified WhatsApp number`);
+  assert.equal(whatsappLink.searchParams.get("text"), message, `${item.id} includes its own title in the prefilled message`);
+  assert(whatsappLink.toString().includes("text="), `${item.id} encodes the prefilled WhatsApp message`);
+}
+const rentalDetailSource = readFileSync("features/rentals/components/rental-detail.tsx", "utf8");
+assert(!rentalDetailSource.includes("פרטי הקשר יתווספו לאחר אימות"), "verified contact UI removes the old pending-contact helper");
 
 const businessWhatsAppUrl = new URL(buildBusinessWhatsAppUrl(shosBusiness!.whatsappUrl!));
 assert.equal(`${businessWhatsAppUrl.origin}${businessWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "business WhatsApp destination remains unchanged");

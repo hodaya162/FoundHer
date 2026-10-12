@@ -16,6 +16,10 @@ export function createRentalWhatsAppMessage(productUrl: string): string {
   return `היי, הגעתי אליכן דרך FoundHer 🌸\nהתעניינתי בשמלה הזאת:\n${normalizedUrl}\nאשמח לקבל פרטים לגבי השכרה וזמינות.`;
 }
 
+export function createProviderRentalWhatsAppMessage(providerName: string, rentalTitle: string): string {
+  return `היי ${providerName}, הגעתי דרך FoundHer ואני רוצה לבדוק זמינות להשכרה של ${rentalTitle}`;
+}
+
 export function buildWhatsAppUrl(destination: string, message: string): string {
   const url = new URL(destination);
   url.searchParams.set("text", message);
@@ -24,6 +28,14 @@ export function buildWhatsAppUrl(destination: string, message: string): string {
 
 export function buildBusinessWhatsAppUrl(destination: string): string {
   return buildWhatsAppUrl(destination, businessWhatsAppMessage);
+}
+
+export function buildProviderRentalWhatsAppUrl(
+  destination: string,
+  providerName: string,
+  rentalTitle: string,
+): string {
+  return buildWhatsAppUrl(destination, createProviderRentalWhatsAppMessage(providerName, rentalTitle));
 }
 
 export function buildRentalWhatsAppUrl(

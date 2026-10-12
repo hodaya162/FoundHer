@@ -16,6 +16,8 @@ export const rentalBusinesses = [
     ],
     services: ["rental"],
     eveningPriceRange: { min: 600, max: 800 },
+    whatsappUrl: "https://wa.me/972532242193",
+    instagramUrl: "https://www.instagram.com/tehila_borochov",
     isDemo: false,
     featured: false,
   },
