@@ -92,10 +92,13 @@ assert(tehilaItems.every(({ color }) => color === undefined), "Tehila items expo
 assert.equal(tehilaBusiness?.whatsappUrl, "https://wa.me/972532242193", "Tehila verified phone is normalized to 972532242193");
 assert.equal(tehilaBusiness?.instagramUrl, "https://www.instagram.com/tehila_borochov", "Tehila uses the verified canonical Instagram URL");
 for (const item of tehilaItems) {
-  const message = createProviderRentalWhatsAppMessage("תהילה בורכוב", item.title);
-  const whatsappLink: globalThis.URL = new globalThis.URL(buildProviderRentalWhatsAppUrl(tehilaBusiness!.whatsappUrl!, "תהילה בורכוב", item.title));
+  const previewEnvironment = { VERCEL_URL: "foundher-preview.vercel.app" };
+  const productUrl = createRentalProductUrl(item.slug, previewEnvironment);
+  const message = createProviderRentalWhatsAppMessage("תהילה בורכוב", item.title, productUrl);
+  const whatsappLink: globalThis.URL = new globalThis.URL(buildProviderRentalWhatsAppUrl(tehilaBusiness!.whatsappUrl!, "תהילה בורכוב", item.title, item.slug, previewEnvironment));
   assert.equal(`${whatsappLink.origin}${whatsappLink.pathname}`, "https://wa.me/972532242193", `${item.id} opens the verified WhatsApp number`);
   assert.equal(whatsappLink.searchParams.get("text"), message, `${item.id} includes its own title in the prefilled message`);
+  assert.equal(whatsappLink.searchParams.get("text")?.split("\n").at(-1), productUrl, `${item.id} includes its direct FoundHer product URL`);
   assert(whatsappLink.toString().includes("text="), `${item.id} encodes the prefilled WhatsApp message`);
 }
 const rentalDetailSource = readFileSync("features/rentals/components/rental-detail.tsx", "utf8");
@@ -106,9 +109,9 @@ assert.equal(`${businessWhatsAppUrl.origin}${businessWhatsAppUrl.pathname}`, "ht
 assert.equal(businessWhatsAppUrl.searchParams.get("text"), businessWhatsAppMessage, "business WhatsApp message preserves Hebrew and emoji");
 
 const productSlug = "shos-black-evening";
-const previewEnvironment = { VERCEL_URL: "foundher-preview.vercel.app" };
-const productUrl = createRentalProductUrl(productSlug, previewEnvironment);
-const productWhatsAppUrl = new URL(buildRentalWhatsAppUrl(shosBusiness!.whatsappUrl!, productSlug, previewEnvironment));
+const shosPreviewEnvironment = { VERCEL_URL: "foundher-preview.vercel.app" };
+const productUrl = createRentalProductUrl(productSlug, shosPreviewEnvironment);
+const productWhatsAppUrl = new URL(buildRentalWhatsAppUrl(shosBusiness!.whatsappUrl!, productSlug, shosPreviewEnvironment));
 assert.equal(`${productWhatsAppUrl.origin}${productWhatsAppUrl.pathname}`, "https://wa.me/972537207193", "product WhatsApp destination remains unchanged");
 assert.equal(productUrl, "https://foundher-preview.vercel.app/rentals/shos-black-evening", "product URL uses the exact rental slug and current FoundHer origin");
 assert.equal(productWhatsAppUrl.searchParams.get("text"), createRentalWhatsAppMessage(productUrl), "product WhatsApp message preserves Hebrew, emoji, line breaks, and the product URL");

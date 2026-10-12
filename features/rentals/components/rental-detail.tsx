@@ -33,7 +33,7 @@ export function RentalDetail({ item, business }: { item: RentalItem; business: R
   const contactDestination = item.contactUrl ?? business?.whatsappUrl;
   const contactUrl = contactDestination
     ? isTehilaManualRental
-      ? buildProviderRentalWhatsAppUrl(contactDestination, item.businessName, item.title)
+      ? buildProviderRentalWhatsAppUrl(contactDestination, item.businessName, item.title, item.slug)
       : buildRentalWhatsAppUrl(contactDestination, item.slug)
     : undefined;
 
