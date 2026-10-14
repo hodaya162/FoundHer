@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-export default function FavoritesPage() {
-  const products = getDiscoverProductCards().filter((product) => product.type === "purchase");
+export default async function FavoritesPage() {
+  const products = (await getDiscoverProductCards()).filter((product) => product.type === "purchase");
 
   return (
     <main>

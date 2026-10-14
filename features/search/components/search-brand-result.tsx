@@ -13,7 +13,7 @@ export function SearchBrandResult({ priority = false, result }: Props) {
   return (
     <article className="h-full">
       <Card className="flex h-full overflow-hidden">
-        <div className="relative w-28 shrink-0 bg-surface-muted sm:w-36"><Image src={result.image.url} alt={result.image.alt} fill priority={priority} sizes="(max-width: 639px) 112px, 144px" className="object-cover" /></div>
+        <div className="relative w-28 shrink-0 bg-surface-muted sm:w-36"><Image src={result.image.url} alt={result.image.alt} fill priority={priority} unoptimized={result.image.url.startsWith("https://")} sizes="(max-width: 639px) 112px, 144px" className="object-cover" /></div>
         <CardContent className="flex min-w-0 flex-1 flex-col items-start gap-2 p-4">
           <div className="flex w-full items-start justify-between gap-2">
             <div className="flex flex-wrap items-center gap-2">
@@ -25,7 +25,7 @@ export function SearchBrandResult({ priority = false, result }: Props) {
           <h3 className="type-card-title break-words">{result.title}</h3>
           {business ? <p className="type-caption flex items-center gap-2"><MapPin aria-hidden="true" className="size-4" />{result.city}</p> : null}
           <p className="type-body-small line-clamp-2 break-words text-muted">{result.subtitle}</p>
-          {business ? <Link href={result.href} className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary">לעמוד הדוגמה <ArrowLeft aria-hidden="true" className="size-4" /></Link> : <p className="type-caption mt-auto pt-2">מותג לדוגמה ללא יעד מסחרי מאומת.</p>}
+          {business ? <Link href={result.href} className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary">לעמוד העסק <ArrowLeft aria-hidden="true" className="size-4" /></Link> : result.href ? <Link href={result.href} className="mt-auto inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary">לפריטי המותג <ArrowLeft aria-hidden="true" className="size-4" /></Link> : <p className="type-caption mt-auto pt-2">ללא יעד מסחרי מאומת.</p>}
         </CardContent>
       </Card>
     </article>

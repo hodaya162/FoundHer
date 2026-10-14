@@ -1,0 +1,5642 @@
+{
+  "sourceId": "mini-allenby",
+  "syncedAt": "2026-10-14T12:22:18.259Z",
+  "products": [
+    {
+      "id": "mini-allenby:10376401027258",
+      "externalId": "10376401027258",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצה פסים ארוך וצווארון ריץ רץ",
+      "category": "tops",
+      "price": 90,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%94-%D7%A4%D7%A1%D7%99%D7%9D-%D7%90%D7%A8%D7%95%D7%9A-%D7%95%D7%A6%D7%95%D7%95%D7%90%D7%A8%D7%95%D7%9F-%D7%A8%D7%99%D7%A5-%D7%A8%D7%A5",
+      "images": [
+        {
+          "id": "mini-allenby:10376401027258:image:44454427197626",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/1B32AE93-8374-4AE4-9D1F-F809F872EBAA.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ של Mini Allenby",
+          "width": 3056,
+          "height": 4584
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454427164858",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9D0548EB-4064-455F-B019-FDDEC7DEDC24.jpg?v=1791731106",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 2",
+          "width": 3327,
+          "height": 4991
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454427132090",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/7AA53D51-F387-40BB-B5AF-BD940AAC0905.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 3",
+          "width": 2783,
+          "height": 4174
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454427099322",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/18A2AA57-A90E-4293-921F-95FF7959C626.jpg?v=1791731106",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 4",
+          "width": 2770,
+          "height": 4155
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454427066554",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/3BA97D2E-AC26-4A53-BFEE-AF030884A6C0.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 5",
+          "width": 3001,
+          "height": 4501
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454427033786",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/4B88474D-0E26-41A8-9102-05CC60C7E1E3.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 6",
+          "width": 2806,
+          "height": 4209
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454427001018",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9EF3C84E-DFC1-4B8B-ADA1-3D2D6CE9E236.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 7",
+          "width": 2857,
+          "height": 4286
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426968250",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/1EF16799-01EE-4CC7-BE1E-8518521B0C96.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 8",
+          "width": 1366,
+          "height": 2048
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426935482",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/016B8F8F-D188-4038-B8BD-233E8DC59132.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 9",
+          "width": 1366,
+          "height": 2048
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426902714",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/1C278149-1A82-45A7-881D-6A75D6FA83BB.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 10",
+          "width": 2913,
+          "height": 4370
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426869946",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9DFDC183-8093-4BB6-A200-8280359F97C5.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 11",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426837178",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9760610F-6EC0-4496-9212-1BEB7832902C.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 12",
+          "width": 1366,
+          "height": 2048
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426804410",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/53864A95-509C-4A2A-93FF-999FC3054EB4.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 13",
+          "width": 2799,
+          "height": 4199
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426771642",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/80061BD1-8BD6-4DC0-B2AD-330499AA5611.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 14",
+          "width": 2775,
+          "height": 4163
+        },
+        {
+          "id": "mini-allenby:10376401027258:image:44454426738874",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/4E1CFC53-F90F-44F1-A05A-77126A25788A.jpg?v=1791731105",
+          "alt": "חולצה פסים ארוך וצווארון ריץ רץ — תמונה 15",
+          "width": 2807,
+          "height": 4210
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:10376401027258:variant:50716423454906",
+          "externalId": "50716423454906",
+          "title": "gray",
+          "price": 90,
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:10376401027258:variant:50716423487674",
+          "externalId": "50716423487674",
+          "title": "black",
+          "price": 90,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:10376401027258:variant:50716423520442",
+          "externalId": "50716423520442",
+          "title": "brown",
+          "price": 90,
+          "color": {
+            "raw": "brown",
+            "normalized": "brown"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:10376401027258:variant:50716423553210",
+          "externalId": "50716423553210",
+          "title": "blue",
+          "price": 90,
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "gray",
+          "normalized": "gray"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "brown",
+          "normalized": "brown"
+        },
+        {
+          "raw": "blue",
+          "normalized": "blue"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8520997470394",
+      "externalId": "8520997470394",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "שמלה תחרה עם כיווצים במותן",
+      "category": "dresses",
+      "price": 160,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A9%D7%9E%D7%9C%D7%94-%D7%AA%D7%97%D7%A8%D7%94-%D7%A2%D7%9D-%D7%9B%D7%99%D7%95%D7%95%D7%A6%D7%99%D7%9D-%D7%91%D7%9E%D7%95%D7%AA%D7%9F",
+      "images": [
+        {
+          "id": "mini-allenby:8520997470394:image:43407157461178",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.57.42.jpg?v=1788700112",
+          "alt": "שמלה תחרה עם כיווצים במותן של Mini Allenby",
+          "width": 1305,
+          "height": 1958
+        },
+        {
+          "id": "mini-allenby:8520997470394:image:43407132819642",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.57.36.jpg?v=1788700089",
+          "alt": "שמלה תחרה עם כיווצים במותן — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520997470394:image:43407156871354",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.57.35_1.jpg?v=1788700099",
+          "alt": "שמלה תחרה עם כיווצים במותן — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520997470394:image:43407130558650",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-09-01at17.57.35.jpg?v=1788700070",
+          "alt": "שמלה תחרה עם כיווצים במותן — תמונה 4",
+          "width": 1262,
+          "height": 1893
+        },
+        {
+          "id": "mini-allenby:8520997470394:image:43407131672762",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.57.34_1.jpg?v=1788700079",
+          "alt": "שמלה תחרה עם כיווצים במותן — תמונה 5",
+          "width": 1366,
+          "height": 2048
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8520997470394:variant:46566090571962",
+          "externalId": "46566090571962",
+          "title": "שחור",
+          "price": 160,
+          "color": {
+            "raw": "שחור",
+            "normalized": "שחור"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520997470394:variant:46566090604730",
+          "externalId": "46566090604730",
+          "title": "חום",
+          "price": 160,
+          "color": {
+            "raw": "חום",
+            "normalized": "חום"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520997470394:variant:46566090637498",
+          "externalId": "46566090637498",
+          "title": "לבן",
+          "price": 160,
+          "color": {
+            "raw": "לבן",
+            "normalized": "לבן"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "שחור",
+          "normalized": "שחור"
+        },
+        {
+          "raw": "חום",
+          "normalized": "חום"
+        },
+        {
+          "raw": "לבן",
+          "normalized": "לבן"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8520992030906",
+      "externalId": "8520992030906",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "שמלה טול כיווצים",
+      "category": "dresses",
+      "price": 140,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A9%D7%9E%D7%9C%D7%94-%D7%98%D7%95%D7%9C-%D7%9B%D7%99%D7%95%D7%95%D7%A6%D7%99%D7%9D",
+      "images": [
+        {
+          "id": "mini-allenby:8520992030906:image:43406997586106",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.56.32.jpg?v=1788699765",
+          "alt": "שמלה טול כיווצים של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520992030906:image:43406984315066",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-09-01at17.56.33.jpg?v=1788699729",
+          "alt": "שמלה טול כיווצים — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520992030906:image:43406993490106",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.56.32_2.jpg?v=1788699745",
+          "alt": "שמלה טול כיווצים — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520992030906:image:43406996471994",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.56.32_1.jpg?v=1788699750",
+          "alt": "שמלה טול כיווצים — תמונה 4",
+          "width": 1066,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8520992030906:variant:46566035914938",
+          "externalId": "46566035914938",
+          "title": "חום",
+          "price": 140,
+          "color": {
+            "raw": "חום",
+            "normalized": "חום"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520992030906:variant:46566035947706",
+          "externalId": "46566035947706",
+          "title": "לבן",
+          "price": 140,
+          "color": {
+            "raw": "לבן",
+            "normalized": "לבן"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520992030906:variant:46566035980474",
+          "externalId": "46566035980474",
+          "title": "שחור",
+          "price": 140,
+          "color": {
+            "raw": "שחור",
+            "normalized": "שחור"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520992030906:variant:46566036013242",
+          "externalId": "46566036013242",
+          "title": "בז",
+          "price": 140,
+          "color": {
+            "raw": "בז",
+            "normalized": "בז"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "חום",
+          "normalized": "חום"
+        },
+        {
+          "raw": "לבן",
+          "normalized": "לבן"
+        },
+        {
+          "raw": "שחור",
+          "normalized": "שחור"
+        },
+        {
+          "raw": "בז",
+          "normalized": "בז"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8520968274106",
+      "externalId": "8520968274106",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חאצית פסים עם קשירה",
+      "category": "skirts",
+      "price": 100,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%90%D7%A6%D7%99%D7%AA-%D7%A4%D7%A1%D7%99%D7%9D-%D7%A2%D7%9D-%D7%A7%D7%A9%D7%99%D7%A8%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:8520968274106:image:43406450884794",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.56.22_3.jpg?v=1788699072",
+          "alt": "חאצית פסים עם קשירה של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520968274106:image:43406450753722",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.56.23_1.jpg?v=1788699065",
+          "alt": "חאצית פסים עם קשירה — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520968274106:image:43406435385530",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.56.22.jpg?v=1788699055",
+          "alt": "חאצית פסים עם קשירה — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520968274106:image:43406420148410",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-09-01at17.56.22_2.jpg?v=1788699043",
+          "alt": "חאצית פסים עם קשירה — תמונה 4",
+          "width": 1066,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8520968274106:variant:46565720424634",
+          "externalId": "46565720424634",
+          "title": "בז",
+          "price": 100,
+          "color": {
+            "raw": "בז",
+            "normalized": "בז"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520968274106:variant:46565720457402",
+          "externalId": "46565720457402",
+          "title": "כחול",
+          "price": 100,
+          "color": {
+            "raw": "כחול",
+            "normalized": "כחול"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520968274106:variant:46565720490170",
+          "externalId": "46565720490170",
+          "title": "ורוד",
+          "price": 100,
+          "color": {
+            "raw": "ורוד",
+            "normalized": "ורוד"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520968274106:variant:46565720522938",
+          "externalId": "46565720522938",
+          "title": "ירוק",
+          "price": 100,
+          "color": {
+            "raw": "ירוק",
+            "normalized": "ירוק"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "בז",
+          "normalized": "בז"
+        },
+        {
+          "raw": "כחול",
+          "normalized": "כחול"
+        },
+        {
+          "raw": "ורוד",
+          "normalized": "ורוד"
+        },
+        {
+          "raw": "ירוק",
+          "normalized": "ירוק"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8520957329594",
+      "externalId": "8520957329594",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית בד סריג עם חגורה",
+      "category": "skirts",
+      "price": 120,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%91%D7%93-%D7%A1%D7%A8%D7%99%D7%92-%D7%A2%D7%9D-%D7%97%D7%92%D7%95%D7%A8%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:8520957329594:image:43406249361594",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-09-01at17.55.11.jpg?v=1788698708",
+          "alt": "חצאית בד סריג עם חגורה של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520957329594:image:43406252146874",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.55.11_2.jpg?v=1788698733",
+          "alt": "חצאית בד סריג עם חגורה — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520957329594:image:43406251458746",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.55.11_1.jpg?v=1788698720",
+          "alt": "חצאית בד סריג עם חגורה — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520957329594:image:43406288945338",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.55.11_3.jpg?v=1788698763",
+          "alt": "חצאית בד סריג עם חגורה — תמונה 4",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520957329594:image:43406283767994",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.55.12.jpg?v=1788698752",
+          "alt": "חצאית בד סריג עם חגורה — תמונה 5",
+          "width": 1066,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8520957329594:variant:46565651644602",
+          "externalId": "46565651644602",
+          "title": "בז",
+          "price": 120,
+          "color": {
+            "raw": "בז",
+            "normalized": "בז"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520957329594:variant:46565651677370",
+          "externalId": "46565651677370",
+          "title": "חום",
+          "price": 120,
+          "color": {
+            "raw": "חום",
+            "normalized": "חום"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520957329594:variant:46565651710138",
+          "externalId": "46565651710138",
+          "title": "שחור",
+          "price": 120,
+          "color": {
+            "raw": "שחור",
+            "normalized": "שחור"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520957329594:variant:46565651742906",
+          "externalId": "46565651742906",
+          "title": "לבן",
+          "price": 120,
+          "color": {
+            "raw": "לבן",
+            "normalized": "לבן"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520957329594:variant:46565651775674",
+          "externalId": "46565651775674",
+          "title": "כחול",
+          "price": 120,
+          "color": {
+            "raw": "כחול",
+            "normalized": "כחול"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "בז",
+          "normalized": "בז"
+        },
+        {
+          "raw": "חום",
+          "normalized": "חום"
+        },
+        {
+          "raw": "שחור",
+          "normalized": "שחור"
+        },
+        {
+          "raw": "לבן",
+          "normalized": "לבן"
+        },
+        {
+          "raw": "כחול",
+          "normalized": "כחול"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8520905261242",
+      "externalId": "8520905261242",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "שמלה משבצות עם חגורה",
+      "category": "dresses",
+      "price": 160,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A9%D7%9E%D7%9C%D7%94-%D7%9E%D7%A9%D7%91%D7%A6%D7%95%D7%AA-%D7%A2%D7%9D-%D7%97%D7%92%D7%95%D7%A8%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:8520905261242:image:43405789593786",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-09-01at17.52.53.jpg?v=1788697818",
+          "alt": "שמלה משבצות עם חגורה של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520905261242:image:43405789888698",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.52.53_1.jpg?v=1788697832",
+          "alt": "שמלה משבצות עם חגורה — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520905261242:image:43405790216378",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.52.54.jpg?v=1788697836",
+          "alt": "שמלה משבצות עם חגורה — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520905261242:image:43405793001658",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.52.52.jpg?v=1788697847",
+          "alt": "שמלה משבצות עם חגורה — תמונה 4",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8520905261242:image:43405796212922",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-09-01_at_17.52.56.jpg?v=1788697854",
+          "alt": "שמלה משבצות עם חגורה — תמונה 5",
+          "width": 1271,
+          "height": 1907
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8520905261242:variant:46565355421882",
+          "externalId": "46565355421882",
+          "title": "בז",
+          "price": 160,
+          "color": {
+            "raw": "בז",
+            "normalized": "בז"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520905261242:variant:46565355454650",
+          "externalId": "46565355454650",
+          "title": "כחול",
+          "price": 160,
+          "color": {
+            "raw": "כחול",
+            "normalized": "כחול"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520905261242:variant:46565355487418",
+          "externalId": "46565355487418",
+          "title": "חום",
+          "price": 160,
+          "color": {
+            "raw": "חום",
+            "normalized": "חום"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8520905261242:variant:46565355520186",
+          "externalId": "46565355520186",
+          "title": "שחור",
+          "price": 160,
+          "color": {
+            "raw": "שחור",
+            "normalized": "שחור"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "בז",
+          "normalized": "בז"
+        },
+        {
+          "raw": "כחול",
+          "normalized": "כחול"
+        },
+        {
+          "raw": "חום",
+          "normalized": "חום"
+        },
+        {
+          "raw": "שחור",
+          "normalized": "שחור"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8487643840698",
+      "externalId": "8487643840698",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית פליסה מבריקה",
+      "category": "skirts",
+      "price": 70,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%A4%D7%9C%D7%99%D7%A1%D7%94-%D7%9E%D7%91%D7%A8%D7%99%D7%A7%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:8487643840698:image:42970832502970",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-08-06at19.24.50.jpg?v=1787052940",
+          "alt": "חצאית פליסה מבריקה של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8487643840698:image:42970834239674",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-08-06_at_19.24.50_1.jpg?v=1787052985",
+          "alt": "חצאית פליסה מבריקה — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8487643840698:image:42970892828858",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-08-06_at_19.24.51.jpg?v=1787053276",
+          "alt": "חצאית פליסה מבריקה — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8487643840698:image:42970892861626",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-08-06_at_19.24.51_1.jpg?v=1787053282",
+          "alt": "חצאית פליסה מבריקה — תמונה 4",
+          "width": 1066,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8487643840698:variant:46377387884730",
+          "externalId": "46377387884730",
+          "title": "חום",
+          "price": 70,
+          "color": {
+            "raw": "חום",
+            "normalized": "חום"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8487643840698:variant:46377387917498",
+          "externalId": "46377387917498",
+          "title": "ורוד",
+          "price": 70,
+          "color": {
+            "raw": "ורוד",
+            "normalized": "ורוד"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8487643840698:variant:46377387950266",
+          "externalId": "46377387950266",
+          "title": "שחור",
+          "price": 70,
+          "color": {
+            "raw": "שחור",
+            "normalized": "שחור"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8487643840698:variant:46377387983034",
+          "externalId": "46377387983034",
+          "title": "לבן",
+          "price": 70,
+          "color": {
+            "raw": "לבן",
+            "normalized": "לבן"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "חום",
+          "normalized": "חום"
+        },
+        {
+          "raw": "ורוד",
+          "normalized": "ורוד"
+        },
+        {
+          "raw": "שחור",
+          "normalized": "שחור"
+        },
+        {
+          "raw": "לבן",
+          "normalized": "לבן"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8459123589306",
+      "externalId": "8459123589306",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית בד ריפ עם שרוך",
+      "category": "skirts",
+      "price": 60,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%91%D7%93-%D7%A8%D7%99%D7%A4-%D7%A2%D7%9D-%D7%A9%D7%A8%D7%95%D7%9A",
+      "images": [
+        {
+          "id": "mini-allenby:8459123589306:image:42376021901498",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-07-22at12.35.06_1.jpg?v=1784723971",
+          "alt": "חצאית בד ריפ עם שרוך של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8459123589306:image:42376022917306",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.35.06.jpg?v=1784723990",
+          "alt": "חצאית בד ריפ עם שרוך — תמונה 2",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8459123589306:image:42376023539898",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.35.05_6.jpg?v=1784723996",
+          "alt": "חצאית בד ריפ עם שרוך — תמונה 3",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8459123589306:image:42376024031418",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.35.05_5.jpg?v=1784724004",
+          "alt": "חצאית בד ריפ עם שרוך — תמונה 4",
+          "width": 1066,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8459123589306:variant:46184957214906",
+          "externalId": "46184957214906",
+          "title": "שחור",
+          "price": 60,
+          "color": {
+            "raw": "שחור",
+            "normalized": "שחור"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8459123589306:variant:46184957247674",
+          "externalId": "46184957247674",
+          "title": "חום",
+          "price": 60,
+          "color": {
+            "raw": "חום",
+            "normalized": "חום"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8459123589306:variant:46184957280442",
+          "externalId": "46184957280442",
+          "title": "כחול",
+          "price": 60,
+          "color": {
+            "raw": "כחול",
+            "normalized": "כחול"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8459123589306:variant:46184957313210",
+          "externalId": "46184957313210",
+          "title": "בז",
+          "price": 60,
+          "color": {
+            "raw": "בז",
+            "normalized": "בז"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "שחור",
+          "normalized": "שחור"
+        },
+        {
+          "raw": "חום",
+          "normalized": "חום"
+        },
+        {
+          "raw": "כחול",
+          "normalized": "כחול"
+        },
+        {
+          "raw": "בז",
+          "normalized": "בז"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8459122901178",
+      "externalId": "8459122901178",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית סאטן קלאסית",
+      "category": "skirts",
+      "price": 70,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%A1%D7%90%D7%98%D7%9F-%D7%A7%D7%9C%D7%90%D7%A1%D7%99%D7%AA",
+      "images": [
+        {
+          "id": "mini-allenby:8459122901178:image:42376003453114",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-07-22at12.35.10_4.jpg?v=1784723794",
+          "alt": "חצאית סאטן קלאסית של Mini Allenby",
+          "width": 1023,
+          "height": 1537
+        },
+        {
+          "id": "mini-allenby:8459122901178:image:42376004567226",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.35.10_2.jpg?v=1784723812",
+          "alt": "חצאית סאטן קלאסית — תמונה 2",
+          "width": 1023,
+          "height": 1537
+        },
+        {
+          "id": "mini-allenby:8459122901178:image:42376004141242",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.35.10_3.jpg?v=1784723807",
+          "alt": "חצאית סאטן קלאסית — תמונה 3",
+          "width": 1023,
+          "height": 1537
+        },
+        {
+          "id": "mini-allenby:8459122901178:image:42376005189818",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.35.10_1.jpg?v=1784723816",
+          "alt": "חצאית סאטן קלאסית — תמונה 4",
+          "width": 1023,
+          "height": 1537
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8459122901178:variant:46184955871418",
+          "externalId": "46184955871418",
+          "title": "צהוב",
+          "price": 70,
+          "color": {
+            "raw": "צהוב",
+            "normalized": "צהוב"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8459122901178:variant:46184955904186",
+          "externalId": "46184955904186",
+          "title": "שחור",
+          "price": 70,
+          "color": {
+            "raw": "שחור",
+            "normalized": "שחור"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8459122901178:variant:46184955936954",
+          "externalId": "46184955936954",
+          "title": "כחול",
+          "price": 70,
+          "color": {
+            "raw": "כחול",
+            "normalized": "כחול"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8459122901178:variant:46184955969722",
+          "externalId": "46184955969722",
+          "title": "חום",
+          "price": 70,
+          "color": {
+            "raw": "חום",
+            "normalized": "חום"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "צהוב",
+          "normalized": "צהוב"
+        },
+        {
+          "raw": "שחור",
+          "normalized": "שחור"
+        },
+        {
+          "raw": "כחול",
+          "normalized": "כחול"
+        },
+        {
+          "raw": "חום",
+          "normalized": "חום"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8459096654010",
+      "externalId": "8459096654010",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצה פסים מיקה",
+      "category": "tops",
+      "price": 70,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%94-%D7%A4%D7%A1%D7%99%D7%9D-%D7%9E%D7%99%D7%A7%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:8459096654010:image:42374982467770",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2026-07-22at12.33.00_1.jpg?v=1784720487",
+          "alt": "חולצה פסים מיקה של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8459096654010:image:42374985941178",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.33.00.jpg?v=1784720497",
+          "alt": "חולצה פסים מיקה — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8459096654010:image:42374986301626",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.32.59_1.jpg?v=1784720502",
+          "alt": "חולצה פסים מיקה — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8459096654010:image:42374986694842",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2026-07-22_at_12.32.59.jpg?v=1784720506",
+          "alt": "חולצה פסים מיקה — תמונה 4",
+          "width": 1066,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8459096654010:variant:46184902852794",
+          "externalId": "46184902852794",
+          "title": "BLACK",
+          "price": 70,
+          "color": {
+            "raw": "BLACK",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8459096654010:variant:46184902885562",
+          "externalId": "46184902885562",
+          "title": "GRAY",
+          "price": 70,
+          "color": {
+            "raw": "GRAY",
+            "normalized": "gray"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8459096654010:variant:46184902918330",
+          "externalId": "46184902918330",
+          "title": "BEIGE",
+          "price": 70,
+          "color": {
+            "raw": "BEIGE",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8459096654010:variant:46184902951098",
+          "externalId": "46184902951098",
+          "title": "PINK",
+          "price": 70,
+          "color": {
+            "raw": "PINK",
+            "normalized": "pink"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "BLACK",
+          "normalized": "black"
+        },
+        {
+          "raw": "GRAY",
+          "normalized": "gray"
+        },
+        {
+          "raw": "BEIGE",
+          "normalized": "beige"
+        },
+        {
+          "raw": "PINK",
+          "normalized": "pink"
+        }
+      ],
+      "available": false,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7597660766394",
+      "externalId": "7597660766394",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "גרביון טיץ 40 דינר",
+      "category": "accessories",
+      "price": 20,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%92%D7%A8%D7%91%D7%99%D7%95%D7%9F-%D7%98%D7%99%D7%A5-40-%D7%93%D7%99%D7%A0%D7%A8",
+      "images": [
+        {
+          "id": "mini-allenby:7597660766394:image:34157111181498",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9F7DA2E0-4EDA-4164-AE68-A2475F283233.jpg?v=1709890173",
+          "alt": "גרביון טיץ 40 דינר של Mini Allenby",
+          "width": 1179,
+          "height": 2096
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7597660766394:variant:43207301791930",
+          "externalId": "43207301791930",
+          "title": "black",
+          "price": 20,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7597661094074",
+      "externalId": "7597661094074",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "טיץ גרביון 20 דינר",
+      "category": "accessories",
+      "price": 20,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%98%D7%99%D7%A5-%D7%92%D7%A8%D7%91%D7%99%D7%95%D7%9F-20-%D7%93%D7%99%D7%A0%D7%A8",
+      "images": [
+        {
+          "id": "mini-allenby:7597661094074:image:34157113114810",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/4058AFAE-72AE-48DA-BC6A-377F245971FB.jpg?v=1709890238",
+          "alt": "טיץ גרביון 20 דינר של Mini Allenby",
+          "width": 1179,
+          "height": 2096
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7597661094074:variant:43207303102650",
+          "externalId": "43207303102650",
+          "title": "black",
+          "price": 20,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7031899750586",
+      "externalId": "7031899750586",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית ג'ינס כפתורים גזרה A קצרה",
+      "description": "המלתחה שלך כבר יודעת שהיא צריכה את החצאיות שלנו A חצאית מבד ג'ינס מכופתרת עד הברך גזרה :S מידה היקף מותן: 72 ס”מ היקף ירכיים: 94 ס”מ אורך אחורי 50 ס”מ :M מידה היקף מותן: 76 ס”מ היקף ירכיים: 98 ס”מ אורך אחורי 50 ס”מ :L מידה היקף מותן: 79 ס”מ היקף ירכיים: 102 ס”מ אורך אחורי 50 ס”מ :XL מידה היקף מותן: 84 ס”מ היקף ירכיים: 106 ס”מ אורך אחורי 50 ס”מ",
+      "category": "skirts",
+      "price": 80,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A7%D7%A6%D7%A8%D7%94-a-%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%92%D7%99%D7%A0%D7%A1-%D7%9B%D7%A4%D7%AA%D7%95%D7%A8%D7%99%D7%9D-%D7%92%D7%96%D7%A8%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:7031899750586:image:31370722279610",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_8f6d7461-d949-4ef1-a428-87963273cf72.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה של Mini Allenby",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370721984698",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_bc8ea51f-9913-4bb5-9939-772f090d5be2.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 2",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370721296570",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_fb200db2-a96e-4cb2-b187-3807fb1786b7.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 3",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370729029818",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_259502b4-16eb-4b37-885c-03702dc9c014.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 4",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370735648954",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_36bcdd55-fd6b-4d13-a835-145ae30e20f6.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 5",
+          "width": 2377,
+          "height": 3169
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370722574522",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_0b348811-7533-4f67-b2ec-11abc95dec80.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 6",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370736206010",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_9b66f686-1257-43fa-8b27-acebd36fc10e.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 7",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370735911098",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_c5db15a0-f63a-4441-9b3a-34b364fb49ca.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 8",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370758521018",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_f57265a4-d53e-46e6-9fce-e5c93ffb893a.jpg?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 9",
+          "width": 516,
+          "height": 688
+        },
+        {
+          "id": "mini-allenby:7031899750586:image:31370758488250",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_c19553a9-6636-4b96-bb5b-07855d059540.heic?v=1651506996",
+          "alt": "חצאית ג'ינס כפתורים גזרה A קצרה — תמונה 10",
+          "width": 3024,
+          "height": 4032
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7031899750586:variant:41178456850618",
+          "externalId": "41178456850618",
+          "title": "S / blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178456883386",
+          "externalId": "41178456883386",
+          "title": "S / sea blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178456916154",
+          "externalId": "41178456916154",
+          "title": "S / black",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178456948922",
+          "externalId": "41178456948922",
+          "title": "S / turquoise",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178456981690",
+          "externalId": "41178456981690",
+          "title": "M / blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457014458",
+          "externalId": "41178457014458",
+          "title": "M / sea blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457047226",
+          "externalId": "41178457047226",
+          "title": "M / black",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457079994",
+          "externalId": "41178457079994",
+          "title": "M / turquoise",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457112762",
+          "externalId": "41178457112762",
+          "title": "L / blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457145530",
+          "externalId": "41178457145530",
+          "title": "L / sea blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457178298",
+          "externalId": "41178457178298",
+          "title": "L / black",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457211066",
+          "externalId": "41178457211066",
+          "title": "L / turquoise",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457243834",
+          "externalId": "41178457243834",
+          "title": "XL / blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457276602",
+          "externalId": "41178457276602",
+          "title": "XL / sea blue",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457309370",
+          "externalId": "41178457309370",
+          "title": "XL / black",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031899750586:variant:41178457342138",
+          "externalId": "41178457342138",
+          "title": "XL / turquoise",
+          "price": 80,
+          "sku": "2768",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S",
+          "normalized": "S"
+        },
+        {
+          "raw": "M",
+          "normalized": "M"
+        },
+        {
+          "raw": "L",
+          "normalized": "L"
+        },
+        {
+          "raw": "XL",
+          "normalized": "XL"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "blue",
+          "normalized": "blue"
+        },
+        {
+          "raw": "sea blue",
+          "normalized": "sea-blue"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "turquoise",
+          "normalized": "turquoise"
+        }
+      ],
+      "available": true,
+      "tags": [
+        "'בז",
+        "50 ס\"מ",
+        "A גזרה",
+        "L",
+        "M",
+        "S",
+        "XL",
+        "אביב",
+        "ג'ינס",
+        "ג'ינס בהיר",
+        "ג'ינס כהה",
+        "גזרה גבוהה",
+        "חורף",
+        "חצאית",
+        "ירוק",
+        "כפתורים",
+        "מכופתרת",
+        "סתיו",
+        "עד הברך",
+        "קיץ",
+        "קצרה",
+        "שחור"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8359067812026",
+      "externalId": "8359067812026",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית סאטן עם שרוך",
+      "category": "skirts",
+      "price": 70,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%A1%D7%90%D7%98%D7%9F-%D7%A2%D7%9D-%D7%A9%D7%A8%D7%95%D7%9A",
+      "images": [
+        {
+          "id": "mini-allenby:8359067812026:image:41119453053114",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/517BA900-C3FD-4D00-9051-EDF9FF694DCB.jpg?v=1773732367",
+          "alt": "חצאית סאטן עם שרוך של Mini Allenby",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8359067812026:image:41119453020346",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/B479E5BE-9ABC-47A2-AA7B-43CEDD439FA8.jpg?v=1773732367",
+          "alt": "חצאית סאטן עם שרוך — תמונה 2",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8359067812026:image:41119452987578",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/CBDA8D2C-23A0-4EEF-8CF6-A324A7A7C610.jpg?v=1773732367",
+          "alt": "חצאית סאטן עם שרוך — תמונה 3",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8359067812026:image:41119452954810",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/B479ADB8-BF53-4F20-8A3E-190BB1AA9ADA.jpg?v=1773732367",
+          "alt": "חצאית סאטן עם שרוך — תמונה 4",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8359067812026:image:41119452922042",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/8CA4B7BC-5D64-4388-A227-5F09540BE5DA.jpg?v=1773732367",
+          "alt": "חצאית סאטן עם שרוך — תמונה 5",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8359067812026:image:41119452889274",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9607C732-840E-4B0F-AB68-3BAC13579BD3.jpg?v=1773732367",
+          "alt": "חצאית סאטן עם שרוך — תמונה 6",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8359067812026:image:41119452856506",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/5693B6BD-B48D-407E-8478-869A9CDF7947.jpg?v=1773732367",
+          "alt": "חצאית סאטן עם שרוך — תמונה 7",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8359067812026:variant:45712658661562",
+          "externalId": "45712658661562",
+          "title": "blue",
+          "price": 70,
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8359067812026:variant:45712658694330",
+          "externalId": "45712658694330",
+          "title": "beige",
+          "price": 70,
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8359067812026:variant:45712658727098",
+          "externalId": "45712658727098",
+          "title": "brown",
+          "price": 70,
+          "color": {
+            "raw": "brown",
+            "normalized": "brown"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8359067812026:variant:45712658759866",
+          "externalId": "45712658759866",
+          "title": "pink",
+          "price": 70,
+          "color": {
+            "raw": "pink",
+            "normalized": "pink"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8359067812026:variant:45712658792634",
+          "externalId": "45712658792634",
+          "title": "yellow",
+          "price": 70,
+          "color": {
+            "raw": "yellow",
+            "normalized": "yellow"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8359067812026:variant:45712658825402",
+          "externalId": "45712658825402",
+          "title": "black",
+          "price": 70,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "blue",
+          "normalized": "blue"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "brown",
+          "normalized": "brown"
+        },
+        {
+          "raw": "pink",
+          "normalized": "pink"
+        },
+        {
+          "raw": "yellow",
+          "normalized": "yellow"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8356333519034",
+      "externalId": "8356333519034",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצת וי בייסיק",
+      "category": "tops",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%AA-%D7%95%D7%99-%D7%91%D7%99%D7%99%D7%A1%D7%99%D7%A7",
+      "images": [
+        {
+          "id": "mini-allenby:8356333519034:image:41053287776442",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/87916BF3-AF1C-4678-AE2E-5C8BF2C830FA.jpg?v=1773123206",
+          "alt": "חולצת וי בייסיק של Mini Allenby",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8356333519034:image:41053287743674",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/ED6569D6-DAB9-4827-B4B5-2E704834CE0D.jpg?v=1773123206",
+          "alt": "חולצת וי בייסיק — תמונה 2",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8356333519034:image:41053287710906",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/0A627611-170B-43FE-B969-3295C93B7B89.jpg?v=1773123206",
+          "alt": "חולצת וי בייסיק — תמונה 3",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8356333519034:image:41053287678138",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/504F07E9-E624-43D7-B169-1D43F0626306.jpg?v=1773123206",
+          "alt": "חולצת וי בייסיק — תמונה 4",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8356333519034:image:41053287645370",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/38ACF592-7679-405B-9ECC-F8771FCCCF12.jpg?v=1773123206",
+          "alt": "חולצת וי בייסיק — תמונה 5",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8356333519034:image:41053287612602",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D504D66D-4A6E-4ED6-8084-702CA8D05BD0.jpg?v=1773123206",
+          "alt": "חולצת וי בייסיק — תמונה 6",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8356333519034:image:41053287579834",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/0C089C52-4F4D-4B8B-9375-D7A77D0BFEB8.jpg?v=1773123206",
+          "alt": "חולצת וי בייסיק — תמונה 7",
+          "width": 1066,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8356333519034:image:41053287547066",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/13175FF5-5457-4F32-BD2E-D882276586A9.jpg?v=1773123207",
+          "alt": "חולצת וי בייסיק — תמונה 8",
+          "width": 1066,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8356333519034:variant:45697107427514",
+          "externalId": "45697107427514",
+          "title": "white",
+          "price": 40,
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8356333519034:variant:45697107460282",
+          "externalId": "45697107460282",
+          "title": "black",
+          "price": 40,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8356333519034:variant:45697107493050",
+          "externalId": "45697107493050",
+          "title": "brown",
+          "price": 40,
+          "color": {
+            "raw": "brown",
+            "normalized": "brown"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8356333519034:variant:45697107525818",
+          "externalId": "45697107525818",
+          "title": "pink",
+          "price": 40,
+          "color": {
+            "raw": "pink",
+            "normalized": "pink"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8356333519034:variant:45697107558586",
+          "externalId": "45697107558586",
+          "title": "yellow",
+          "price": 40,
+          "color": {
+            "raw": "yellow",
+            "normalized": "yellow"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8356333519034:variant:45697107591354",
+          "externalId": "45697107591354",
+          "title": "gray",
+          "price": 40,
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "white",
+          "normalized": "white"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "brown",
+          "normalized": "brown"
+        },
+        {
+          "raw": "pink",
+          "normalized": "pink"
+        },
+        {
+          "raw": "yellow",
+          "normalized": "yellow"
+        },
+        {
+          "raw": "gray",
+          "normalized": "gray"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8355872276666",
+      "externalId": "8355872276666",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית בד ריפ עם שסע",
+      "category": "skirts",
+      "price": 70,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%91%D7%93-%D7%A8%D7%99%D7%A4-%D7%A2%D7%9D-%D7%A9%D7%A1%D7%A2",
+      "images": [
+        {
+          "id": "mini-allenby:8355872276666:image:41032318484666",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/AE33A6F7-AE00-480A-8818-CA024942D151.jpg?v=1772955723",
+          "alt": "חצאית בד ריפ עם שסע של Mini Allenby",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8355872276666:image:41032318451898",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/38FF9675-C37C-4DB9-819E-01F040424461.jpg?v=1772955723",
+          "alt": "חצאית בד ריפ עם שסע — תמונה 2",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8355872276666:image:41032318419130",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/C8E6C169-31F8-45B2-AB7F-2A64209B2198.jpg?v=1772955723",
+          "alt": "חצאית בד ריפ עם שסע — תמונה 3",
+          "width": 1024,
+          "height": 1536
+        },
+        {
+          "id": "mini-allenby:8355872276666:image:41032318386362",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/5CE9C434-7595-4D36-8238-671F306F7952.jpg?v=1772955723",
+          "alt": "חצאית בד ריפ עם שסע — תמונה 4",
+          "width": 1024,
+          "height": 1536
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8355872276666:variant:45694440407226",
+          "externalId": "45694440407226",
+          "title": "brown",
+          "price": 70,
+          "color": {
+            "raw": "brown",
+            "normalized": "brown"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8355872276666:variant:45694440439994",
+          "externalId": "45694440439994",
+          "title": "black",
+          "price": 70,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8355872276666:variant:45694440472762",
+          "externalId": "45694440472762",
+          "title": "beige",
+          "price": 70,
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8355872276666:variant:45694440505530",
+          "externalId": "45694440505530",
+          "title": "blue",
+          "price": 70,
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "brown",
+          "normalized": "brown"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "blue",
+          "normalized": "blue"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7403428675770",
+      "externalId": "7403428675770",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית גינס מקסי עם כיסים",
+      "category": "skirts",
+      "price": 100,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%92%D7%99%D7%A0%D7%A1-%D7%9E%D7%A7%D7%A1%D7%99-%D7%A2%D7%9D-%D7%9B%D7%99%D7%A1%D7%99%D7%9D",
+      "images": [
+        {
+          "id": "mini-allenby:7403428675770:image:33320959639738",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2023-07-06at11.30.06.jpg?v=1688632545",
+          "alt": "חצאית גינס מקסי עם כיסים של Mini Allenby",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7403428675770:image:33320959606970",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2023-07-06at11.30.25.jpg?v=1688632544",
+          "alt": "חצאית גינס מקסי עם כיסים — תמונה 2",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7403428675770:image:33320959705274",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2023-07-06at11.30.39.jpg?v=1688632545",
+          "alt": "חצאית גינס מקסי עם כיסים — תמונה 3",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7403428675770:image:33320959672506",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2023-07-06at11.30.54.jpg?v=1688632545",
+          "alt": "חצאית גינס מקסי עם כיסים — תמונה 4",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917402810",
+          "externalId": "42510917402810",
+          "title": "black / 1",
+          "price": 100,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917435578",
+          "externalId": "42510917435578",
+          "title": "black / 2",
+          "price": 100,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917468346",
+          "externalId": "42510917468346",
+          "title": "black / 3",
+          "price": 100,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917501114",
+          "externalId": "42510917501114",
+          "title": "black / 4",
+          "price": 100,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917533882",
+          "externalId": "42510917533882",
+          "title": "black / 5",
+          "price": 100,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917566650",
+          "externalId": "42510917566650",
+          "title": "black / 6",
+          "price": 100,
+          "size": {
+            "raw": "6",
+            "normalized": "6"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917599418",
+          "externalId": "42510917599418",
+          "title": "black / 0",
+          "price": 100,
+          "size": {
+            "raw": "0",
+            "normalized": "0"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917861562",
+          "externalId": "42510917861562",
+          "title": "blue / 1",
+          "price": 100,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917894330",
+          "externalId": "42510917894330",
+          "title": "blue / 2",
+          "price": 100,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917927098",
+          "externalId": "42510917927098",
+          "title": "blue / 3",
+          "price": 100,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917959866",
+          "externalId": "42510917959866",
+          "title": "blue / 4",
+          "price": 100,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510917992634",
+          "externalId": "42510917992634",
+          "title": "blue / 5",
+          "price": 100,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918025402",
+          "externalId": "42510918025402",
+          "title": "blue / 6",
+          "price": 100,
+          "size": {
+            "raw": "6",
+            "normalized": "6"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918058170",
+          "externalId": "42510918058170",
+          "title": "blue / 0",
+          "price": 100,
+          "size": {
+            "raw": "0",
+            "normalized": "0"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918090938",
+          "externalId": "42510918090938",
+          "title": "light blue / 1",
+          "price": 100,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "light blue",
+            "normalized": "light blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918123706",
+          "externalId": "42510918123706",
+          "title": "light blue / 2",
+          "price": 100,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "light blue",
+            "normalized": "light blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918156474",
+          "externalId": "42510918156474",
+          "title": "light blue / 3",
+          "price": 100,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "light blue",
+            "normalized": "light blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918189242",
+          "externalId": "42510918189242",
+          "title": "light blue / 4",
+          "price": 100,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "light blue",
+            "normalized": "light blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918222010",
+          "externalId": "42510918222010",
+          "title": "light blue / 5",
+          "price": 100,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "light blue",
+            "normalized": "light blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918254778",
+          "externalId": "42510918254778",
+          "title": "light blue / 6",
+          "price": 100,
+          "size": {
+            "raw": "6",
+            "normalized": "6"
+          },
+          "color": {
+            "raw": "light blue",
+            "normalized": "light blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7403428675770:variant:42510918287546",
+          "externalId": "42510918287546",
+          "title": "light blue / 0",
+          "price": 100,
+          "size": {
+            "raw": "0",
+            "normalized": "0"
+          },
+          "color": {
+            "raw": "light blue",
+            "normalized": "light blue"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "1",
+          "normalized": "1"
+        },
+        {
+          "raw": "2",
+          "normalized": "2"
+        },
+        {
+          "raw": "3",
+          "normalized": "3"
+        },
+        {
+          "raw": "4",
+          "normalized": "4"
+        },
+        {
+          "raw": "5",
+          "normalized": "5"
+        },
+        {
+          "raw": "6",
+          "normalized": "6"
+        },
+        {
+          "raw": "0",
+          "normalized": "0"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "blue",
+          "normalized": "blue"
+        },
+        {
+          "raw": "light blue",
+          "normalized": "light blue"
+        }
+      ],
+      "available": false,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8127186239674",
+      "externalId": "8127186239674",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית גינס מקסי קלאסית",
+      "category": "skirts",
+      "price": 100,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%92%D7%99%D7%A0%D7%A1-%D7%9E%D7%A7%D7%A1%D7%99-%D7%A7%D7%9C%D7%90%D7%A1%D7%99%D7%AA",
+      "images": [
+        {
+          "id": "mini-allenby:8127186239674:image:38373932925114",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/B7C2392B-5201-4DCB-80B4-4D5374E21F3A.jpg?v=1746784375",
+          "alt": "חצאית גינס מקסי קלאסית של Mini Allenby",
+          "width": 1079,
+          "height": 1433
+        },
+        {
+          "id": "mini-allenby:8127186239674:image:38373932957882",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/2E380971-2742-4454-9D77-D76FF3AAA4F3.jpg?v=1746784375",
+          "alt": "חצאית גינס מקסי קלאסית — תמונה 2",
+          "width": 1051,
+          "height": 1440
+        },
+        {
+          "id": "mini-allenby:8127186239674:image:38373933023418",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/F156643F-1B1C-4A59-AB57-C4A4A844C969.jpg?v=1746784375",
+          "alt": "חצאית גינס מקסי קלאסית — תמונה 3",
+          "width": 1078,
+          "height": 1440
+        },
+        {
+          "id": "mini-allenby:8127186239674:image:38373932990650",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/3150A191-3E77-49C0-B832-39B50707DDB9.jpg?v=1746784375",
+          "alt": "חצאית גינס מקסי קלאסית — תמונה 4",
+          "width": 1078,
+          "height": 1435
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086292666",
+          "externalId": "44820086292666",
+          "title": "gray / 1",
+          "price": 100,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086325434",
+          "externalId": "44820086325434",
+          "title": "black / 1",
+          "price": 100,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086358202",
+          "externalId": "44820086358202",
+          "title": "blue / 1",
+          "price": 100,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086390970",
+          "externalId": "44820086390970",
+          "title": "drak blue / 1",
+          "price": 100,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "drak blue",
+            "normalized": "dark-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086587578",
+          "externalId": "44820086587578",
+          "title": "gray / 2",
+          "price": 100,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086620346",
+          "externalId": "44820086620346",
+          "title": "gray / 3",
+          "price": 100,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086653114",
+          "externalId": "44820086653114",
+          "title": "gray / 4",
+          "price": 100,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086685882",
+          "externalId": "44820086685882",
+          "title": "gray / 5",
+          "price": 100,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086718650",
+          "externalId": "44820086718650",
+          "title": "black / 2",
+          "price": 100,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086751418",
+          "externalId": "44820086751418",
+          "title": "black / 3",
+          "price": 100,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086784186",
+          "externalId": "44820086784186",
+          "title": "black / 4",
+          "price": 100,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086816954",
+          "externalId": "44820086816954",
+          "title": "black / 5",
+          "price": 100,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086849722",
+          "externalId": "44820086849722",
+          "title": "blue / 2",
+          "price": 100,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086882490",
+          "externalId": "44820086882490",
+          "title": "blue / 3",
+          "price": 100,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086915258",
+          "externalId": "44820086915258",
+          "title": "blue / 4",
+          "price": 100,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086948026",
+          "externalId": "44820086948026",
+          "title": "blue / 5",
+          "price": 100,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820086980794",
+          "externalId": "44820086980794",
+          "title": "drak blue / 2",
+          "price": 100,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "drak blue",
+            "normalized": "dark-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820087013562",
+          "externalId": "44820087013562",
+          "title": "drak blue / 3",
+          "price": 100,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "drak blue",
+            "normalized": "dark-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820087046330",
+          "externalId": "44820087046330",
+          "title": "drak blue / 4",
+          "price": 100,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "drak blue",
+            "normalized": "dark-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8127186239674:variant:44820087079098",
+          "externalId": "44820087079098",
+          "title": "drak blue / 5",
+          "price": 100,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "drak blue",
+            "normalized": "dark-blue"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "1",
+          "normalized": "1"
+        },
+        {
+          "raw": "2",
+          "normalized": "2"
+        },
+        {
+          "raw": "3",
+          "normalized": "3"
+        },
+        {
+          "raw": "4",
+          "normalized": "4"
+        },
+        {
+          "raw": "5",
+          "normalized": "5"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "gray",
+          "normalized": "gray"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "blue",
+          "normalized": "blue"
+        },
+        {
+          "raw": "drak blue",
+          "normalized": "dark-blue"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8103888748730",
+      "externalId": "8103888748730",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית גרסי\nמידות 1-5\nשחור בלבד\nניתן להזמין לפי מידה👍",
+      "category": "skirts",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%92%D7%A8%D7%A1%D7%99-%D7%9E%D7%99%D7%93%D7%95%D7%AA-1-5-%D7%A9%D7%97%D7%95%D7%A8-%D7%91%D7%9C%D7%91%D7%93-%D7%A0%D7%99%D7%AA%D7%9F-%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F-%D7%9C%D7%A4%D7%99-%D7%9E%D7%99%D7%93%D7%94%F0%9F%91%8D",
+      "images": [
+        {
+          "id": "mini-allenby:8103888748730:image:37894658982074",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/70793D7F-97E7-408D-B86F-6A5B8B068939.jpg?v=1742715892",
+          "alt": "חצאית גרסי\nמידות 1-5\nשחור בלבד\nניתן להזמין לפי מידה👍 של Mini Allenby",
+          "width": 768,
+          "height": 1024
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8103888748730:variant:44729471828154",
+          "externalId": "44729471828154",
+          "title": "black / 1",
+          "price": 40,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103888748730:variant:44729471926458",
+          "externalId": "44729471926458",
+          "title": "black / 2",
+          "price": 40,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103888748730:variant:44729471959226",
+          "externalId": "44729471959226",
+          "title": "black / 3",
+          "price": 40,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103888748730:variant:44729471991994",
+          "externalId": "44729471991994",
+          "title": "black / 4",
+          "price": 40,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103888748730:variant:44729472024762",
+          "externalId": "44729472024762",
+          "title": "black / 5",
+          "price": 40,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "1",
+          "normalized": "1"
+        },
+        {
+          "raw": "2",
+          "normalized": "2"
+        },
+        {
+          "raw": "3",
+          "normalized": "3"
+        },
+        {
+          "raw": "4",
+          "normalized": "4"
+        },
+        {
+          "raw": "5",
+          "normalized": "5"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8103887765690",
+      "externalId": "8103887765690",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצה בסיס 3/4 בד סימפוניה",
+      "category": "tops",
+      "price": 30,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%94-%D7%91%D7%A1%D7%99%D7%A1-3-4-%D7%91%D7%93-%D7%A1%D7%99%D7%9E%D7%A4%D7%95%D7%A0%D7%99%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:8103887765690:image:37894652231866",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/00627532-4283-468E-9FBA-F1159D739381.jpg?v=1742715549",
+          "alt": "חולצה בסיס 3/4 בד סימפוניה של Mini Allenby",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8103887765690:image:37894652166330",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9C2899FF-94CF-461B-97C2-B37DDB84DD5B.jpg?v=1742715549",
+          "alt": "חולצה בסיס 3/4 בד סימפוניה — תמונה 2",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8103887765690:image:37894652199098",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/5A7ADD38-56EA-4527-88B9-ABC85A295F2D.jpg?v=1742715549",
+          "alt": "חולצה בסיס 3/4 בד סימפוניה — תמונה 3",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470550202",
+          "externalId": "44729470550202",
+          "title": "balck / 1",
+          "price": 30,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "balck",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470582970",
+          "externalId": "44729470582970",
+          "title": "beige / 1",
+          "price": 30,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470615738",
+          "externalId": "44729470615738",
+          "title": "white / 1",
+          "price": 30,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470648506",
+          "externalId": "44729470648506",
+          "title": "balck / 2",
+          "price": 30,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "balck",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470681274",
+          "externalId": "44729470681274",
+          "title": "balck / 3",
+          "price": 30,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "balck",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470714042",
+          "externalId": "44729470714042",
+          "title": "balck / 4",
+          "price": 30,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "balck",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470746810",
+          "externalId": "44729470746810",
+          "title": "balck / 5",
+          "price": 30,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "balck",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470779578",
+          "externalId": "44729470779578",
+          "title": "beige / 2",
+          "price": 30,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470812346",
+          "externalId": "44729470812346",
+          "title": "beige / 3",
+          "price": 30,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470845114",
+          "externalId": "44729470845114",
+          "title": "beige / 4",
+          "price": 30,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470877882",
+          "externalId": "44729470877882",
+          "title": "beige / 5",
+          "price": 30,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470910650",
+          "externalId": "44729470910650",
+          "title": "white / 2",
+          "price": 30,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470943418",
+          "externalId": "44729470943418",
+          "title": "white / 3",
+          "price": 30,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729470976186",
+          "externalId": "44729470976186",
+          "title": "white / 4",
+          "price": 30,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8103887765690:variant:44729471008954",
+          "externalId": "44729471008954",
+          "title": "white / 5",
+          "price": 30,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "1",
+          "normalized": "1"
+        },
+        {
+          "raw": "2",
+          "normalized": "2"
+        },
+        {
+          "raw": "3",
+          "normalized": "3"
+        },
+        {
+          "raw": "4",
+          "normalized": "4"
+        },
+        {
+          "raw": "5",
+          "normalized": "5"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "balck",
+          "normalized": "black"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "white",
+          "normalized": "white"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8096945438906",
+      "externalId": "8096945438906",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצה בייסיק סגור שרוול ארוך",
+      "category": "tops",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%94-%D7%91%D7%99%D7%99%D7%A1%D7%99%D7%A7-%D7%A1%D7%92%D7%95%D7%A8-%D7%A9%D7%A8%D7%95%D7%95%D7%9C-%D7%90%D7%A8%D7%95%D7%9A",
+      "images": [
+        {
+          "id": "mini-allenby:8096945438906:image:37706812358842",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/9EC809B3-0110-4608-A086-0D53EED74F4A.jpg?v=1741183784",
+          "alt": "חולצה בייסיק סגור שרוול ארוך של Mini Allenby",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096945438906:image:37706812424378",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D9A9A725-DB18-4234-AE5D-E23071527ED6.jpg?v=1741183784",
+          "alt": "חולצה בייסיק סגור שרוול ארוך — תמונה 2",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096945438906:image:37706812326074",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/42A43B0C-D805-4FA4-AE63-A58D472D200F.jpg?v=1741183783",
+          "alt": "חולצה בייסיק סגור שרוול ארוך — תמונה 3",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096945438906:image:37706812391610",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/624B485D-ABB5-4B30-8E1F-A35D21B002CE.jpg?v=1741183784",
+          "alt": "חולצה בייסיק סגור שרוול ארוך — תמונה 4",
+          "width": 768,
+          "height": 1024
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8096945438906:variant:44697895403706",
+          "externalId": "44697895403706",
+          "title": "black",
+          "price": 40,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8096945438906:variant:44697895436474",
+          "externalId": "44697895436474",
+          "title": "beige",
+          "price": 40,
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8096945438906:variant:44697895469242",
+          "externalId": "44697895469242",
+          "title": "white",
+          "price": 40,
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8096945438906:variant:44697895502010",
+          "externalId": "44697895502010",
+          "title": "brown",
+          "price": 40,
+          "color": {
+            "raw": "brown",
+            "normalized": "brown"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8096945438906:variant:44697895534778",
+          "externalId": "44697895534778",
+          "title": "gray",
+          "price": 40,
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "white",
+          "normalized": "white"
+        },
+        {
+          "raw": "brown",
+          "normalized": "brown"
+        },
+        {
+          "raw": "gray",
+          "normalized": "gray"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8096944718010",
+      "externalId": "8096944718010",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצה בייסיק וי שרוול ארוך",
+      "category": "tops",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%94-%D7%91%D7%99%D7%99%D7%A1%D7%99%D7%A7-%D7%95%D7%99-%D7%A9%D7%A8%D7%95%D7%95%D7%9C-%D7%90%D7%A8%D7%95%D7%9A",
+      "images": [
+        {
+          "id": "mini-allenby:8096944718010:image:37706778509498",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/1A35155F-4590-4D38-9F8F-74845F93E8E2.jpg?v=1741183555",
+          "alt": "חולצה בייסיק וי שרוול ארוך של Mini Allenby",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096944718010:image:37706778411194",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/3608B2B2-EE12-47D1-95FA-FBCC56394284.jpg?v=1741183555",
+          "alt": "חולצה בייסיק וי שרוול ארוך — תמונה 2",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096944718010:image:37706778706106",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/236D28F4-94CA-40EB-B9D9-590A7B3D3B17.jpg?v=1741183556",
+          "alt": "חולצה בייסיק וי שרוול ארוך — תמונה 3",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096944718010:image:37706778476730",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D3D56BCD-978F-426C-B9FF-F3DF47338858.jpg?v=1741183555",
+          "alt": "חולצה בייסיק וי שרוול ארוך — תמונה 4",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096944718010:image:37706778673338",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/7A7EE680-C381-4437-BC5A-C8B061086935.jpg?v=1741183555",
+          "alt": "חולצה בייסיק וי שרוול ארוך — תמונה 5",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096944718010:image:37706778443962",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/7A2185CE-C327-49D8-A3DD-CCD3C9C3C3FE.jpg?v=1741183555",
+          "alt": "חולצה בייסיק וי שרוול ארוך — תמונה 6",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096944718010:image:37706778542266",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/4967739A-82F9-45EB-8099-A020A6C017D9.jpg?v=1741183555",
+          "alt": "חולצה בייסיק וי שרוול ארוך — תמונה 7",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8096944718010:image:37706778575034",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/580A9405-CA34-475A-879C-807AC3070DD7.jpg?v=1741183555",
+          "alt": "חולצה בייסיק וי שרוול ארוך — תמונה 8",
+          "width": 768,
+          "height": 1024
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8096944718010:variant:44697892847802",
+          "externalId": "44697892847802",
+          "title": "black",
+          "price": 40,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8096944718010:variant:44697892880570",
+          "externalId": "44697892880570",
+          "title": "gray",
+          "price": 40,
+          "color": {
+            "raw": "gray",
+            "normalized": "gray"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8096944718010:variant:44697892913338",
+          "externalId": "44697892913338",
+          "title": "beige",
+          "price": 40,
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8096944718010:variant:44697892946106",
+          "externalId": "44697892946106",
+          "title": "white",
+          "price": 40,
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8096944718010:variant:44697892978874",
+          "externalId": "44697892978874",
+          "title": "brown",
+          "price": 40,
+          "color": {
+            "raw": "brown",
+            "normalized": "brown"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "gray",
+          "normalized": "gray"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "white",
+          "normalized": "white"
+        },
+        {
+          "raw": "brown",
+          "normalized": "brown"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8084384514234",
+      "externalId": "8084384514234",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצה בסיס בלי שרוולים",
+      "category": "tops",
+      "price": 30,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%94-%D7%91%D7%A1%D7%99%D7%A1-%D7%91%D7%9C%D7%99-%D7%A9%D7%A8%D7%95%D7%95%D7%9C%D7%99%D7%9D",
+      "images": [
+        {
+          "id": "mini-allenby:8084384514234:image:37519778939066",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/8B5D7ED4-632C-4756-8414-C6FD324E0255.jpg?v=1739695613",
+          "alt": "חולצה בסיס בלי שרוולים של Mini Allenby",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084384514234:image:37519778742458",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/A007FE96-27AD-494F-91DD-0B390F23CA66.jpg?v=1739695612",
+          "alt": "חולצה בסיס בלי שרוולים — תמונה 2",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084384514234:image:37519778906298",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D1AB71D8-4013-4D52-8DC9-4A05BF906F6D.jpg?v=1739695612",
+          "alt": "חולצה בסיס בלי שרוולים — תמונה 3",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084384514234:image:37519778840762",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/8005F13E-1E27-4688-B44C-A18D091989FC.jpg?v=1739695612",
+          "alt": "חולצה בסיס בלי שרוולים — תמונה 4",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084384514234:image:37519778775226",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/4E5EDDF3-8C2A-4689-917A-3D0A03093FF2.jpg?v=1739695612",
+          "alt": "חולצה בסיס בלי שרוולים — תמונה 5",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084384514234:image:37519778807994",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D56FFBFA-A16B-4969-B37D-761AF0E763AE.jpg?v=1739695612",
+          "alt": "חולצה בסיס בלי שרוולים — תמונה 6",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084384514234:image:37519778873530",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/46E4042C-1C20-4693-B5AD-BF8A077091A2.jpg?v=1739695612",
+          "alt": "חולצה בסיס בלי שרוולים — תמונה 7",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8084384514234:variant:44635100348602",
+          "externalId": "44635100348602",
+          "title": "black",
+          "price": 30,
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084384514234:variant:44635100381370",
+          "externalId": "44635100381370",
+          "title": "beige",
+          "price": 30,
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084384514234:variant:44635100414138",
+          "externalId": "44635100414138",
+          "title": "white",
+          "price": 30,
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "white",
+          "normalized": "white"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8084383236282",
+      "externalId": "8084383236282",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "שמלה בסיס שרוולים",
+      "category": "dresses",
+      "price": 50,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A9%D7%9E%D7%9C%D7%94-%D7%91%D7%A1%D7%99%D7%A1-%D7%A9%D7%A8%D7%95%D7%95%D7%9C%D7%99%D7%9D",
+      "images": [
+        {
+          "id": "mini-allenby:8084383236282:image:37519747383482",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/5AAF065B-0FBC-4322-9050-FB2C2F64483A.jpg?v=1739695337",
+          "alt": "שמלה בסיס שרוולים של Mini Allenby",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084383236282:image:37519747514554",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/8564B623-8FA4-4804-B04A-DE7869388C41.jpg?v=1739695337",
+          "alt": "שמלה בסיס שרוולים — תמונה 2",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084383236282:image:37519747416250",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/8BBF6D30-B1E3-452D-ABBA-9D3D25FC2C38.jpg?v=1739695337",
+          "alt": "שמלה בסיס שרוולים — תמונה 3",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084383236282:image:37519747481786",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/DBF5CFEB-67C7-4EC5-B633-8F5829BD1CF3.jpg?v=1739695337",
+          "alt": "שמלה בסיס שרוולים — תמונה 4",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084383236282:image:37519747547322",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/888DF23F-4486-42E1-B846-C21BF825933E.jpg?v=1739695337",
+          "alt": "שמלה בסיס שרוולים — תמונה 5",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084383236282:image:37519747449018",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D65986A4-AECD-435F-A035-0BFA3893A49C.jpg?v=1739695337",
+          "alt": "שמלה בסיס שרוולים — תמונה 6",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098153146",
+          "externalId": "44635098153146",
+          "title": "white / 1",
+          "price": 50,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098185914",
+          "externalId": "44635098185914",
+          "title": "beige / 1",
+          "price": 50,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098218682",
+          "externalId": "44635098218682",
+          "title": "black / 1",
+          "price": 50,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098349754",
+          "externalId": "44635098349754",
+          "title": "white / 2",
+          "price": 50,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098382522",
+          "externalId": "44635098382522",
+          "title": "white / 3",
+          "price": 50,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098415290",
+          "externalId": "44635098415290",
+          "title": "white / 4",
+          "price": 50,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098448058",
+          "externalId": "44635098448058",
+          "title": "beige / 2",
+          "price": 50,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098480826",
+          "externalId": "44635098480826",
+          "title": "beige / 3",
+          "price": 50,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098513594",
+          "externalId": "44635098513594",
+          "title": "beige / 4",
+          "price": 50,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098546362",
+          "externalId": "44635098546362",
+          "title": "black / 2",
+          "price": 50,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098579130",
+          "externalId": "44635098579130",
+          "title": "black / 3",
+          "price": 50,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084383236282:variant:44635098611898",
+          "externalId": "44635098611898",
+          "title": "black / 4",
+          "price": 50,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "1",
+          "normalized": "1"
+        },
+        {
+          "raw": "2",
+          "normalized": "2"
+        },
+        {
+          "raw": "3",
+          "normalized": "3"
+        },
+        {
+          "raw": "4",
+          "normalized": "4"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "white",
+          "normalized": "white"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8084381597882",
+      "externalId": "8084381597882",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "שמלה בסיס בלי שרוולים",
+      "category": "dresses",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A9%D7%9E%D7%9C%D7%94-%D7%91%D7%A1%D7%99%D7%A1-%D7%91%D7%9C%D7%99-%D7%A9%D7%A8%D7%95%D7%95%D7%9C%D7%99%D7%9D",
+      "images": [
+        {
+          "id": "mini-allenby:8084381597882:image:37519737225402",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/78A2DAB2-EFF1-4D38-B64E-156FB22D86BC.jpg?v=1739695102",
+          "alt": "שמלה בסיס בלי שרוולים של Mini Allenby",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084381597882:image:37519737323706",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D430F030-98B2-489A-83B0-B9681145003B.jpg?v=1739695103",
+          "alt": "שמלה בסיס בלי שרוולים — תמונה 2",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084381597882:image:37519737356474",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/ADF0A134-890C-4B78-B6D0-8F3A747F069D.jpg?v=1739695103",
+          "alt": "שמלה בסיס בלי שרוולים — תמונה 3",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084381597882:image:37519737258170",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D1D39F34-4DC3-474F-B35C-0838A72E7D5C.jpg?v=1739695102",
+          "alt": "שמלה בסיס בלי שרוולים — תמונה 4",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084381597882:image:37519737192634",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/D5A56ADB-687B-4589-8ADE-7F2CA033CCC7.jpg?v=1739695102",
+          "alt": "שמלה בסיס בלי שרוולים — תמונה 5",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:8084381597882:image:37519737290938",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/60862675-4B76-4A4B-A5A7-BAC270D8D7D3.jpg?v=1739695103",
+          "alt": "שמלה בסיס בלי שרוולים — תמונה 6",
+          "width": 1200,
+          "height": 1600
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096187066",
+          "externalId": "44635096187066",
+          "title": "black / 1",
+          "price": 40,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096219834",
+          "externalId": "44635096219834",
+          "title": "white / 1",
+          "price": 40,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096252602",
+          "externalId": "44635096252602",
+          "title": "beige / 1",
+          "price": 40,
+          "size": {
+            "raw": "1",
+            "normalized": "1"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096514746",
+          "externalId": "44635096514746",
+          "title": "black / 2",
+          "price": 40,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096547514",
+          "externalId": "44635096547514",
+          "title": "black / 3",
+          "price": 40,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096580282",
+          "externalId": "44635096580282",
+          "title": "black / 4",
+          "price": 40,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096613050",
+          "externalId": "44635096613050",
+          "title": "black / 5",
+          "price": 40,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096645818",
+          "externalId": "44635096645818",
+          "title": "white / 2",
+          "price": 40,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096678586",
+          "externalId": "44635096678586",
+          "title": "white / 3",
+          "price": 40,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096711354",
+          "externalId": "44635096711354",
+          "title": "white / 4",
+          "price": 40,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096744122",
+          "externalId": "44635096744122",
+          "title": "white / 5",
+          "price": 40,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096776890",
+          "externalId": "44635096776890",
+          "title": "beige / 2",
+          "price": 40,
+          "size": {
+            "raw": "2",
+            "normalized": "2"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096809658",
+          "externalId": "44635096809658",
+          "title": "beige / 3",
+          "price": 40,
+          "size": {
+            "raw": "3",
+            "normalized": "3"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096842426",
+          "externalId": "44635096842426",
+          "title": "beige / 4",
+          "price": 40,
+          "size": {
+            "raw": "4",
+            "normalized": "4"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8084381597882:variant:44635096875194",
+          "externalId": "44635096875194",
+          "title": "beige / 5",
+          "price": 40,
+          "size": {
+            "raw": "5",
+            "normalized": "5"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "1",
+          "normalized": "1"
+        },
+        {
+          "raw": "2",
+          "normalized": "2"
+        },
+        {
+          "raw": "3",
+          "normalized": "3"
+        },
+        {
+          "raw": "4",
+          "normalized": "4"
+        },
+        {
+          "raw": "5",
+          "normalized": "5"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "white",
+          "normalized": "white"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7031886676154",
+      "externalId": "7031886676154",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית דריל גזרה A ארוכה",
+      "description": "המלתחה שלך כבר יודעת שהיא צריכה את החצאיות שלנו A חצאית מבד דריל מעבר לברך גזרה :S מידה היקף מותן: 72 ס”מ היקף ירכיים: 94 ס”מ אורך: 65 ס”מ :M מידה היקף מותן: 76 ס”מ היקף ירכיים: 98 ס”מ אורך: 65 ס”מ :L מידה היקף מותן: 79 ס”מ היקף ירכיים: 102 ס”מ אורך: 65 ס”מ :XL מידה היקף מותן: 84 ס”מ היקף ירכיים: 106 ס”מ אורך: 65 ס”מ",
+      "category": "skirts",
+      "price": 79.9,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%90%D7%A8%D7%95%D7%9B%D7%94-a-%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%93%D7%A8%D7%99%D7%9C-%D7%92%D7%96%D7%A8%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:7031886676154:image:31342576435386",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_ff1ef4e9-1906-47df-a6d2-2b9f9c092c3d.jpg?v=1651147760",
+          "alt": "חצאית דריל גזרה A ארוכה של Mini Allenby",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7031886676154:image:31342576795834",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_34bd245e-f86c-4282-a2da-36ffa846de5a.jpg?v=1651147762",
+          "alt": "חצאית דריל גזרה A ארוכה — תמונה 2",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7031886676154:image:31343571140794",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_f10a356f-aed3-4852-8f21-373b982fa02a.heic?v=1651158513",
+          "alt": "חצאית דריל גזרה A ארוכה — תמונה 3",
+          "width": 2669,
+          "height": 3559
+        },
+        {
+          "id": "mini-allenby:7031886676154:image:31342576894138",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_807d2f1a-37e9-4615-96bc-30b447b15b41.jpg?v=1651158513",
+          "alt": "חצאית דריל גזרה A ארוכה — תמונה 4",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7031886676154:image:31343571075258",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_2a1c15cf-cd0b-4104-bf38-139c0304d259.jpg?v=1651158513",
+          "alt": "חצאית דריל גזרה A ארוכה — תמונה 5",
+          "width": 3024,
+          "height": 4032
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100170938",
+          "externalId": "41178100170938",
+          "title": "S / black",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100203706",
+          "externalId": "41178100203706",
+          "title": "S / beige",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100302010",
+          "externalId": "41178100302010",
+          "title": "M / black",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100334778",
+          "externalId": "41178100334778",
+          "title": "M / beige",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100433082",
+          "externalId": "41178100433082",
+          "title": "L / black",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100465850",
+          "externalId": "41178100465850",
+          "title": "L / beige",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100564154",
+          "externalId": "41178100564154",
+          "title": "XL / black",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886676154:variant:41178100596922",
+          "externalId": "41178100596922",
+          "title": "XL / beige",
+          "price": 79.9,
+          "sku": "3085",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S",
+          "normalized": "S"
+        },
+        {
+          "raw": "M",
+          "normalized": "M"
+        },
+        {
+          "raw": "L",
+          "normalized": "L"
+        },
+        {
+          "raw": "XL",
+          "normalized": "XL"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        }
+      ],
+      "available": true,
+      "tags": [
+        "'בז",
+        "65 ס\"מ",
+        "A גזרה",
+        "L",
+        "M",
+        "S",
+        "XL",
+        "אביב",
+        "ארוכה",
+        "ג'ינס",
+        "גזרה גבוהה",
+        "דמוי ג'ינס",
+        "דריל",
+        "חורף",
+        "חצאית",
+        "ירוק",
+        "ירוק זית",
+        "מידי",
+        "סתיו",
+        "קיץ",
+        "שחור"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7031886446778",
+      "externalId": "7031886446778",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית ג'ינס גזרה A ארוכה",
+      "description": "המלתחה שלך כבר יודעת שהיא צריכה את החצאיות שלנו A חצאית מבד ג'ינס מעבר לברך גזרה :S מידה היקף מותן: 72 ס”מ היקף ירכיים: 94 ס”מ אורך: 65 ס”מ :M מידה היקף מותן: 76 ס”מ היקף ירכיים: 98 ס”מ אורך: 65 ס”מ :L מידה היקף מותן: 79 ס”מ היקף ירכיים: 102 ס”מ אורך: 65 ס”מ :XL מידה היקף מותן: 84 ס”מ היקף ירכיים: 106 ס”מ אורך: 65 ס”מ",
+      "category": "skirts",
+      "price": 79.9,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%90%D7%A8%D7%95%D7%9B%D7%94-a-%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%92%D7%99%D7%A0%D7%A1-%D7%92%D7%96%D7%A8%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:7031886446778:image:31342593802426",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_dee797cd-5d6e-4b69-9851-bd4a08ea36ef.jpg?v=1651147995",
+          "alt": "חצאית ג'ינס גזרה A ארוכה של Mini Allenby",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:31343517237434",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_e7ad203e-1783-4e13-8814-a996506f4a48.heic?v=1651158089",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 2",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:31342594195642",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_5181dd0c-53c9-4f6d-8622-c96668111632.jpg?v=1651158107",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 3",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:31343542304954",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_3f6db61e-4355-4dbb-8749-b157be94a6bf.heic?v=1651158303",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 4",
+          "width": 2380,
+          "height": 3173
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:31342594359482",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_3f01e600-0720-4130-8143-dc13d7ab429c.jpg?v=1651158303",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 5",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:31343515992250",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_e3d9832b-1f2e-444a-8bec-e4d9f3e43f12.heic?v=1651158303",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 6",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:31342595211450",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_2e9465e8-6f78-4430-a631-7f890a5b6e59.jpg?v=1651158303",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 7",
+          "width": 1200,
+          "height": 1600
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:31343518122170",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_3ad4bb4f-bf60-4810-b571-15741edef8f1.heic?v=1651158303",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 8",
+          "width": 2647,
+          "height": 3529
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:33275889287354",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2023-06-18at12.28.21_3.jpg?v=1687080848",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 9",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:7031886446778:image:33275889320122",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2023-06-18at12.28.21_2.jpg?v=1687080853",
+          "alt": "חצאית ג'ינס גזרה A ארוכה — תמונה 10",
+          "width": 768,
+          "height": 1024
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089062586",
+          "externalId": "41178089062586",
+          "title": "S / blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178088997050",
+          "externalId": "41178088997050",
+          "title": "S / sea blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089095354",
+          "externalId": "41178089095354",
+          "title": "S / black",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089128122",
+          "externalId": "41178089128122",
+          "title": "S / turquoise",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089193658",
+          "externalId": "41178089193658",
+          "title": "M / blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089160890",
+          "externalId": "41178089160890",
+          "title": "M / sea blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089226426",
+          "externalId": "41178089226426",
+          "title": "M / black",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089259194",
+          "externalId": "41178089259194",
+          "title": "M / turquoise",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089324730",
+          "externalId": "41178089324730",
+          "title": "L / blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089291962",
+          "externalId": "41178089291962",
+          "title": "L / sea blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089357498",
+          "externalId": "41178089357498",
+          "title": "L / black",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089390266",
+          "externalId": "41178089390266",
+          "title": "L / turquoise",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089455802",
+          "externalId": "41178089455802",
+          "title": "XL / blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "blue",
+            "normalized": "blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089423034",
+          "externalId": "41178089423034",
+          "title": "XL / sea blue",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089488570",
+          "externalId": "41178089488570",
+          "title": "XL / black",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7031886446778:variant:41178089521338",
+          "externalId": "41178089521338",
+          "title": "XL / turquoise",
+          "price": 79.9,
+          "sku": "3090",
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "color": {
+            "raw": "turquoise",
+            "normalized": "turquoise"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S",
+          "normalized": "S"
+        },
+        {
+          "raw": "M",
+          "normalized": "M"
+        },
+        {
+          "raw": "L",
+          "normalized": "L"
+        },
+        {
+          "raw": "XL",
+          "normalized": "XL"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "blue",
+          "normalized": "blue"
+        },
+        {
+          "raw": "sea blue",
+          "normalized": "sea-blue"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "turquoise",
+          "normalized": "turquoise"
+        }
+      ],
+      "available": true,
+      "tags": [
+        "65 ס\"מ",
+        "A גזרה",
+        "L",
+        "M",
+        "S",
+        "XL",
+        "אביב",
+        "אפור",
+        "ארוכה",
+        "ג'ינס",
+        "ג'ינס בהיר",
+        "ג'ינס כהה",
+        "גזרה גבוהה",
+        "חורף",
+        "חצאית",
+        "מידי",
+        "סתיו",
+        "קיץ",
+        "שחור"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7033167446202",
+      "externalId": "7033167446202",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "טייץ אל תפר קצרצר",
+      "description": "טייץ אל תפר קצרצר נמתח על הגוף ומחטב",
+      "category": "accessories",
+      "price": 25,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%98%D7%99%D7%99%D7%A5-%D7%90%D7%9C-%D7%AA%D7%A4%D7%A8-%D7%A7%D7%A6%D7%A8",
+      "images": [
+        {
+          "id": "mini-allenby:7033167446202:image:31486160863418",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_cead7558-5436-4950-85e3-169bfe906b5c.jpg?v=1652793712",
+          "alt": "טייץ אל תפר קצרצר של Mini Allenby",
+          "width": 1550,
+          "height": 2067
+        },
+        {
+          "id": "mini-allenby:7033167446202:image:31003118305466",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_e8549831-873a-4a4b-baa6-ae992f84c2ff.jpg?v=1652793697",
+          "alt": "טייץ אל תפר קצרצר — תמונה 2",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7033167446202:image:31002362446010",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_895b3f61-0207-424a-9960-e483a692b2ff.jpg?v=1652793697",
+          "alt": "טייץ אל תפר קצרצר — תמונה 3",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7033167446202:image:31002362478778",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_540eed78-c8d8-4289-bcaf-5d20d3b00a21.heic?v=1652793697",
+          "alt": "טייץ אל תפר קצרצר — תמונה 4",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7033167446202:image:31486160994490",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_76710106-4832-44a2-80a5-b210af38c538.jpg?v=1652793671",
+          "alt": "טייץ אל תפר קצרצר — תמונה 5",
+          "width": 1672,
+          "height": 2230
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7033167446202:variant:41185776042170",
+          "externalId": "41185776042170",
+          "title": "black / S-M",
+          "price": 25,
+          "sku": "M-3",
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7033167446202:variant:41246276616378",
+          "externalId": "41246276616378",
+          "title": "black / L-XL",
+          "price": 25,
+          "sku": "M-3",
+          "size": {
+            "raw": "L-XL",
+            "normalized": "L-XL"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7033167446202:variant:41246276649146",
+          "externalId": "41246276649146",
+          "title": "white / S-M",
+          "price": 25,
+          "sku": "M-3",
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7033167446202:variant:41246276681914",
+          "externalId": "41246276681914",
+          "title": "white / L-XL",
+          "price": 25,
+          "sku": "M-3",
+          "size": {
+            "raw": "L-XL",
+            "normalized": "L-XL"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7033167446202:variant:41246276714682",
+          "externalId": "41246276714682",
+          "title": "beige / S-M",
+          "price": 25,
+          "sku": "M-3",
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7033167446202:variant:41246276747450",
+          "externalId": "41246276747450",
+          "title": "beige / L-XL",
+          "price": 25,
+          "sku": "M-3",
+          "size": {
+            "raw": "L-XL",
+            "normalized": "L-XL"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "L-XL",
+          "normalized": "L-XL"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "white",
+          "normalized": "white"
+        },
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        }
+      ],
+      "available": true,
+      "tags": [
+        "'בז",
+        "L",
+        "M",
+        "S",
+        "XL",
+        "אל תפר",
+        "גזרה גבוהה",
+        "טייץ",
+        "לבן",
+        "מחטב",
+        "מידות גדולות",
+        "מידות קטנות",
+        "מנג'ט",
+        "סטרץ'",
+        "קצר",
+        "שחור"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7048136425658",
+      "externalId": "7048136425658",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "שמלה אל תפר",
+      "description": "שמלה אל תפר נמתחת על הגוף עם רצועות מתכווננות אורך ללא כתפיות: 70 ס\"מ",
+      "category": "dresses",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A9%D7%9E%D7%9C%D7%94-%D7%90%D7%9C-%D7%AA%D7%A4%D7%A8",
+      "images": [
+        {
+          "id": "mini-allenby:7048136425658:image:31486307107002",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_2928b4ea-b467-4a31-afd3-fafff716b5d6.jpg?v=1652795675",
+          "alt": "שמלה אל תפר של Mini Allenby",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7048136425658:image:31005154050234",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_c974c172-16d9-465b-8065-de8510e92f71.jpg?v=1652795663",
+          "alt": "שמלה אל תפר — תמונה 2",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7048136425658:image:31005152444602",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_fdb1ff71-2e87-4c0f-8d63-4031f1477713.jpg?v=1652795663",
+          "alt": "שמלה אל תפר — תמונה 3",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7048136425658:image:31005153198266",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_29180920-2509-430f-9689-0988cc1686e4.jpg?v=1652795663",
+          "alt": "שמלה אל תפר — תמונה 4",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7048136425658:image:31005153525946",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_79e59178-6c6f-4ec9-a417-8e0dd41664bf.jpg?v=1652795663",
+          "alt": "שמלה אל תפר — תמונה 5",
+          "width": 3024,
+          "height": 4032
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7048136425658:variant:41246704009402",
+          "externalId": "41246704009402",
+          "title": "beige / one size",
+          "price": 40,
+          "sku": "M-T11",
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7048136425658:variant:41246704042170",
+          "externalId": "41246704042170",
+          "title": "black / one size",
+          "price": 40,
+          "sku": "M-T11",
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "one size",
+          "normalized": "ONE_SIZE"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        }
+      ],
+      "available": true,
+      "tags": [
+        "'בז",
+        "70 ס\"מ",
+        "one size",
+        "אל תפר",
+        "לבן",
+        "סטרץ'",
+        "רצועות מתכווננות",
+        "שחור",
+        "שמלה"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7048145567930",
+      "externalId": "7048145567930",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "שמלה אל תפר עם תחרה",
+      "description": "שמלה אל תפר נמתחת על הגוף עם רצועות מתכווננות אורך ללא כתפיות: 70 ס\"מ",
+      "category": "dresses",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%A9%D7%9E%D7%9C%D7%94-%D7%90%D7%9C-%D7%AA%D7%A4%D7%A8-%D7%A2%D7%9D-%D7%AA%D7%97%D7%A8%D7%94",
+      "images": [
+        {
+          "id": "mini-allenby:7048145567930:image:31486202937530",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_2fb2a0fb-6e5a-4cb8-881c-56f73edc951c.jpg?v=1652794343",
+          "alt": "שמלה אל תפר עם תחרה של Mini Allenby",
+          "width": 1587,
+          "height": 2116
+        },
+        {
+          "id": "mini-allenby:7048145567930:image:31384447975610",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_96ac0e10-d3cf-4753-b062-2776d0fe238a.jpg?v=1652794343",
+          "alt": "שמלה אל תפר עם תחרה — תמונה 2",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7048145567930:image:31384446009530",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_cec2ee2c-ecee-4e5f-b6a0-b803bbc3dfc4.jpg?v=1652794343",
+          "alt": "שמלה אל תפר עם תחרה — תמונה 3",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7048145567930:image:31384446566586",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_d3736028-dfc3-445d-9bf3-682e8f866b12.jpg?v=1652794343",
+          "alt": "שמלה אל תפר עם תחרה — תמונה 4",
+          "width": 2938,
+          "height": 3920
+        },
+        {
+          "id": "mini-allenby:7048145567930:image:31384448172218",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_9263357a-1d39-4473-82a3-d17536050c63.jpg?v=1652794343",
+          "alt": "שמלה אל תפר עם תחרה — תמונה 5",
+          "width": 3024,
+          "height": 4032
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7048145567930:variant:41246721015994",
+          "externalId": "41246721015994",
+          "title": "beige / one size",
+          "price": 40,
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7048145567930:variant:41246721048762",
+          "externalId": "41246721048762",
+          "title": "black / one size",
+          "price": 40,
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7048145567930:variant:41246721081530",
+          "externalId": "41246721081530",
+          "title": "white / one size",
+          "price": 40,
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "white",
+            "normalized": "white"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "one size",
+          "normalized": "ONE_SIZE"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "white",
+          "normalized": "white"
+        }
+      ],
+      "available": true,
+      "tags": [
+        "'בז",
+        "70 ס\"מ",
+        "one size",
+        "אל תפר",
+        "לבן",
+        "סטרץ'",
+        "רצועות מתכווננות",
+        "שחור",
+        "שמלה"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:8005617975482",
+      "externalId": "8005617975482",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חולצה בייסיק פתח עגול",
+      "category": "tops",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%95%D7%9C%D7%A6%D7%94-%D7%91%D7%99%D7%99%D7%A1%D7%99%D7%A7-%D7%A4%D7%AA%D7%97-%D7%A2%D7%92%D7%95%D7%9C",
+      "images": [
+        {
+          "id": "mini-allenby:8005617975482:image:36278241525946",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsAppImage2024-10-22at23.44.57_2.jpg?v=1729679435",
+          "alt": "חולצה בייסיק פתח עגול של Mini Allenby",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8005617975482:image:36278241558714",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2024-10-22_at_23.44.57_1.jpg?v=1729679454",
+          "alt": "חולצה בייסיק פתח עגול — תמונה 2",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8005617975482:image:36278241591482",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2024-10-22_at_23.44.57.jpg?v=1729679467",
+          "alt": "חולצה בייסיק פתח עגול — תמונה 3",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8005617975482:image:36278241624250",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2024-10-22_at_23.44.56_2.jpg?v=1729679475",
+          "alt": "חולצה בייסיק פתח עגול — תמונה 4",
+          "width": 768,
+          "height": 1024
+        },
+        {
+          "id": "mini-allenby:8005617975482:image:36278241657018",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/files/WhatsApp_Image_2024-10-22_at_23.44.56.jpg?v=1729679482",
+          "alt": "חולצה בייסיק פתח עגול — תמונה 5",
+          "width": 768,
+          "height": 1024
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:8005617975482:variant:44304448651450",
+          "externalId": "44304448651450",
+          "title": "Gray",
+          "price": 40,
+          "color": {
+            "raw": "Gray",
+            "normalized": "gray"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8005617975482:variant:44304448684218",
+          "externalId": "44304448684218",
+          "title": "White",
+          "price": 40,
+          "color": {
+            "raw": "White",
+            "normalized": "white"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8005617975482:variant:44304448716986",
+          "externalId": "44304448716986",
+          "title": "Black",
+          "price": 40,
+          "color": {
+            "raw": "Black",
+            "normalized": "black"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:8005617975482:variant:44304448749754",
+          "externalId": "44304448749754",
+          "title": "Beige",
+          "price": 40,
+          "color": {
+            "raw": "Beige",
+            "normalized": "beige"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:8005617975482:variant:44304448782522",
+          "externalId": "44304448782522",
+          "title": "Silver",
+          "price": 40,
+          "color": {
+            "raw": "Silver",
+            "normalized": "silver"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [],
+      "colors": [
+        {
+          "raw": "Gray",
+          "normalized": "gray"
+        },
+        {
+          "raw": "White",
+          "normalized": "white"
+        },
+        {
+          "raw": "Black",
+          "normalized": "black"
+        },
+        {
+          "raw": "Beige",
+          "normalized": "beige"
+        },
+        {
+          "raw": "Silver",
+          "normalized": "silver"
+        }
+      ],
+      "available": true,
+      "tags": [],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    },
+    {
+      "id": "mini-allenby:7029289222330",
+      "externalId": "7029289222330",
+      "sourceId": "mini-allenby",
+      "brand": "Mini Allenby",
+      "title": "חצאית נפנף טריקו עד הברך",
+      "description": "המלתחה שלך כבר יודעת שהיא צריכה את החצאיות שלנו חצאית בייסיק נפנף מבד סימפוניה טריקו מגיעה עד הברך אורך: 60 ס\"מ",
+      "category": "skirts",
+      "price": 40,
+      "currency": "ILS",
+      "productUrl": "https://miniallenby.co.il/products/%D7%97%D7%A6%D7%90%D7%99%D7%AA-%D7%A0%D7%A4%D7%A0%D7%A3-%D7%98%D7%A8%D7%99%D7%A7%D7%95",
+      "images": [
+        {
+          "id": "mini-allenby:7029289222330:image:31470072168634",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_f3f8270a-5673-4af9-a92f-a120765fd213.jpg?v=1652625395",
+          "alt": "חצאית נפנף טריקו עד הברך של Mini Allenby",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7029289222330:image:31470072070330",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_3bf3553b-2fa1-4336-a0d2-1f0204177867.jpg?v=1652625395",
+          "alt": "חצאית נפנף טריקו עד הברך — תמונה 2",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "id": "mini-allenby:7029289222330:image:31470072266938",
+          "url": "https://cdn.shopify.com/s/files/1/0610/2830/3034/products/image_4cc0d494-20ff-4e4e-a599-dab85f5a0839.jpg?v=1652625395",
+          "alt": "חצאית נפנף טריקו עד הברך — תמונה 3",
+          "width": 3024,
+          "height": 4032
+        }
+      ],
+      "variants": [
+        {
+          "id": "mini-allenby:7029289222330:variant:41163579490490",
+          "externalId": "41163579490490",
+          "title": "one size / black",
+          "price": 40,
+          "sku": "2915",
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "black",
+            "normalized": "black"
+          },
+          "available": true
+        },
+        {
+          "id": "mini-allenby:7029289222330:variant:41427746128058",
+          "externalId": "41427746128058",
+          "title": "one size / sea blue",
+          "price": 40,
+          "sku": "2915",
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "sea blue",
+            "normalized": "sea-blue"
+          },
+          "available": false
+        },
+        {
+          "id": "mini-allenby:7029289222330:variant:41428014497978",
+          "externalId": "41428014497978",
+          "title": "one size / grey",
+          "price": 40,
+          "sku": "2915",
+          "size": {
+            "raw": "one size",
+            "normalized": "ONE_SIZE"
+          },
+          "color": {
+            "raw": "grey",
+            "normalized": "gray"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "one size",
+          "normalized": "ONE_SIZE"
+        }
+      ],
+      "colors": [
+        {
+          "raw": "black",
+          "normalized": "black"
+        },
+        {
+          "raw": "sea blue",
+          "normalized": "sea-blue"
+        },
+        {
+          "raw": "grey",
+          "normalized": "gray"
+        }
+      ],
+      "available": true,
+      "tags": [
+        "60 ס\"מ",
+        "A גזרה",
+        "one size",
+        "אביב",
+        "בייסיק",
+        "גזרה גבוהה",
+        "חורף",
+        "חלקה",
+        "חצאית",
+        "נפנף",
+        "סימפוניה",
+        "סתיו",
+        "עד הברך",
+        "קיץ"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.259Z"
+    }
+  ]
+}

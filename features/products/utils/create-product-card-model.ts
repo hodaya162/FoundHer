@@ -17,6 +17,8 @@ export function createProductCardModel(product: Product, sellerName: string): Pr
     return {
       id: product.id,
       slug: product.slug,
+      href: `/products/${product.slug}`,
+      external: false,
       type: product.type,
       name: product.name,
       image,
@@ -31,6 +33,8 @@ export function createProductCardModel(product: Product, sellerName: string): Pr
   return {
     id: product.id,
     slug: product.slug,
+    href: `/products/${product.slug}`,
+    external: false,
     type: product.type,
     name: product.name,
     image,

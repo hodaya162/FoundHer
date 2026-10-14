@@ -5,6 +5,8 @@ import { getAllCategories } from "@/lib/repositories/categories.repository";
 import { getAllLooks } from "@/lib/repositories/looks.repository";
 import { getAllProducts } from "@/lib/repositories/products.repository";
 import { getAllRentalBusinesses } from "@/lib/repositories/rental-businesses.repository";
+import { getAllCatalogProducts } from "@/lib/catalog/catalog-service";
+import { catalogSources } from "@/config/catalog-sources";
 
 import type {
   BrandSearchResult,
@@ -25,7 +27,7 @@ function rank<T extends { readonly score: number }>(results: readonly Ranked<T>[
     .map(({ result }) => result);
 }
 
-export function searchFoundHer(query: string): SearchResults {
+export async function searchFoundHer(query: string): Promise<SearchResults> {
   const normalizedQuery = normalizeSearch(query);
 
   if (!normalizedQuery) {
@@ -42,6 +44,7 @@ export function searchFoundHer(query: string): SearchResults {
   }
 
   const brands = getAllBrands();
+  const catalogProducts = await getAllCatalogProducts();
   const rentalBusinesses = getAllRentalBusinesses();
   const categories = getAllCategories();
   const brandsById = new Map(brands.map((brand) => [brand.id, brand]));
@@ -94,47 +97,7 @@ export function searchFoundHer(query: string): SearchResults {
     const category = categoriesById.get(product.categoryId);
     if (!image) return;
 
-    if (product.type === "purchase") {
-      const brand = brandsById.get(product.brandId);
-      const match = scoreSearchDocument(normalizedQuery, {
-        title: [product.name],
-        tags: [
-          category?.name ?? "",
-          ...product.colors.map(({ name }) => name),
-          ...product.sizes,
-          "לרכישה",
-          "רכישה",
-          "קנייה",
-          "קניה",
-          "לקנות",
-        ],
-        relations: brand ? [brand.name] : [],
-        description: [product.description],
-      });
-
-      if (match.score > 0) {
-        purchaseResults.push({
-          index,
-          result: {
-            entityType: "product",
-            id: product.id,
-            slug: product.slug,
-            title: product.name,
-            subtitle: product.description,
-            image,
-            matchedFields: match.matchedFields,
-            score: match.score,
-            href: `/products/${product.slug}`,
-            sellerName: brand
-              ? `${brand.name}${brand.isDemo ? " · תוכן לדוגמה" : ""}`
-              : "מותג לא זמין",
-            price: product.price,
-            currency: product.currency,
-          },
-        });
-      }
-      return;
-    }
+    if (product.type === "purchase") return;
 
     const business = rentalBusinessesById.get(product.rentalBusinessId);
     if (business?.isDemo !== false) return;
@@ -177,7 +140,70 @@ export function searchFoundHer(query: string): SearchResults {
     }
   });
 
-  const brandResults = rank<BrandSearchResult>(brands.flatMap((brand, index) => {
+  catalogProducts.forEach((product, index) => {
+    const image = product.images[0];
+    if (!image) return;
+    const match = scoreSearchDocument(normalizedQuery, {
+      title: [product.title],
+      tags: [
+        product.category,
+        ...product.colors.flatMap(({ normalized, raw }) => [normalized, raw]),
+        ...product.sizes.flatMap(({ normalized, raw }) => [normalized, raw]),
+        ...product.tags,
+        "לרכישה",
+        "רכישה",
+        "קנייה",
+      ],
+      relations: [product.brand],
+      description: [product.description ?? ""],
+    });
+    if (match.score === 0) return;
+    purchaseResults.push({
+      index,
+      result: {
+        entityType: "product",
+        id: product.id,
+        slug: product.externalId,
+        title: product.title,
+        subtitle: product.description ?? `${product.category} · ${product.brand}`,
+        image,
+        matchedFields: match.matchedFields,
+        score: match.score,
+        href: product.productUrl,
+        external: true,
+        sellerName: product.brand,
+        ...(product.price === undefined ? {} : { price: product.price }),
+        currency: product.currency,
+      },
+    });
+  });
+
+  const catalogBrandResults: Ranked<BrandSearchResult>[] = catalogSources.flatMap((source, index) => {
+    const sourceProducts = catalogProducts.filter((product) => product.sourceId === source.id);
+    const image = sourceProducts[0]?.images[0];
+    if (!image) return [];
+    const match = scoreSearchDocument(normalizedQuery, {
+      title: [source.brandName],
+      tags: ["מותג", "מותגים"],
+      description: ["קטלוג אופנה אמיתי ב־FoundHer"],
+    });
+    if (match.score === 0) return [];
+    return [{ index, result: {
+      entityType: "brand" as const,
+      id: source.id,
+      slug: source.id,
+      title: source.brandName,
+      subtitle: `${sourceProducts.length} פריטים מהקטלוג המקורי`,
+      image,
+      matchedFields: match.matchedFields,
+      score: match.score,
+      href: `/discover?brand=${source.id}`,
+      isDemo: false,
+    } }];
+  });
+
+  const legacyBrandResults: Ranked<BrandSearchResult>[] = brands.flatMap((brand, index) => {
+    if (brand.isDemo) return [];
     const match = scoreSearchDocument(normalizedQuery, {
       title: [brand.name],
       tags: ["מותג", "מותגים"],
@@ -188,7 +214,7 @@ export function searchFoundHer(query: string): SearchResults {
     return [{
       index,
       result: {
-        entityType: "brand",
+        entityType: "brand" as const,
         id: brand.id,
         slug: brand.slug,
         title: brand.name,
@@ -200,7 +226,8 @@ export function searchFoundHer(query: string): SearchResults {
         isDemo: brand.isDemo,
       },
     }];
-  }));
+  });
+  const brandResults = rank<BrandSearchResult>([...catalogBrandResults, ...legacyBrandResults]);
 
   const rentalBusinessResults = rank<RentalBusinessSearchResult>(rentalBusinesses.flatMap((business, index) => {
     if (business.isDemo) return [];

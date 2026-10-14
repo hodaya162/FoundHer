@@ -15,6 +15,8 @@
     "test:rentals": "tsx scripts/test-rentals.ts",
     "test:links": "tsx scripts/test-link-integrity.ts",
     "test:production-config": "tsx scripts/test-production-config.ts",
+    "test:catalogs": "tsx scripts/test-real-catalogs.ts",
+    "sync:catalogs": "tsx scripts/sync-catalog-snapshots.ts --authorized",
     "typecheck": "tsc --noEmit",
     "validate:fixtures": "tsx scripts/validate-fixtures.ts"
   },

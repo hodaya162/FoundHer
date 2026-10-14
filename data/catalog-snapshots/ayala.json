@@ -1,0 +1,1763 @@
+{
+  "sourceId": "ayala",
+  "syncedAt": "2026-10-14T12:22:18.243Z",
+  "products": [
+    {
+      "id": "ayala:aviv-mint",
+      "externalId": "aviv-mint",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת אָבִיב אָרוֹךְ מְנטָּה",
+      "description": "שמלת מקסי נסיכותית מבד קליל ואטום לחלוטין שאינו מתקמט, עם התאמה אישית בשלושה אזורים שונים.\nפתח קדמי עם שרוכים שנפתח עד הסוף – מאפשר שליטה בעומק ומתאים במיוחד לנשים מניקות.\nחיתוך משולש במותן שמחמיא במיוחד, החצאית ארוכה ונשפכת, וארוכה קצת יותר בצדדים.\nחיתוך משולש במותן יוצר קו מחמיא שמדגיש את הגוף בצורה טבעית, גם למידות קטנות וגם לגדולות.\nהשרוולים באורך המרפק, עם קשירה מתכווננת שמאפשרת לך לבחור את הגובה והסגנון – צמוד או משוחרר.\nגם בגב יש קשירה שמאפשרת לך לשחק עם הגזרה – להדק או לשחרר לפי מה שאת אוהבת.\nמומלצת במיוחד למידות גדולות.",
+      "category": "dresses",
+      "price": 408,
+      "compareAtPrice": 480,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/aviv-mint",
+      "images": [
+        {
+          "id": "ayala:aviv-mint:image:1",
+          "url": "https://ayala-dresses.web.app/images/aviv-mint.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ מְנטָּה של אילה שמלות"
+        },
+        {
+          "id": "ayala:aviv-mint:image:2",
+          "url": "https://ayala-dresses.web.app/images/aviv-mint-2.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ מְנטָּה — תמונה 2"
+        },
+        {
+          "id": "ayala:aviv-mint:image:3",
+          "url": "https://ayala-dresses.web.app/images/aviv-mint-3.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ מְנטָּה — תמונה 3"
+        },
+        {
+          "id": "ayala:aviv-mint:image:4",
+          "url": "https://ayala-dresses.web.app/images/aviv-mint-4.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ מְנטָּה — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:aviv-mint:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 408,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:aviv-mint:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 408,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": false,
+      "tags": [
+        "aviv"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:aviv-pink",
+      "externalId": "aviv-pink",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת אָבִיב אָרוֹךְ וָרוֹד",
+      "description": "שמלת מקסי נסיכותית מבד קליל ואטום לחלוטין שאינו מתקמט, עם התאמה אישית בשלושה אזורים שונים.\nפתח קדמי עם שרוכים שנפתח עד הסוף – מאפשר שליטה בעומק ומתאים במיוחד לנשים מניקות.\nחיתוך משולש במותן שמחמיא במיוחד, החצאית ארוכה ונשפכת, וארוכה קצת יותר בצדדים.\nחיתוך משולש במותן יוצר קו מחמיא שמדגיש את הגוף בצורה טבעית, גם למידות קטנות וגם לגדולות.\nהשרוולים באורך המרפק, עם קשירה מתכווננת שמאפשרת לך לבחור את הגובה והסגנון – צמוד או משוחרר.\nגם בגב יש קשירה שמאפשרת לך לשחק עם הגזרה – להדק או לשחרר לפי מה שאת אוהבת.\nמומלצת במיוחד למידות גדולות.",
+      "category": "dresses",
+      "price": 408,
+      "compareAtPrice": 480,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/aviv-pink",
+      "images": [
+        {
+          "id": "ayala:aviv-pink:image:1",
+          "url": "https://ayala-dresses.web.app/images/aviv-pink.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ וָרוֹד של אילה שמלות"
+        },
+        {
+          "id": "ayala:aviv-pink:image:2",
+          "url": "https://ayala-dresses.web.app/images/aviv-pink-2.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ וָרוֹד — תמונה 2"
+        },
+        {
+          "id": "ayala:aviv-pink:image:3",
+          "url": "https://ayala-dresses.web.app/images/aviv-pink-3.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ וָרוֹד — תמונה 3"
+        },
+        {
+          "id": "ayala:aviv-pink:image:4",
+          "url": "https://ayala-dresses.web.app/images/aviv-pink-4.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ וָרוֹד — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:aviv-pink:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 408,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:aviv-pink:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 408,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "aviv"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:aviv-skyblue",
+      "externalId": "aviv-skyblue",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת אָבִיב אָרוֹךְ תְּכֵלֶת",
+      "description": "שמלת מקסי נסיכותית מבד קליל ואטום לחלוטין שאינו מתקמט, עם התאמה אישית בשלושה אזורים שונים.\nפתח קדמי עם שרוכים שנפתח עד הסוף – מאפשר שליטה בעומק ומתאים במיוחד לנשים מניקות.\nחיתוך משולש במותן שמחמיא במיוחד, החצאית ארוכה ונשפכת, וארוכה קצת יותר בצדדים.\nחיתוך משולש במותן יוצר קו מחמיא שמדגיש את הגוף בצורה טבעית, גם למידות קטנות וגם לגדולות.\nהשרוולים באורך המרפק, עם קשירה מתכווננת שמאפשרת לך לבחור את הגובה והסגנון – צמוד או משוחרר.\nגם בגב יש קשירה שמאפשרת לך לשחק עם הגזרה – להדק או לשחרר לפי מה שאת אוהבת.\nמומלצת במיוחד למידות גדולות.",
+      "category": "dresses",
+      "price": 408,
+      "compareAtPrice": 480,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/aviv-skyblue",
+      "images": [
+        {
+          "id": "ayala:aviv-skyblue:image:1",
+          "url": "https://ayala-dresses.web.app/images/aviv-skyblue.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ תְּכֵלֶת של אילה שמלות"
+        },
+        {
+          "id": "ayala:aviv-skyblue:image:2",
+          "url": "https://ayala-dresses.web.app/images/aviv-skyblue-2.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ תְּכֵלֶת — תמונה 2"
+        },
+        {
+          "id": "ayala:aviv-skyblue:image:3",
+          "url": "https://ayala-dresses.web.app/images/aviv-skyblue-3.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ תְּכֵלֶת — תמונה 3"
+        },
+        {
+          "id": "ayala:aviv-skyblue:image:4",
+          "url": "https://ayala-dresses.web.app/images/aviv-skyblue-4.jpg",
+          "alt": "שִׂמְלַת אָבִיב אָרוֹךְ תְּכֵלֶת — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:aviv-skyblue:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 408,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:aviv-skyblue:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 408,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": false,
+      "tags": [
+        "aviv"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:chagim-beet",
+      "externalId": "chagim-beet",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת תֵּבֵל יַיִן",
+      "description": "שמלת מקסי נסיכותית מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, שנסגר ונפתח לגמרי עם קשירה \nהמאפשרת התאמה מירבית וגישה נוחה להנקה\nחיתוך משולש במותן שמחמיא במיוחד, וחצאית מקסי נשפכת. \nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\n‏ הבד של השמלה הוא 100 אחוז טבעי ורך למגע, \nמה שמעניק לשמלה מראה כפרי ונסיכותי גם יחד.",
+      "category": "dresses",
+      "price": 470,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/chagim-beet",
+      "images": [
+        {
+          "id": "ayala:chagim-beet:image:1",
+          "url": "https://ayala-dresses.web.app/images/chagim-beet.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל יַיִן של אילה שמלות"
+        },
+        {
+          "id": "ayala:chagim-beet:image:2",
+          "url": "https://ayala-dresses.web.app/images/chagim-beet-2.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל יַיִן — תמונה 2"
+        },
+        {
+          "id": "ayala:chagim-beet:image:3",
+          "url": "https://ayala-dresses.web.app/images/chagim-beet-3.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל יַיִן — תמונה 3"
+        },
+        {
+          "id": "ayala:chagim-beet:image:4",
+          "url": "https://ayala-dresses.web.app/images/chagim-beet-4.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל יַיִן — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:chagim-beet:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 470,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:chagim-beet:variant:L-XL",
+          "externalId": "L-XL",
+          "title": "L-XL",
+          "price": 470,
+          "size": {
+            "raw": "L-XL",
+            "normalized": "L-XL"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:chagim-beet:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 470,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "L-XL",
+          "normalized": "L-XL"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "chagim"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:chagim-mint",
+      "externalId": "chagim-mint",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת תֵּבֵל מְנטָּה",
+      "description": "שמלת מקסי נסיכותית מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, שנסגר ונפתח לגמרי עם קשירה \nהמאפשרת התאמה מירבית וגישה נוחה להנקה\nחיתוך משולש במותן שמחמיא במיוחד, וחצאית מקסי נשפכת. \nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\n‏ הבד של השמלה הוא 100 אחוז טבעי ורך למגע, \nמה שמעניק לשמלה מראה כפרי ונסיכותי גם יחד.",
+      "category": "dresses",
+      "price": 470,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/chagim-mint",
+      "images": [
+        {
+          "id": "ayala:chagim-mint:image:1",
+          "url": "https://ayala-dresses.web.app/images/chagim-mint.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל מְנטָּה של אילה שמלות"
+        },
+        {
+          "id": "ayala:chagim-mint:image:2",
+          "url": "https://ayala-dresses.web.app/images/chagim-mint-2.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל מְנטָּה — תמונה 2"
+        },
+        {
+          "id": "ayala:chagim-mint:image:3",
+          "url": "https://ayala-dresses.web.app/images/chagim-mint-3.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל מְנטָּה — תמונה 3"
+        },
+        {
+          "id": "ayala:chagim-mint:image:4",
+          "url": "https://ayala-dresses.web.app/images/chagim-mint-4.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל מְנטָּה — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:chagim-mint:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 470,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:chagim-mint:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 470,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:chagim-mint:variant:L-XL",
+          "externalId": "L-XL",
+          "title": "L-XL",
+          "price": 470,
+          "size": {
+            "raw": "L-XL",
+            "normalized": "L-XL"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "L-XL",
+          "normalized": "L-XL"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "chagim"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:chagim-white",
+      "externalId": "chagim-white",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת תֵּבֵל לָבָן",
+      "description": "שמלת מקסי נסיכותית מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, שנסגר ונפתח לגמרי עם קשירה \nהמאפשרת התאמה מירבית וגישה נוחה להנקה\nחיתוך משולש במותן שמחמיא במיוחד, וחצאית מקסי נשפכת. \nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\n‏ הבד של השמלה הוא 100 אחוז טבעי ורך למגע, \nמה שמעניק לשמלה מראה כפרי ונסיכותי גם יחד.",
+      "category": "dresses",
+      "price": 495,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/chagim-white",
+      "images": [
+        {
+          "id": "ayala:chagim-white:image:1",
+          "url": "https://ayala-dresses.web.app/images/chagim-white.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל לָבָן של אילה שמלות"
+        },
+        {
+          "id": "ayala:chagim-white:image:2",
+          "url": "https://ayala-dresses.web.app/images/chagim-white-2.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל לָבָן — תמונה 2"
+        },
+        {
+          "id": "ayala:chagim-white:image:3",
+          "url": "https://ayala-dresses.web.app/images/chagim-white-3.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל לָבָן — תמונה 3"
+        },
+        {
+          "id": "ayala:chagim-white:image:4",
+          "url": "https://ayala-dresses.web.app/images/chagim-white-4.jpg",
+          "alt": "שִׂמְלַת תֵּבֵל לָבָן — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:chagim-white:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 495,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:chagim-white:variant:L-XL",
+          "externalId": "L-XL",
+          "title": "L-XL",
+          "price": 495,
+          "size": {
+            "raw": "L-XL",
+            "normalized": "L-XL"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:chagim-white:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 495,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "L-XL",
+          "normalized": "L-XL"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "chagim"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:cinderella-champagne",
+      "externalId": "cinderella-champagne",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת סִינְדֵּרֵלָה שַׁמְפַּנְיָה",
+      "description": "שמלת מקסי נסיכותית עם בטנה מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, חיתוך משולש במותן שמחמיא במיוחד, וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים ארוכים מבד שקוף עם סגירה של גומי יפה שמאפשרת בנוחות להעלות אותם כשמתעסקים עם הידיים.\nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nעל גבי הבד יש רקמה מחוט מבריק - מה שמקנה לבד מראה אצילי ויוקרתי ביותר.",
+      "category": "dresses",
+      "price": 425,
+      "compareAtPrice": 500,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/cinderella-champagne",
+      "images": [
+        {
+          "id": "ayala:cinderella-champagne:image:1",
+          "url": "https://ayala-dresses.web.app/images/cinderella-champagne.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה שַׁמְפַּנְיָה של אילה שמלות"
+        },
+        {
+          "id": "ayala:cinderella-champagne:image:2",
+          "url": "https://ayala-dresses.web.app/images/cinderella-champagne-2.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה שַׁמְפַּנְיָה — תמונה 2"
+        },
+        {
+          "id": "ayala:cinderella-champagne:image:3",
+          "url": "https://ayala-dresses.web.app/images/cinderella-champagne-3.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה שַׁמְפַּנְיָה — תמונה 3"
+        },
+        {
+          "id": "ayala:cinderella-champagne:image:4",
+          "url": "https://ayala-dresses.web.app/images/cinderella-champagne-4.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה שַׁמְפַּנְיָה — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:cinderella-champagne:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 425,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:cinderella-champagne:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 425,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "cinderella"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:cinderella-peach",
+      "externalId": "cinderella-peach",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת סִינְדֵּרֵלָה אֲפַרְסֵק",
+      "description": "שמלת מקסי נסיכותית עם בטנה מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, חיתוך משולש במותן שמחמיא במיוחד, וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים ארוכים מבד שקוף עם סגירה של גומי יפה שמאפשרת בנוחות להעלות אותם כשמתעסקים עם הידיים.\nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nעל גבי הבד יש רקמה מחוט מבריק - מה שמקנה לבד מראה אצילי ויוקרתי ביותר.",
+      "category": "dresses",
+      "price": 467,
+      "compareAtPrice": 550,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/cinderella-peach",
+      "images": [
+        {
+          "id": "ayala:cinderella-peach:image:1",
+          "url": "https://ayala-dresses.web.app/images/cinderella-peach.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה אֲפַרְסֵק של אילה שמלות"
+        },
+        {
+          "id": "ayala:cinderella-peach:image:2",
+          "url": "https://ayala-dresses.web.app/images/cinderella-peach-2.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה אֲפַרְסֵק — תמונה 2"
+        },
+        {
+          "id": "ayala:cinderella-peach:image:3",
+          "url": "https://ayala-dresses.web.app/images/cinderella-peach-3.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה אֲפַרְסֵק — תמונה 3"
+        },
+        {
+          "id": "ayala:cinderella-peach:image:4",
+          "url": "https://ayala-dresses.web.app/images/cinderella-peach-4.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה אֲפַרְסֵק — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:cinderella-peach:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 467,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:cinderella-peach:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 467,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": false,
+      "tags": [
+        "cinderella"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:cinderella-pink",
+      "externalId": "cinderella-pink",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת סִינְדֵּרֵלָה וָרוֹד",
+      "description": "שמלת מקסי נסיכותית עם בטנה מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, חיתוך משולש במותן שמחמיא במיוחד, וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים ארוכים מבד שקוף עם סגירה של גומי יפה שמאפשרת בנוחות להעלות אותם כשמתעסקים עם הידיים.\nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nעל גבי הבד יש רקמה מחוט מבריק - מה שמקנה לבד מראה אצילי ויוקרתי ביותר.",
+      "category": "dresses",
+      "price": 550,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/cinderella-pink",
+      "images": [
+        {
+          "id": "ayala:cinderella-pink:image:1",
+          "url": "https://ayala-dresses.web.app/images/cinderella-pink.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה וָרוֹד של אילה שמלות"
+        },
+        {
+          "id": "ayala:cinderella-pink:image:2",
+          "url": "https://ayala-dresses.web.app/images/cinderella-pink-2.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה וָרוֹד — תמונה 2"
+        },
+        {
+          "id": "ayala:cinderella-pink:image:3",
+          "url": "https://ayala-dresses.web.app/images/cinderella-pink-3.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה וָרוֹד — תמונה 3"
+        },
+        {
+          "id": "ayala:cinderella-pink:image:4",
+          "url": "https://ayala-dresses.web.app/images/cinderella-pink-4.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה וָרוֹד — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:cinderella-pink:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 550,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:cinderella-pink:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 550,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": false,
+      "tags": [
+        "cinderella"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:cinderella-scarlet",
+      "externalId": "cinderella-scarlet",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת סִינְדֵּרֵלָה סְקַרְלֶט",
+      "description": "שמלת מקסי נסיכותית עם בטנה מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, חיתוך משולש במותן שמחמיא במיוחד, וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים ארוכים מבד שקוף עם סגירה של גומי יפה שמאפשרת בנוחות להעלות אותם כשמתעסקים עם הידיים.\nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nעל גבי הבד יש רקמה מחוט מבריק - מה שמקנה לבד מראה אצילי ויוקרתי ביותר.",
+      "category": "dresses",
+      "price": 425,
+      "compareAtPrice": 500,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/cinderella-scarlet",
+      "images": [
+        {
+          "id": "ayala:cinderella-scarlet:image:1",
+          "url": "https://ayala-dresses.web.app/images/cinderella-scarlet.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה סְקַרְלֶט של אילה שמלות"
+        },
+        {
+          "id": "ayala:cinderella-scarlet:image:2",
+          "url": "https://ayala-dresses.web.app/images/cinderella-scarlet-2.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה סְקַרְלֶט — תמונה 2"
+        },
+        {
+          "id": "ayala:cinderella-scarlet:image:3",
+          "url": "https://ayala-dresses.web.app/images/cinderella-scarlet-3.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה סְקַרְלֶט — תמונה 3"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:cinderella-scarlet:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 425,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:cinderella-scarlet:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 425,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "cinderella"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:cinderella-skyblue",
+      "externalId": "cinderella-skyblue",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת סִינְדֵּרֵלָה תְּכֵלֶת",
+      "description": "שמלת מקסי נסיכותית עם בטנה מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, חיתוך משולש במותן שמחמיא במיוחד, וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים ארוכים מבד שקוף עם סגירה של גומי יפה שמאפשרת בנוחות להעלות אותם כשמתעסקים עם הידיים.\nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nעל גבי הבד יש רקמה מחוט מבריק - מה שמקנה לבד מראה אצילי ויוקרתי ביותר.",
+      "category": "dresses",
+      "price": 550,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/cinderella-skyblue",
+      "images": [
+        {
+          "id": "ayala:cinderella-skyblue:image:1",
+          "url": "https://ayala-dresses.web.app/images/cinderella-skyblue.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה תְּכֵלֶת של אילה שמלות"
+        },
+        {
+          "id": "ayala:cinderella-skyblue:image:2",
+          "url": "https://ayala-dresses.web.app/images/cinderella-skyblue-2.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה תְּכֵלֶת — תמונה 2"
+        },
+        {
+          "id": "ayala:cinderella-skyblue:image:3",
+          "url": "https://ayala-dresses.web.app/images/cinderella-skyblue-3.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה תְּכֵלֶת — תמונה 3"
+        },
+        {
+          "id": "ayala:cinderella-skyblue:image:4",
+          "url": "https://ayala-dresses.web.app/images/cinderella-skyblue-4.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה תְּכֵלֶת — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:cinderella-skyblue:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 550,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:cinderella-skyblue:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 550,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": false,
+      "tags": [
+        "cinderella"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:cinderella-turquoise",
+      "externalId": "cinderella-turquoise",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת סִינְדֵּרֵלָה טוּרְקִיז",
+      "description": "שמלת מקסי נסיכותית עם בטנה מבד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע, חיתוך משולש במותן שמחמיא במיוחד, וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים ארוכים מבד שקוף עם סגירה של גומי יפה שמאפשרת בנוחות להעלות אותם כשמתעסקים עם הידיים.\nיש קשירה בגב שמאפשרת להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nעל גבי הבד יש רקמה מחוט מבריק - מה שמקנה לבד מראה אצילי ויוקרתי ביותר.",
+      "category": "dresses",
+      "price": 425,
+      "compareAtPrice": 500,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/cinderella-turquoise",
+      "images": [
+        {
+          "id": "ayala:cinderella-turquoise:image:1",
+          "url": "https://ayala-dresses.web.app/images/cinderella-turquoise.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה טוּרְקִיז של אילה שמלות"
+        },
+        {
+          "id": "ayala:cinderella-turquoise:image:2",
+          "url": "https://ayala-dresses.web.app/images/cinderella-turquoise-2.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה טוּרְקִיז — תמונה 2"
+        },
+        {
+          "id": "ayala:cinderella-turquoise:image:3",
+          "url": "https://ayala-dresses.web.app/images/cinderella-turquoise-3.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה טוּרְקִיז — תמונה 3"
+        },
+        {
+          "id": "ayala:cinderella-turquoise:image:4",
+          "url": "https://ayala-dresses.web.app/images/cinderella-turquoise-4.jpg",
+          "alt": "שִׂמְלַת סִינְדֵּרֵלָה טוּרְקִיז — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:cinderella-turquoise:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 425,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:cinderella-turquoise:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 425,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "cinderella"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:heidi-daisy",
+      "externalId": "heidi-daisy",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת הַיְידִי חַרְצִית",
+      "description": "שמלת מידי נסיכותית, עשויה 100% בד טבעי מכותנה וויסקוזה, שהשילוב ביניהן יוצר תחושה של יציבות מחבקת יחד עם אווריריות נעימה, כך שהיא מרגישה קלילה ונוחה במיוחד.\nבחלק הקדמי מחשוף לב, וחצאית כיווצים בשתי קומות.\nהגזרה מתכווננת בשני אזורים שונים שמאפשרים לך להתאים אותה בדיוק אלייך.\nהשרוולים מגיעים עד המרפק ונסגרים בקשירה, כך שתוכלי להתאים את הגובה ואת המראה.\nבחלק האחורי יש קשירה שמאפשרת לך לשחק עם הגזרה – להדק או לשחרר לפי מה שאת אוהבת.",
+      "category": "dresses",
+      "price": 323,
+      "compareAtPrice": 380,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/heidi-daisy",
+      "images": [
+        {
+          "id": "ayala:heidi-daisy:image:1",
+          "url": "https://ayala-dresses.web.app/images/heidi-daisy.jpg",
+          "alt": "שִׂמְלַת הַיְידִי חַרְצִית של אילה שמלות"
+        },
+        {
+          "id": "ayala:heidi-daisy:image:2",
+          "url": "https://ayala-dresses.web.app/images/heidi-daisy-2.jpg",
+          "alt": "שִׂמְלַת הַיְידִי חַרְצִית — תמונה 2"
+        },
+        {
+          "id": "ayala:heidi-daisy:image:3",
+          "url": "https://ayala-dresses.web.app/images/heidi-daisy-3.jpg",
+          "alt": "שִׂמְלַת הַיְידִי חַרְצִית — תמונה 3"
+        },
+        {
+          "id": "ayala:heidi-daisy:image:4",
+          "url": "https://ayala-dresses.web.app/images/heidi-daisy-4.jpg",
+          "alt": "שִׂמְלַת הַיְידִי חַרְצִית — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:heidi-daisy:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 323,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:heidi-daisy:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 323,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "heidi"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:heidi-lavender",
+      "externalId": "heidi-lavender",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת הַיְידִי לָבֶנְדֵּר",
+      "description": "שמלת מידי נסיכותית, עשויה 100% בד טבעי מכותנה וויסקוזה, שהשילוב ביניהן יוצר תחושה של יציבות מחבקת יחד עם אווריריות נעימה, כך שהיא מרגישה קלילה ונוחה במיוחד.\nבחלק הקדמי מחשוף לב, וחצאית כיווצים בשתי קומות.\nהגזרה מתכווננת בשני אזורים שונים שמאפשרים לך להתאים אותה בדיוק אלייך.\nהשרוולים מגיעים עד המרפק ונסגרים בקשירה, כך שתוכלי להתאים את הגובה ואת המראה.\nבחלק האחורי יש קשירה שמאפשרת לך לשחק עם הגזרה – להדק או לשחרר לפי מה שאת אוהבת.",
+      "category": "dresses",
+      "price": 323,
+      "compareAtPrice": 380,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/heidi-lavender",
+      "images": [
+        {
+          "id": "ayala:heidi-lavender:image:1",
+          "url": "https://ayala-dresses.web.app/images/heidi-lavender.jpg",
+          "alt": "שִׂמְלַת הַיְידִי לָבֶנְדֵּר של אילה שמלות"
+        },
+        {
+          "id": "ayala:heidi-lavender:image:2",
+          "url": "https://ayala-dresses.web.app/images/heidi-lavender-2.jpg",
+          "alt": "שִׂמְלַת הַיְידִי לָבֶנְדֵּר — תמונה 2"
+        },
+        {
+          "id": "ayala:heidi-lavender:image:3",
+          "url": "https://ayala-dresses.web.app/images/heidi-lavender-3.jpg",
+          "alt": "שִׂמְלַת הַיְידִי לָבֶנְדֵּר — תמונה 3"
+        },
+        {
+          "id": "ayala:heidi-lavender:image:4",
+          "url": "https://ayala-dresses.web.app/images/heidi-lavender-4.jpg",
+          "alt": "שִׂמְלַת הַיְידִי לָבֶנְדֵּר — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:heidi-lavender:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 323,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:heidi-lavender:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 323,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "heidi"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:heidi-rose",
+      "externalId": "heidi-rose",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת הַיְידִי רוֹז",
+      "description": "שמלת מידי נסיכותית, עשויה 100% בד טבעי מכותנה וויסקוזה, שהשילוב ביניהן יוצר תחושה של יציבות מחבקת יחד עם אווריריות נעימה, כך שהיא מרגישה קלילה ונוחה במיוחד.\nבחלק הקדמי מחשוף לב, וחצאית כיווצים בשתי קומות.\nהגזרה מתכווננת בשני אזורים שונים שמאפשרים לך להתאים אותה בדיוק אלייך.\nהשרוולים מגיעים עד המרפק ונסגרים בקשירה, כך שתוכלי להתאים את הגובה ואת המראה.\nבחלק האחורי יש קשירה שמאפשרת לך לשחק עם הגזרה – להדק או לשחרר לפי מה שאת אוהבת.",
+      "category": "dresses",
+      "price": 323,
+      "compareAtPrice": 380,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/heidi-rose",
+      "images": [
+        {
+          "id": "ayala:heidi-rose:image:1",
+          "url": "https://ayala-dresses.web.app/images/heidi-rose.jpg",
+          "alt": "שִׂמְלַת הַיְידִי רוֹז של אילה שמלות"
+        },
+        {
+          "id": "ayala:heidi-rose:image:2",
+          "url": "https://ayala-dresses.web.app/images/heidi-rose-2.jpg",
+          "alt": "שִׂמְלַת הַיְידִי רוֹז — תמונה 2"
+        },
+        {
+          "id": "ayala:heidi-rose:image:3",
+          "url": "https://ayala-dresses.web.app/images/heidi-rose-3.jpg",
+          "alt": "שִׂמְלַת הַיְידִי רוֹז — תמונה 3"
+        },
+        {
+          "id": "ayala:heidi-rose:image:4",
+          "url": "https://ayala-dresses.web.app/images/heidi-rose-4.jpg",
+          "alt": "שִׂמְלַת הַיְידִי רוֹז — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:heidi-rose:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 323,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:heidi-rose:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 323,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "heidi"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:heidi-yellow",
+      "externalId": "heidi-yellow",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת הַיְידִי צָהוֹב",
+      "description": "שמלת מידי נסיכותית, עשויה 100% בד טבעי מכותנה וויסקוזה, שהשילוב ביניהן יוצר תחושה של יציבות מחבקת יחד עם אווריריות נעימה, כך שהיא מרגישה קלילה ונוחה במיוחד.\nבחלק הקדמי מחשוף לב, וחצאית כיווצים בשתי קומות.\nהגזרה מתכווננת בשני אזורים שונים שמאפשרים לך להתאים אותה בדיוק אלייך.\nהשרוולים מגיעים עד המרפק ונסגרים בקשירה, כך שתוכלי להתאים את הגובה ואת המראה.\nבחלק האחורי יש קשירה שמאפשרת לך לשחק עם הגזרה – להדק או לשחרר לפי מה שאת אוהבת.",
+      "category": "dresses",
+      "price": 323,
+      "compareAtPrice": 380,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/heidi-yellow",
+      "images": [
+        {
+          "id": "ayala:heidi-yellow:image:1",
+          "url": "https://ayala-dresses.web.app/images/heidi-yellow.jpg",
+          "alt": "שִׂמְלַת הַיְידִי צָהוֹב של אילה שמלות"
+        },
+        {
+          "id": "ayala:heidi-yellow:image:2",
+          "url": "https://ayala-dresses.web.app/images/heidi-yellow-2.jpg",
+          "alt": "שִׂמְלַת הַיְידִי צָהוֹב — תמונה 2"
+        },
+        {
+          "id": "ayala:heidi-yellow:image:3",
+          "url": "https://ayala-dresses.web.app/images/heidi-yellow-3.jpg",
+          "alt": "שִׂמְלַת הַיְידִי צָהוֹב — תמונה 3"
+        },
+        {
+          "id": "ayala:heidi-yellow:image:4",
+          "url": "https://ayala-dresses.web.app/images/heidi-yellow-4.jpg",
+          "alt": "שִׂמְלַת הַיְידִי צָהוֹב — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:heidi-yellow:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 323,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:heidi-yellow:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 323,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "heidi"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:rapunzel-gray",
+      "externalId": "rapunzel-gray",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת רְפּוּנְזֶל אֲפוֹר",
+      "description": "שמלת מקסי נסיכותית מבד קליל ונשפך שאינו מתקמט, עם בטנה מ־100% בד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים הארוכים מבד שקוף ועדין, עם סיומת גומי המאפשרת להרים אותם בקלות ובנוחות כשצריך.\nבגב השמלה יש קשירה שמאפשרת לך לשחק עם הגזרה - להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nשזורים בבד נצנצים עדינים שמוסיפים ברק רך ומיוחד - והם חלק מהבד, כך שהם לא יורדים בכביסה.",
+      "category": "dresses",
+      "price": 425,
+      "compareAtPrice": 500,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/rapunzel-gray",
+      "images": [
+        {
+          "id": "ayala:rapunzel-gray:image:1",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-gray.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל אֲפוֹר של אילה שמלות"
+        },
+        {
+          "id": "ayala:rapunzel-gray:image:2",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-gray-2.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל אֲפוֹר — תמונה 2"
+        },
+        {
+          "id": "ayala:rapunzel-gray:image:3",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-gray-3.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל אֲפוֹר — תמונה 3"
+        },
+        {
+          "id": "ayala:rapunzel-gray:image:4",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-gray-4.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל אֲפוֹר — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:rapunzel-gray:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 425,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:rapunzel-gray:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 425,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "rapunzel"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:rapunzel-pink",
+      "externalId": "rapunzel-pink",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת רְפּוּנְזֶל וָרוֹד",
+      "description": "שמלת מקסי נסיכותית מבד קליל ונשפך שאינו מתקמט, עם בטנה מ־100% בד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים הארוכים מבד שקוף ועדין, עם סיומת גומי המאפשרת להרים אותם בקלות ובנוחות כשצריך.\nבגב השמלה יש קשירה שמאפשרת לך לשחק עם הגזרה - להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nשזורים בבד נצנצים עדינים שמוסיפים ברק רך ומיוחד - והם חלק מהבד, כך שהם לא יורדים בכביסה.",
+      "category": "dresses",
+      "price": 425,
+      "compareAtPrice": 500,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/rapunzel-pink",
+      "images": [
+        {
+          "id": "ayala:rapunzel-pink:image:1",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-pink.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל וָרוֹד של אילה שמלות"
+        },
+        {
+          "id": "ayala:rapunzel-pink:image:2",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-pink-2.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל וָרוֹד — תמונה 2"
+        },
+        {
+          "id": "ayala:rapunzel-pink:image:3",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-pink-3.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל וָרוֹד — תמונה 3"
+        },
+        {
+          "id": "ayala:rapunzel-pink:image:4",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-pink-4.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל וָרוֹד — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:rapunzel-pink:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 425,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:rapunzel-pink:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 425,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        },
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "rapunzel"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:rapunzel-purple",
+      "externalId": "rapunzel-purple",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "שִׂמְלַת רְפּוּנְזֶל סֶגוֹל",
+      "description": "שמלת מקסי נסיכותית מבד קליל ונשפך שאינו מתקמט, עם בטנה מ־100% בד טבעי רך ונשפך.\nבחלק הקדמי מחשוף מרובע וחצאית כיווצים נשפכת עם שתי קומות.\nהשרוולים הארוכים מבד שקוף ועדין, עם סיומת גומי המאפשרת להרים אותם בקלות ובנוחות כשצריך.\nבגב השמלה יש קשירה שמאפשרת לך לשחק עם הגזרה - להצמיד לפי מה שנכון לך באותו רגע, או להשאיר פתוח למראה רפוי, נינוח ומשוחרר יותר.\nשזורים בבד נצנצים עדינים שמוסיפים ברק רך ומיוחד - והם חלק מהבד, כך שהם לא יורדים בכביסה.",
+      "category": "dresses",
+      "price": 425,
+      "compareAtPrice": 500,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/rapunzel-purple",
+      "images": [
+        {
+          "id": "ayala:rapunzel-purple:image:1",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-purple.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל סֶגוֹל של אילה שמלות"
+        },
+        {
+          "id": "ayala:rapunzel-purple:image:2",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-purple-2.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל סֶגוֹל — תמונה 2"
+        },
+        {
+          "id": "ayala:rapunzel-purple:image:3",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-purple-3.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל סֶגוֹל — תמונה 3"
+        },
+        {
+          "id": "ayala:rapunzel-purple:image:4",
+          "url": "https://ayala-dresses.web.app/images/rapunzel-purple-4.jpg",
+          "alt": "שִׂמְלַת רְפּוּנְזֶל סֶגוֹל — תמונה 4"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:rapunzel-purple:variant:M-L",
+          "externalId": "M-L",
+          "title": "M-L",
+          "price": 425,
+          "size": {
+            "raw": "M-L",
+            "normalized": "M-L"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:rapunzel-purple:variant:S-M",
+          "externalId": "S-M",
+          "title": "S-M",
+          "price": 425,
+          "size": {
+            "raw": "S-M",
+            "normalized": "S-M"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M-L",
+          "normalized": "M-L"
+        },
+        {
+          "raw": "S-M",
+          "normalized": "S-M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "rapunzel"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:swim-bordeaux",
+      "externalId": "swim-bordeaux",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "בֶּגֶד יָם בּוֹרְדּוֹ",
+      "description": "שמלת בגד-ים העשויה מבד לייקרה איכותי ועמיד, עם תמיכה מובנית לחזה וקאפים נשלפים לפי העדפתך. השרוולים מגיעים עד המרפק ומסתיימים בגומי עדין.\nאת הפתח הקדמי ניתן לכוונון באמצעות שרוכים. הוא יכול להיסגר עד הצוואר, ולהיפתח בקלות כדי לאפשר התאמה מקסימלית ונוחות (במיוחד למי שמניקה).\nלשמלה מחובר טייץ תואם שניתן להוריד בחלקו האחורי לנוחות מירבית.",
+      "category": "swimwear",
+      "price": 390,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/swim-bordeaux",
+      "images": [
+        {
+          "id": "ayala:swim-bordeaux:image:1",
+          "url": "https://ayala-dresses.web.app/images/swim-bordeaux.jpg",
+          "alt": "בֶּגֶד יָם בּוֹרְדּוֹ של אילה שמלות"
+        },
+        {
+          "id": "ayala:swim-bordeaux:image:2",
+          "url": "https://ayala-dresses.web.app/images/swim-bordeaux-2.jpg",
+          "alt": "בֶּגֶד יָם בּוֹרְדּוֹ — תמונה 2"
+        },
+        {
+          "id": "ayala:swim-bordeaux:image:3",
+          "url": "https://ayala-dresses.web.app/images/swim-bordeaux-3.jpg",
+          "alt": "בֶּגֶד יָם בּוֹרְדּוֹ — תמונה 3"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:swim-bordeaux:variant:XL",
+          "externalId": "XL",
+          "title": "XL",
+          "price": 390,
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-bordeaux:variant:S",
+          "externalId": "S",
+          "title": "S",
+          "price": 390,
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "available": true
+        },
+        {
+          "id": "ayala:swim-bordeaux:variant:M",
+          "externalId": "M",
+          "title": "M",
+          "price": 390,
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-bordeaux:variant:L",
+          "externalId": "L",
+          "title": "L",
+          "price": 390,
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "XL",
+          "normalized": "XL"
+        },
+        {
+          "raw": "S",
+          "normalized": "S"
+        },
+        {
+          "raw": "M",
+          "normalized": "M"
+        },
+        {
+          "raw": "L",
+          "normalized": "L"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "swim"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:swim-floral",
+      "externalId": "swim-floral",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "בֶּגֶד יָם פִּרְחוֹנִי",
+      "description": "שמלת בגד-ים העשויה מבד לייקרה איכותי ועמיד, עם תמיכה מובנית לחזה וקאפים נשלפים לפי העדפתך. השרוולים מגיעים עד המרפק ומסתיימים בגומי עדין.\nאת הפתח הקדמי ניתן לכוונון באמצעות שרוכים. הוא יכול להיסגר עד הצוואר, ולהיפתח בקלות כדי לאפשר התאמה מקסימלית ונוחות (במיוחד למי שמניקה).\nלשמלה מחובר טייץ תואם שניתן להוריד בחלקו האחורי לנוחות מירבית.",
+      "category": "swimwear",
+      "price": 390,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/swim-floral",
+      "images": [
+        {
+          "id": "ayala:swim-floral:image:1",
+          "url": "https://ayala-dresses.web.app/images/swim-floral.jpg",
+          "alt": "בֶּגֶד יָם פִּרְחוֹנִי של אילה שמלות"
+        },
+        {
+          "id": "ayala:swim-floral:image:2",
+          "url": "https://ayala-dresses.web.app/images/swim-floral-2.jpg",
+          "alt": "בֶּגֶד יָם פִּרְחוֹנִי — תמונה 2"
+        },
+        {
+          "id": "ayala:swim-floral:image:3",
+          "url": "https://ayala-dresses.web.app/images/swim-floral-3.jpg",
+          "alt": "בֶּגֶד יָם פִּרְחוֹנִי — תמונה 3"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:swim-floral:variant:M",
+          "externalId": "M",
+          "title": "M",
+          "price": 390,
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-floral:variant:L",
+          "externalId": "L",
+          "title": "L",
+          "price": 390,
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-floral:variant:XL",
+          "externalId": "XL",
+          "title": "XL",
+          "price": 390,
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-floral:variant:S",
+          "externalId": "S",
+          "title": "S",
+          "price": 390,
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "available": false
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "M",
+          "normalized": "M"
+        },
+        {
+          "raw": "L",
+          "normalized": "L"
+        },
+        {
+          "raw": "XL",
+          "normalized": "XL"
+        },
+        {
+          "raw": "S",
+          "normalized": "S"
+        }
+      ],
+      "colors": [],
+      "available": false,
+      "tags": [
+        "swim"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    },
+    {
+      "id": "ayala:swim-turquoise",
+      "externalId": "swim-turquoise",
+      "sourceId": "ayala",
+      "brand": "אילה שמלות",
+      "title": "בֶּגֶד יָם טוּרְקִיז",
+      "description": "שמלת בגד-ים העשויה מבד לייקרה איכותי ועמיד, עם תמיכה מובנית לחזה וקאפים נשלפים לפי העדפתך. השרוולים מגיעים עד המרפק ומסתיימים בגומי עדין.\nאת הפתח הקדמי ניתן לכוונון באמצעות שרוכים. הוא יכול להיסגר עד הצוואר, ולהיפתח בקלות כדי לאפשר התאמה מקסימלית ונוחות (במיוחד למי שמניקה).\nלשמלה מחובר טייץ תואם שניתן להוריד בחלקו האחורי לנוחות מירבית.",
+      "category": "swimwear",
+      "price": 390,
+      "currency": "ILS",
+      "productUrl": "https://ayala-dresses.web.app/dress/swim-turquoise",
+      "images": [
+        {
+          "id": "ayala:swim-turquoise:image:1",
+          "url": "https://ayala-dresses.web.app/images/swim-turquoise.jpg",
+          "alt": "בֶּגֶד יָם טוּרְקִיז של אילה שמלות"
+        },
+        {
+          "id": "ayala:swim-turquoise:image:2",
+          "url": "https://ayala-dresses.web.app/images/swim-turquoise-2.jpg",
+          "alt": "בֶּגֶד יָם טוּרְקִיז — תמונה 2"
+        },
+        {
+          "id": "ayala:swim-turquoise:image:3",
+          "url": "https://ayala-dresses.web.app/images/swim-turquoise-3.jpg",
+          "alt": "בֶּגֶד יָם טוּרְקִיז — תמונה 3"
+        }
+      ],
+      "variants": [
+        {
+          "id": "ayala:swim-turquoise:variant:XL",
+          "externalId": "XL",
+          "title": "XL",
+          "price": 390,
+          "size": {
+            "raw": "XL",
+            "normalized": "XL"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-turquoise:variant:S",
+          "externalId": "S",
+          "title": "S",
+          "price": 390,
+          "size": {
+            "raw": "S",
+            "normalized": "S"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-turquoise:variant:L",
+          "externalId": "L",
+          "title": "L",
+          "price": 390,
+          "size": {
+            "raw": "L",
+            "normalized": "L"
+          },
+          "available": false
+        },
+        {
+          "id": "ayala:swim-turquoise:variant:M",
+          "externalId": "M",
+          "title": "M",
+          "price": 390,
+          "size": {
+            "raw": "M",
+            "normalized": "M"
+          },
+          "available": true
+        }
+      ],
+      "sizes": [
+        {
+          "raw": "XL",
+          "normalized": "XL"
+        },
+        {
+          "raw": "S",
+          "normalized": "S"
+        },
+        {
+          "raw": "L",
+          "normalized": "L"
+        },
+        {
+          "raw": "M",
+          "normalized": "M"
+        }
+      ],
+      "colors": [],
+      "available": true,
+      "tags": [
+        "swim"
+      ],
+      "lastSyncedAt": "2026-10-14T12:22:18.243Z"
+    }
+  ]
+}
