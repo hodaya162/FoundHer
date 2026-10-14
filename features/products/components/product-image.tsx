@@ -13,6 +13,7 @@ export function ProductImage({ image, priority = false }: ProductImageProps) {
       <Image
         src={image.url}
         alt={image.alt}
+        unoptimized={image.url.startsWith("https://")}
         fill
         loading={priority ? "eager" : "lazy"}
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"

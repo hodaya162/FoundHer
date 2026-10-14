@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Card, CardContent } from "@/components/ui";
+import { Badge } from "@/components/ui";
 
 import type { ProductCardModel } from "../types/product-card";
 import { ProductBadge } from "./product-badge";
@@ -16,20 +17,22 @@ export type ProductCardProps = {
 };
 
 export function ProductCard({ product, priority = false }: ProductCardProps) {
-  const href = `/products/${product.slug}`;
+  const href = product.href;
   const isPurchase = product.type === "purchase";
 
   return (
     <article className="h-full">
       <Card className="flex h-full flex-col overflow-hidden bg-transparent">
         <div className="relative">
-          <Link href={href} className="group/image block" aria-label={`צפייה בפריט ${product.name}`}>
+          <Link href={href} target={product.external ? "_blank" : undefined} rel={product.external ? "noopener noreferrer" : undefined} className="group/image block" aria-label={`צפייה בפריט ${product.name}`}>
             <ProductImage image={product.image} priority={priority} />
           </Link>
           {!isPurchase ? (
             <div className="absolute start-3 top-3">
               <ProductBadge type={product.type} />
             </div>
+          ) : product.available === false ? (
+            <Badge variant="neutral" className="absolute start-3 top-3">אזל מהמלאי</Badge>
           ) : null}
           <ProductFavoriteButton productId={product.id} productName={product.name} />
         </div>
@@ -39,9 +42,11 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             sellerName={product.sellerName}
             detail={isPurchase ? "לרכישה" : product.city}
           />
-          <ProductTitle href={href} name={product.name} />
+          <ProductTitle href={href} name={product.name} external={product.external} />
           {isPurchase ? (
-            <ProductPrice amount={product.price} currency={product.currency} />
+            product.price === undefined
+              ? <p className="type-caption">מחיר באתר המותג</p>
+              : <ProductPrice amount={product.price} currency={product.currency} />
           ) : (
             <ProductPrice amount={product.rentalPrice} currency={product.currency} rental />
           )}

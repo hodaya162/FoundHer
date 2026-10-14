@@ -21,7 +21,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const params = await searchParams;
   const rawQuery = Array.isArray(params.q) ? params.q[0] ?? "" : params.q ?? "";
   const query = rawQuery.trim();
-  const results = query ? searchFoundHer(query) : null;
+  const results = query ? await searchFoundHer(query) : null;
 
   return (
     <main>

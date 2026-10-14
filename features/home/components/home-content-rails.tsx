@@ -34,7 +34,7 @@ export function ProductsRail({ products }: { products: readonly PurchaseProductC
               <div className="pt-2">
                 <h3 className="line-clamp-2 text-[0.82rem] font-semibold leading-[1.25]"><Link href={`/products/${product.slug}`}>{product.name}</Link></h3>
                 <p className="mt-1 truncate text-[0.68rem] text-muted" dir="ltr">{product.sellerName}</p>
-                <p className="mt-0.5 text-[0.82rem] font-semibold">{formatProductPrice(product.price, product.currency)}</p>
+                <p className="mt-0.5 text-[0.82rem] font-semibold">{product.price === undefined ? "מחיר באתר" : formatProductPrice(product.price, product.currency)}</p>
               </div>
             </article>
           ))}

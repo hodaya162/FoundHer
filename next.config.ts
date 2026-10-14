@@ -9,6 +9,12 @@ const securityHeaders = [
 ] as const;
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "cdn.shopify.com", pathname: "/s/files/**" },
+      { protocol: "https", hostname: "ayala-dresses.web.app", pathname: "/images/**" },
+    ],
+  },
   async headers() {
     return [
       {

@@ -4,6 +4,8 @@ import type { ProductImage } from "@/domain/media";
 type BaseProductCard = {
   readonly id: string;
   readonly slug: string;
+  readonly href: string;
+  readonly external: boolean;
   readonly name: string;
   readonly image: ProductImage;
   readonly sellerName: string;
@@ -12,8 +14,12 @@ type BaseProductCard = {
 
 export type PurchaseProductCard = BaseProductCard & {
   readonly type: "purchase";
-  readonly price: number;
+  readonly price?: number;
+  readonly compareAtPrice?: number;
   readonly currency: Currency;
+  readonly sourceId?: string;
+  readonly category?: string;
+  readonly available?: boolean;
   readonly actionLabel: "לפרטי הפריט";
 };
 

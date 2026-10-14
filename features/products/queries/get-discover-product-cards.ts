@@ -1,33 +1,38 @@
-import { getBrandById } from "@/lib/repositories/brands.repository";
-import { getAllProducts } from "@/lib/repositories/products.repository";
-import { getRentalBusinessById } from "@/lib/repositories/rental-businesses.repository";
+import { getAllCatalogProducts } from "@/lib/catalog/catalog-service";
+import type { CatalogProduct } from "@/domain/catalog";
 
 import type { ProductCardModel } from "../types/product-card";
-import { createProductCardModel } from "../utils/create-product-card-model";
 
-export function getDiscoverProductCards(): readonly ProductCardModel[] {
-  return getAllProducts().map((product) => {
-    if (product.type === "purchase") {
-      const brand = getBrandById(product.brandId);
+type ProductFilters = { readonly brand?: string; readonly category?: string };
 
-      if (!brand) {
-        throw new Error(`Product ${product.id} references missing brand ${product.brandId}.`);
-      }
+function createCatalogCard(product: CatalogProduct): ProductCardModel | undefined {
+  const image = product.images[0];
+  if (!image) return undefined;
+  return {
+    id: product.id,
+    slug: product.externalId,
+    href: product.productUrl,
+    external: true,
+    type: "purchase",
+    name: product.title,
+    image,
+    sellerName: product.brand,
+    featured: false,
+    ...(product.price === undefined ? {} : { price: product.price }),
+    ...(product.compareAtPrice === undefined ? {} : { compareAtPrice: product.compareAtPrice }),
+    currency: product.currency,
+    sourceId: product.sourceId,
+    category: product.category,
+    available: product.available,
+    actionLabel: "לפרטי הפריט",
+  };
+}
 
-      return createProductCardModel(product, brand.isDemo ? `${brand.name} · תוכן לדוגמה` : brand.name);
-    }
+export async function getDiscoverProductCards(filters: ProductFilters = {}): Promise<readonly ProductCardModel[]> {
+  const catalog = (await getAllCatalogProducts())
+    .filter((product) => !filters.brand || product.sourceId === filters.brand)
+    .filter((product) => !filters.category || product.category === filters.category)
+    .flatMap((product) => createCatalogCard(product) ?? []);
 
-    const rentalBusiness = getRentalBusinessById(product.rentalBusinessId);
-
-    if (!rentalBusiness) {
-      throw new Error(
-        `Product ${product.id} references missing rental business ${product.rentalBusinessId}.`,
-      );
-    }
-
-    return createProductCardModel(
-      product,
-      rentalBusiness.isDemo ? `${rentalBusiness.name} · תוכן לדוגמה` : rentalBusiness.name,
-    );
-  });
+  return catalog;
 }
