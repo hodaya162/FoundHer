@@ -40,12 +40,17 @@ export async function getCatalogProducts(sourceId: string): Promise<readonly Cat
   }
 }
 
-export async function getAllCatalogProducts(): Promise<readonly CatalogProduct[]> {
+export async function getAllRawCatalogProducts(): Promise<readonly CatalogProduct[]> {
   const [miniAllenby, ayala] = await Promise.all([
     getCatalogProducts("mini-allenby"),
     getCatalogProducts("ayala"),
   ]);
   return [...miniAllenby, ...ayala];
+}
+
+export async function getAllCatalogProducts(): Promise<readonly CatalogProduct[]> {
+  const { getPublishedCatalogProducts } = await import("./catalog-moderation-service");
+  return getPublishedCatalogProducts(await getAllRawCatalogProducts());
 }
 
 export async function getCatalogProductById(id: string): Promise<CatalogProduct | undefined> {

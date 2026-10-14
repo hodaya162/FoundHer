@@ -16,11 +16,15 @@
     "test:links": "tsx scripts/test-link-integrity.ts",
     "test:production-config": "tsx scripts/test-production-config.ts",
     "test:catalogs": "tsx scripts/test-real-catalogs.ts",
+    "test:catalog-moderation": "tsx scripts/test-catalog-moderation.ts",
+    "test:admin-security": "tsx scripts/test-admin-security.ts",
     "sync:catalogs": "tsx scripts/sync-catalog-snapshots.ts --authorized",
     "typecheck": "tsc --noEmit",
     "validate:fixtures": "tsx scripts/validate-fixtures.ts"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.117.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
