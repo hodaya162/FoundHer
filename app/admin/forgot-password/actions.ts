@@ -21,7 +21,14 @@ export async function requestAdminPasswordReset(formData: FormData) {
 
   // Always return the same browser response. Supabase also deliberately avoids
   // revealing whether an account exists for the submitted address.
-  await authClient.auth.resetPasswordForEmail(email, { redirectTo });
+  const { error } = await authClient.auth.resetPasswordForEmail(email, { redirectTo });
+  if (error) {
+    console.error("Admin password recovery delivery failed.", {
+      code: error.code,
+      status: error.status,
+    });
+    redirect("/admin/forgot-password?error=delivery");
+  }
   redirect("/admin/forgot-password?sent=1");
 }
 

@@ -11,6 +11,7 @@ export const dynamic = "force-dynamic";
 const errorMessages: Record<string, string> = {
   missing: "יש להזין כתובת אימייל.",
   config: "שירות איפוס הסיסמה עדיין אינו מוגדר במלואו.",
+  delivery: "לא ניתן לשלוח כרגע את הודעת האיפוס. נסי שוב מאוחר יותר או בדקי את הגדרות שליחת המייל ב־Supabase.",
 };
 
 export default async function ForgotPasswordPage({

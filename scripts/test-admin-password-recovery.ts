@@ -35,6 +35,8 @@ assert.deepEqual(validateAdminPassword("a-secure-password", "a-secure-password")
 assert.match(forgotAction, /resetPasswordForEmail\(email, \{ redirectTo \}\)/, "reset requests use Supabase Auth with an explicit callback URL");
 assert.match(forgotAction, /forgot-password\?sent=1/, "reset requests return the same generic success state");
 assert.doesNotMatch(forgotAction, /user.*exist|email.*exist/i, "the reset action does not branch on account existence");
+assert.match(forgotAction, /forgot-password\?error=delivery/, "provider delivery failures receive a generic, actionable state");
+assert.doesNotMatch(forgotAction, /console\.error\([\s\S]*?email/, "recovery diagnostics never log the submitted email address");
 assert.match(callbackRoute, /exchangeCodeForSession\([\s\S]*code,[\s\S]*flowId/, "the callback exchanges the PKCE code and supports isolated flow identifiers");
 assert.match(callbackRoute, /from\("admin_users"\)/, "the callback authorizes an active administrator after code exchange");
 assert.match(callbackRoute, /eq\("active", true\)/, "inactive administrators cannot enter password recovery");
