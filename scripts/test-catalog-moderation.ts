@@ -37,7 +37,11 @@ assert(payload.images.every(({ image_id }) => image_id.length > 0), "every image
 const migration = readFileSync(new URL("../supabase/migrations/20261014160000_catalog_moderation.sql", import.meta.url), "utf8");
 assert.match(migration, /default 'pending'/, "new moderation rows default to pending");
 assert.match(migration, /enable row level security/g, "moderation tables enable RLS");
-assert.match(migration, /grant execute on function public\.sync_catalog_moderation\(jsonb, jsonb\) to service_role/, "catalog ingestion is server-only");
+assert.match(
+  migration,
+  /grant execute on function public\.sync_catalog_moderation\(jsonb, jsonb\)\s+to service_role/,
+  "catalog ingestion is server-only",
+);
 
 console.log("Catalog moderation tests passed: fail-closed publishing, stable identities, pending defaults, image controls, and RLS migration.");
 

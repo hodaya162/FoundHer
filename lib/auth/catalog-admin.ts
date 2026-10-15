@@ -2,7 +2,6 @@ import "server-only";
 
 import { redirect } from "next/navigation";
 
-import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export type CatalogAdmin = {
@@ -13,11 +12,10 @@ export type CatalogAdmin = {
 
 export async function getCurrentCatalogAdmin(): Promise<CatalogAdmin | undefined> {
   const authClient = await createServerSupabaseClient();
-  const adminClient = createSupabaseAdminClient();
-  if (!authClient || !adminClient) return undefined;
+  if (!authClient) return undefined;
   const { data: userData, error: userError } = await authClient.auth.getUser();
   if (userError || !userData.user) return undefined;
-  const { data, error } = await adminClient
+  const { data, error } = await authClient
     .from("admin_users")
     .select("role,active")
     .eq("user_id", userData.user.id)

@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation";
 
-import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 export async function signInCatalogAdmin(formData: FormData) {
@@ -10,11 +9,10 @@ export async function signInCatalogAdmin(formData: FormData) {
   const password = String(formData.get("password") ?? "");
   if (!email || !password) redirect("/admin/login?error=missing");
   const authClient = await createServerSupabaseClient();
-  const adminClient = createSupabaseAdminClient();
-  if (!authClient || !adminClient) redirect("/admin/login?error=config");
+  if (!authClient) redirect("/admin/login?error=config");
   const { data, error } = await authClient.auth.signInWithPassword({ email, password });
   if (error || !data.user) redirect("/admin/login?error=credentials");
-  const { data: admin } = await adminClient
+  const { data: admin } = await authClient
     .from("admin_users")
     .select("active")
     .eq("user_id", data.user.id)

@@ -25,24 +25,22 @@ function revalidateCatalog() {
 }
 
 export async function setProductModerationStatus(formData: FormData) {
-  const admin = await requireCatalogAdmin();
+  await requireCatalogAdmin();
   await updateProductModeration({
     sourceId: requiredText(formData, "sourceId"),
     externalProductId: requiredText(formData, "externalProductId"),
     status: parseStatus(formData.get("status")),
-    reviewedBy: admin.userId,
   });
   revalidateCatalog();
 }
 
 export async function setImageModerationStatus(formData: FormData) {
-  const admin = await requireCatalogAdmin();
+  await requireCatalogAdmin();
   await updateImageModeration({
     sourceId: requiredText(formData, "sourceId"),
     externalProductId: requiredText(formData, "externalProductId"),
     imageId: requiredText(formData, "imageId"),
     status: parseStatus(formData.get("status")),
-    reviewedBy: admin.userId,
   });
   revalidateCatalog();
 }

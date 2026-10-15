@@ -8,6 +8,7 @@ import type {
   CatalogProductModerationDecision,
 } from "@/domain/catalog-moderation";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 import { applyCatalogModeration, createCatalogModerationSyncPayload } from "./moderation-policy";
 
@@ -91,14 +92,11 @@ export async function updateProductModeration(input: {
   sourceId: string;
   externalProductId: string;
   status: CatalogModerationStatus;
-  reviewedBy: string;
 }) {
-  const client = createSupabaseAdminClient();
-  if (!client) throw new Error("Supabase server configuration is unavailable.");
+  const client = await createServerSupabaseClient();
+  if (!client) throw new Error("Supabase authenticated configuration is unavailable.");
   const { error } = await client.from("catalog_product_moderation").update({
     status: input.status,
-    reviewed_at: new Date().toISOString(),
-    reviewed_by: input.reviewedBy,
   }).eq("source_id", input.sourceId).eq("external_product_id", input.externalProductId);
   if (error) throw new Error("Product moderation update failed.");
 }
@@ -108,14 +106,11 @@ export async function updateImageModeration(input: {
   externalProductId: string;
   imageId: string;
   status: CatalogModerationStatus;
-  reviewedBy: string;
 }) {
-  const client = createSupabaseAdminClient();
-  if (!client) throw new Error("Supabase server configuration is unavailable.");
+  const client = await createServerSupabaseClient();
+  if (!client) throw new Error("Supabase authenticated configuration is unavailable.");
   const { error } = await client.from("catalog_image_moderation").update({
     status: input.status,
-    reviewed_at: new Date().toISOString(),
-    reviewed_by: input.reviewedBy,
   }).eq("source_id", input.sourceId).eq("external_product_id", input.externalProductId).eq("image_id", input.imageId);
   if (error) throw new Error("Image moderation update failed.");
 }
