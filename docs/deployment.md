@@ -58,6 +58,31 @@ No custom domain, DNS, analytics, or production deployment should be created or 
 
 ## Preview deployment
 
+### Stable admin Preview alias
+
+The approved non-production admin origin is:
+
+```text
+https://foundher-preview-found-her1.vercel.app
+```
+
+Set `NEXT_PUBLIC_SITE_URL` to that exact origin in the Vercel **Preview** environment only. After a reviewed Preview deployment is READY and its smoke checks pass, move the alias to that deployment:
+
+```powershell
+npm exec --yes --package=vercel@64.2.0 -- vercel alias set <preview-deployment-url> foundher-preview-found-her1.vercel.app --scope found-her1
+```
+
+Never point this alias at a Production deployment. Before moving it, verify the target with `vercel inspect <preview-deployment-url>` and require `target: preview` plus `status: Ready`. Updating the alias is an explicit final step of every approved CLI Preview deployment; unreviewed deployments keep only their generated URL.
+
+Supabase Preview Auth must use the same isolated origin:
+
+```text
+Site URL: https://foundher-preview-found-her1.vercel.app
+Redirect URL: https://foundher-preview-found-her1.vercel.app/admin/auth/callback
+```
+
+Production Supabase and Vercel settings remain separate. Preview continues to emit `noindex`, block `/robots.txt`, and omit an indexable sitemap even though it has a stable HTTPS origin.
+
 TASK 017 authenticated Vercel CLI `59.1.3` through the owner's existing account, created the minimal `found-her1/foundher` project, and linked this checkout locally. `.vercel` and `.env.local` are ignored by Git; project IDs, the local OIDC token, and other provider-specific state must remain uncommitted.
 
 To authenticate a fresh Windows machine, run this command from the repository and complete Vercel's device flow with the existing owner account:

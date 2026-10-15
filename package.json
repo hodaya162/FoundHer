@@ -18,6 +18,7 @@
     "test:catalogs": "tsx scripts/test-real-catalogs.ts",
     "test:catalog-moderation": "tsx scripts/test-catalog-moderation.ts",
     "test:admin-security": "tsx scripts/test-admin-security.ts",
+    "test:admin-recovery": "tsx scripts/test-admin-password-recovery.ts",
     "sync:catalogs": "tsx scripts/sync-catalog-snapshots.ts --authorized",
     "typecheck": "tsc --noEmit",
     "validate:fixtures": "tsx scripts/validate-fixtures.ts"

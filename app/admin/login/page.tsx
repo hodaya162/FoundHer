@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 import { Button } from "@/components/ui";
@@ -14,17 +15,19 @@ const errorMessages: Record<string, string> = {
   credentials: "פרטי הכניסה אינם נכונים.",
   forbidden: "החשבון אינו מורשה לנהל את הקטלוג.",
   config: "סביבת הניהול עדיין אינה מוגדרת במלואה.",
+  recovery_invalid: "קישור איפוס הסיסמה אינו תקף או שפג תוקפו.",
 };
 
-export default async function AdminLoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+export default async function AdminLoginPage({ searchParams }: { searchParams: Promise<{ error?: string; reset?: string }> }) {
   if (await getCurrentCatalogAdmin()) redirect("/admin/catalog-moderation");
-  const { error } = await searchParams;
+  const { error, reset } = await searchParams;
   return (
     <main className="mx-auto flex min-h-[70dvh] w-[min(100%_-_2rem,28rem)] items-center py-12" dir="rtl">
       <section className="w-full rounded-card border border-border bg-surface p-6 shadow-sm sm:p-8" aria-labelledby="admin-login-title">
         <p className="type-label text-primary">FoundHer Admin</p>
         <h1 id="admin-login-title" className="type-section-title mt-2">כניסה לניהול הקטלוג</h1>
         <p className="type-body-small mt-3 text-muted">הגישה מיועדת למנהלות מורשות בלבד. אין אפשרות להרשמה דרך האתר.</p>
+        {reset === "success" ? <p role="status" className="mt-5 rounded-button bg-primary/10 px-4 py-3 text-sm text-foreground">הסיסמה עודכנה. אפשר להתחבר עם הסיסמה החדשה.</p> : null}
         {error ? <p role="alert" className="mt-5 rounded-button bg-destructive/10 px-4 py-3 text-sm text-destructive">{errorMessages[error] ?? "לא ניתן להשלים את הכניסה."}</p> : null}
         <form action={signInCatalogAdmin} className="mt-6 space-y-4">
           <label className="block text-sm font-semibold">
@@ -37,6 +40,9 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: P
           </label>
           <Button type="submit" className="w-full">כניסה מאובטחת</Button>
         </form>
+        <Link href="/admin/forgot-password" className="mt-5 block text-center text-sm font-semibold text-primary underline-offset-4 hover:underline">
+          שכחתי סיסמה
+        </Link>
       </section>
     </main>
   );

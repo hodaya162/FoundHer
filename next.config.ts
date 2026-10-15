@@ -8,6 +8,10 @@ const securityHeaders = [
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
 ] as const;
 
+const previewHeaders = process.env.VERCEL_ENV === "preview"
+  ? [{ key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" }]
+  : [];
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -19,7 +23,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/:path*",
-        headers: [...securityHeaders],
+        headers: [...securityHeaders, ...previewHeaders],
       },
     ];
   },

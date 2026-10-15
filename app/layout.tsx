@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { RecoveryLandingBridge } from "@/components/auth/recovery-landing-bridge";
 import { MobileBottomNavigation, SiteFooter, SiteHeader } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 import { getMetadataBase, isIndexingEnabled } from "@/config/site-url";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang={siteConfig.defaultLocale} dir={siteConfig.direction}>
       <body>
+        <RecoveryLandingBridge />
         <a
           href="#main-content"
           className="fixed start-4 top-3 z-[var(--z-modal)] -translate-y-20 rounded-button bg-foreground px-4 py-3 text-sm font-semibold text-background transition-transform focus:translate-y-0"
