@@ -8,6 +8,7 @@ const forgotAction = readFileSync(new URL("../app/admin/forgot-password/actions.
 const callbackRoute = readFileSync(new URL("../app/admin/auth/callback/route.ts", import.meta.url), "utf8");
 const resetAction = readFileSync(new URL("../app/admin/reset-password/actions.ts", import.meta.url), "utf8");
 const loginPage = readFileSync(new URL("../app/admin/login/page.tsx", import.meta.url), "utf8");
+const nextConfig = readFileSync(new URL("../next.config.ts", import.meta.url), "utf8");
 
 assert.equal(
   getAdminRecoveryCallbackUrl({ NEXT_PUBLIC_SITE_URL: "https://foundher-preview-found-her1.vercel.app" }),
@@ -42,6 +43,8 @@ assert.match(resetAction, /requireCatalogAdmin\(\)/, "password updates require a
 assert.match(resetAction, /auth\.updateUser\(\{ password \}\)/, "password changes use the authenticated Supabase session");
 assert.match(resetAction, /signOut\(\{ scope: "local" \}\)/, "the recovery session is closed after a successful update");
 assert.match(loginPage, /href="\/admin\/forgot-password"/, "the login page exposes the password recovery path");
+assert.match(nextConfig, /VERCEL_ENV === "preview"/, "Preview-specific response headers are selected from Vercel's environment marker");
+assert.match(nextConfig, /X-Robots-Tag[\s\S]*noindex, nofollow, noarchive/, "the stable Preview alias receives an explicit noindex response header");
 
 console.log("Admin password recovery tests passed: fixed-origin redirects, PKCE exchange, active-admin authorization, non-enumerating responses, and password validation.");
 
