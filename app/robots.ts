@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { createCanonicalUrl, isIndexingEnabled } from "@/config/site-url";
 
 const excludedRoutes = [
+  "/admin",
   "/brands",
   "/design-system",
   "/discover",

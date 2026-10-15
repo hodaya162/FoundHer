@@ -7,6 +7,7 @@ import { getAllProducts } from "@/lib/repositories/products.repository";
 import { getAllRentalBusinesses } from "@/lib/repositories/rental-businesses.repository";
 import { getAllCatalogProducts } from "@/lib/catalog/catalog-service";
 import { catalogSources } from "@/config/catalog-sources";
+import type { CatalogProduct } from "@/domain/catalog";
 
 import type {
   BrandSearchResult,
@@ -27,7 +28,10 @@ function rank<T extends { readonly score: number }>(results: readonly Ranked<T>[
     .map(({ result }) => result);
 }
 
-export async function searchFoundHer(query: string): Promise<SearchResults> {
+export async function searchFoundHer(
+  query: string,
+  options: { readonly catalogProducts?: readonly CatalogProduct[] } = {},
+): Promise<SearchResults> {
   const normalizedQuery = normalizeSearch(query);
 
   if (!normalizedQuery) {
@@ -44,7 +48,7 @@ export async function searchFoundHer(query: string): Promise<SearchResults> {
   }
 
   const brands = getAllBrands();
-  const catalogProducts = await getAllCatalogProducts();
+  const catalogProducts = options.catalogProducts ?? await getAllCatalogProducts();
   const rentalBusinesses = getAllRentalBusinesses();
   const categories = getAllCategories();
   const brandsById = new Map(brands.map((brand) => [brand.id, brand]));
