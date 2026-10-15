@@ -16,11 +16,18 @@ const moderationMigration = readFileSync(
   new URL("../supabase/migrations/20261014160000_catalog_moderation.sql", import.meta.url),
   "utf8",
 );
+const ownerBootstrap = readFileSync(
+  new URL("../supabase/manual/preview_bootstrap_admin.sql", import.meta.url),
+  "utf8",
+);
 const auditFunction = moderationMigration.match(
   /create or replace function public\.record_catalog_moderation_change\(\)[\s\S]*?\n\$\$;/,
 )?.[0];
 
 assert.ok(auditFunction, "the moderation audit trigger function exists");
+assert.doesNotMatch(ownerBootstrap, /min\s*\(\s*id\s*\)/i, "owner bootstrap never aggregates UUIDs with MIN");
+assert.match(ownerBootstrap, /select count\(\*\)[\s\S]*candidate_count/, "owner bootstrap counts exact email matches first");
+assert.match(ownerBootstrap, /select id\s+into strict candidate_id/i, "owner bootstrap resolves the UUID with SELECT INTO STRICT");
 
 assert.match(adminPage, /requireCatalogAdmin\(\)/, "the moderation page requires server-side admin authorization");
 assert.match(adminGuard, /admin_users/, "authorization requires an explicit active admin_users row");

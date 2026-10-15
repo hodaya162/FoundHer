@@ -20,8 +20,8 @@ begin
     raise exception 'Owner email was not configured. No admin was granted.';
   end if;
 
-  select count(*), min(id)
-  into candidate_count, candidate_id
+  select count(*)
+  into candidate_count
   from auth.users
   where lower(trim(email)) = expected_email;
 
@@ -31,6 +31,11 @@ begin
       expected_email,
       candidate_count;
   end if;
+
+  select id
+  into strict candidate_id
+  from auth.users
+  where lower(trim(email)) = expected_email;
 
   if exists (
     select 1
