@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { createBrowserSupabaseClient } from "@/lib/supabase/client";
+import { completeBrowserPasswordRecovery } from "@/lib/auth/browser-password-recovery";
 
 const RESET_PASSWORD_PATH = "/admin/reset-password";
 const INVALID_RECOVERY_PATH = "/admin/login?error=recovery_invalid";
@@ -11,6 +11,7 @@ function hasRecoveryIntent(url: URL) {
   const fragment = new URLSearchParams(url.hash.slice(1));
   return (
     url.searchParams.has("code") ||
+    fragment.has("error_code") ||
     url.searchParams.get("type") === "recovery" ||
     fragment.get("type") === "recovery"
   );
@@ -25,12 +26,11 @@ function hasRecoveryIntent(url: URL) {
 export function RecoveryLandingBridge() {
   useEffect(() => {
     const landingUrl = new URL(window.location.href);
+    if (landingUrl.pathname === "/admin/auth/callback") return;
     if (!hasRecoveryIntent(landingUrl)) return;
 
     let completed = false;
     const recoveryTimeout: { id?: number } = {};
-    const authClient = createBrowserSupabaseClient();
-
     const finish = (destination: string) => {
       if (completed) return;
       completed = true;
@@ -40,19 +40,14 @@ export function RecoveryLandingBridge() {
       window.location.replace(destination);
     };
 
-    const { data: listener } = authClient.auth.onAuthStateChange((event, session) => {
-      if (event === "PASSWORD_RECOVERY" && session) finish(RESET_PASSWORD_PATH);
-    });
-
-    void authClient.auth.getSession().then(({ data, error }) => {
-      if (!error && data.session) finish(RESET_PASSWORD_PATH);
-    });
+    void completeBrowserPasswordRecovery(landingUrl)
+      .then((result) => finish(result === "success" ? RESET_PASSWORD_PATH : INVALID_RECOVERY_PATH))
+      .catch(() => finish(INVALID_RECOVERY_PATH));
 
     recoveryTimeout.id = window.setTimeout(() => finish(INVALID_RECOVERY_PATH), 8000);
 
     return () => {
       if (recoveryTimeout.id) window.clearTimeout(recoveryTimeout.id);
-      listener.subscription.unsubscribe();
     };
   }, []);
 

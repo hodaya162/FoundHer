@@ -5,7 +5,9 @@ import { getAdminRecoveryCallbackUrl } from "../config/admin-auth-url";
 import { MINIMUM_ADMIN_PASSWORD_LENGTH, validateAdminPassword } from "../lib/auth/password-policy";
 
 const forgotForm = readFileSync(new URL("../app/admin/forgot-password/forgot-password-form.tsx", import.meta.url), "utf8");
-const callbackRoute = readFileSync(new URL("../app/admin/auth/callback/route.ts", import.meta.url), "utf8");
+const callbackRoute = readFileSync(new URL("../app/admin/auth/callback/page.tsx", import.meta.url), "utf8");
+const recoveryHandler = readFileSync(new URL("../lib/auth/browser-password-recovery.ts", import.meta.url), "utf8");
+const browserClient = readFileSync(new URL("../lib/supabase/client.ts", import.meta.url), "utf8");
 const recoveryBridge = readFileSync(new URL("../components/auth/recovery-landing-bridge.tsx", import.meta.url), "utf8");
 const rootLayout = readFileSync(new URL("../app/layout.tsx", import.meta.url), "utf8");
 const resetAction = readFileSync(new URL("../app/admin/reset-password/actions.ts", import.meta.url), "utf8");
@@ -34,15 +36,17 @@ assert.deepEqual(validateAdminPassword("secure-password", "different-pass"), { v
 assert.deepEqual(validateAdminPassword("short", "short"), { valid: false, error: "too_short" });
 assert.deepEqual(validateAdminPassword("a-secure-password", "a-secure-password"), { valid: true });
 
-assert.match(forgotForm, /createBrowserSupabaseClient\(\)/, "reset requests originate in the browser that stores the PKCE verifier");
+assert.match(forgotForm, /createPasswordRecoveryRequestClient\(\)/, "reset requests use the dedicated cross-browser recovery client");
+assert.match(browserClient, /flowType: "implicit"/, "new email links do not require the requesting browser's verifier");
+assert.match(browserClient, /detectSessionInUrl: false/, "automatic token processing cannot race with the recovery handler");
 assert.match(forgotForm, /resetPasswordForEmail\(email, \{ redirectTo \}\)/, "reset requests use Supabase Auth with an explicit callback URL");
 assert.doesNotMatch(forgotForm, /user.*exist|email.*exist/i, "the reset form does not branch on account existence");
 assert.doesNotMatch(forgotForm, /console\./, "recovery requests never log submitted account data");
-assert.match(callbackRoute, /exchangeCodeForSession\([\s\S]*code,[\s\S]*flowId/, "the callback exchanges the PKCE code and supports isolated flow identifiers");
-assert.match(callbackRoute, /from\("admin_users"\)/, "the callback authorizes an active administrator after code exchange");
-assert.match(callbackRoute, /eq\("active", true\)/, "inactive administrators cannot enter password recovery");
+assert.match(recoveryHandler, /exchangeCodeForSession\([\s\S]*code,[\s\S]*flowId/, "legacy PKCE links retain code exchange support");
+assert.match(recoveryHandler, /recoveryType === "recovery" && accessToken && refreshToken/, "token pairs require an explicit recovery marker");
+assert.match(recoveryHandler, /auth\.setSession/, "Supabase validates recovery tokens before navigation");
 assert.doesNotMatch(callbackRoute, /searchParams\.get\("next"\)/, "the callback cannot be used as an open redirect");
-assert.match(recoveryBridge, /event === "PASSWORD_RECOVERY"/, "Site URL fallbacks recognize only Supabase password recovery events");
+assert.match(recoveryBridge, /completeBrowserPasswordRecovery/, "Site URL fallbacks use the validated recovery handler");
 assert.match(recoveryBridge, /window\.history\.replaceState/, "one-time recovery material is removed from browser history");
 assert.match(recoveryBridge, /const RESET_PASSWORD_PATH = "\/admin\/reset-password"/, "browser recovery uses a fixed internal destination");
 assert.doesNotMatch(recoveryBridge, /searchParams\.get\("next"\)/, "the browser recovery bridge cannot be used as an open redirect");

@@ -124,6 +124,14 @@ Vercel automatically classified the new project's first CLI deployment as Produc
 
 ## Local release verification
 
+Password recovery requests use a dedicated implicit-flow client so a new email
+link can be opened on another device. The callback validates the token pair with
+Supabase and writes the session to SSR cookies; the reset page and password
+update still require an active administrator. Legacy PKCE links are supported
+only where their original verifier is available. Expired links require a new
+request. Recovery fragments are removed from history after processing and must
+never be logged or shared.
+
 Run:
 
 ```text

@@ -3,7 +3,7 @@
 import { useState, type FormEvent } from "react";
 
 import { Button } from "@/components/ui";
-import { createBrowserSupabaseClient } from "@/lib/supabase/client";
+import { createPasswordRecoveryRequestClient } from "@/lib/supabase/client";
 
 type RequestState = "idle" | "submitting" | "sent" | "error";
 
@@ -22,9 +22,7 @@ export function ForgotPasswordForm({ redirectTo }: { redirectTo: string }) {
     }
 
     try {
-      // The browser client stores the PKCE verifier in secure SSR-compatible
-      // cookies, so the callback can exchange the one-time code on this device.
-      const authClient = createBrowserSupabaseClient();
+      const authClient = createPasswordRecoveryRequestClient();
       const { error } = await authClient.auth.resetPasswordForEmail(email, { redirectTo });
       setState(error ? "error" : "sent");
     } catch {

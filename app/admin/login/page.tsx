@@ -19,8 +19,8 @@ const errorMessages: Record<string, string> = {
 };
 
 export default async function AdminLoginPage({ searchParams }: { searchParams: Promise<{ error?: string; reset?: string }> }) {
-  if (await getCurrentCatalogAdmin()) redirect("/admin/catalog-moderation");
   const { error, reset } = await searchParams;
+  if (!error && await getCurrentCatalogAdmin()) redirect("/admin/catalog-moderation");
   return (
     <main className="mx-auto flex min-h-[70dvh] w-[min(100%_-_2rem,28rem)] items-center py-12" dir="rtl">
       <section className="w-full rounded-card border border-border bg-surface p-6 shadow-sm sm:p-8" aria-labelledby="admin-login-title">
