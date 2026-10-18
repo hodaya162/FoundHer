@@ -256,7 +256,7 @@ begin
       case when tg_table_name = 'catalog_image_moderation' then 'image' else 'product' end,
       new.source_id,
       new.external_product_id,
-      case when tg_table_name = 'catalog_image_moderation' then new.image_id else null end,
+      to_jsonb(new)->>'image_id',
       old.status,
       new.status,
       actor_id,
